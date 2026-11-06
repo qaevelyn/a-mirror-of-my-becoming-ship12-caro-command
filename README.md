@@ -1,4 +1,4 @@
-# A Mirror of My Becoming — Ship 12 · Caro Command (SGC Command Deck)
+# A Mirror of My Becoming™ — Ship 12 · Caro Command (SGC Command Deck™)
 
 The fleet console for Commander E. Caro: 12 ships, 12 chevrons.
 Tap a ship in the manifest to lock its chevron — lock all 12 and the ring dials,
