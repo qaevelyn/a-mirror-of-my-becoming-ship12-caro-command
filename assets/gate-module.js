@@ -4,8 +4,8 @@
   function $(id) { return doc.getElementById(id); }
   function esc(s) { var d = doc.createElement('div'); d.appendChild(doc.createTextNode(String(s == null ? '' : s))); return d.innerHTML; }
 
-  /* ---------- fleet canon (baked at patch time, refreshed at runtime if src) ---------- */
-  var CANON = window.FLEET_CANON || { src: null, ships: [{"n": 1, "name": "DeepSeek RAG (originally AWS SageMaker, rebuilt locally)", "url": "", "status": "live"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 3, "name": "IBM Granite RAG", "url": "", "status": "live"}, {"n": 4, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 5, "name": "IBM Granite Agentic RAG with EvidenceFlow", "url": "", "status": "live"}] };
+  /* ---------- fleet canon (baked from the console's own const FLEET) ---------- */
+  var CANON = window.FLEET_CANON || { src: null, ships: [{"n": 1, "name": "DeepSeek RAG", "url": "", "status": "live"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 3, "name": "IBM Granite RAG", "url": "", "status": "live"}, {"n": 4, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 5, "name": "Granite + EvidenceFlow", "url": "", "status": "live"}, {"n": 6, "name": "Suite: Ingestion Tools", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools", "status": "live"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter", "status": "live"}, {"n": 8, "name": "DV14\u2122: The Box", "url": "", "status": "live"}, {"n": 9, "name": "Radiology Companion\u2122", "url": "", "status": "live"}, {"n": 10, "name": "Overseer\u2122", "url": "", "status": "live"}, {"n": 11, "name": "AWS CCP Study Manual", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual", "status": "live"}, {"n": 12, "name": "Caro Command Deck\u2122", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command", "status": "live"}, {"n": 13, "name": "TriviaGate\u2122", "url": "https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/", "status": "live"}] };
   var SEAL = /seal|draft|planned|concept|pending|stub|future/i;
   function normalize(data) {
     var list = data;
@@ -37,9 +37,10 @@
   }
   var ships = normalize(CANON);
   function total() { return ships.length; }
-  function litCount() { return ships.length; } /* sealed/draft filtered at canon level: fleet ships fly, gate stays dialable */
+  function litCount() { return ships.length; }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-  /* ---------- stylesheet (belt + suspenders: python injects the link too) ---------- */
+  /* ---------- stylesheet ---------- */
   try {
     if (!$('gg-css')) {
       var srcAttr = (doc.currentScript && doc.currentScript.src) || '';
@@ -58,7 +59,7 @@
     '<button class="gg-min" id="ggMin" type="button" title="collapse / expand">&ndash;</button>';
   (doc.body || doc.documentElement).appendChild(strip);
 
-  /* ---------- gate overlay: dial animation + water effect + fleet chips + job board ---------- */
+  /* ---------- gate view overlay: dial + water effect + fleet chips + job board ---------- */
   var ov = doc.createElement('div'); ov.id = 'ggOverlay';
   ov.innerHTML =
     '<button class="gg-close" id="ggClose" type="button">&#10005; CLOSE</button>' +
@@ -74,16 +75,27 @@
     var f = $('ggFleet'); if (!f) return;
     var html = '';
     ships.forEach(function (s) {
-      html += '<span class="gg-ship">S' + (s.n != null ? s.n : '?') + (s.name ? ' &middot; ' + esc(s.name) : '') + '</span>';
+      html += '<span class="gg-ship">S' + (s.n != null ? pad(s.n) : '?') + (s.name ? ' &middot; ' + esc(s.name) : '') + '</span>';
     });
     f.innerHTML = html || '<span class="gg-ship gg-none">FLEET NOT READ</span>';
-    var r = $('ggRead');
-    if (r) r.innerHTML = (total() > 0 && litCount() === total())
-      ? 'FLEET <span class="gg-lit">' + litCount() + '/' + total() + ' LIT</span> &middot; GATE DIALABLE'
-      : 'FLEET <span class="gg-lock">' + litCount() + '/' + total() + ' LIT</span> &middot; GATE LOCKED';
+    syncRead();
   }
 
-  /* ---------- gate dial canvas ---------- */
+  /* ---------- strip readout MIRRORS the console's own gateCount (always true, N-expandable) ---------- */
+  function syncRead() {
+    var r = $('ggRead'); if (!r) return;
+    var gc = doc.getElementById('gateCount');
+    var m = gc ? /^(\d+)\s*\/\s*(\d+)$/.exec((gc.textContent || '').trim()) : null;
+    if (m) {
+      var n = parseInt(m[1], 10), N = parseInt(m[2], 10), ok = n >= N && N > 0;
+      r.innerHTML = 'FLEET <span class="' + (ok ? 'gg-lit' : 'gg-lock') + '">' + n + '/' + N + ' LIT</span> &middot; ' + (ok ? 'GATE DIALABLE' : 'GATE LOCKED');
+    } else {
+      var T = total(), L = litCount(), ok2 = T > 0 && L >= T;
+      r.innerHTML = 'FLEET <span class="' + (ok2 ? 'gg-lit' : 'gg-lock') + '">' + L + '/' + T + ' LIT</span> &middot; ' + (ok2 ? 'GATE DIALABLE' : 'GATE LOCKED');
+    }
+  }
+
+  /* ---------- gate dial canvas (VIEW THE GATE cinematic) ---------- */
   var cv = $('ggCanvas'), cx = cv ? cv.getContext('2d') : null;
   var W = 0, H = 0, R = 0, raf = null, dialTimer = null;
   var state = 'idle', dialStart = 0, whooshT = -1;
@@ -230,7 +242,10 @@
     strip.classList.add('gg-locked');
     setTimeout(function () { strip.classList.remove('gg-locked'); }, 1200);
   }
+
+  /* DIAL THE GATE on command — drives the console's OWN native gate (SVG kawoosh + sound) */
   function dial() {
+    try { if (typeof window.dialGate === 'function') { window.dialGate(); return; } } catch (e) {}
     var T = total(), L = litCount();
     if (T === 0 || L < T) { flashLocked(); openOv('idle'); setStatus('GATE LOCKED · FLEET ' + L + '/' + T + ' LIT'); return; }
     openOv('dial');
@@ -260,7 +275,7 @@
     } catch (e) {}
   }
 
-  /* ---------- expandable canon: runtime refresh from manifest src ---------- */
+  /* ---------- expandable canon: runtime refresh if a manifest src exists ---------- */
   if (CANON && CANON.src) {
     try {
       fetch(CANON.src + '?_=' + Date.now(), { cache: 'no-store' })
@@ -274,12 +289,12 @@
     } catch (e) {}
   }
 
-  /* ---------- legacy gate buttons: rebind to the real gate ---------- */
+  /* ---------- legacy stray gate buttons: rebind to the real gate (never the console's own dialBtn) ---------- */
   try {
     var els = doc.querySelectorAll('button, a, [role="button"]');
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
-      if (el.id && /^gg/.test(el.id)) continue;
+      if (el.id && (el.id === 'dialBtn' || /^gg/.test(el.id))) continue;
       if (el.getAttribute && el.getAttribute('data-gg-bound')) continue;
       var txt = (el.textContent || '').trim();
       if (/dial\s*the\s*gate/i.test(txt)) {
@@ -302,7 +317,7 @@
   });
   doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeOv(); });
   renderFleet();
-  pollJobs();
-  setInterval(pollJobs, 60000);
+  syncRead(); setInterval(syncRead, 2000);
+  pollJobs(); setInterval(pollJobs, 60000);
   if (/[?&]ggview=1/.test(location.search)) view();
 })();

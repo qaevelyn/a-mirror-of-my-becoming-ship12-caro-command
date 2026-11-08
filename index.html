@@ -157,7 +157,7 @@
 </style>
 <!-- GG-INJECT gate module (standalone gate · fleet dial · job board) -->
 <link id="gg-css" rel="stylesheet" href="assets/gate-module.css">
-<script>window.FLEET_CANON=[{"n": 1, "name": "DeepSeek RAG (originally AWS SageMaker, rebuilt locally)", "url": "", "status": "live"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 3, "name": "IBM Granite RAG", "url": "", "status": "live"}, {"n": 4, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 5, "name": "IBM Granite Agentic RAG with EvidenceFlow", "url": "", "status": "live"}];</script>
+<script>window.FLEET_CANON=[{"n": 1, "name": "DeepSeek RAG", "url": "", "status": "live"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 3, "name": "IBM Granite RAG", "url": "", "status": "live"}, {"n": 4, "name": "IBM Granite Agentic RAG", "url": "", "status": "live"}, {"n": 5, "name": "Granite + EvidenceFlow", "url": "", "status": "live"}, {"n": 6, "name": "Suite: Ingestion Tools", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools", "status": "live"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter", "status": "live"}, {"n": 8, "name": "DV14\u2122: The Box", "url": "", "status": "live"}, {"n": 9, "name": "Radiology Companion\u2122", "url": "", "status": "live"}, {"n": 10, "name": "Overseer\u2122", "url": "", "status": "live"}, {"n": 11, "name": "AWS CCP Study Manual", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual", "status": "live"}, {"n": 12, "name": "Caro Command Deck\u2122", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command", "status": "live"}, {"n": 13, "name": "TriviaGate\u2122", "url": "https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/", "status": "live"}];</script>
 <script src="assets/gate-module.js" defer></script>
 <!-- /GG-INJECT -->
 </head>
@@ -189,7 +189,7 @@
             <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
             <!-- event horizon (revealed on kawoosh) -->
             <circle id="eventh" cx="240" cy="240" r="132" fill="url(#evg)" opacity="0"/>
-            <!-- outer fleet ring: 12 ship locks -->
+            <!-- outer fleet ring: N ship locks (expandable) -->
             <circle cx="240" cy="240" r="205" fill="none" stroke="#1b2735" stroke-width="34"/>
             <g id="slots"></g>
             <!-- 9 canon chevrons -->
@@ -197,12 +197,12 @@
             <!-- hub -->
             <circle cx="240" cy="240" r="108" fill="#070d14" stroke="#22354a" stroke-width="2"/>
             <text x="240" y="232" text-anchor="middle" fill="#7f95a8" font-size="11" letter-spacing="3">FLEET RING</text>
-            <text id="gateCount" x="240" y="258" text-anchor="middle" fill="#ffb02e" font-size="26" font-weight="700">0/12</text>
+            <text id="gateCount" x="240" y="258" text-anchor="middle" fill="#ffb02e" font-size="26" font-weight="700">0/13</text>
           </svg>
         </div>
         <div class="glass"></div>
         <div class="window-caption">VIEWING WINDOW · GATE ROOM B1</div>
-        <div class="dial-hint">all 12 lock → the gate dials</div>
+        <div class="dial-hint">all ships lock → the gate dials</div>
       </div>
     </div>
   </div>
@@ -240,11 +240,11 @@
 
   <div class="overlay" id="payoff">
     <div class="panel">
-      <h2>12 / 12 — the ring is complete</h2>
-      <p>You asked what happens when all 12 gates lock, Commander. This happens: the last chevron holds, the ring dials, and the fleet's window opens. Eleven ships carried the record here. Ship 13 goes through the gate today.</p>
+      <h2>GATE OPEN — the ring is complete</h2>
+      <p>You asked what happens when the whole fleet locks, Commander. This happens: the last chevron holds, the ring dials, and the gate opens on command. Every ship carried the record here — the fleet dial is complete.</p>
       <div class="plaque">
         <div class="l1">Doors of the fleet — opened</div>
-        <div class="l2">COMMANDER E. CARO · SHIPS 01–12 LOCKED</div>
+        <div class="l2">COMMANDER E. CARO · FLEET COMPLETE · GATE DIALED</div>
         <div class="small" style="margin-top:6px;color:#7f95a8">Carter, second in command, logging the dial.</div>
       </div>
       <h3>On the other side</h3>
@@ -271,7 +271,7 @@ const FLEET = [
   {n:"10", name:"Overseer™",               meta:"the one that watches the others · visible quorum before generation", shipped:true, draft:false},
   {n:"11", name:"AWS CCP Study Manual",    meta:"Sleep Is Studying Too™ · AGPL template edition: 17 print-ready pages, the brand on every page", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual"},
   {n:"12", name:"Caro Command Deck™",       meta:"applications in the loop: 13 chevrons, one gate — the record of the becoming, playable", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command"},
-  {n:"13", name:"TriviaGate™",             meta:"the payload: the CLF-C02 arcade — six ways in, one gate; nothing leaves the browser", shipped:false, draft:false, target:true, url:"https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/"},
+  {n:"13", name:"TriviaGate™",             meta:"the payload: the CLF-C02 arcade — six ways in, one gate; nothing leaves the browser", shipped:true, draft:false, target:true, url:"https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/"},
 ];
 
 const KEY = "sgc-deck-v1";
@@ -307,9 +307,9 @@ const sfx = {
 
 /* ===================== GATE RENDER ===================== */
 const NS = "http://www.w3.org/2000/svg";
-function slotPos(i){ const a = (i/12)*2*Math.PI - Math.PI/2; return { x:240+205*Math.cos(a), y:240+205*Math.sin(a) }; }
+function slotPos(i){ const a = (i/FLEET.length)*2*Math.PI - Math.PI/2; return { x:240+205*Math.cos(a), y:240+205*Math.sin(a) }; }
 const slotsG = $("slots");
-for(let i=0;i<12;i++){
+for(let i=0;i<FLEET.length;i++){
   const p = slotPos(i);
   const c = document.createElementNS(NS,"circle");
   c.setAttribute("cx",p.x); c.setAttribute("cy",p.y); c.setAttribute("r",11);
@@ -329,10 +329,9 @@ for(let i=0;i<9;i++){
   g.appendChild(p); chevG.appendChild(g);
 }
 
-function lockedCount(){ return FLEET.filter(s=>!s.target && state.locked[s.n]).length; }
+function lockedCount(){ return FLEET.filter(s=>state.locked[s.n]).length; }
 function render(){
   FLEET.forEach(s=>{
-    if(s.target) return;
     const idx = parseInt(s.n,10)-1;
     const slot = $("slot"+idx);
     const on = !!state.locked[s.n];
@@ -343,18 +342,18 @@ function render(){
     if(chev){ chev.setAttribute("fill", on ? "#ffb02e" : "#243447"); }
   });
   const n = lockedCount();
-  $("gateCount").textContent = n + "/12";
-  $("status").textContent = "CHEVRON " + n + "/12 LOCKED";
-  $("dialBtn").textContent = n>=12 ? "◉ DIAL — RING COMPLETE" : "◇ Dial the Gate";
+  $("gateCount").textContent = n + "/" + FLEET.length;
+  $("status").textContent = "CHEVRON " + n + "/" + FLEET.length + " LOCKED";
+  $("dialBtn").textContent = n>=FLEET.length ? "◉ DIAL — RING COMPLETE" : "◇ Dial the Gate";
   document.querySelectorAll(".card").forEach(el=>{
     const s = FLEET.find(f=>f.n===el.dataset.n);
-    if(s && !s.target) el.classList.toggle("locked", !!state.locked[s.n]);
+    if(s) el.classList.toggle("locked", !!state.locked[s.n]);
   });
 }
 
 /* ===================== CARDS ===================== */
 /* restore shipped locks BEFORE drawing cards so badges render in the right state */
-FLEET.forEach(s=>{ if(s.shipped && state.locked[s.n]===undefined) state.locked[s.n] = true; });
+FLEET.forEach(s=>{ if(s.shipped) state.locked[s.n] = true; });
 save();
 const cardsEl = $("cards");
 FLEET.forEach(s=>{
@@ -374,8 +373,8 @@ FLEET.forEach(s=>{
     if(state.locked[s.n]) return;
     state.locked[s.n] = true; save(); sfx.lock(); render();
     const n = lockedCount();
-    toast("SHIP "+s.n+" — chevron locked · "+n+"/12");
-    if(n>=12) setTimeout(dialGate, 500);
+    toast("SHIP "+s.n+" — chevron locked · "+n+"/"+FLEET.length);
+    if(n>=FLEET.length) setTimeout(dialGate, 500);
   });
   cardsEl.appendChild(d);
 });
@@ -385,9 +384,9 @@ let dialing = false;
 function dialGate(){
   if(dialing) return;
   const n = lockedCount();
-  if(n < 12){
+  if(n < FLEET.length){
     sfx.spin(); dialing = true;
-    toast("DIAL REFUSED — "+n+"/12 chevrons holding. Lock the fleet first.");
+    toast("DIAL REFUSED — "+n+"/"+FLEET.length+" chevrons holding. Lock the fleet first.");
     setTimeout(()=>dialing=false, 1200);
     return;
   }
