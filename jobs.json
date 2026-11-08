@@ -1,0 +1,60 @@
+{
+  "updated": "2026-11-08T13:18:15-05:00",
+  "source": "chat-tracker + crawler-feed (pending J-01)",
+  "jobs": [
+    {
+      "id": "J-01",
+      "title": "Crawler jobs feed -> jobs.json (dashboard auto-update)",
+      "status": "open",
+      "source": "chat 11/08"
+    },
+    {
+      "id": "J-02",
+      "title": "Caro Command defect: tombstone ordering",
+      "status": "open",
+      "source": "chat 11/06"
+    },
+    {
+      "id": "J-03",
+      "title": "Caro Command defect: Ship 4 repo link (DOIs don't erase)",
+      "status": "open",
+      "source": "chat 11/06"
+    },
+    {
+      "id": "J-04",
+      "title": "Nov 6 two order files truncated - re-pull archive",
+      "status": "open",
+      "source": "chat 11/06"
+    },
+    {
+      "id": "J-05",
+      "title": "Go flag -> applied (application submitted)",
+      "status": "applied",
+      "source": "chat 11/08"
+    },
+    {
+      "id": "J-06",
+      "title": "Caro Command: gate count defect 11/12 -> canon N/N",
+      "status": "fixed",
+      "source": "chat 11/06-08"
+    },
+    {
+      "id": "J-07",
+      "title": "Gate: standalone DIAL THE GATE, decoupled from Ship 13",
+      "status": "fixed",
+      "source": "chat 11/08"
+    },
+    {
+      "id": "J-08",
+      "title": "Gate: VIEW THE GATE overlay (dial + water effect)",
+      "status": "fixed",
+      "source": "chat 11/08"
+    },
+    {
+      "id": "J-09",
+      "title": "Fleet dial: all ships lit + N-expandable from manifest",
+      "status": "fixed",
+      "source": "chat 11/08"
+    }
+  ]
+}
