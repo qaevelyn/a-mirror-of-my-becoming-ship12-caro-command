@@ -30,7 +30,7 @@
       name = name.replace(/^\s*ship\s*\d+\s*[·:—–-]\s*/i, '').trim();
       var key = (n != null) ? n : name;
       if (seen[key]) return; seen[key] = 1;
-      res.push({ n: n, name: name, url: url, status: status });
+      res.push({ n: n, name: name, url: url, repo: String(it.repo || ''), status: status });
     });
     res.sort(function (a, b) { return (a.n || 0) - (b.n || 0); });
     return res;
@@ -75,7 +75,9 @@
     var f = $('ggFleet'); if (!f) return;
     var html = '';
     ships.forEach(function (s) {
-      html += '<span class="gg-ship">S' + (s.n != null ? pad(s.n) : '?') + (s.name ? ' &middot; ' + esc(s.name) : '') + '</span>';
+      var lbl = 'S' + (s.n != null ? pad(s.n) : '?') + (s.name ? ' &middot; ' + esc(s.name) : '');
+      var href = s.repo || s.url || '';
+      html += href ? '<a class="gg-ship" href="' + esc(href) + '" target="_blank" rel="noopener">' + lbl + '</a>' : '<span class="gg-ship">' + lbl + '</span>';
     });
     f.innerHTML = html || '<span class="gg-ship gg-none">FLEET NOT READ</span>';
     syncRead();
