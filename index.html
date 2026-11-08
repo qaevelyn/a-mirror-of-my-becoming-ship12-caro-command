@@ -220,8 +220,8 @@
   <!-- ==================== OVERLAYS ==================== -->
   <div class="overlay" id="manifestOv">
     <div class="panel">
-      <h2>Fleet Manifest — v1 draft</h2>
-      <p class="small">Drafted by Carter from your application history, Commander. Names marked DRAFT are placeholders built from real, on-the-record work — rename anything and I re-issue the console.</p>
+      <h2>Fleet Manifest</h2>
+      <p class="small">The roster is canon from the fleet registry — ships/manifest.json. Public hulls link their repos; sealed hulls link none.</p>
       <table class="man" id="manTable"></table>
       <p class="small" style="margin-top:12px">Canon note: a real gate ring carries 9 chevrons. The 12 lock slots here are ours — one per ship, one fleet. Ship 13 rides the dial as the payload.</p>
       <div style="margin-top:14px"><button class="ctl" id="manClose">Return to console</button></div>
@@ -252,26 +252,25 @@
 
 <script>
 "use strict";
-/* ===================== FLEET DATA (DRAFT — correct me, Commander) ===================== */
+/* ===================== FLEET DATA — canon from ships/manifest.json · regenerated 2026-11-08 ===================== */
 const FLEET = [
-  {n:"01", name:"EvidenceFlow",           meta:"five-phase fail-closed verification · flagship", shipped:true,  draft:false},
-  {n:"02", name:"RAG Pipeline One",       meta:"functional RAG pipeline · shipped",              shipped:true,  draft:true },
-  {n:"03", name:"RAG Pipeline Two",       meta:"functional RAG pipeline · shipped",              shipped:true,  draft:true },
-  {n:"04", name:"RAG Pipeline Three",     meta:"functional RAG pipeline · shipped",              shipped:true,  draft:true },
-  {n:"05", name:"RAG Pipeline Four",      meta:"functional RAG pipeline · shipped",              shipped:true,  draft:true },
-  {n:"06", name:"RAG Pipeline Five",      meta:"functional RAG pipeline · shipped",              shipped:true,  draft:true },
-  {n:"07", name:"Corpus Migrator",        meta:"127/127 zero-loss · watermark checkpointing",    shipped:true,  draft:true },
-  {n:"08", name:"White Paper Press",      meta:"27 dated white papers · append-only ledger",     shipped:true,  draft:true },
-  {n:"09", name:"Radiology Companion™",   meta:"shipped October 2026",                           shipped:true,  draft:false},
-  {n:"10", name:"Job Board Killer",       meta:"plain-English GO / YOUR CALL / SKIP board",      shipped:true,  draft:true },
-  {n:"11", name:"SGC Command Deck™",       meta:"this journey console · monitor up, board down",  shipped:true,  draft:true },
-  {n:"12", name:"UNNAMED — SLOT RESERVED",meta:"awaiting the Commander's manifest",              shipped:false, draft:true },
-  {n:"13", name:"TriviaGate™",            meta:"in build today · the dial payload",              shipped:false, draft:false, target:true},
+  {n:"01", name:"DeepSeek RAG",            meta:"lost, rebuilt cleaner than the original · recovery proven", shipped:true, draft:false},
+  {n:"02", name:"IBM Granite Agentic RAG", meta:"agency: retrieval plus action", shipped:true, draft:false},
+  {n:"03", name:"IBM Granite RAG",         meta:"the pattern is portable", shipped:true, draft:false},
+  {n:"04", name:"IBM Granite Agentic RAG", meta:"agency and portability, together · cross-platform", shipped:true, draft:false},
+  {n:"05", name:"Granite + EvidenceFlow",  meta:"fail-closed: every claim traceable, abstains if evidence is missing", shipped:true, draft:false},
+  {n:"06", name:"Suite: Ingestion Tools",  meta:"Scribe · Warden · Hand — battle-tested: 19 kills survived, 127/127 corpus, zero losses", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools"},
+  {n:"07", name:"msgvault Adapter",        meta:"the mail archive, read in its native tongue; watermark-native checkpointing", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter"},
+  {n:"08", name:"DV14™: The Box",          meta:"can hardware contain an agent? Two tracks — The Box and the Sensory Deprivation Matrix — Bitcoin-timestamped; review under NDA", shipped:true, draft:false},
+  {n:"09", name:"Radiology Companion™",    meta:"sealed local-first clinical companion · nothing about the patient leaves the device", shipped:true, draft:false},
+  {n:"10", name:"Overseer™",               meta:"the one that watches the others · visible quorum before generation", shipped:true, draft:false},
+  {n:"11", name:"AWS CCP Study Manual",    meta:"Sleep Is Studying Too™ · AGPL template edition: 17 print-ready pages, the brand on every page", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual"},
+  {n:"12", name:"Caro Command Deck™",       meta:"applications in the loop: 13 chevrons, one gate — the record of the becoming, playable", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command"},
+  {n:"13", name:"TriviaGate™",             meta:"the payload: the CLF-C02 arcade — six ways in, one gate; nothing leaves the browser", shipped:false, draft:false, target:true, url:"https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/"},
 ];
 
 const KEY = "sgc-deck-v1";
 let state = { locked: {}, sound: true };
-let s12clicks = 0;
 try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = s; } catch(e){}
 const save = () => localStorage.setItem(KEY, JSON.stringify(state));
 
@@ -355,26 +354,18 @@ save();
 const cardsEl = $("cards");
 FLEET.forEach(s=>{
   const d = document.createElement("div");
-  d.className = "card" + (s.draft?" draft":"") + (s.target?" target":"");
+  d.className = "card" + (s.target?" target":"");
   d.dataset.n = s.n;
-  const badge = s.target ? "IN BUILD · DIAL PAYLOAD" : (s.shipped ? (state.locked[s.n]?"CHEVRON LOCKED":"SHIPPED · UNLOCKED") : "SLOT RESERVED");
+  const badge = s.target ? "LIVE · THE PAYLOAD" : (s.shipped ? (state.locked[s.n]?"CHEVRON LOCKED":"SHIPPED · UNLOCKED") : "SLOT RESERVED");
   d.innerHTML =
-    '<div class="num">SHIP '+s.n+(s.draft && !s.target ? ' · DRAFT' : '')+'</div>'+
+    '<div class="num">SHIP '+s.n+'</div>'+
     '<div class="name">'+s.name+'</div>'+
     '<div class="meta">'+s.meta+'</div>'+
+    (s.url?'<div class="meta"><a href="'+s.url+'" target="_blank" rel="noopener" style="color:#ffb02e;text-decoration:none">'+(s.target?'play ↗':'repo ↗')+'</a></div>':'')+
     '<div class="chev">'+(s.target?"▲":"◭")+'</div>'+
     '<div class="badge">'+badge+'</div>';
   d.addEventListener("click", ()=>{
-    if(s.target){ toast("SHIP 13 rides the dial — finish the manifest first, Commander."); return; }
-    if(s.n==="12"){
-      if(state.locked[s.n]) return;
-      s12clicks = (s12clicks||0)+1;
-      if(s12clicks<3){ sfx.deny(); toast(s12clicks===1 ? "SLOT 12 is reserved — awaiting the Commander's manifest." : "Still reserved, Commander. One more tap locks it provisionally."); return; }
-      state.locked[s.n] = true; save(); sfx.lock(); render();
-      toast("SLOT 12 locked provisionally — 'The Next One'. Rename it when the manifest lands. · 12/12");
-      setTimeout(dialGate, 600);
-      return;
-    }
+    if(s.target){ if(s.url) window.open(s.url, "_blank", "noopener"); toast("SHIP 13 — TriviaGate™ is live — six ways in, one gate."); return; }
     if(state.locked[s.n]) return;
     state.locked[s.n] = true; save(); sfx.lock(); render();
     const n = lockedCount();
@@ -414,7 +405,7 @@ $("manifestBtn").addEventListener("click", ()=>{
   const t = $("manTable"); t.innerHTML = "";
   FLEET.forEach(s=>{
     const tr = document.createElement("tr");
-    tr.innerHTML = "<td>SHIP "+s.n+"</td><td><b>"+s.name+"</b>"+(s.draft?' <span style="color:#7a5a1e">· DRAFT — rename me</span>':'')+"</td>";
+    tr.innerHTML = "<td>SHIP "+s.n+"</td><td>"+(s.url?"<a href='"+s.url+"' target='_blank' rel='noopener'>"+s.name+"</a>":"<b>"+s.name+"</b>")+"</td>";
     t.appendChild(tr);
   });
   $("manifestOv").classList.add("show");
