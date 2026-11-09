@@ -17,7 +17,7 @@ thirteen dials the gate, and Ship 13 (TriviaGate™) rides through as the payloa
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The entire command deck — fleet manifest, chevron locks, dial sequence, gate-room window, "on the other side" reveal |
+| `index.html` | The entire command deck — fleet manifest, chevron locks, dial sequence, gate-room window, job console (plain-English GO / YOUR CALL / SKIP calls, saved locally), "on the other side" reveal |
 | `assets/gate-module.js` | Gate module — DIAL THE GATE / VIEW THE GATE strip, fleet chips, job-board auto-feed (polls `jobs.json` every 60s) |
 | `assets/gate-module.css` | Gate module styling |
 | `jobs.json` | Job-board feed — rows land here, the console reads them |
