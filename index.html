@@ -3,521 +3,465 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Evelyn Caro — SGC Command Deck™ · Journey Console</title>
+<title>CARO COMMAND &mdash; Scout Ops Console &middot; Ship 12</title>
+<link rel="stylesheet" href="assets/gate-module.css">
 <style>
-  :root{
-    --bg:#05080d; --steel:#141d28; --steel2:#1c2836; --line:#28394c;
-    --amber:#ffb02e; --amber-dim:#7a5a1e; --blue:#4fc3f7; --text:#cfe3f2;
-    --dim:#7f95a8; --ok:#59d98c; --red:#ff6b6b;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    background:radial-gradient(1200px 600px at 50% -10%, #0b1420 0%, var(--bg) 60%);
-    color:var(--text); font-family:"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display:flex; flex-direction:column; overflow-x:hidden;
-  }
-  /* ================= MONITOR (UP) ================= */
-  #monitor{ padding:18px 18px 6px; display:flex; justify-content:center; }
-  .monitor-frame{
-    width:min(1180px, 100%); background:#0a0f16; border:2px solid var(--line);
-    border-radius:14px; box-shadow:0 18px 60px rgba(0,0,0,.65), inset 0 0 0 1px #0d151f;
-    overflow:hidden;
-  }
-  .monitor-header{
-    display:flex; justify-content:space-between; align-items:center; gap:12px;
-    padding:10px 16px; background:linear-gradient(#101a26,#0b121b);
-    border-bottom:1px solid var(--line);
-    font-size:12px; letter-spacing:2.5px; color:var(--dim); text-transform:uppercase;
-  }
-  .monitor-header b{color:var(--text); letter-spacing:2.5px; font-weight:600}
-  #status{color:var(--amber); font-weight:600; white-space:nowrap}
-  .window{ position:relative; height:min(52vh,520px); min-height:340px;
-    background:
-      radial-gradient(900px 380px at 50% 108%, rgba(79,195,247,.10), transparent 60%),
-      radial-gradient(700px 300px at 50% 0%, #0d1826 0%, #070c12 70%);
-  }
-  .gateroom{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
-  svg#gate{ width:min(46vh,430px); height:auto; display:block; filter:drop-shadow(0 0 24px rgba(79,195,247,.18)); }
-  .glass{ position:absolute; inset:0; pointer-events:none;
-    background:
-      repeating-linear-gradient(0deg, rgba(255,255,255,.022) 0 1px, transparent 1px 3px),
-      linear-gradient(115deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.015) 22%, transparent 40%),
-      radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0,0,0,.55) 100%);
-  }
-  .window-caption{ position:absolute; left:16px; bottom:12px; font-size:11px; letter-spacing:2px; color:var(--dim); text-transform:uppercase; }
-  .dial-hint{ position:absolute; right:16px; bottom:12px; font-size:11px; letter-spacing:1.5px; color:#5d7488; }
+:root {
+  --bg:#0e0904; --bg2:#1a0f06; --panel:#1e1308; --line:#3d2a14;
+  --gold:#f0d878; --gold-dim:#c9a040; --amber:#ffb02e; --text:#e8d4a8;
+  --dim:#8b6f3d; --ok:#7dffb0; --blue:#9fc8ff; --red:#ff9d7a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  background:radial-gradient(1200px 600px at 50% -10%, #1a0f06 0%, var(--bg) 60%);
+  color:var(--text); font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  display:flex; flex-direction:column; align-items:center; padding:20px 16px 80px;
+  overflow-x:hidden;
+}
+.console-wrap{width:min(1180px,100%); display:flex; flex-direction:column; gap:16px}
 
-  /* ================= CONSOLE (DOWN, KEYBOARD POSITION) ================= */
-  #console{ flex:1; padding:6px 18px 20px; display:flex; justify-content:center; }
-  .board{
-    width:min(1180px,100%); transform:perspective(1600px) rotateX(2.2deg);
-    transform-origin:top center; background:linear-gradient(#0d141d,#0a0f16);
-    border:1px solid var(--line); border-radius:14px; padding:14px 16px 16px;
-    box-shadow:0 22px 50px rgba(0,0,0,.5), inset 0 1px 0 #16202c;
-  }
-  .board-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
-  .board-title{ font-size:12px; letter-spacing:2.5px; color:var(--dim); text-transform:uppercase }
-  .controls{ display:flex; gap:10px }
-  button.ctl{
-    background:linear-gradient(#18242f,#111a24); color:var(--text);
-    border:1px solid var(--line); border-radius:8px; padding:9px 16px;
-    font-size:12px; letter-spacing:2px; text-transform:uppercase; cursor:pointer;
-    transition:border-color .15s, color .15s, transform .06s;
-  }
-  button.ctl:hover{ border-color:var(--amber); color:var(--amber) }
-  button.ctl:active{ transform:translateY(1px) }
-  #dialBtn{ border-color:var(--amber-dim); color:var(--amber); font-weight:700 }
-  #cards{
-    display:grid; grid-template-columns:repeat(auto-fill, minmax(255px,1fr)); gap:10px;
-  }
-  .card{
-    position:relative; background:linear-gradient(#121c27,#0e151e);
-    border:1px solid var(--line); border-left:3px solid var(--line);
-    border-radius:9px; padding:10px 12px 9px; cursor:pointer; user-select:none;
-    transition:transform .12s, border-color .15s, box-shadow .15s;
-  }
-  .card:hover{ transform:translateY(-2px); border-color:#33465c }
-  .card .num{ font-size:10px; letter-spacing:2px; color:var(--dim) }
-  .card .name{ font-size:14px; font-weight:600; color:var(--text); margin:2px 0 3px }
-  .card .meta{ font-size:11px; color:var(--dim) }
-  .card .chev{ position:absolute; top:10px; right:12px; font-size:13px; color:#3a4d61 }
-  .card.locked{ border-left-color:var(--amber); background:linear-gradient(#17202b,#101823); }
-  .card.locked .chev{ color:var(--amber); text-shadow:0 0 8px rgba(255,176,46,.7) }
-  .card.locked .num{ color:var(--amber-dim) }
-  .card .badge{
-    display:inline-block; margin-top:6px; font-size:9px; letter-spacing:1.5px;
-    padding:2px 7px; border-radius:20px; border:1px solid var(--line); color:var(--dim); text-transform:uppercase;
-  }
-  .card.locked .badge{ border-color:var(--amber-dim); color:var(--amber) }
-  .card.draft .badge{ border-style:dashed }
-  .card.target{ border-left-color:var(--blue); }
-  .card.target .num{ color:var(--blue) }
-  .card.target .badge{ border-color:#275b74; color:var(--blue) }
-  .card.dead{ opacity:.55; cursor:not-allowed }
+/* header */
+.console-header{
+  text-align:center; padding:16px 0 8px; border-bottom:1px solid var(--line);
+}
+.console-header h1{
+  font-size:clamp(20px,4vw,32px); letter-spacing:.16em; color:var(--gold);
+  font-weight:800; text-transform:uppercase;
+}
+.console-header .sub{
+  font-size:12px; letter-spacing:.24em; color:var(--dim); text-transform:uppercase; margin-top:6px;
+}
+.console-header .updated{
+  font-size:11px; color:var(--gold-dim); margin-top:4px; font-family:ui-monospace,Menlo,Consolas,monospace;
+}
 
-  /* ================= JOB CONSOLE (DOWN, SECOND BOARD) ================= */
-  #jobs{ padding:0 18px 20px; display:flex; justify-content:center; }
-  #jobs .board{ transform:none; }
-  #jobBoard{ display:flex; flex-direction:column; gap:6px; }
-  .jrow{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; background:linear-gradient(#121c27,#0e151e);
-    border:1px solid var(--line); border-left:3px solid var(--line); border-radius:9px; padding:8px 12px; }
-  .jrow.jdone{ opacity:.55 }
-  .jid{ font-size:10px; letter-spacing:2px; color:var(--dim); flex:0 0 auto }
-  .jtitle{ font-size:12.5px; color:var(--text); flex:1 1 auto; min-width:200px }
-  .jst{ flex:0 0 auto; font-size:9px; letter-spacing:1.5px; padding:2px 7px; border-radius:20px; border:1px solid var(--line); color:var(--dim); text-transform:uppercase }
-  .jst-open{ border-color:var(--amber-dim); color:var(--amber) }
-  .jst-applied{ border-color:#275b74; color:var(--blue) }
-  .jcalls{ display:flex; gap:6px; flex:0 0 auto }
-  .jcall{ background:linear-gradient(#18242f,#111a24); color:var(--text); border:1px solid var(--line); border-radius:8px;
-    padding:5px 10px; font-size:10px; letter-spacing:1.5px; cursor:pointer; text-transform:uppercase;
-    transition:border-color .15s, color .15s; }
-  .jcall:hover{ border-color:var(--amber); color:var(--amber) }
-  .jcall.on-go{ border-color:var(--ok); color:var(--ok) }
-  .jcall.on-yourcall{ border-color:var(--amber); color:var(--amber) }
-  .jcall.on-skip{ border-color:var(--red); color:var(--red) }
-  .jcount{ font-size:11px; letter-spacing:2px; color:var(--dim); text-transform:uppercase; white-space:nowrap }
+/* mission dial (event horizon) */
+.mission-dial{
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  padding:24px 16px; background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  position:relative; overflow:hidden;
+}
+.mission-dial::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(400px 200px at 50% 50%, rgba(240,200,80,.06), transparent 70%);
+  pointer-events:none;
+}
+.dial-label{
+  font:700 12px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.22em;
+  color:var(--gold-dim); text-transform:uppercase;
+}
+.stargate-svg{width:min(320px,80vw); height:auto; filter:drop-shadow(0 0 30px rgba(240,200,80,.15))}
+.dial-status{
+  font:800 14px/1.4 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
+  color:var(--gold); text-align:center;
+}
+.dial-status .lit{color:var(--ok); font-weight:800}
+.dial-hint{
+  font:11px/1.5 ui-monospace,Menlo,Consolas,monospace; color:var(--dim);
+  text-align:center; max-width:480px; letter-spacing:.04em;
+}
 
-  /* ================= OVERLAYS ================= */
-  .overlay{ position:fixed; inset:0; display:none; align-items:center; justify-content:center;
-    z-index:50; background:rgba(3,6,10,.88); backdrop-filter:blur(3px); }
-  .overlay.show{ display:flex; animation:fade .25s ease }
-  @keyframes fade{ from{opacity:0} to{opacity:1} }
-  .panel{
-    width:min(680px, 92vw); max-height:86vh; overflow:auto;
-    background:linear-gradient(#101a26,#0b121b); border:1px solid var(--line);
-    border-radius:14px; padding:26px 30px; box-shadow:0 30px 90px rgba(0,0,0,.7);
-  }
-  .panel h2{ font-size:16px; letter-spacing:3px; color:var(--amber); text-transform:uppercase; margin-bottom:6px }
-  .panel h3{ font-size:13px; letter-spacing:2px; color:var(--blue); text-transform:uppercase; margin:16px 0 8px }
-  .panel p{ font-size:13.5px; line-height:1.65; color:var(--text); margin:7px 0 }
-  .panel .small{ font-size:11.5px; color:var(--dim) }
-  .panel ol{ margin:6px 0 6px 20px }
-  .panel li{ font-size:13px; line-height:1.6; color:var(--text) }
-  table.man{ width:100%; border-collapse:collapse; margin-top:6px }
-  table.man td{ border-bottom:1px solid var(--line); padding:7px 8px; font-size:12.5px; color:var(--text) }
-  table.man td:first-child{ color:var(--dim); width:74px; letter-spacing:1px }
-  .plaque{
-    margin-top:14px; padding:14px 16px; border:1px solid var(--amber-dim); border-radius:10px;
-    background:linear-gradient(rgba(255,176,46,.07), rgba(255,176,46,.02));
-    text-align:center;
-  }
-  .plaque .l1{ font-size:12px; letter-spacing:3px; color:var(--amber-dim); text-transform:uppercase }
-  .plaque .l2{ font-size:18px; letter-spacing:2px; color:var(--amber); font-weight:700; margin-top:4px }
-  #toast{
-    position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
-    background:#101a26; border:1px solid var(--amber-dim); color:var(--amber);
-    padding:10px 18px; border-radius:9px; font-size:12.5px; letter-spacing:1.2px;
-    opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; z-index:60;
-  }
-  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0) }
+/* stat strip */
+.stat-strip{
+  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+}
+.stat{padding:10px 18px; background:var(--panel); border:1px solid var(--line); border-radius:10px; text-align:center}
+.stat .num{font:800 22px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold)}
+.stat .lbl{font:9px/1.4 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.18em; color:var(--dim); text-transform:uppercase; margin-top:4px}
 
-  /* kawoosh */
-  #kawoosh{ position:fixed; inset:0; display:none; z-index:70; background:#020409; align-items:center; justify-content:center; flex-direction:column }
-  #kawoosh.show{ display:flex }
-  .burst-wrap{ position:relative; width:min(60vh,480px); height:min(60vh,480px); display:flex; align-items:center; justify-content:center }
-  .puddle{
-    position:absolute; width:34%; height:34%; border-radius:50%;
-    background:radial-gradient(circle at 45% 40%, #bfeaff 0%, #4fc3f7 38%, #0b6ea8 72%, #053a5c 100%);
-    box-shadow:0 0 80px 30px rgba(79,195,247,.45);
-    animation:puddle 2.6s ease-out forwards;
-  }
-  @keyframes puddle{ 0%{transform:scale(.2); opacity:0} 18%{opacity:1} 55%{transform:scale(1.9)} 100%{transform:scale(2.6); opacity:0} }
-  .burst{
-    position:absolute; inset:0; border-radius:50%;
-    background:radial-gradient(circle, rgba(191,234,255,.95) 0%, rgba(79,195,247,.55) 45%, transparent 70%);
-    clip-path:circle(0% at 50% 50%);
-    animation:burst 1.6s .35s cubic-bezier(.2,.8,.2,1) forwards;
-  }
-  @keyframes burst{ to{ clip-path:circle(75% at 50% 50%); opacity:0 } }
-  .kw-text{ margin-top:26px; font-size:13px; letter-spacing:4px; color:var(--blue); text-transform:uppercase; opacity:0; animation:fade .5s 1.4s forwards }
-  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important} }
-  @media (max-width:720px){
-    .window{ min-height:280px } svg#gate{ width:min(38vh,300px) }
-    #cards{ grid-template-columns:repeat(auto-fill, minmax(210px,1fr)) }
-  }
+/* sections */
+.section{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px;
+}
+.section h2{
+  font:700 13px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.22em;
+  color:var(--gold-dim); text-transform:uppercase; margin-bottom:14px;
+  padding-bottom:10px; border-bottom:1px solid var(--line);
+}
+
+/* fleet ledger */
+.fleet-grid{display:grid; gap:8px; grid-template-columns:1fr}
+@media(min-width:640px){.fleet-grid{grid-template-columns:1fr 1fr}}
+.ship-card{
+  display:flex; align-items:center; gap:12px; padding:12px 14px;
+  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
+  transition:border-color .2s;
+}
+.ship-card--live{border-color:var(--gold-dim); box-shadow:0 0 12px rgba(240,200,80,.12)}
+.ship-card:hover{border-color:var(--gold-dim)}
+.ship-num{
+  font:800 16px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold);
+  flex:0 0 auto; min-width:36px;
+}
+.ship-body{flex:1 1 auto; display:flex; flex-direction:column; gap:3px}
+.ship-name{font:700 14px/1.3 "Segoe UI",Roboto,sans-serif; color:var(--text)}
+.ship-status{font:10px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.12em; color:var(--dim)}
+.ship-note{font:10px/1.4 ui-monospace,Menlo,Consolas,monospace; color:var(--gold-dim)}
+.ship-link{
+  font:700 10px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
+  color:var(--gold); text-decoration:none; flex:0 0 auto;
+  padding:6px 10px; border:1px solid var(--gold-dim); border-radius:999px;
+}
+.ship-link:hover{box-shadow:0 0 10px rgba(240,200,80,.4)}
+.ship-link--none{color:var(--dim); border-color:var(--line); cursor:default}
+
+/* job board */
+.job-row{
+  display:flex; align-items:flex-start; gap:12px; padding:12px 14px; margin-bottom:6px;
+  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
+  border-left:3px solid var(--dim);
+}
+.job-row--applied{border-left-color:var(--blue)}
+.job-row--go{border-left-color:var(--ok)}
+.job-row--call{border-left-color:var(--amber)}
+.job-row--skip{border-left-color:var(--red); opacity:.6}
+.job-sq{
+  font:800 13px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold);
+  flex:0 0 auto; min-width:64px;
+}
+.job-body{flex:1 1 auto; display:flex; flex-direction:column; gap:3px}
+.job-title{font:600 13px/1.4 "Segoe UI",Roboto,sans-serif; color:var(--text)}
+.job-badge{font:10px/1.4 ui-monospace,Menlo,Consolas,monospace; color:var(--gold-dim); letter-spacing:.04em}
+.job-pay{font:10px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--ok)}
+.job-st{
+  font:800 9px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
+  flex:0 0 auto; padding:5px 9px; border-radius:999px;
+}
+.job-st--applied{background:rgba(90,160,255,.15); color:var(--blue); border:1px solid rgba(90,160,255,.4)}
+.job-st--go{background:rgba(60,220,140,.15); color:var(--ok); border:1px solid rgba(80,230,150,.4)}
+.job-st--call{background:rgba(255,190,80,.12); color:var(--amber); border:1px solid rgba(255,190,80,.4)}
+.job-st--skip{background:rgba(255,100,100,.12); color:var(--red); border:1px solid rgba(255,100,100,.4)}
+
+/* feed */
+.feed-box{max-height:200px; overflow:auto; display:flex; flex-direction:column; gap:6px}
+.feed-line{
+  font:11.5px/1.5 ui-monospace,Menlo,Consolas,monospace; color:var(--text);
+  padding:8px 10px; background:var(--bg2); border:1px solid var(--line); border-radius:8px;
+}
+.feed-t{color:var(--gold-dim); font-weight:700}
+
+/* standing rules */
+.rules{display:flex; flex-direction:column; gap:6px}
+.rule{
+  font:12px/1.5 "Segoe UI",Roboto,sans-serif; color:var(--text);
+  padding:8px 12px; background:var(--bg2); border:1px solid var(--line); border-radius:8px;
+  border-left:3px solid var(--gold-dim);
+}
+.rule strong{color:var(--gold)}
+
+footer{
+  text-align:center; padding:16px 0 0; font:10px/1.4 ui-monospace,Menlo,Consolas,monospace;
+  color:var(--dim); letter-spacing:.12em;
+}
+footer a{color:var(--gold-dim); text-decoration:none}
+footer a:hover{color:var(--gold)}
+
+/* stargate SVG animations */
+@keyframes gate-ring-spin {from{transform:rotate(0)} to{transform:rotate(360deg)}}
+.gate-ring-spin{animation:gate-ring-spin 60s linear infinite; transform-origin:100px 100px}
+.gate-ring-spin--fast{animation-duration:8s}
+@keyframes chevron-pulse {0%,100%{filter:drop-shadow(0 0 2px rgba(240,200,80,.3))} 50%{filter:drop-shadow(0 0 8px rgba(240,200,80,.7))}}
+.chevron--lit{animation:chevron-pulse 3s ease-in-out infinite}
+.event-horizon{animation:eh-pulse 4s ease-in-out infinite}
+@keyframes eh-pulse{0%,100%{opacity:.1} 50%{opacity:.3}}
 </style>
-<!-- GG-INJECT gate module (standalone gate · fleet dial · job board) -->
-<link id="gg-css" rel="stylesheet" href="assets/gate-module.css">
-<script>window.FLEET_CANON=[{"n": 13, "name": "TriviaGate\u2122", "url": "https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/", "repo": "", "status": "live"}, {"n": 12, "name": "Caro Command Deck\u2122", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command/blob/main/README.md", "repo": "", "status": "live"}, {"n": 11, "name": "AWS CCP Study Manual", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual/blob/main/README.md", "repo": "", "status": "live"}, {"n": 10, "name": "Overseer\u2122", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer/blob/main/README.md", "repo": "", "status": "live"}, {"n": 9, "name": "Radiology Companion\u2122", "url": "", "repo": "", "status": "live"}, {"n": 8, "name": "DV14\u2122: The Box", "url": "", "repo": "", "status": "live"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter/blob/main/README.md", "repo": "", "status": "live"}, {"n": 6, "name": "Suite: Ingestion Tools", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools/blob/main/README.md", "repo": "", "status": "live"}, {"n": 5, "name": "Granite + EvidenceFlow", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow/blob/main/README.md", "repo": "", "status": "live"}, {"n": 4, "name": "IBM Granite Agentic RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic/blob/main/README.md", "repo": "", "status": "live"}, {"n": 3, "name": "IBM Granite RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite/blob/main/README.md", "repo": "", "status": "live"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic/blob/main/README.md", "repo": "", "status": "live"}, {"n": 1, "name": "DeepSeek RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek/blob/main/README.md", "repo": "", "status": "live"}];</script>
-<script src="assets/gate-module.js" defer></script>
-<!-- /GG-INJECT -->
+<script>window.FLEET_CANON={src:"manifest.json",ships:[{"n": 1, "name": "DeepSeek RAG — the origin ship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek", "status": "flown"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic", "status": "flown"}, {"n": 3, "name": "IBM Granite RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite", "status": "flown"}, {"n": 4, "name": "IBM Granite Agentic RAG — the agentic flagship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic", "status": "flown"}, {"n": 5, "name": "EvidenceFlow — fail-closed verification", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow", "status": "flown"}, {"n": 6, "name": "Ingestion Tools — Scribe · Warden · Hand", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools", "status": "flown"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter", "status": "flown"}, {"n": 8, "name": "DV14™: The Box — AI containment blueprint", "url": "", "status": "flown"}, {"n": 9, "name": "Radiology Companion™", "url": "", "status": "flown"}, {"n": 10, "name": "Overseer™ — tier-authority orchestrator", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer", "status": "flown"}, {"n": 11, "name": "AWS CCP Study Manual — Sleep Is Studying Too™", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual", "status": "flown"}, {"n": 12, "name": "CARO COMMAND — SCOUT OPS (this console)", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command", "status": "live"}, {"n": 13, "name": "TriviaGate™ — the ONE Ship 13 study engine · single file", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate", "status": "live"}]};</script>
 </head>
 <body>
+<div class="console-wrap">
 
-  <!-- ==================== THE MONITOR — up, wall-mounted, viewing window over the gate room ==================== -->
-  <div id="monitor">
-    <div class="monitor-frame">
-      <div class="monitor-header">
-        <span><b>SGC COMMAND DECK</b> · JOURNEY CONSOLE · CDR E. CARO</span>
-        <span id="status">CHEVRON 0/12 LOCKED</span>
-      </div>
-      <div class="window">
-        <div class="gateroom">
-          <svg id="gate" viewBox="0 0 480 480" aria-label="Stargate fleet ring">
-            <defs>
-              <radialGradient id="evg" cx="45%" cy="40%" r="70%">
-                <stop offset="0%" stop-color="#0a1622"/><stop offset="100%" stop-color="#050a10"/>
-              </radialGradient>
-            </defs>
-            <!-- ramp floor -->
-            <ellipse cx="240" cy="440" rx="200" ry="26" fill="#0a1119"/>
-            <!-- inner spinning ring (canon feel: the ring spins, chevrons hold) -->
-            <g id="spin" style="transform-origin:240px 240px; animation:spin 70s linear infinite">
-              <circle cx="240" cy="240" r="150" fill="none" stroke="#1a2634" stroke-width="30"/>
-              <circle cx="240" cy="240" r="150" fill="none" stroke="#22354a" stroke-width="30" stroke-dasharray="3 17"/>
-              <circle cx="240" cy="240" r="172" fill="none" stroke="#0f1824" stroke-width="2"/>
-            </g>
-            <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-            <!-- event horizon (revealed on kawoosh) -->
-            <circle id="eventh" cx="240" cy="240" r="132" fill="url(#evg)" opacity="0"/>
-            <!-- outer fleet ring: N ship locks (expandable) -->
-            <circle cx="240" cy="240" r="205" fill="none" stroke="#1b2735" stroke-width="34"/>
-            <g id="slots"></g>
-            <!-- 9 canon chevrons -->
-            <g id="chevrons"></g>
-            <!-- hub -->
-            <circle cx="240" cy="240" r="108" fill="#070d14" stroke="#22354a" stroke-width="2"/>
-            <text x="240" y="232" text-anchor="middle" fill="#7f95a8" font-size="11" letter-spacing="3">FLEET RING</text>
-            <text id="gateCount" x="240" y="258" text-anchor="middle" fill="#ffb02e" font-size="26" font-weight="700">0/13</text>
-          </svg>
-        </div>
-        <div class="glass"></div>
-        <div class="window-caption">VIEWING WINDOW · GATE ROOM B1</div>
-        <div class="dial-hint">all ships lock → the gate dials</div>
-      </div>
+  <header class="console-header">
+    <h1>CARO COMMAND</h1>
+    <div class="sub">Scout Ops Console &middot; Ship 12 &middot; A Mirror of My Becoming</div>
+    <div class="updated">LAST SYNC: Nov 9, 4:00 AM ET</div>
+  </header>
+
+  <section class="mission-dial">
+    <div class="dial-label">MISSION DIAL &mdash; EVENT HORIZON</div>
+    <svg class="stargate-svg" viewBox="0 0 200 200" role="img" aria-label="Stargate dial: 4 of 7 chevrons locked">
+      <defs>
+        <radialGradient id="horizon-grad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#f0d878" stop-opacity="0.25" />
+          <stop offset="100%" stop-color="#f0d878" stop-opacity="0.1" />
+        </radialGradient>
+      </defs>
+      <circle cx="100" cy="100" r="66" fill="url(#horizon-grad)" class="event-horizon" />
+      <circle cx="100" cy="100" r="66" fill="none" stroke="#f0d878" stroke-opacity="0.5" stroke-width="1.5" />
+      <g class="gate-ring-spin">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#5f4c2c" stroke-width="16" />
+        <circle cx="100" cy="100" r="72" fill="none" stroke="#3d2f1a" stroke-width="2" />
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#6b5636" stroke-width="2" />
+        <line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(0 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(10 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(20 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(30 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(40 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(50 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(60 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(70 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(80 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(90 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(100 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(110 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(120 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(130 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(140 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(150 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(160 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(170 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(180 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(190 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(200 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(210 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(220 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(230 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(240 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(250 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(260 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(270 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(280 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(290 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(300 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(310 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(320 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(330 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(340 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(350 100 100)"/>
+      </g>
+      <path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-135 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-90 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-45 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(0 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(45 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(90 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(135 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/>
+      <circle cx="100" cy="100" r="66" fill="none" stroke="#170d06" stroke-width="2" />
+    </svg>
+    <div class="dial-status"><span class="lit">4 OF 7</span> CHEVRONS LOCKED</div>
+    <div class="dial-hint">Each submitted application locks a chevron. Seven locked opens the gate. The 8th is the interview. The 9th is the offer.</div>
+  </section>
+
+  <div class="stat-strip">
+    <div class="stat"><div class="num">4</div><div class="lbl">GO READY</div></div>
+    <div class="stat"><div class="num">4</div><div class="lbl">APPLIED</div></div>
+    <div class="stat"><div class="num">4/7</div><div class="lbl">CHEVRONS</div></div>
+    <div class="stat"><div class="num">13</div><div class="lbl">FLEET SHIPS</div></div>
+  </div>
+
+  <section class="section">
+    <h2>FLEET LEDGER &mdash; 13 SHIPS</h2>
+    <div class="fleet-grid">
+<article class="ship-card">
+  <span class="ship-num">S1</span>
+  <div class="ship-body">
+    <h3 class="ship-name">DeepSeek RAG — the origin ship</h3>
+    <span class="ship-status">flown 2026</span>
+    <span class="ship-note">DOI 10.5281/zenodo.23246029</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S2</span>
+  <div class="ship-body">
+    <h3 class="ship-name">IBM Granite Agentic RAG</h3>
+    <span class="ship-status">flown 2026</span>
+    <span class="ship-note">DOI 10.5281/zenodo.23246065</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S3</span>
+  <div class="ship-body">
+    <h3 class="ship-name">IBM Granite RAG</h3>
+    <span class="ship-status">flown 2026</span>
+    <span class="ship-note">DOI 10.5281/zenodo.23246084</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S4</span>
+  <div class="ship-body">
+    <h3 class="ship-name">IBM Granite Agentic RAG — the agentic flagship</h3>
+    <span class="ship-status">flown 2026</span>
+    <span class="ship-note">DOI 10.5281/zenodo.23246090</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S5</span>
+  <div class="ship-body">
+    <h3 class="ship-name">EvidenceFlow — fail-closed verification</h3>
+    <span class="ship-status">flown Aug 2026</span>
+    
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S6</span>
+  <div class="ship-body">
+    <h3 class="ship-name">Ingestion Tools — Scribe · Warden · Hand</h3>
+    <span class="ship-status">flown Sep 2026</span>
+    
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S7</span>
+  <div class="ship-body">
+    <h3 class="ship-name">msgvault Adapter</h3>
+    <span class="ship-status">flown 2026</span>
+    
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S8</span>
+  <div class="ship-body">
+    <h3 class="ship-name">DV14™: The Box — AI containment blueprint</h3>
+    <span class="ship-status">flown 2026</span>
+    
+  </div>
+  <span class="ship-link ship-link--none">flown &middot; no public repo</span>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S9</span>
+  <div class="ship-body">
+    <h3 class="ship-name">Radiology Companion™</h3>
+    <span class="ship-status">flown Oct 22, 2026</span>
+    
+  </div>
+  <span class="ship-link ship-link--none">flown &middot; no public repo</span>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S10</span>
+  <div class="ship-body">
+    <h3 class="ship-name">Overseer™ — tier-authority orchestrator</h3>
+    <span class="ship-status">flown Oct 11, 2026</span>
+    
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card">
+  <span class="ship-num">S11</span>
+  <div class="ship-body">
+    <h3 class="ship-name">AWS CCP Study Manual — Sleep Is Studying Too™</h3>
+    <span class="ship-status">flown Oct 17, 2026</span>
+    <span class="ship-note">DOI 10.5281/zenodo.23458898</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card ship-card--live">
+  <span class="ship-num">S12</span>
+  <div class="ship-body">
+    <h3 class="ship-name">CARO COMMAND — SCOUT OPS (this console)</h3>
+    <span class="ship-status">LIVE</span>
+    <span class="ship-note">public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
+<article class="ship-card ship-card--live">
+  <span class="ship-num">S13</span>
+  <div class="ship-body">
+    <h3 class="ship-name">TriviaGate™ — the ONE Ship 13 study engine · single file</h3>
+    <span class="ship-status">LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate</span>
+    <span class="ship-note">public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate</span>
+  </div>
+  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate" target="_blank" rel="noopener">REPO &#8599;</a>
+</article>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== CONTROL BOARD — down, at keyboard position ==================== -->
-  <div id="console">
-    <div class="board">
-      <div class="board-top">
-        <span class="board-title">Fleet manifest — tap a ship to lock its chevron</span>
-        <div class="controls">
-          <button class="ctl" id="dialBtn">◇ Dial the Gate</button>
-          <button class="ctl" id="soundBtn">♪ Sound: On</button>
-          <button class="ctl" id="manifestBtn">Manifest</button>
-        </div>
-      </div>
-      <div id="cards"></div>
+  <section class="section">
+    <h2>JOB BOARD &mdash; SCOUT OPS</h2>
+<article class="job-row job-row--applied">
+  <span class="job-sq">SQ-22</span>
+  <div class="job-body">
+    <span class="job-title">Quality Engineer I — Availity</span>
+    <span class="job-badge">✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦</span>
+    
+  </div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article>
+<article class="job-row job-row--applied">
+  <span class="job-sq">SQ-23</span>
+  <div class="job-body">
+    <span class="job-title">Junior QA Automation Engineer — Element (e14s.com)</span>
+    <span class="job-badge">✦ APPLIED NOV 6 · chevron 2/7 ✦</span>
+    <span class="job-pay">$65,000 – $85,000, posted</span>
+  </div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article>
+<article class="job-row job-row--applied">
+  <span class="job-sq">SQ-16</span>
+  <div class="job-body">
+    <span class="job-title">Junior QA Analyst — Gridiron IT Solutions</span>
+    <span class="job-badge">✦ APPLIED NOV 6 · chevron 3/7 ✦</span>
+    <span class="job-pay">$70,000 – $90,000</span>
+  </div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article>
+<article class="job-row job-row--applied">
+  <span class="job-sq">SQ-20</span>
+  <div class="job-body">
+    <span class="job-title">Jr. Data Engineer — Apex Systems</span>
+    <span class="job-badge">✦ APPLIED NOV 6 · chevron 4/7 ✦</span>
+    <span class="job-pay">$45 – $53 / hour = $93,600 – $110,240</span>
+  </div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article>
+<article class="job-row job-row--go">
+  <span class="job-sq">SQ-21</span>
+  <div class="job-body">
+    <span class="job-title">Cloud Platform Engineer I — Centene Corporation</span>
+    <span class="job-badge">GO — PACKET READY ✦</span>
+    <span class="job-pay">$30.58 – $55.09 / hour = $63,606 – $114,587</span>
+  </div>
+  <span class="job-st job-st--go">GO</span>
+</article>
+<article class="job-row job-row--go">
+  <span class="job-sq">SQ-18</span>
+  <div class="job-body">
+    <span class="job-title">QA Engineer — Peterson Technology Partners</span>
+    <span class="job-badge">GO — PACKET READY ✦</span>
+    <span class="job-pay">$30 – $35 / hour</span>
+  </div>
+  <span class="job-st job-st--go">GO</span>
+</article>
+<article class="job-row job-row--go">
+  <span class="job-sq">SQ-19</span>
+  <div class="job-body">
+    <span class="job-title">Data Analyst — Tekcel8</span>
+    <span class="job-badge">GO — PACKET READY ✦</span>
+    <span class="job-pay">$35 – $50 / hour = $72,800 – $104,000</span>
+  </div>
+  <span class="job-st job-st--go">GO</span>
+</article>
+<article class="job-row job-row--skip">
+  <span class="job-sq">SQ-2</span>
+  <div class="job-body">
+    <span class="job-title">Field Network Cabling Technician, 100% Travel — HCL</span>
+    <span class="job-badge">SKIP — RECOMMEND DISCARDING</span>
+    <span class="job-pay">$52,000 – $76,000</span>
+  </div>
+  <span class="job-st job-st--skip">SKIP</span>
+</article>
+<article class="job-row job-row--skip">
+  <span class="job-sq">KONIAG</span>
+  <div class="job-body">
+    <span class="job-title">Junior Cloud Engineer, Washington DC — Koniag</span>
+    <span class="job-badge">SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT</span>
+    <span class="job-pay">$70,000</span>
+  </div>
+  <span class="job-st job-st--skip">SKIP</span>
+</article>
+<article class="job-row job-row--go">
+  <span class="job-sq">SQ-24</span>
+  <div class="job-body">
+    <span class="job-title">Test Automation Engineer — Entry Level — Medinext Global LLC</span>
+    <span class="job-badge">GO ✦ NEW — Nov 8 sweep</span>
+    <span class="job-pay">$70,000 – $90,000 / year</span>
+  </div>
+  <span class="job-st job-st--go">GO</span>
+</article>
+<article class="job-row job-row--call">
+  <span class="job-sq">SQ-25</span>
+  <div class="job-body">
+    <span class="job-title">Junior Tester — 9th Way Insignia</span>
+    <span class="job-badge">YOUR CALL ✦ NEW — Nov 8 sweep</span>
+    <span class="job-pay">$62,818 – $67,500 / year</span>
+  </div>
+  <span class="job-st job-st--call">CALL</span>
+</article>
+  </section>
+
+  <section class="section">
+    <h2>FEED &mdash; OPERATIONS LOG</h2>
+    <div class="feed-box">
+<div class="feed-line"><span class="feed-t">Nov 9, 4:00 AM ET</span> Overnight sweep: nothing new passed. The TEKsystems travel-tech money got richer — $38–42/hr plus $161/day food &amp; lodging, double overtime — but the work is still fiber splicing, and fiber stays a no. The indoor variant with that paycheck is still out there.</div>
+<div class="feed-line"><span class="feed-t">Nov 9, 4:00 AM ET</span> Checked the big QTS Manassas posting ($93.9K–$143.5K): SKIP — it demands five-plus years of critical-facilities engineering. Two buried rows (Koniag cloud, Medinext cloud) tried to resurface; tombstones held, nothing re-served.</div>
+<div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> XO · SQ-25 — 9th Way Insignia junior tester on the federal VA contract added as YOUR CALL: remote, $62,818 to start; the trade is thin pay for a federal door and a sponsored clearance.</div>
+<div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> XO · SQ-24 — Medinext entry-level QA automation added as GO: fully remote, $70,000–$90,000, requirements read like your portfolio, one-click apply on Dice.</div>
+<div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> SWEEP — morning gap healed (the platform was overloaded since 4 AM): two finds landed, nine kills, Salute still dark, the Epic-cert door locked again.</div>
+<div class="feed-line"><span class="feed-t">Nov 8, 3:15 AM ET</span> XO · FLEET — the ledger now reads 13 down to 1 with no gaps: Ships 2, 3 and 4 keep their own lines, repos and DOIs from the 2:20 AM repair, and Ship 7 stands under its canon name — msgvault Adapter, the spelling the book and the repo both use.</div>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== JOB CONSOLE - down, second board: Job Board Killer, back on deck ==================== -->
-  <div id="jobs">
-    <div class="board">
-      <div class="board-top">
-        <span class="board-title">Job console - plain-English calls on the work queue</span>
-        <div class="controls"><span class="jcount" id="jobCount">QUEUE --</span></div>
-      </div>
-      <div id="jobBoard"></div>
+  <section class="section">
+    <h2>STANDING RULES</h2>
+    <div class="rules">
+      <div class="rule"><strong>You apply;</strong> I build, check, and write everything down.</div>
+      <div class="rule"><strong>Nothing was submitted</strong> and nobody was contacted &mdash; you open every form, you press every submit button.</div>
+      <div class="rule"><strong>Flip a GO switch</strong> and I build that job&rsquo;s packet &mdash; tailored resume and cover letter, left on your desk for review. Nothing sends itself.</div>
+      <div class="rule"><strong>Every pay line</strong> is checked against your personal minimum of $62,400 ($30/hour) — your personal minimum.</div>
     </div>
-  </div>
+  </section>
 
-  <!-- ==================== OVERLAYS ==================== -->
-  <div class="overlay" id="manifestOv">
-    <div class="panel">
-      <h2>Fleet Manifest</h2>
-      <p class="small">The roster is canon from the fleet registry — ships/manifest.json. Public hulls point at the living README in their repo (the .md that gets the updates); sealed hulls link none.</p>
-      <table class="man" id="manTable"></table>
-      <p class="small" style="margin-top:12px">Canon note: a real gate ring carries 9 chevrons. The 13 lock slots here are ours — one per ship, one fleet. Ship 13 rides the dial as the payload.</p>
-      <div style="margin-top:14px"><button class="ctl" id="manClose">Return to console</button></div>
-    </div>
-  </div>
+  <footer>
+    CARO COMMAND &middot; Ship 12 &middot; <a href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command">github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</a><br>
+    A Mirror of My Becoming &mdash; Evelyn Caro &middot; Nov 9, 4:00 AM ET
+  </footer>
 
-  <div id="kawoosh">
-    <div class="burst-wrap"><div class="puddle"></div><div class="burst"></div></div>
-    <div class="kw-text">WORMHOLE ESTABLISHED — GATE ROOM CLEARED</div>
-  </div>
-
-  <div class="overlay" id="payoff">
-    <div class="panel">
-      <h2>GATE OPEN — the ring is complete</h2>
-      <p>You asked what happens when the whole fleet locks, Commander. This happens: the last chevron holds, the ring dials, and the gate opens on command. Every ship carried the record here — the fleet dial is complete.</p>
-      <div class="plaque">
-        <div class="l1">Doors of the fleet — opened</div>
-        <div class="l2">COMMANDER E. CARO · FLEET COMPLETE · GATE DIALED</div>
-        <div class="small" style="margin-top:6px;color:#7f95a8">Carter, second in command, logging the dial.</div>
-      </div>
-      <h3>On the other side</h3>
-      <p><b style="color:var(--blue)">SHIP 13 — TRIVIAGATE™</b> <span class="small">(working title — your call)</span> — jeopardy board, rush mode, exam engine, and an AI question forge, built to a two-gamer QA bar. It ships alongside this console.</p>
-      <div style="margin-top:14px"><button class="ctl" id="payoffClose">Return to console</button></div>
-    </div>
-  </div>
-
-  <div id="toast"></div>
-
-<script>
-"use strict";
-/* ===================== FLEET DATA — canon from ships/manifest.json · regenerated 2026-11-08 ===================== */
-const FLEET = [
-  {n:"13", name:"TriviaGate™",             meta:"the payload: the CLF-C02 arcade — six ways in, one gate; nothing leaves the browser", shipped:true, draft:false, target:true, url:"https://qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate/"},
-  {n:"12", name:"Caro Command Deck™",       meta:"applications in the loop: 13 chevrons, one gate — the record of the becoming, playable", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command/blob/main/README.md"},
-  {n:"11", name:"AWS CCP Study Manual",    meta:"Sleep Is Studying Too™ · AGPL template edition: 17 print-ready pages, the brand on every page", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual/blob/main/README.md"},
-  {n:"10", name:"Overseer™",               meta:"the one that watches the others · visible quorum before generation", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer/blob/main/README.md"},
-  {n:"09", name:"Radiology Companion™",    meta:"sealed local-first clinical companion · nothing about the patient leaves the device", shipped:true, draft:false},
-  {n:"08", name:"DV14™: The Box",          meta:"can hardware contain an agent? Two tracks — The Box and the Sensory Deprivation Matrix — Bitcoin-timestamped; review under NDA", shipped:true, draft:false},
-  {n:"07", name:"msgvault Adapter",        meta:"the mail archive, read in its native tongue; watermark-native checkpointing", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter/blob/main/README.md"},
-  {n:"06", name:"Suite: Ingestion Tools",  meta:"Scribe · Warden · Hand — battle-tested: 19 kills survived, 127/127 corpus, zero losses", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools/blob/main/README.md"},
-  {n:"05", name:"Granite + EvidenceFlow",  meta:"fail-closed: every claim traceable, abstains if evidence is missing", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow/blob/main/README.md"},
-  {n:"04", name:"IBM Granite Agentic RAG", meta:"agency and portability, together · cross-platform", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic/blob/main/README.md"},
-  {n:"03", name:"IBM Granite RAG",         meta:"the pattern is portable", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite/blob/main/README.md"},
-  {n:"02", name:"IBM Granite Agentic RAG", meta:"agency: retrieval plus action", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic/blob/main/README.md"},
-  {n:"01", name:"DeepSeek RAG",            meta:"lost, rebuilt cleaner than the original · recovery proven", shipped:true, draft:false, url:"https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek/blob/main/README.md"},
-];
-
-const KEY = "sgc-deck-v1";
-let state = { locked: {}, sound: true };
-try { const s = JSON.parse(localStorage.getItem(KEY)); if (s) state = s; } catch(e){}
-const save = () => localStorage.setItem(KEY, JSON.stringify(state));
-
-const $ = (id) => document.getElementById(id);
-const toastEl = $("toast"); let toastT = null;
-const toast = (m) => { toastEl.textContent = m; toastEl.classList.add("show");
-  clearTimeout(toastT); toastT = setTimeout(()=>toastEl.classList.remove("show"), 2600); };
-
-/* ===================== AUDIO (WebAudio, no assets) ===================== */
-let AC = null;
-const ac = () => (AC = AC || new (window.AudioContext||window.webkitAudioContext)());
-function tone(freq, dur, type="sine", gain=0.06, when=0){
-  if(!state.sound) return;
-  try{
-    const c = ac(), o = c.createOscillator(), g = c.createGain();
-    o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(gain, c.currentTime + when);
-    g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + when + dur);
-    o.connect(g).connect(c.destination);
-    o.start(c.currentTime + when); o.stop(c.currentTime + when + dur + 0.05);
-  }catch(e){}
-}
-const sfx = {
-  lock:  () => { tone(180,0.14,"square",0.05); tone(90,0.22,"sine",0.07,0.02); },
-  deny:  () => { tone(140,0.18,"sawtooth",0.04); tone(96,0.24,"sawtooth",0.04,0.08); },
-  spin:  () => { [0,1,2,3,4,5,6,7].forEach(i=>tone(520+i*26,0.05,"triangle",0.02,i*0.09)); },
-  kawoosh:()=>{ tone(70,1.6,"sine",0.09); tone(210,1.1,"sine",0.05,0.1); tone(880,0.5,"sine",0.03,0.25); tone(1400,0.4,"sine",0.02,0.45); },
-};
-
-/* ===================== GATE RENDER ===================== */
-const NS = "http://www.w3.org/2000/svg";
-function slotPos(i){ const a = (i/FLEET.length)*2*Math.PI - Math.PI/2; return { x:240+205*Math.cos(a), y:240+205*Math.sin(a) }; }
-const slotsG = $("slots");
-for(let i=0;i<FLEET.length;i++){
-  const p = slotPos(i);
-  const c = document.createElementNS(NS,"circle");
-  c.setAttribute("cx",p.x); c.setAttribute("cy",p.y); c.setAttribute("r",11);
-  c.setAttribute("id","slot"+i);
-  c.setAttribute("fill","#0d151f"); c.setAttribute("stroke","#2c3f54"); c.setAttribute("stroke-width","2");
-  slotsG.appendChild(c);
-}
-const chevG = $("chevrons");
-for(let i=0;i<9;i++){
-  const a = (i/9)*2*Math.PI - Math.PI/2;
-  const x=240+167*Math.cos(a), y=240+167*Math.sin(a);
-  const g = document.createElementNS(NS,"g");
-  g.setAttribute("transform",`translate(${x},${y}) rotate(${a*180/Math.PI+90})`);
-  const p = document.createElementNS(NS,"polygon");
-  p.setAttribute("points","0,-9 7,7 -7,7");
-  p.setAttribute("fill","#243447"); p.setAttribute("id","chev"+i);
-  g.appendChild(p); chevG.appendChild(g);
-}
-
-function lockedCount(){ return FLEET.filter(s=>state.locked[s.n]).length; }
-function render(){
-  FLEET.forEach(s=>{
-    const idx = parseInt(s.n,10)-1;
-    const slot = $("slot"+idx);
-    const on = !!state.locked[s.n];
-    slot.setAttribute("fill", on ? "#ffb02e" : "#0d151f");
-    slot.setAttribute("stroke", on ? "#ffd27a" : "#2c3f54");
-    slot.style.filter = on ? "drop-shadow(0 0 6px rgba(255,176,46,.8))" : "";
-    const chev = $("chev"+ (idx % 9));
-    if(chev){ chev.setAttribute("fill", on ? "#ffb02e" : "#243447"); }
-  });
-  const n = lockedCount();
-  $("gateCount").textContent = n + "/" + FLEET.length;
-  $("status").textContent = "CHEVRON " + n + "/" + FLEET.length + " LOCKED";
-  $("dialBtn").textContent = n>=FLEET.length ? "◉ DIAL — RING COMPLETE" : "◇ Dial the Gate";
-  document.querySelectorAll(".card").forEach(el=>{
-    const s = FLEET.find(f=>f.n===el.dataset.n);
-    if(s) el.classList.toggle("locked", !!state.locked[s.n]);
-  });
-}
-
-/* ===================== CARDS ===================== */
-/* restore shipped locks BEFORE drawing cards so badges render in the right state */
-FLEET.forEach(s=>{ if(s.shipped) state.locked[s.n] = true; });
-save();
-const cardsEl = $("cards");
-FLEET.forEach(s=>{
-  const d = document.createElement("div");
-  d.className = "card" + (s.target?" target":"");
-  d.dataset.n = s.n;
-  const badge = s.target ? "LIVE · THE PAYLOAD" : (s.shipped ? (state.locked[s.n]?"CHEVRON LOCKED":"SHIPPED · UNLOCKED") : "SLOT RESERVED");
-  d.innerHTML =
-    '<div class="num">SHIP '+s.n+'</div>'+
-    '<div class="name">'+s.name+'</div>'+
-    '<div class="meta">'+s.meta+'</div>'+
-    (s.url?'<div class="meta"><a href="'+s.url+'" target="_blank" rel="noopener" style="color:#ffb02e;text-decoration:none">'+(s.target?'play ↗':'repo ↗')+'</a></div>':'')+
-    '<div class="chev">'+(s.target?"▲":"◭")+'</div>'+
-    '<div class="badge">'+badge+'</div>';
-  d.addEventListener("click", (e)=>{
-    if(e && e.target && e.target.closest && e.target.closest("a")) return;
-    if(s.target){ if(s.url) window.open(s.url, "_blank", "noopener"); toast("SHIP 13 — TriviaGate™ is live — six ways in, one gate."); return; }
-    if(state.locked[s.n]) return;
-    state.locked[s.n] = true; save(); sfx.lock(); render();
-    const n = lockedCount();
-    toast("SHIP "+s.n+" — chevron locked · "+n+"/"+FLEET.length);
-    if(n>=FLEET.length) setTimeout(dialGate, 500);
-  });
-  cardsEl.appendChild(d);
-});
-
-/* ===================== DIAL + KAWOOSH ===================== */
-let dialing = false;
-function dialGate(){
-  if(dialing) return;
-  const n = lockedCount();
-  if(n < FLEET.length){
-    sfx.spin(); dialing = true;
-    toast("DIAL REFUSED — "+n+"/"+FLEET.length+" chevrons holding. Lock the fleet first.");
-    setTimeout(()=>dialing=false, 1200);
-    return;
-  }
-  dialing = true; sfx.spin();
-  setTimeout(()=>{
-    sfx.kawoosh();
-    $("eventh").setAttribute("opacity","0.9");
-    $("kawoosh").classList.add("show");
-    setTimeout(()=>{
-      $("kawoosh").classList.remove("show");
-      $("payoff").classList.add("show");
-    }, 2900);
-  }, 900);
-}
-$("dialBtn").addEventListener("click", dialGate);
-$("payoffClose").addEventListener("click", ()=>{ $("payoff").classList.remove("show"); dialing=false; $("eventh").setAttribute("opacity","0"); });
-
-/* ===================== MANIFEST + SOUND ===================== */
-$("manifestBtn").addEventListener("click", ()=>{
-  const t = $("manTable"); t.innerHTML = "";
-  FLEET.forEach(s=>{
-    const tr = document.createElement("tr");
-    tr.innerHTML = "<td>SHIP "+s.n+"</td><td>"+(s.url?"<a href='"+s.url+"' target='_blank' rel='noopener'>"+s.name+"</a>":"<b>"+s.name+"</b>")+"</td>";
-    t.appendChild(tr);
-  });
-  $("manifestOv").classList.add("show");
-});
-$("manClose").addEventListener("click", ()=> $("manifestOv").classList.remove("show"));
-$("soundBtn").addEventListener("click", ()=>{
-  state.sound = !state.sound; save();
-  $("soundBtn").textContent = "♪ Sound: " + (state.sound?"On":"Off");
-});
-$("soundBtn").textContent = "♪ Sound: " + (state.sound?"On":"Off");
-
-/* keyboard: D = dial, M = manifest */
-document.addEventListener("keydown", (e)=>{
-  if(e.key==="d"||e.key==="D") dialGate();
-  if(e.key==="m"||e.key==="M") $("manifestBtn").click();
-  if(e.key==="Escape"){ $("manifestOv").classList.remove("show"); $("payoff").classList.remove("show"); }
-});
-
-/* ===================== JOB CONSOLE - Job Board Killer, back on deck ===================== */
-/* plain-English calls on the work queue: GO / YOUR CALL / SKIP. Fed by jobs.json. */
-(function(){
-  const JKEY = "sgc-jobs-v1";
-  let jcalls = {};
-  try { jcalls = JSON.parse(localStorage.getItem(JKEY)) || {}; } catch(e){ jcalls = {}; }
-  const saveJ = () => localStorage.setItem(JKEY, JSON.stringify(jcalls));
-  const jBoard = $("jobBoard"), jCount = $("jobCount");
-  const escJ = (s) => String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  const CALLS = [["go","GO"],["yourcall","YOUR CALL"],["skip","SKIP"]];
-  function renderJobsBoard(jobs){
-    if(!jBoard) return;
-    const c = {open:0, applied:0, fixed:0};
-    jobs.forEach(j => { const s = String(j.status||"open").toLowerCase(); if(s in c) c[s]++; });
-    if(jCount) jCount.textContent = "QUEUE " + jobs.length + " - OPEN " + c.open + " - APPLIED " + c.applied + " - FIXED " + c.fixed;
-    jBoard.innerHTML = "";
-    jobs.forEach(j => {
-      const st = String(j.status||"open").toLowerCase();
-      const row = document.createElement("div");
-      row.className = "jrow" + (st === "fixed" ? " jdone" : "");
-      row.innerHTML =
-        '<span class="jid">' + escJ(j.id) + '</span>' +
-        '<span class="jtitle">' + escJ(j.title) + '</span>' +
-        '<span class="jst jst-' + escJ(st) + '">' + escJ(st.toUpperCase()) + '</span>';
-      const calls = document.createElement("span");
-      calls.className = "jcalls";
-      CALLS.forEach(function(pair){
-        const val = pair[0], label = pair[1];
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "jcall" + (jcalls[j.id] === val ? (" on-" + val) : "");
-        b.textContent = label;
-        b.addEventListener("click", function(){
-          if(jcalls[j.id] === val) delete jcalls[j.id]; else jcalls[j.id] = val;
-          saveJ();
-          calls.querySelectorAll(".jcall").forEach(function(x){ x.className = "jcall"; });
-          if(jcalls[j.id]) b.classList.add("on-" + val);
-        });
-        calls.appendChild(b);
-      });
-      row.appendChild(calls);
-      jBoard.appendChild(row);
-    });
-  }
-  function pollJobsBoard(){
-    try {
-      fetch("jobs.json?_=" + Date.now(), { cache: "no-store" })
-        .then(function(r){ return r.ok ? r.json() : null; })
-        .then(function(d){ if(d && d.jobs) renderJobsBoard(d.jobs); })
-        .catch(function(){});
-    } catch(e){}
-  }
-  pollJobsBoard(); setInterval(pollJobsBoard, 60000);
-})();
-
-render();
-</script>
+</div>
+<script src="assets/gate-module.js" defer></script>
 </body>
 </html>
