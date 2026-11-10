@@ -1,0 +1,6 @@
+{
+  "_contract": "CARO COMMAND — the owner's orders of record. This file is written by the SYNC TO REPO button on the console (Evelyn presses it) and committed to the repo by her. The scout agent reads it before building anything: a comment overrides a switch (OWNER OVERRIDE ORDER). Empty until her first SYNC.",
+  "exported": null,
+  "updated": null,
+  "jobs": {}
+}

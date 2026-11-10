@@ -1,0 +1,116 @@
+{
+  "_contract": "Machine-readable requirements canon for the Ship 12 crawler — distilled from estate/00-CRAWLER-RULES.md (owner rulings, Oct 29 – Nov 9, 2026). scout-sweep.py runs every candidate through the 60-second gate using THIS file. The owner's live word always overrides this file; when she rules, update this file — never the crawler code.",
+  "operator": {
+    "name": "Evelyn Caro",
+    "language": "en",
+    "timezone": "America/New_York"
+  },
+  "pay": {
+    "minYear": 62400,
+    "minHour": 30,
+    "hoursBasis": 2080,
+    "plain": "$62,400 ($30/hour) — your personal minimum",
+    "noBandRule": "NO posted band = cap the money score until the band is verified on a live free channel; aggregator 'predicted/est.' salaries are NOT posted bands"
+  },
+  "lanes": [
+    { "rank": 1, "id": "perdiem-travel", "plain": "PER-DIEM 100%-TRAVEL tech roles — data center technician, field technician, hardware rollout/deployment — company-paid wheels + lodging + per diem. These outrank everything." },
+    { "rank": 2, "id": "remote-cloud-qa", "plain": "100% remote entry-level cloud/QA/implementation roles at or above the $62,400 floor." },
+    { "rank": 3, "id": "nova-datacenter", "plain": "NoVA data center entry tech roles (Ashburn/Manassas/Chantilly) that carry 100%-travel slots." },
+    { "rank": 4, "id": "transfer-roster", "plain": "Entry reqs at transfer-roster operators." }
+  ],
+  "transferRoster": ["HCLTech", "Equinix", "Digital Realty", "Microsoft", "Google", "Switch", "CyrusOne", "DataBank", "Oracle", "Oracle Health"],
+  "watchlist": {
+    "law": "employers whose postings repeatedly carry employer-funded travel/lodging/per-diem language — every sweep checks their boards FIRST (lane #0). WATCHLIST ≠ GATE SKIP: every sighting still runs the full gate. Add a company when the SAME employer shows the funding language on 2+ distinct postings — record the evidence lines verbatim.",
+    "companies": [
+      { "company": "Salute Mission Critical", "board": "salute-mission-inc.breezy.hr", "evidence": "the proven gold-mine funding language", "note": "SQ-10 / tracker row 12 revive condition stands — a LIVE req on a free channel rebuilds in minutes from the row 12 build record" },
+      { "company": "TEKsystems", "board": "careers.teksystems.com", "evidence": "carries 'Per Diem & Lodging Provided' on travel roles", "note": "the craft/physical law still kills outdoor variants — watch for indoor DCT/deployment variants" },
+      { "company": "Fusion", "board": null, "evidence": "'We pay lodging and travel, per diem included'", "note": "visible posts OCONUS/craft so far; watch for a stateside indoor variant" },
+      { "company": "Asiacom", "board": null, "evidence": "same funding language (Sterling VA)", "note": "watch for indoor variants" },
+      { "company": "datacenterjobusa.com", "board": "datacenterjobusa.com/travel-jobs.html", "evidence": "the travel-lane aggregator hub", "note": "read-only; churns but is the fastest travel-shape tripwire" }
+    ]
+  },
+  "dice": {
+    "law": "PRIMARY WATCH BOARD (owner, Nov 5, 2026: 'their process pleases me and i am not easily pleased ever') — standing rails run FIRST among job boards, immediately after watchlist lane #0. Dice detail pages serve full JDs logged-out, so the requirements-capture law is fully satisfiable there.",
+    "rails": ["junior-cloud", "entry-level QA", "remote QA", "qa-analyst-tester", "software-tester"],
+    "cautions": [
+      "Dice carries an AI-generated-description caveat on some postings — treat captured JD text as indicative and band-confirm at first contact",
+      "stale mirrors (the JobLeads pattern: different band + 'taken offline') do not override the LIVE Dice posting — the live Dice band is the record"
+    ]
+  },
+  "gate": {
+    "name": "the 60-second gate",
+    "order": ["title", "pay", "requirements", "car", "patient", "employer", "schedule", "deadline"],
+    "titleBans": ["Senior", "Lead", "II", "III", "Principal", "Staff", "Manager"],
+    "neverClaim": ["FHIR", "ServiceNow", "Terraform", "Kubernetes", "Azure", "Java", "JavaScript", "C#", "Selenium", "Cypress", "Jenkins"],
+    "neverClaimNote": "NEVER claim hands-on experience with these — a JD requiring any of them as hands-on kills the row (quote the verbatim line)",
+    "usedWithReceipts": {
+      "tools": ["Jira", "Confluence", "Trello"],
+      "receipt": "Managed 20+ concurrent government contract bids using Jira and Confluence for tracking, documentation, and compliance",
+      "context": "Evelyn Books Travel, Jan 2024–Present, DLA RP001 / MIL-STD-130N(1) environment",
+      "law": "the Atlassian suite (Jira · Confluence · Trello) is claimable as a set wherever a JD names any of them — removed from the never-claim list per owner ruling Nov 5, 2026"
+    },
+    "combinedCounting": "combined counting bridges only 1–2 yrs in her documented domain: Python / cloud / QA",
+    "car": "remote OR 100%-travel company-paid OR VRE/Metro corridor WITH employer-paid transit (federal transit benefit — she has Metro cards; without employer-paid transit she pays = NO)",
+    "patient": "no end-user / help-desk support",
+    "employerKill": ["Amazon", "AWS", "AI-annotation platforms"],
+    "employerKillNote": "AWS WBL Frederick is TOMBSTONED — Amazon/AWS-as-employer rows die sight-unseen, no DISCUSS routing, never re-served",
+    "schedule": "RETIRED (owner, Nov 1, 2026: 'Available immediately') — do NOT reject a row on its start date; capture any start-date line in the row instead",
+    "physicalWork": {
+      "law": "the WORK must be indoor desk/machine work — racks, servers, code, documents = machines, PASS; outdoor field service, trades, energy-site/wind/solar/construction service work = kill regardless of pay or travel funding",
+      "killKeywords": ["fiber splic", "cabling", "tower", "OSP", "wind", "solar", "construction", "outdoor field", "lineworker", "lineman"]
+    }
+  },
+  "fundingBranches": {
+    "allIn": "the posting names airfare AND lodging AND per diem, or clear equivalents = the gold-mine branch, highest priority",
+    "partial": "some components funded (e.g. 'Per Diem & Lodging Provided' with transport unmentioned) = surface with the gap named",
+    "selfFunded": "'must be willing to relocate/travel', unreimbursed mileage, permissive-TDY advance-cost shapes = KILL (car-gate law unchanged)",
+    "silent": "posting says nothing about travel funding: never assume funding — the written first-contact question is 'who pays travel costs (transport, lodging, per diem) for site deployments — and is that during-assignment or continuous?'",
+    "allTimeVsSometimes": "unless the posting says otherwise, employer-funded lodging/per diem is ASSIGNMENT-TIED — paid during deployed rotations/site weeks, home between — record the rotation shape exactly as written (the Salute capture is the shape proof)"
+  },
+  "exceptionClause": {
+    "law": "a tripped hard gate is not a silent auto-KILL when the package is exceptional — exceptional = the money test is credible (posted band materially above floor, OR a paid training-to-certification pipeline with a credible path to it) AND the freedom-tax principle holds (the more freedom the role costs — on-site, commute, shifts, office politics — the more the rest of the package must pay)",
+    "route": "surface to the owner as DISCUSS (verdict CALL in the console) with the trade named: freedom given up vs money/certification/door gained — never queued as PASS, never submitted, owner decides",
+    "doesNotRescue": "Amazon/AWS employer-gate rows — no exception, ever"
+  },
+  "requirementsCaptureLaw": "a row may enter the queue as PASS only if the posting's requirements/qualifications block was actually captured and scanned against the never-claim list. Block unreadable (bot-wall, JS-only, paywall) = BENCH one-liner, never a PASS row. Any never-claim item required hands-on = auto-fail quoting the verbatim line.",
+  "channels": {
+    "law": "paid boards (JobLeads and any board that demands payment) are read-only mirrors for JD text ONLY — never an apply channel; before queueing any row, verify the req is LIVE on a free channel (employer ATS, Indeed Easy Apply, corporate career page, free mirrors)",
+    "lesson": "a closed req on a paid funnel is how Salute row 12 died"
+  },
+  "scoring": {
+    "money": 30, "lane": 30, "door": 20, "leverage": 20,
+    "bands": {
+      "money": { "1.0x floor": 18, "1.15x": 24, "1.3x+": 30, "no posted band cap": 12 },
+      "lane": { "core daily work = cloud-ops/AWS or QA-automation/Python": 30, "adjacent tech work": 18, "other lane": 6 },
+      "door": { "explicit '0–2 years' or 'not required'": 20, "no year count": 12, "2+ yrs": 4 },
+      "leverage": { "Public Trust/clearance": 8, "federal program": 4, "SDET/cloud-ops skill rung": 5, "recognized brand": 3 },
+      "verdicts": {
+        "BOTH": "score >= 70 with MONEY >= 24 and LANE >= 24 = surface first, recommend PROMOTE",
+        "MONEY/LADDER": "50–69 = surface with the trade named; LADDER rows only at/above the full floor — the floor is NEVER traded down for experience",
+        "NEITHER": "< 50 = auto-KILL one-liner (rubric, not gates — SQ-14 precedent: mechanical)"
+      }
+    },
+    "aiTieBreak": "AI-adjacent queue rows (AI QA, LLM evaluation/red-team, AI operations, ML-adjacent data work) gain tie-break priority at equal rubric scores (career-ladder ruling, Nov 5)"
+  },
+  "contact": {
+    "law": "email only — she keeps her phone off by design; voicemail is not set up; never suggest calls, phone follow-ups, or waiting by the phone; optional phone fields stay blank",
+    "phoneWorkaround": "703-703-7037",
+    "phoneNote": "NOT her real number — the phone is off; mandatory phone fields get this, OR the owner decides if the job is worth walking away from over a phone field"
+  },
+  "absoluteRules": [
+    "NEVER submit any application",
+    "NEVER contact any employer or recruiter",
+    "NEVER open application forms",
+    "NEVER enter, store, or ask for any username, password, or credential of any kind",
+    "read public postings only — never log in to any site, never interact with any account, profile, or messaging system",
+    "present findings only"
+  ],
+  "tombstones": {
+    "law": "rows the owner DROPPED or KILLED stay tombstoned — a tombstoned posting is NEVER re-served to the owner in any form; check employer+title against this list before surfacing anything; tombstones are permanent",
+    "format": "add entries as {\"company\": \"...\", \"title\": \"...\", \"reason\": \"...\", \"date\": \"...\"}",
+    "list": []
+  },
+  "presentation": {
+    "law": "PLAIN-ENGLISH PRESENTATION — every owner-facing presentation of jobs leads with a VERDICT and the reason, in plain English, before any detail: GO (ready; owner says the word) / YOUR CALL (the trade named in one plain sentence) / SKIP (the one-line reason FIRST). Forbidden in owner-facing copy: rubric scores, category names (BOTH/LADDER/MONEY/NEITHER), gate/law jargon, checkmark cascades that bury a kill reason. Every pay line is stated against the $62,400 minimum in plain words. Full scoring/law detail lives in the tracker rows — the owner-facing layer stays plain."
+  }
+}

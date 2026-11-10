@@ -239,17 +239,18 @@
     var jobs = (d && d.jobs) || [], html = '';
     html += '<div class="gg-jobs-h">JOB BOARD \u00b7 AUTO-FEED \u00b7 SYNC ' + new Date().toLocaleTimeString() + '</div>';
     jobs.slice(0, 12).forEach(function (j) {
-      var st = String((j.status || 'open')).toLowerCase();
-      html += '<div class="gg-job"><span class="gg-job-id">' + esc(j.id || '') + '</span>' +
+      var st = String((j.verdict || j.status || 'open')).toLowerCase();
+      if (st === 'dead') st = 'skip';
+      html += '<div class="gg-job"><span class="gg-job-id">' + esc(j.sq || j.id || '') + '</span>' +
         '<span class="gg-job-t">' + esc(j.title || '') + '</span>' +
         '<span class="gg-st gg-st-' + esc(st) + '">' + esc(st.toUpperCase()) + '</span></div>';
     });
-    if (!jobs.length) html += '<div class="gg-job"><span class="gg-job-t">jobs.json empty</span></div>';
+    if (!jobs.length) html += '<div class="gg-job"><span class="gg-job-t">board empty</span></div>';
     box.innerHTML = html;
   }
   function pollJobs() {
     try {
-      fetch('jobs.json?_=' + Date.now(), { cache: 'no-store' })
+      fetch('data/console-data.json?_=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) { if (d) renderJobs(d); })
         .catch(function () {});

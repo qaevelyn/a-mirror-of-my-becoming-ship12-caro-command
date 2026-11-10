@@ -1,83 +1,83 @@
 {
- "updated": "Nov 9, 4:00 AM ET",
+ "updated": "Nov 9, 9:03 PM ET",
  "ships": [
   {
-   "n": 1,
-   "name": "DeepSeek RAG — the origin ship",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek",
-   "status": "flown"
-  },
-  {
-   "n": 2,
-   "name": "IBM Granite Agentic RAG",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic",
-   "status": "flown"
-  },
-  {
-   "n": 3,
-   "name": "IBM Granite RAG",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite",
-   "status": "flown"
-  },
-  {
-   "n": 4,
-   "name": "IBM Granite Agentic RAG — the agentic flagship",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic",
-   "status": "flown"
-  },
-  {
-   "n": 5,
-   "name": "EvidenceFlow — fail-closed verification",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow",
-   "status": "flown"
-  },
-  {
-   "n": 6,
-   "name": "Ingestion Tools — Scribe · Warden · Hand",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools",
-   "status": "flown"
-  },
-  {
-   "n": 7,
-   "name": "msgvault Adapter",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter",
-   "status": "flown"
-  },
-  {
-   "n": 8,
-   "name": "DV14™: The Box — AI containment blueprint",
-   "url": "",
-   "status": "flown"
-  },
-  {
-   "n": 9,
-   "name": "Radiology Companion™",
-   "url": "",
-   "status": "flown"
-  },
-  {
-   "n": 10,
-   "name": "Overseer™ — tier-authority orchestrator",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer",
-   "status": "flown"
-  },
-  {
-   "n": 11,
-   "name": "AWS CCP Study Manual — Sleep Is Studying Too™",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual",
-   "status": "flown"
+   "n": 13,
+   "name": "TriviaGate™ — the ONE Ship 13 study engine · single file",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate",
+   "status": "LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate"
   },
   {
    "n": 12,
    "name": "CARO COMMAND — SCOUT OPS (this console)",
    "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command",
-   "status": "live"
+   "status": "LIVE"
   },
   {
-   "n": 13,
-   "name": "TriviaGate™ — the ONE Ship 13 study engine · single file",
-   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate",
-   "status": "live"
+   "n": 11,
+   "name": "AWS CCP Study Manual — Sleep Is Studying Too™",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual",
+   "status": "flown Oct 17, 2026"
+  },
+  {
+   "n": 10,
+   "name": "Overseer™ — tier-authority orchestrator",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer",
+   "status": "flown Oct 11, 2026"
+  },
+  {
+   "n": 9,
+   "name": "Radiology Companion™",
+   "url": "",
+   "status": "flown Oct 22, 2026"
+  },
+  {
+   "n": 8,
+   "name": "DV14™: The Box — AI containment blueprint",
+   "url": "",
+   "status": "flown 2026"
+  },
+  {
+   "n": 7,
+   "name": "msgvault Adapter",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter",
+   "status": "flown 2026"
+  },
+  {
+   "n": 6,
+   "name": "Ingestion Tools — Scribe · Warden · Hand",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools",
+   "status": "flown Sep 2026"
+  },
+  {
+   "n": 5,
+   "name": "EvidenceFlow — fail-closed verification",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow",
+   "status": "flown Aug 2026"
+  },
+  {
+   "n": 4,
+   "name": "IBM Granite Agentic RAG — the agentic flagship",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic",
+   "status": "flown 2026"
+  },
+  {
+   "n": 3,
+   "name": "IBM Granite RAG",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite",
+   "status": "flown 2026"
+  },
+  {
+   "n": 2,
+   "name": "IBM Granite Agentic RAG",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic",
+   "status": "flown 2026"
+  },
+  {
+   "n": 1,
+   "name": "DeepSeek RAG — the origin ship",
+   "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek",
+   "status": "flown 2026"
   }
  ]
 }
