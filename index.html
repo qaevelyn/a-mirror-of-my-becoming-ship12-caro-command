@@ -7,461 +7,582 @@
 <link rel="stylesheet" href="assets/gate-module.css">
 <style>
 :root {
-  --bg:#0e0904; --bg2:#1a0f06; --panel:#1e1308; --line:#3d2a14;
-  --gold:#f0d878; --gold-dim:#c9a040; --amber:#ffb02e; --text:#e8d4a8;
-  --dim:#8b6f3d; --ok:#7dffb0; --blue:#9fc8ff; --red:#ff9d7a;
+  --sgc-bg: #1a0f08;
+  --sgc-bg2: #170d06;
+  --sgc-bg3: #120a05;
+  --sgc-panel: #1e1308;
+  --sgc-line: #3d2a14;
+  --sgc-gold: #f0d878;
+  --sgc-gold-bright: #f0d878;
+  --sgc-gold-dim: #c9a040;
+  --sgc-amber: #ffb02e;
+  --sgc-text: #e8d4a8;
+  --sgc-parchment: #e8d4a8;
+  --sgc-dim: #8b6f3d;
+  --sgc-ok: #a9c47f;
+  --sgc-go: #a9c47f;
+  --sgc-blue: #9fc8ff;
+  --sgc-red: #ff9d7a;
+  --font-geist-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{min-height:100%}
-body{
-  background:radial-gradient(1200px 600px at 50% -10%, #1a0f06 0%, var(--bg) 60%);
-  color:var(--text); font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  display:flex; flex-direction:column; align-items:center; padding:20px 16px 80px;
-  overflow-x:hidden;
-}
-.console-wrap{width:min(1180px,100%); display:flex; flex-direction:column; gap:16px}
+* { margin:0; padding:0; box-sizing:border-box }
+html, body { min-height:100% }
 
-/* header */
-.console-header{
-  text-align:center; padding:16px 0 8px; border-bottom:1px solid var(--line);
+/* ================= STARFIELD + SCANLINES ================= */
+.lcars-page {
+  color: var(--sgc-parchment);
+  font-family: var(--font-geist-sans);
+  background-color: transparent;
+  background-image:
+    radial-gradient(1100px 700px at 72% -8%, rgba(74,46,28,0.55) 0%, transparent 60%),
+    radial-gradient(900px 600px at 8% 110%, rgba(58,34,20,0.50) 0%, transparent 55%),
+    linear-gradient(#1a0f08 0%, #170d06 48%, #120a05 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
-.console-header h1{
-  font-size:clamp(20px,4vw,32px); letter-spacing:.16em; color:var(--gold);
-  font-weight:800; text-transform:uppercase;
+.starfield:before {
+  content: "";
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(240,216,120,0.50) 50%, transparent 51%),
+    radial-gradient(1px 1px at 34% 64%, rgba(232,213,184,0.35) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 58% 12%, rgba(232,213,184,0.42) 50%, transparent 51%),
+    radial-gradient(1px 1px at 71% 38%, rgba(250,249,246,0.38) 50%, transparent 51%),
+    radial-gradient(2px 2px at 84% 72%, rgba(212,182,112,0.40) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 82%, rgba(250,249,246,0.30) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 46% 47%, rgba(240,216,120,0.33) 50%, transparent 51%),
+    radial-gradient(1px 1px at 91% 18%, rgba(232,213,184,0.40) 50%, transparent 51%),
+    radial-gradient(1px 1px at 8% 55%, rgba(250,249,246,0.28) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 65% 88%, rgba(212,182,112,0.36) 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 8%, rgba(250,249,246,0.30) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 53% 78%, rgba(240,216,120,0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 77% 5%, rgba(232,213,184,0.25) 50%, transparent 51%),
+    radial-gradient(1px 1px at 15% 40%, rgba(250,249,246,0.20) 50%, transparent 51%);
+  animation: 7s ease-in-out infinite alternate twinkle;
+  position: fixed;
+  inset: 0;
 }
-.console-header .sub{
-  font-size:12px; letter-spacing:.24em; color:var(--dim); text-transform:uppercase; margin-top:6px;
+@keyframes twinkle {
+  0% { opacity: 0.6 }
+  100% { opacity: 1 }
 }
-.console-header .updated{
-  font-size:11px; color:var(--gold-dim); margin-top:4px; font-family:ui-monospace,Menlo,Consolas,monospace;
+.scanlines:after {
+  content: "";
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(transparent 0 3px, rgba(250,249,246,0.012) 3px 4px);
+  position: fixed;
+  inset: 0;
 }
 
-/* mission dial (event horizon) */
-.mission-dial{
-  display:flex; flex-direction:column; align-items:center; gap:12px;
-  padding:24px 16px; background:var(--panel); border:1px solid var(--line); border-radius:14px;
-  position:relative; overflow:hidden;
+/* ================= LAYOUT ================= */
+.page-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 18px 18px 80px;
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
 }
-.mission-dial::before{
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(400px 200px at 50% 50%, rgba(240,200,80,.06), transparent 70%);
-  pointer-events:none;
+
+/* ================= MONITOR (UP) ================= */
+#monitor {
+  display: flex;
+  justify-content: center;
 }
-.dial-label{
-  font:700 12px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.22em;
-  color:var(--gold-dim); text-transform:uppercase;
+.monitor-frame {
+  width: 100%;
+  background: linear-gradient(rgba(26,15,8,0.92), rgba(23,13,6,0.96));
+  border: 2px solid rgba(212,182,112,0.55);
+  border-radius: 18px;
+  box-shadow: inset 0 1px rgba(240,216,120,0.18), inset 0 -3px rgba(212,182,112,0.22), 0 6px 24px rgba(0,0,0,0.45);
+  overflow: hidden;
+  position: relative;
 }
-.stargate-svg{width:min(320px,80vw); height:auto; filter:drop-shadow(0 0 30px rgba(240,200,80,.15))}
-.dial-status{
-  font:800 14px/1.4 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
-  color:var(--gold); text-align:center;
+.monitor-frame:after {
+  content: "";
+  background: linear-gradient(90deg, #e8d5b8 0%, #d4b670 35%, #a88a45 70%, rgba(168,138,69,0.25) 100%);
+  border-radius: 999px;
+  height: 6px;
+  margin: 0 10px 8px;
+  display: block;
 }
-.dial-status .lit{color:var(--ok); font-weight:800}
-.dial-hint{
-  font:11px/1.5 ui-monospace,Menlo,Consolas,monospace; color:var(--dim);
-  text-align:center; max-width:480px; letter-spacing:.04em;
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(rgba(16,10,6,0.8), rgba(11,7,4,0.8));
+  border-bottom: 1px solid var(--sgc-line);
+  font: 12px/1 var(--font-geist-mono);
+  letter-spacing: 2.5px;
+  color: var(--sgc-dim);
+  text-transform: uppercase;
+}
+.monitor-header b { color: var(--sgc-gold); letter-spacing: 2.5px; font-weight: 600 }
+.monitor-header .updated { color: var(--sgc-gold-dim); font-size: 10px }
+
+/* the gate-room window */
+.window {
+  position: relative;
+  height: min(60vh, 580px);
+  min-height: 360px;
+  background:
+    radial-gradient(900px 380px at 50% 108%, rgba(240,200,80,0.08), transparent 60%),
+    radial-gradient(700px 300px at 50% 0%, rgba(26,15,8,0.6) 0%, rgba(7,4,2,0.8) 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.gateroom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#gate-canvas {
+  width: min(46vh, 430px);
+  height: min(46vh, 430px);
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(240,200,80,0.15));
+}
+/* glass reflection overlay */
+.glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px),
+    linear-gradient(115deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.008) 22%, transparent 40%),
+    radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0,0,0,0.45) 100%);
+}
+.window-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  font: 11px/1 var(--font-geist-mono);
+  letter-spacing: 2px;
+  color: var(--sgc-dim);
+  text-transform: uppercase;
+}
+.dial-hint {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  font: 11px/1.4 var(--font-geist-mono);
+  letter-spacing: 1px;
+  color: rgba(93,116,136,0.8);
+  text-align: right;
+  max-width: 280px;
+}
+
+/* ================= CONSOLE (DOWN, KEYBOARD POSITION) ================= */
+#console {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.board {
+  width: 100%;
+  transform: perspective(1600px) rotateX(2.2deg);
+  transform-origin: top center;
+  background: linear-gradient(rgba(13,20,29,0.6), rgba(10,15,22,0.6));
+  border: 1px solid rgba(212,182,112,0.35);
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 22px 50px rgba(0,0,0,0.4), inset 0 1px rgba(240,216,120,0.08);
+}
+.board-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--sgc-line);
+}
+.board-title {
+  font: 700 13px/1 var(--font-geist-mono);
+  letter-spacing: 2.5px;
+  color: var(--sgc-gold-dim);
+  text-transform: uppercase;
 }
 
 /* stat strip */
-.stat-strip{
-  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
-}
-.stat{padding:10px 18px; background:var(--panel); border:1px solid var(--line); border-radius:10px; text-align:center}
-.stat .num{font:800 22px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold)}
-.stat .lbl{font:9px/1.4 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.18em; color:var(--dim); text-transform:uppercase; margin-top:4px}
+.stats { display: flex; gap: 8px; flex-wrap: wrap }
+.stat { padding: 8px 14px; background: rgba(30,19,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px; text-align: center }
+.stat .num { font: 800 18px/1 var(--font-geist-mono); color: var(--sgc-gold) }
+.stat .lbl { font: 9px/1.4 var(--font-geist-mono); letter-spacing: 1.5px; color: var(--sgc-dim); text-transform: uppercase; margin-top: 3px }
 
 /* sections */
-.section{
-  background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px;
-}
-.section h2{
-  font:700 13px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.22em;
-  color:var(--gold-dim); text-transform:uppercase; margin-bottom:14px;
-  padding-bottom:10px; border-bottom:1px solid var(--line);
-}
+.section { background: rgba(30,19,8,0.7); border: 1px solid var(--sgc-line); border-radius: 12px; padding: 14px; margin-bottom: 12px }
+.section h2 { font: 700 12px/1 var(--font-geist-mono); letter-spacing: 2px; color: var(--sgc-gold-dim); text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--sgc-line) }
 
 /* fleet ledger */
-.fleet-grid{display:grid; gap:8px; grid-template-columns:1fr}
-@media(min-width:640px){.fleet-grid{grid-template-columns:1fr 1fr}}
-.ship-card{
-  display:flex; align-items:center; gap:12px; padding:12px 14px;
-  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
-  transition:border-color .2s;
-}
-.ship-card--live{border-color:var(--gold-dim); box-shadow:0 0 12px rgba(240,200,80,.12)}
-.ship-card:hover{border-color:var(--gold-dim)}
-.ship-num{
-  font:800 16px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold);
-  flex:0 0 auto; min-width:36px;
-}
-.ship-body{flex:1 1 auto; display:flex; flex-direction:column; gap:3px}
-.ship-name{font:700 14px/1.3 "Segoe UI",Roboto,sans-serif; color:var(--text)}
-.ship-status{font:10px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.12em; color:var(--dim)}
-.ship-note{font:10px/1.4 ui-monospace,Menlo,Consolas,monospace; color:var(--gold-dim)}
-.ship-link{
-  font:700 10px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
-  color:var(--gold); text-decoration:none; flex:0 0 auto;
-  padding:6px 10px; border:1px solid var(--gold-dim); border-radius:999px;
-}
-.ship-link:hover{box-shadow:0 0 10px rgba(240,200,80,.4)}
-.ship-link--none{color:var(--dim); border-color:var(--line); cursor:default}
+.fleet-grid { display: grid; gap: 6px; grid-template-columns: 1fr }
+@media(min-width:640px) { .fleet-grid { grid-template-columns: 1fr 1fr } }
+.ship-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(26,15,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px; transition: border-color .2s }
+.ship-card--live { border-color: var(--sgc-gold-dim); box-shadow: 0 0 10px rgba(240,200,80,0.1) }
+.ship-card:hover { border-color: var(--sgc-gold-dim) }
+.ship-num { font: 800 14px/1 var(--font-geist-mono); color: var(--sgc-gold); flex:0 0 auto; min-width:32px }
+.ship-body { flex:1 1 auto; display:flex; flex-direction:column; gap:2px }
+.ship-name { font: 600 13px/1.3 var(--font-geist-sans); color: var(--sgc-text) }
+.ship-status { font: 10px/1 var(--font-geist-mono); letter-spacing: .1em; color: var(--sgc-dim) }
+.ship-note { font: 10px/1.4 var(--font-geist-mono); color: var(--sgc-gold-dim) }
+.ship-link { font: 700 9px/1 var(--font-geist-mono); letter-spacing: .12em; color: var(--sgc-gold); text-decoration:none; flex:0 0 auto; padding:5px 8px; border:1px solid var(--sgc-gold-dim); border-radius:999px }
+.ship-link:hover { box-shadow: 0 0 8px rgba(240,200,80,0.4) }
+.ship-link--none { color: var(--sgc-dim); border-color: var(--sgc-line); cursor:default }
 
 /* job board */
-.job-row{
-  display:flex; align-items:flex-start; gap:12px; padding:12px 14px; margin-bottom:6px;
-  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
-  border-left:3px solid var(--dim);
-}
-.job-row--applied{border-left-color:var(--blue)}
-.job-row--go{border-left-color:var(--ok)}
-.job-row--call{border-left-color:var(--amber)}
-.job-row--skip{border-left-color:var(--red); opacity:.6}
-.job-sq{
-  font:800 13px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--gold);
-  flex:0 0 auto; min-width:64px;
-}
-.job-body{flex:1 1 auto; display:flex; flex-direction:column; gap:3px}
-.job-title{font:600 13px/1.4 "Segoe UI",Roboto,sans-serif; color:var(--text)}
-.job-badge{font:10px/1.4 ui-monospace,Menlo,Consolas,monospace; color:var(--gold-dim); letter-spacing:.04em}
-.job-pay{font:10px/1 ui-monospace,Menlo,Consolas,monospace; color:var(--ok)}
-.job-st{
-  font:800 9px/1 ui-monospace,Menlo,Consolas,monospace; letter-spacing:.14em;
-  flex:0 0 auto; padding:5px 9px; border-radius:999px;
-}
-.job-st--applied{background:rgba(90,160,255,.15); color:var(--blue); border:1px solid rgba(90,160,255,.4)}
-.job-st--go{background:rgba(60,220,140,.15); color:var(--ok); border:1px solid rgba(80,230,150,.4)}
-.job-st--call{background:rgba(255,190,80,.12); color:var(--amber); border:1px solid rgba(255,190,80,.4)}
-.job-st--skip{background:rgba(255,100,100,.12); color:var(--red); border:1px solid rgba(255,100,100,.4)}
+.job-row { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; margin-bottom:5px; background: rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:8px; border-left:3px solid var(--sgc-dim) }
+.job-row--applied { border-left-color: var(--sgc-blue) }
+.job-row--go { border-left-color: var(--sgc-ok) }
+.job-row--call { border-left-color: var(--sgc-amber) }
+.job-row--skip { border-left-color: var(--sgc-red); opacity:.6 }
+.job-sq { font:800 12px/1 var(--font-geist-mono); color: var(--sgc-gold); flex:0 0 auto; min-width:56px }
+.job-body { flex:1 1 auto; display:flex; flex-direction:column; gap:2px }
+.job-title { font:600 12px/1.3 var(--font-geist-sans); color: var(--sgc-text) }
+.job-badge { font:10px/1.4 var(--font-geist-mono); color: var(--sgc-gold-dim) }
+.job-pay { font:10px/1 var(--font-geist-mono); color: var(--sgc-ok) }
+.job-st { font:800 8px/1 var(--font-geist-mono); letter-spacing:.12em; flex:0 0 auto; padding:4px 7px; border-radius:999px }
+.job-st--applied { background:rgba(90,160,255,.15); color:var(--sgc-blue); border:1px solid rgba(90,160,255,.4) }
+.job-st--go { background:rgba(120,180,90,.15); color:var(--sgc-ok); border:1px solid rgba(120,180,90,.4) }
+.job-st--call { background:rgba(255,190,80,.12); color:var(--sgc-amber); border:1px solid rgba(255,190,80,.4) }
+.job-st--skip { background:rgba(255,100,100,.12); color:var(--sgc-red); border:1px solid rgba(255,100,100,.4) }
 
 /* feed */
-.feed-box{max-height:200px; overflow:auto; display:flex; flex-direction:column; gap:6px}
-.feed-line{
-  font:11.5px/1.5 ui-monospace,Menlo,Consolas,monospace; color:var(--text);
-  padding:8px 10px; background:var(--bg2); border:1px solid var(--line); border-radius:8px;
-}
-.feed-t{color:var(--gold-dim); font-weight:700}
+.feed-box { max-height:180px; overflow:auto; display:flex; flex-direction:column; gap:5px }
+.feed-line { font:11px/1.5 var(--font-geist-mono); color: var(--sgc-text); padding:7px 10px; background: rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:6px }
+.feed-t { color: var(--sgc-gold-dim); font-weight:700 }
 
-/* standing rules */
-.rules{display:flex; flex-direction:column; gap:6px}
-.rule{
-  font:12px/1.5 "Segoe UI",Roboto,sans-serif; color:var(--text);
-  padding:8px 12px; background:var(--bg2); border:1px solid var(--line); border-radius:8px;
-  border-left:3px solid var(--gold-dim);
-}
-.rule strong{color:var(--gold)}
+/* rules */
+.rules { display:flex; flex-direction:column; gap:5px }
+.rule { font:12px/1.5 var(--font-geist-sans); color:var(--sgc-text); padding:7px 11px; background:rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:6px; border-left:3px solid var(--sgc-gold-dim) }
+.rule strong { color: var(--sgc-gold) }
 
-footer{
-  text-align:center; padding:16px 0 0; font:10px/1.4 ui-monospace,Menlo,Consolas,monospace;
-  color:var(--dim); letter-spacing:.12em;
-}
-footer a{color:var(--gold-dim); text-decoration:none}
-footer a:hover{color:var(--gold)}
-
-/* stargate SVG animations */
-@keyframes gate-ring-spin {from{transform:rotate(0)} to{transform:rotate(360deg)}}
-.gate-ring-spin{animation:gate-ring-spin 60s linear infinite; transform-origin:100px 100px}
-.gate-ring-spin--fast{animation-duration:8s}
-@keyframes chevron-pulse {0%,100%{filter:drop-shadow(0 0 2px rgba(240,200,80,.3))} 50%{filter:drop-shadow(0 0 8px rgba(240,200,80,.7))}}
-.chevron--lit{animation:chevron-pulse 3s ease-in-out infinite}
-.event-horizon{animation:eh-pulse 4s ease-in-out infinite}
-@keyframes eh-pulse{0%,100%{opacity:.1} 50%{opacity:.3}}
+footer { text-align:center; padding:16px 0 0; font:10px/1.4 var(--font-geist-mono); color:var(--sgc-dim); letter-spacing:.1em }
+footer a { color:var(--sgc-gold-dim); text-decoration:none }
+footer a:hover { color:var(--sgc-gold) }
 </style>
 <script>window.FLEET_CANON={src:"manifest.json",ships:[{"n": 1, "name": "DeepSeek RAG — the origin ship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek", "status": "flown"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic", "status": "flown"}, {"n": 3, "name": "IBM Granite RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite", "status": "flown"}, {"n": 4, "name": "IBM Granite Agentic RAG — the agentic flagship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic", "status": "flown"}, {"n": 5, "name": "EvidenceFlow — fail-closed verification", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow", "status": "flown"}, {"n": 6, "name": "Ingestion Tools — Scribe · Warden · Hand", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools", "status": "flown"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter", "status": "flown"}, {"n": 8, "name": "DV14™: The Box — AI containment blueprint", "url": "", "status": "flown"}, {"n": 9, "name": "Radiology Companion™", "url": "", "status": "flown"}, {"n": 10, "name": "Overseer™ — tier-authority orchestrator", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer", "status": "flown"}, {"n": 11, "name": "AWS CCP Study Manual — Sleep Is Studying Too™", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual", "status": "flown"}, {"n": 12, "name": "CARO COMMAND — SCOUT OPS (this console)", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command", "status": "live"}, {"n": 13, "name": "TriviaGate™ — the ONE Ship 13 study engine · single file", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate", "status": "live"}]};</script>
 </head>
-<body>
-<div class="console-wrap">
+<body class="lcars-page starfield scanlines">
 
-  <header class="console-header">
-    <h1>CARO COMMAND</h1>
-    <div class="sub">Scout Ops Console &middot; Ship 12 &middot; A Mirror of My Becoming</div>
-    <div class="updated">LAST SYNC: Nov 9, 4:00 AM ET</div>
-  </header>
+<div class="page-wrap">
 
-  <section class="mission-dial">
-    <div class="dial-label">MISSION DIAL &mdash; EVENT HORIZON</div>
-    <svg class="stargate-svg" viewBox="0 0 200 200" role="img" aria-label="Stargate dial: 4 of 7 chevrons locked">
-      <defs>
-        <radialGradient id="horizon-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#f0d878" stop-opacity="0.25" />
-          <stop offset="100%" stop-color="#f0d878" stop-opacity="0.1" />
-        </radialGradient>
-      </defs>
-      <circle cx="100" cy="100" r="66" fill="url(#horizon-grad)" class="event-horizon" />
-      <circle cx="100" cy="100" r="66" fill="none" stroke="#f0d878" stroke-opacity="0.5" stroke-width="1.5" />
-      <g class="gate-ring-spin">
-        <circle cx="100" cy="100" r="80" fill="none" stroke="#5f4c2c" stroke-width="16" />
-        <circle cx="100" cy="100" r="72" fill="none" stroke="#3d2f1a" stroke-width="2" />
-        <circle cx="100" cy="100" r="88" fill="none" stroke="#6b5636" stroke-width="2" />
-        <line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(0 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(10 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(20 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(30 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(40 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(50 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(60 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(70 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(80 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(90 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(100 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(110 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(120 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(130 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(140 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(150 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(160 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(170 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(180 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(190 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(200 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(210 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(220 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(230 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(240 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(250 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(260 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(270 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(280 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(290 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(300 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(310 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(320 100 100)"/><line x1="100" y1="17" x2="100" y2="26" stroke="#c9b08a" stroke-width="2" transform="rotate(330 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(340 100 100)"/><line x1="100" y1="17" x2="100" y2="22" stroke="#8b6f3d" stroke-width="2" transform="rotate(350 100 100)"/>
-      </g>
-      <path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-135 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-90 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(-45 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(0 100 100)" class="chevron chevron--lit" fill="#f0d878" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(45 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(90 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/><path d="M100 2 L112 18 L104 32 L96 32 L88 18 Z" transform="rotate(135 100 100)" class="chevron" fill="#4a3a22" stroke="#241608" stroke-width="1"/>
-      <circle cx="100" cy="100" r="66" fill="none" stroke="#170d06" stroke-width="2" />
-    </svg>
-    <div class="dial-status"><span class="lit">4 OF 7</span> CHEVRONS LOCKED</div>
-    <div class="dial-hint">Each submitted application locks a chevron. Seven locked opens the gate. The 8th is the interview. The 9th is the offer.</div>
-  </section>
-
-  <div class="stat-strip">
-    <div class="stat"><div class="num">4</div><div class="lbl">GO READY</div></div>
-    <div class="stat"><div class="num">4</div><div class="lbl">APPLIED</div></div>
-    <div class="stat"><div class="num">4/7</div><div class="lbl">CHEVRONS</div></div>
-    <div class="stat"><div class="num">13</div><div class="lbl">FLEET SHIPS</div></div>
+  <!-- ======== MONITOR (UP) — the gate-room window ======== -->
+  <div id="monitor">
+    <div class="monitor-frame">
+      <div class="monitor-header">
+        <b>CARO COMMAND &middot; SCOUT OPS &middot; SHIP 12</b>
+        <span class="updated">SYNC: Nov 9, 4:00 AM ET</span>
+      </div>
+      <div class="window">
+        <div class="gateroom">
+          <canvas id="gate-canvas"></canvas>
+        </div>
+        <div class="glass"></div>
+        <div class="window-caption">MISSION DIAL &mdash; 4/7 CHEVRONS LOCKED</div>
+        <div class="dial-hint">Each submitted application locks a chevron. Seven opens the gate. The 8th is the interview. The 9th is the offer.</div>
+      </div>
+    </div>
   </div>
 
-  <section class="section">
-    <h2>FLEET LEDGER &mdash; 13 SHIPS</h2>
-    <div class="fleet-grid">
+  <!-- ======== CONSOLE (DOWN) — keyboard position ======== -->
+  <div id="console">
+    <div class="board">
+      <div class="board-top">
+        <div class="board-title">CONTROL DECK</div>
+        <div class="stats">
+          <div class="stat"><div class="num">4</div><div class="lbl">GO READY</div></div>
+          <div class="stat"><div class="num">4</div><div class="lbl">APPLIED</div></div>
+          <div class="stat"><div class="num">4/7</div><div class="lbl">CHEVRONS</div></div>
+          <div class="stat"><div class="num">13</div><div class="lbl">FLEET</div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>FLEET LEDGER &mdash; 13 SHIPS</h2>
+        <div class="fleet-grid">
 <article class="ship-card">
   <span class="ship-num">S1</span>
-  <div class="ship-body">
-    <h3 class="ship-name">DeepSeek RAG — the origin ship</h3>
-    <span class="ship-status">flown 2026</span>
-    <span class="ship-note">DOI 10.5281/zenodo.23246029</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">DeepSeek RAG — the origin ship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246029</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S2</span>
-  <div class="ship-body">
-    <h3 class="ship-name">IBM Granite Agentic RAG</h3>
-    <span class="ship-status">flown 2026</span>
-    <span class="ship-note">DOI 10.5281/zenodo.23246065</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246065</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S3</span>
-  <div class="ship-body">
-    <h3 class="ship-name">IBM Granite RAG</h3>
-    <span class="ship-status">flown 2026</span>
-    <span class="ship-note">DOI 10.5281/zenodo.23246084</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">IBM Granite RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246084</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S4</span>
-  <div class="ship-body">
-    <h3 class="ship-name">IBM Granite Agentic RAG — the agentic flagship</h3>
-    <span class="ship-status">flown 2026</span>
-    <span class="ship-note">DOI 10.5281/zenodo.23246090</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG — the agentic flagship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246090</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S5</span>
-  <div class="ship-body">
-    <h3 class="ship-name">EvidenceFlow — fail-closed verification</h3>
-    <span class="ship-status">flown Aug 2026</span>
-    
-  </div>
+  <div class="ship-body"><h3 class="ship-name">EvidenceFlow — fail-closed verification</h3><span class="ship-status">flown Aug 2026</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S6</span>
-  <div class="ship-body">
-    <h3 class="ship-name">Ingestion Tools — Scribe · Warden · Hand</h3>
-    <span class="ship-status">flown Sep 2026</span>
-    
-  </div>
+  <div class="ship-body"><h3 class="ship-name">Ingestion Tools — Scribe · Warden · Hand</h3><span class="ship-status">flown Sep 2026</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S7</span>
-  <div class="ship-body">
-    <h3 class="ship-name">msgvault Adapter</h3>
-    <span class="ship-status">flown 2026</span>
-    
-  </div>
+  <div class="ship-body"><h3 class="ship-name">msgvault Adapter</h3><span class="ship-status">flown 2026</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S8</span>
-  <div class="ship-body">
-    <h3 class="ship-name">DV14™: The Box — AI containment blueprint</h3>
-    <span class="ship-status">flown 2026</span>
-    
-  </div>
-  <span class="ship-link ship-link--none">flown &middot; no public repo</span>
-</article>
-<article class="ship-card">
+  <div class="ship-body"><h3 class="ship-name">DV14™: The Box — AI containment blueprint</h3><span class="ship-status">flown 2026</span></div>
+  <span class="ship-link ship-link--none">sealed</span>
+</article><article class="ship-card">
   <span class="ship-num">S9</span>
-  <div class="ship-body">
-    <h3 class="ship-name">Radiology Companion™</h3>
-    <span class="ship-status">flown Oct 22, 2026</span>
-    
-  </div>
-  <span class="ship-link ship-link--none">flown &middot; no public repo</span>
-</article>
-<article class="ship-card">
+  <div class="ship-body"><h3 class="ship-name">Radiology Companion™</h3><span class="ship-status">flown Oct 22, 2026</span></div>
+  <span class="ship-link ship-link--none">sealed</span>
+</article><article class="ship-card">
   <span class="ship-num">S10</span>
-  <div class="ship-body">
-    <h3 class="ship-name">Overseer™ — tier-authority orchestrator</h3>
-    <span class="ship-status">flown Oct 11, 2026</span>
-    
-  </div>
+  <div class="ship-body"><h3 class="ship-name">Overseer™ — tier-authority orchestrator</h3><span class="ship-status">flown Oct 11, 2026</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card">
+</article><article class="ship-card">
   <span class="ship-num">S11</span>
-  <div class="ship-body">
-    <h3 class="ship-name">AWS CCP Study Manual — Sleep Is Studying Too™</h3>
-    <span class="ship-status">flown Oct 17, 2026</span>
-    <span class="ship-note">DOI 10.5281/zenodo.23458898</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">AWS CCP Study Manual — Sleep Is Studying Too™</h3><span class="ship-status">flown Oct 17, 2026</span><span class="ship-note">DOI 10.5281/zenodo.23458898</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card ship-card--live">
+</article><article class="ship-card ship-card--live">
   <span class="ship-num">S12</span>
-  <div class="ship-body">
-    <h3 class="ship-name">CARO COMMAND — SCOUT OPS (this console)</h3>
-    <span class="ship-status">LIVE</span>
-    <span class="ship-note">public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">CARO COMMAND — SCOUT OPS (this console)</h3><span class="ship-status">LIVE</span><span class="ship-note">public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-<article class="ship-card ship-card--live">
+</article><article class="ship-card ship-card--live">
   <span class="ship-num">S13</span>
-  <div class="ship-body">
-    <h3 class="ship-name">TriviaGate™ — the ONE Ship 13 study engine · single file</h3>
-    <span class="ship-status">LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate</span>
-    <span class="ship-note">public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate</span>
-  </div>
+  <div class="ship-body"><h3 class="ship-name">TriviaGate™ — the ONE Ship 13 study engine · single file</h3><span class="ship-status">LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate</span><span class="ship-note">public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate</span></div>
   <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate" target="_blank" rel="noopener">REPO &#8599;</a>
 </article>
-    </div>
-  </section>
+        </div>
+      </div>
 
-  <section class="section">
-    <h2>JOB BOARD &mdash; SCOUT OPS</h2>
-<article class="job-row job-row--applied">
-  <span class="job-sq">SQ-22</span>
-  <div class="job-body">
-    <span class="job-title">Quality Engineer I — Availity</span>
-    <span class="job-badge">✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦</span>
-    
-  </div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article>
-<article class="job-row job-row--applied">
-  <span class="job-sq">SQ-23</span>
-  <div class="job-body">
-    <span class="job-title">Junior QA Automation Engineer — Element (e14s.com)</span>
-    <span class="job-badge">✦ APPLIED NOV 6 · chevron 2/7 ✦</span>
-    <span class="job-pay">$65,000 – $85,000, posted</span>
-  </div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article>
-<article class="job-row job-row--applied">
-  <span class="job-sq">SQ-16</span>
-  <div class="job-body">
-    <span class="job-title">Junior QA Analyst — Gridiron IT Solutions</span>
-    <span class="job-badge">✦ APPLIED NOV 6 · chevron 3/7 ✦</span>
-    <span class="job-pay">$70,000 – $90,000</span>
-  </div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article>
-<article class="job-row job-row--applied">
-  <span class="job-sq">SQ-20</span>
-  <div class="job-body">
-    <span class="job-title">Jr. Data Engineer — Apex Systems</span>
-    <span class="job-badge">✦ APPLIED NOV 6 · chevron 4/7 ✦</span>
-    <span class="job-pay">$45 – $53 / hour = $93,600 – $110,240</span>
-  </div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article>
-<article class="job-row job-row--go">
-  <span class="job-sq">SQ-21</span>
-  <div class="job-body">
-    <span class="job-title">Cloud Platform Engineer I — Centene Corporation</span>
-    <span class="job-badge">GO — PACKET READY ✦</span>
-    <span class="job-pay">$30.58 – $55.09 / hour = $63,606 – $114,587</span>
-  </div>
-  <span class="job-st job-st--go">GO</span>
-</article>
-<article class="job-row job-row--go">
-  <span class="job-sq">SQ-18</span>
-  <div class="job-body">
-    <span class="job-title">QA Engineer — Peterson Technology Partners</span>
-    <span class="job-badge">GO — PACKET READY ✦</span>
-    <span class="job-pay">$30 – $35 / hour</span>
-  </div>
-  <span class="job-st job-st--go">GO</span>
-</article>
-<article class="job-row job-row--go">
-  <span class="job-sq">SQ-19</span>
-  <div class="job-body">
-    <span class="job-title">Data Analyst — Tekcel8</span>
-    <span class="job-badge">GO — PACKET READY ✦</span>
-    <span class="job-pay">$35 – $50 / hour = $72,800 – $104,000</span>
-  </div>
-  <span class="job-st job-st--go">GO</span>
-</article>
-<article class="job-row job-row--skip">
-  <span class="job-sq">SQ-2</span>
-  <div class="job-body">
-    <span class="job-title">Field Network Cabling Technician, 100% Travel — HCL</span>
-    <span class="job-badge">SKIP — RECOMMEND DISCARDING</span>
-    <span class="job-pay">$52,000 – $76,000</span>
-  </div>
-  <span class="job-st job-st--skip">SKIP</span>
-</article>
-<article class="job-row job-row--skip">
-  <span class="job-sq">KONIAG</span>
-  <div class="job-body">
-    <span class="job-title">Junior Cloud Engineer, Washington DC — Koniag</span>
-    <span class="job-badge">SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT</span>
-    <span class="job-pay">$70,000</span>
-  </div>
-  <span class="job-st job-st--skip">SKIP</span>
-</article>
+      <div class="section">
+        <h2>JOB BOARD &mdash; SCOUT OPS</h2>
 <article class="job-row job-row--go">
   <span class="job-sq">SQ-24</span>
-  <div class="job-body">
-    <span class="job-title">Test Automation Engineer — Entry Level — Medinext Global LLC</span>
-    <span class="job-badge">GO ✦ NEW — Nov 8 sweep</span>
-    <span class="job-pay">$70,000 – $90,000 / year</span>
-  </div>
+  <div class="job-body"><span class="job-title">Test Automation Engineer — Entry Level — Medinext Global LLC</span><span class="job-badge">GO ✦ NEW — Nov 8 sweep</span><span class="job-pay">$70,000 – $90,000 / year</span></div>
   <span class="job-st job-st--go">GO</span>
-</article>
-<article class="job-row job-row--call">
+</article><article class="job-row job-row--go">
+  <span class="job-sq">SQ-19</span>
+  <div class="job-body"><span class="job-title">Data Analyst — Tekcel8</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$35 – $50 / hour = $72,800 – $104,000</span></div>
+  <span class="job-st job-st--go">GO</span>
+</article><article class="job-row job-row--go">
+  <span class="job-sq">SQ-18</span>
+  <div class="job-body"><span class="job-title">QA Engineer — Peterson Technology Partners</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$30 – $35 / hour</span></div>
+  <span class="job-st job-st--go">GO</span>
+</article><article class="job-row job-row--go">
+  <span class="job-sq">SQ-21</span>
+  <div class="job-body"><span class="job-title">Cloud Platform Engineer I — Centene Corporation</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$30.58 – $55.09 / hour = $63,606 – $114,587</span></div>
+  <span class="job-st job-st--go">GO</span>
+</article><article class="job-row job-row--call">
   <span class="job-sq">SQ-25</span>
-  <div class="job-body">
-    <span class="job-title">Junior Tester — 9th Way Insignia</span>
-    <span class="job-badge">YOUR CALL ✦ NEW — Nov 8 sweep</span>
-    <span class="job-pay">$62,818 – $67,500 / year</span>
-  </div>
+  <div class="job-body"><span class="job-title">Junior Tester — 9th Way Insignia</span><span class="job-badge">YOUR CALL ✦ NEW — Nov 8 sweep</span><span class="job-pay">$62,818 – $67,500 / year</span></div>
   <span class="job-st job-st--call">CALL</span>
+</article><article class="job-row job-row--applied">
+  <span class="job-sq">SQ-22</span>
+  <div class="job-body"><span class="job-title">Quality Engineer I — Availity</span><span class="job-badge">✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦</span></div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article><article class="job-row job-row--applied">
+  <span class="job-sq">SQ-23</span>
+  <div class="job-body"><span class="job-title">Junior QA Automation Engineer — Element (e14s.com)</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 2/7 ✦</span><span class="job-pay">$65,000 – $85,000, posted</span></div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article><article class="job-row job-row--applied">
+  <span class="job-sq">SQ-16</span>
+  <div class="job-body"><span class="job-title">Junior QA Analyst — Gridiron IT Solutions</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 3/7 ✦</span><span class="job-pay">$70,000 – $90,000</span></div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article><article class="job-row job-row--applied">
+  <span class="job-sq">SQ-20</span>
+  <div class="job-body"><span class="job-title">Jr. Data Engineer — Apex Systems</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 4/7 ✦</span><span class="job-pay">$45 – $53 / hour = $93,600 – $110,240</span></div>
+  <span class="job-st job-st--applied">APPLIED</span>
+</article><article class="job-row job-row--skip">
+  <span class="job-sq">SQ-2</span>
+  <div class="job-body"><span class="job-title">Field Network Cabling Technician, 100% Travel — HCL</span><span class="job-badge">SKIP — RECOMMEND DISCARDING</span><span class="job-pay">$52,000 – $76,000</span></div>
+  <span class="job-st job-st--skip">SKIP</span>
+</article><article class="job-row job-row--skip">
+  <span class="job-sq">KONIAG</span>
+  <div class="job-body"><span class="job-title">Junior Cloud Engineer, Washington DC — Koniag</span><span class="job-badge">SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT</span><span class="job-pay">$70,000</span></div>
+  <span class="job-st job-st--skip">SKIP</span>
 </article>
-  </section>
+      </div>
 
-  <section class="section">
-    <h2>FEED &mdash; OPERATIONS LOG</h2>
-    <div class="feed-box">
+      <div class="section">
+        <h2>FEED &mdash; OPERATIONS LOG</h2>
+        <div class="feed-box">
 <div class="feed-line"><span class="feed-t">Nov 9, 4:00 AM ET</span> Overnight sweep: nothing new passed. The TEKsystems travel-tech money got richer — $38–42/hr plus $161/day food &amp; lodging, double overtime — but the work is still fiber splicing, and fiber stays a no. The indoor variant with that paycheck is still out there.</div>
 <div class="feed-line"><span class="feed-t">Nov 9, 4:00 AM ET</span> Checked the big QTS Manassas posting ($93.9K–$143.5K): SKIP — it demands five-plus years of critical-facilities engineering. Two buried rows (Koniag cloud, Medinext cloud) tried to resurface; tombstones held, nothing re-served.</div>
 <div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> XO · SQ-25 — 9th Way Insignia junior tester on the federal VA contract added as YOUR CALL: remote, $62,818 to start; the trade is thin pay for a federal door and a sponsored clearance.</div>
 <div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> XO · SQ-24 — Medinext entry-level QA automation added as GO: fully remote, $70,000–$90,000, requirements read like your portfolio, one-click apply on Dice.</div>
 <div class="feed-line"><span class="feed-t">Nov 8, 12:00 PM ET</span> SWEEP — morning gap healed (the platform was overloaded since 4 AM): two finds landed, nine kills, Salute still dark, the Epic-cert door locked again.</div>
 <div class="feed-line"><span class="feed-t">Nov 8, 3:15 AM ET</span> XO · FLEET — the ledger now reads 13 down to 1 with no gaps: Ships 2, 3 and 4 keep their own lines, repos and DOIs from the 2:20 AM repair, and Ship 7 stands under its canon name — msgvault Adapter, the spelling the book and the repo both use.</div>
-    </div>
-  </section>
+        </div>
+      </div>
 
-  <section class="section">
-    <h2>STANDING RULES</h2>
-    <div class="rules">
-      <div class="rule"><strong>You apply;</strong> I build, check, and write everything down.</div>
-      <div class="rule"><strong>Nothing was submitted</strong> and nobody was contacted &mdash; you open every form, you press every submit button.</div>
-      <div class="rule"><strong>Flip a GO switch</strong> and I build that job&rsquo;s packet &mdash; tailored resume and cover letter, left on your desk for review. Nothing sends itself.</div>
-      <div class="rule"><strong>Every pay line</strong> is checked against your personal minimum of $62,400 ($30/hour) — your personal minimum.</div>
-    </div>
-  </section>
+      <div class="section">
+        <h2>STANDING RULES</h2>
+        <div class="rules">
+          <div class="rule"><strong>You apply;</strong> I build, check, and write everything down.</div>
+          <div class="rule"><strong>Nothing was submitted</strong> and nobody was contacted &mdash; you open every form, you press every submit button.</div>
+          <div class="rule"><strong>Flip a GO switch</strong> and I build that job&rsquo;s packet &mdash; tailored resume and cover letter, left on your desk for review.</div>
+          <div class="rule"><strong>Every pay line</strong> is checked against your personal minimum of $62,400 ($30/hour) — your personal minimum.</div>
+        </div>
+      </div>
 
-  <footer>
-    CARO COMMAND &middot; Ship 12 &middot; <a href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command">github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</a><br>
-    A Mirror of My Becoming &mdash; Evelyn Caro &middot; Nov 9, 4:00 AM ET
-  </footer>
+      <footer>
+        CARO COMMAND &middot; Ship 12 &middot; <a href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command">github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</a><br>
+        A Mirror of My Becoming &mdash; Evelyn Caro &middot; Nov 9, 4:00 AM ET
+      </footer>
+    </div>
+  </div>
 
 </div>
+
+<!-- ======== GATE DIAL CANVAS — the event horizon with water effect ======== -->
+<script>
+(function() {
+  var cv = document.getElementById('gate-canvas');
+  if (!cv) return;
+  var cx = cv.getContext('2d');
+  var W = 0, H = 0, R = 0, raf = null;
+  var RM = false;
+  try { RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e) {}
+  var SPD = RM ? 0.18 : 1;
+  var CHEV_N = 9, CHEV_ORDER = [0, 4, 5, 3, 6, 2, 7, 1, 8];
+  var LOCKED = 4; // chevrons locked by applied jobs
+  var stars = [];
+  (function() { var s = 7; function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+    for (var i = 0; i < 80; i++) stars.push([rnd(), rnd(), 0.3 + rnd() * 1.4]); })();
+
+  function fit() {
+    var d = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cv.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = Math.max(1, Math.round(W * d));
+    cv.height = Math.max(1, Math.round(H * d));
+    cx.setTransform(d, 0, 0, d, 0, 0);
+  }
+
+  function chevron(ang, litN, flash) {
+    cx.save(); cx.rotate(ang); cx.translate(0, -R);
+    cx.beginPath();
+    cx.moveTo(-R * 0.085, -R * 0.03);
+    cx.lineTo(0, R * 0.105);
+    cx.lineTo(R * 0.085, -R * 0.03);
+    if (litN) {
+      cx.strokeStyle = '#ffd27a';
+      cx.shadowColor = '#ffb545';
+      cx.shadowBlur = flash ? 30 : 16;
+      cx.lineWidth = R * 0.034;
+    } else {
+      cx.strokeStyle = 'rgba(180,140,80,0.4)';
+      cx.shadowBlur = 0;
+      cx.lineWidth = R * 0.026;
+    }
+    cx.stroke(); cx.shadowBlur = 0; cx.restore();
+  }
+
+  function water(now, Rv) {
+    var r = Rv * 0.62, k, x, y;
+    cx.save();
+    cx.beginPath(); cx.arc(0, 0, r, 0, Math.PI * 2); cx.clip();
+    var g = cx.createRadialGradient(0, 0, 0, 0, 0, r);
+    g.addColorStop(0, 'rgba(255,240,200,0.20)');
+    g.addColorStop(0.5, 'rgba(240,200,100,0.12)');
+    g.addColorStop(1, 'rgba(200,150,50,0.06)');
+    cx.fillStyle = g; cx.fillRect(-r, -r, 2 * r, 2 * r);
+    // water ripple lines
+    var rows = 7, amp = 2.0, spd = 900;
+    for (k = 0; k < rows; k++) {
+      cx.beginPath();
+      for (x = -r; x <= r; x += 5) {
+        y = Math.sin(now / spd + x * 0.045 + k * 0.9) * amp * (1 - k / (rows + 2));
+        if (x === -r) cx.moveTo(x, y); else cx.lineTo(x, y);
+      }
+      cx.strokeStyle = 'rgba(255,240,200,' + Math.max(0.02, 0.12 - k * 0.014).toFixed(3) + ')';
+      cx.lineWidth = 1.15; cx.stroke();
+    }
+    // shimmer particles
+    for (var p = 0; p < 12; p++) {
+      var px = (Math.sin(now / 600 + p * 1.3) * r * 0.7);
+      var py = (Math.cos(now / 700 + p * 0.7) * r * 0.5);
+      cx.fillStyle = 'rgba(255,240,200,' + (0.3 + 0.3 * Math.abs(Math.sin(now / 400 + p))).toFixed(3) + ')';
+      cx.fillRect(px, py, 1.5, 1.5);
+    }
+    cx.restore();
+    // ring
+    cx.beginPath(); cx.arc(0, 0, r, 0, Math.PI * 2);
+    cx.strokeStyle = 'rgba(240,200,80,0.4)'; cx.lineWidth = 2;
+    cx.stroke();
+  }
+
+  function draw(now) {
+    raf = requestAnimationFrame(draw);
+    R = Math.min(W, H) * 0.36;
+    var i, cxm = W / 2, cym = H * 0.46, t = now / 1000;
+    cx.clearRect(0, 0, W, H);
+    // background glow
+    var bg = cx.createRadialGradient(cxm, cym, R * 0.2, cxm, cym, Math.max(W, H) * 0.75);
+    bg.addColorStop(0, 'rgba(40,24,8,0.5)');
+    bg.addColorStop(1, 'rgba(2,1,0,0)');
+    cx.fillStyle = bg; cx.fillRect(0, 0, W, H);
+    // stars
+    for (i = 0; i < stars.length; i++) {
+      var st = stars[i], tw = 0.25 + 0.45 * Math.abs(Math.sin(t * (1.2 + st[2]) + i));
+      cx.fillStyle = 'rgba(255,240,200,' + (tw * st[2]).toFixed(3) + ')';
+      cx.fillRect(st[0] * W, st[1] * H, 1.4, 1.4);
+    }
+    cx.save(); cx.translate(cxm, cym);
+    // outer ring
+    cx.beginPath(); cx.arc(0, 0, R, 0, Math.PI * 2);
+    cx.lineWidth = R * 0.17; cx.strokeStyle = '#2a1a08'; cx.stroke();
+    cx.beginPath(); cx.arc(0, 0, R + R * 0.095, 0, Math.PI * 2);
+    cx.lineWidth = 1.5; cx.strokeStyle = 'rgba(200,160,80,0.35)'; cx.stroke();
+    cx.beginPath(); cx.arc(0, 0, R - R * 0.1, 0, Math.PI * 2);
+    cx.lineWidth = 1.2; cx.strokeStyle = 'rgba(180,140,60,0.22)'; cx.stroke();
+    // rotating ring 1
+    cx.save(); cx.rotate(t * 0.22 * SPD);
+    cx.setLineDash([R * 0.055, R * 0.042]); cx.lineWidth = R * 0.05;
+    cx.strokeStyle = 'rgba(220,180,90,0.5)';
+    cx.beginPath(); cx.arc(0, 0, R * 0.855, 0, Math.PI * 2); cx.stroke();
+    cx.restore();
+    // rotating ring 2
+    cx.save(); cx.rotate(-t * 0.15 * SPD);
+    cx.setLineDash([R * 0.014, R * 0.05]); cx.lineWidth = R * 0.034;
+    cx.strokeStyle = 'rgba(200,160,70,0.4)';
+    cx.beginPath(); cx.arc(0, 0, R * 0.775, 0, Math.PI * 2); cx.stroke();
+    cx.restore();
+    cx.setLineDash([]);
+    // chevrons (7 visible, LOCKED of them lit)
+    var chevVisible = 7;
+    for (i = 0; i < chevVisible; i++) {
+      var ang = -Math.PI / 2 + (i - 3) * (Math.PI * 2 / 9);
+      var litN = i < LOCKED;
+      chevron(ang, litN, false);
+    }
+    // event horizon water
+    water(now, R);
+    cx.restore();
+  }
+
+  function init() { fit(); if (!raf) raf = requestAnimationFrame(draw); }
+  window.addEventListener('resize', fit);
+  init();
+})();
+</script>
+
 <script src="assets/gate-module.js" defer></script>
 </body>
 </html>

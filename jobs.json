@@ -1,7 +1,47 @@
 {
  "updated": "Nov 9, 4:00 AM ET",
- "source": "CONSOLE-DATA.json (estate) — static snapshot",
+ "source": "CONSOLE-DATA.json (estate)",
  "jobs": [
+  {
+   "id": "SQ-24",
+   "title": "Test Automation Engineer — Entry Level — Medinext Global LLC",
+   "status": "go",
+   "verdict": "GO",
+   "badge": "GO ✦ NEW — Nov 8 sweep",
+   "pay": "$70,000 – $90,000 / year"
+  },
+  {
+   "id": "SQ-19",
+   "title": "Data Analyst — Tekcel8",
+   "status": "go",
+   "verdict": "GO",
+   "badge": "GO — PACKET READY ✦",
+   "pay": "$35 – $50 / hour = $72,800 – $104,000"
+  },
+  {
+   "id": "SQ-18",
+   "title": "QA Engineer — Peterson Technology Partners",
+   "status": "go",
+   "verdict": "GO",
+   "badge": "GO — PACKET READY ✦",
+   "pay": "$30 – $35 / hour"
+  },
+  {
+   "id": "SQ-21",
+   "title": "Cloud Platform Engineer I — Centene Corporation",
+   "status": "go",
+   "verdict": "GO",
+   "badge": "GO — PACKET READY ✦",
+   "pay": "$30.58 – $55.09 / hour = $63,606 – $114,587"
+  },
+  {
+   "id": "SQ-25",
+   "title": "Junior Tester — 9th Way Insignia",
+   "status": "call",
+   "verdict": "CALL",
+   "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
+   "pay": "$62,818 – $67,500 / year"
+  },
   {
    "id": "SQ-22",
    "title": "Quality Engineer I — Availity",
@@ -35,30 +75,6 @@
    "pay": "$45 – $53 / hour = $93,600 – $110,240"
   },
   {
-   "id": "SQ-21",
-   "title": "Cloud Platform Engineer I — Centene Corporation",
-   "status": "go",
-   "verdict": "GO",
-   "badge": "GO — PACKET READY ✦",
-   "pay": "$30.58 – $55.09 / hour = $63,606 – $114,587"
-  },
-  {
-   "id": "SQ-18",
-   "title": "QA Engineer — Peterson Technology Partners",
-   "status": "go",
-   "verdict": "GO",
-   "badge": "GO — PACKET READY ✦",
-   "pay": "$30 – $35 / hour"
-  },
-  {
-   "id": "SQ-19",
-   "title": "Data Analyst — Tekcel8",
-   "status": "go",
-   "verdict": "GO",
-   "badge": "GO — PACKET READY ✦",
-   "pay": "$35 – $50 / hour = $72,800 – $104,000"
-  },
-  {
    "id": "SQ-2",
    "title": "Field Network Cabling Technician, 100% Travel — HCL",
    "status": "skip",
@@ -73,22 +89,6 @@
    "verdict": "SKIP",
    "badge": "SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT",
    "pay": "$70,000"
-  },
-  {
-   "id": "SQ-24",
-   "title": "Test Automation Engineer — Entry Level — Medinext Global LLC",
-   "status": "go",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 8 sweep",
-   "pay": "$70,000 – $90,000 / year"
-  },
-  {
-   "id": "SQ-25",
-   "title": "Junior Tester — 9th Way Insignia",
-   "status": "call",
-   "verdict": "CALL",
-   "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
-   "pay": "$62,818 – $67,500 / year"
   }
  ]
 }
