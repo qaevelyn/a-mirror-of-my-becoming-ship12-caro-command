@@ -1,94 +1,523 @@
 {
  "updated": "Nov 9, 4:00 AM ET",
- "source": "CONSOLE-DATA.json (estate)",
  "jobs": [
   {
-   "id": "SQ-24",
-   "title": "Test Automation Engineer — Entry Level — Medinext Global LLC",
+   "sq": "SQ-24",
+   "title": "Test Automation Engineer — Entry Level",
+   "company": "Medinext Global LLC",
    "status": "go",
    "verdict": "GO",
    "badge": "GO ✦ NEW — Nov 8 sweep",
-   "pay": "$70,000 – $90,000 / year"
+   "pay": "$70,000 – $90,000 / year",
+   "payNote": "bottom clears your $62,400 minimum by $7,600",
+   "where": "Fully remote — United States",
+   "whereNote": "standard US business hours — you're Eastern",
+   "effort": "Easy — Dice Easy Apply, resume upload, no essays.",
+   "linkUrl": "https://www.dice.com/job-detail/81d343aa-192c-4b7b-bf0a-3ec85cc0987b",
+   "linkLabel": "Open the posting — Dice (Easy Apply)",
+   "theJob": "Medinext's quality team wants an early-career automation tester: write automated test scripts, run regression and API checks, track bugs, work in sprints with developers. The requirements name 0–2 years of testing experience, programming in \"Java, Python, JavaScript, or C#\" — Python is yours — and basic SQL.",
+   "fits": [
+    "\"0–2 years of experience in software testing, QA, or test automation\" (their words) — your dated public projects count. · \"Programming experience with Java, Python, JavaScript, or C#\" — Python is on your resume. · \"Basic knowledge of SQL\" — you have it.",
+    "The hard tools (Selenium, Cypress, Playwright, Jenkins) sit in the PREFERRED list only — you claim none of them; your Python test scripts carry the row."
+   ],
+   "trade": "Money is the trade: the band's bottom is only 12% over your minimum, and this is a staffing firm (a middleman employer) — get the pay confirmed in writing at first contact; Dice carries an AI-description caution, so treat the text as indicative until they confirm.",
+   "posted": "Posted ~Oct 8 · refreshed on Dice rails Nov 8 · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Required Qualifications (verbatim)",
+     "lines": [
+      "\"Bachelor's or Master's degree in Computer Science, Information Technology, Software Engineering, or related field.\"",
+      "\"0–2 years of experience in software testing, QA, or test automation.\"",
+      "\"Programming experience with Java, Python, JavaScript, or C#.\"",
+      "\"Basic knowledge of SQL.\""
+     ]
+    },
+    {
+     "label": "Technical Skills — Required (verbatim)",
+     "lines": [
+      "\"Software Testing | Test Automation | Java/Python/JavaScript/C# | SQL | Regression Testing | Functional Testing\""
+     ]
+    },
+    {
+     "label": "Work arrangement (verbatim)",
+     "lines": [
+      "\"Remote - United States\" · \"Full-Time - W2\" · \"Candidates must be legally authorized to work in the United States.\""
+     ]
+    }
+   ],
+   "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane"
   },
   {
-   "id": "SQ-19",
-   "title": "Data Analyst — Tekcel8",
+   "sq": "SQ-19",
+   "title": "Data Analyst",
+   "company": "Tekcel8",
    "status": "go",
    "verdict": "GO",
    "badge": "GO — PACKET READY ✦",
-   "pay": "$35 – $50 / hour = $72,800 – $104,000"
+   "pay": "$35 – $50 / hour = $72,800 – $104,000",
+   "payNote": "10-month contract, W2 or 1099",
+   "where": "Remote (US)",
+   "whereNote": "occasional travel",
+   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+   "linkUrl": "https://www.dice.com/job-detail/80f16428-257a-4ba9-922d-849a01e8f4dc",
+   "linkLabel": "Open the posting — Dice Easy Apply",
+   "theJob": "Data cleanup, validation, and Excel / Power BI reporting through a very small staffing shop, end client unnamed. They want \"strong proficiency in SQL\" (same honest-depth flag as the Apex card) and a Bachelor's in a listed field (fails as written; coursework is the bridge).",
+   "fits": [],
+   "trade": "The money clears both ends comfortably, but this is the reporting lane, not QA or cloud — the furthest from your two core lanes of anything on the board.",
+   "posted": "Posted ~Oct 16–17, 2026 (19 days at capture) · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Requirements (verbatim, complete)",
+     "lines": [
+      "\"Bachelor's degree in Computer Science, Information Systems, Statistics, Mathematics, Business Analytics, or a related field.\"",
+      "\"Strong proficiency in SQL, including joins, subqueries, aggregations, and complex queries.\"",
+      "\"Hands-on experience with Microsoft Excel, including PivotTables, lookup functions, and data manipulation.\"",
+      "\"Experience with Power BI, Tableau, or other data visualization tools.\"",
+      "\"Knowledge of data cleaning, data validation, statistical analysis, and reporting methodologies.\"",
+      "\"Strong analytical, critical-thinking, and problem-solving skills.\"",
+      "\"Excellent communication skills and the ability to present data-driven insights.\""
+     ]
+    },
+    {
+     "label": "Pay + arrangement (verbatim)",
+     "lines": [
+      "\"$35 - $50/hr\"",
+      "\"Remote • Posted 19 days ago • Updated 19 days ago Contract W2 Contract Independent 10 Months Occasional Travel Required Remote\""
+     ]
+    }
+   ],
+   "headline": "Tekcel8 · Data Analyst · $72.8k–$104k · reporting lane, not QA or cloud"
   },
   {
-   "id": "SQ-18",
-   "title": "QA Engineer — Peterson Technology Partners",
+   "sq": "SQ-18",
+   "title": "QA Engineer",
+   "company": "Peterson Technology Partners",
    "status": "go",
    "verdict": "GO",
    "badge": "GO — PACKET READY ✦",
-   "pay": "$30 – $35 / hour"
+   "pay": "$30 – $35 / hour",
+   "payNote": "the bottom is exactly your $62,400 minimum; their own write-up says a flat $35/hour ($72,800), so the real number may be the good end — ask which",
+   "where": "Remote (US)",
+   "whereNote": "they'd prefer Houston — irrelevant for remote",
+   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+   "linkUrl": "https://www.dice.com/job-detail/0ee2a5d8-6a27-4113-a15c-d1d4b116bc55",
+   "linkLabel": "Open the posting — Dice Easy Apply",
+   "theJob": "Test pharmacy-management software — prescribing, batching, labeling, inventory, billing — beside a Senior QA Lead, 6-month contract that can turn permanent. They ask 1–3 years (bridgeable) and want \"basic exposure to test automation and a clear desire to grow it\" — the exact growth-rung shape of your story.",
+   "fits": [],
+   "trade": "The money starts at exactly your floor (your floor is never traded down; as written, it clears). Staffing middleman, unnamed client, and the permanent-conversion door isn't named — asked at first contact.",
+   "posted": "\"Posted 7 days ago, updated 1 day ago\" at capture · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Required qualifications (verbatim)",
+     "lines": [
+      "\"1-3 years of software quality assurance or testing experience, ideally on a SaaS or web-based product\"",
+      "\"Experience designing and executing test cases from requirements or acceptance criteria, and working defects through their full lifecycle\"",
+      "\"Experience working on an Agile team (Scrum, SAFe or similar) with sprint-based delivery\"",
+      "\"Basic exposure to test automation or scripting, and a clear desire to grow it into a core skill\"",
+      "\"Detail-oriented, coachable and a clear written communicator.\""
+     ]
+    },
+    {
+     "label": "The engagement (verbatim)",
+     "lines": [
+      "\"Our client is seeking a QA Engineer, early in their QA career, to help test its pharmacy management software: an end-to-end platform for compounding pharmacies covering e-prescribing, production and batching, labeling, inventory and billing. The platform is being rebuilt on a modern, API-ready SaaS foundation. You'll work day-to-day with a Senior QA Lead.\"",
+      "\"Pay rate: $35/hr. This is a 6-month contract-to-hire position, remote in the US (Houston, TX preferred).\"",
+      "\"Contract Corp To Corp / Contract W2 · No Travel Required · Able to Sponsor\""
+     ]
+    }
+   ],
+   "headline": "Peterson Tech Partners · QA Engineer · remote · starts at exactly your floor"
   },
   {
-   "id": "SQ-21",
-   "title": "Cloud Platform Engineer I — Centene Corporation",
+   "sq": "SQ-21",
+   "title": "Cloud Platform Engineer I",
+   "company": "Centene Corporation",
    "status": "go",
    "verdict": "GO",
    "badge": "GO — PACKET READY ✦",
-   "pay": "$30.58 – $55.09 / hour = $63,606 – $114,587"
+   "pay": "$30.58 – $55.09 / hour = $63,606 – $114,587",
+   "payNote": "bottom clears your minimum by only $1,206 — the thinnest margin here",
+   "where": "Remote in 28 states",
+   "whereNote": "Virginia is on the list",
+   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+   "linkUrl": "https://www.theladders.com/job/cloud-platform-engineer-i-centenecorp-virtual-travel_89675472",
+   "linkLabel": "Read the full posting — Ladders mirror (Dice Easy Apply rail on record)",
+   "theJob": "At Centene, a Fortune-50 healthcare company, you'd help build AI-powered cloud applications. Their requirements read like your portfolio: Python, large-language-model understanding, at least one AI project built (you have five), connecting AI services through web APIs, Git.",
+   "fits": [
+    "0–2 years \"or equivalent experience\" — their words, a real door. · AWS or Azure — AWS is yours; Azure is never claimed."
+   ],
+   "trade": "It's a developer job — writing production code, not testing it — and the band's bottom is almost exactly your floor. Due diligence: the company's own careers page wouldn't serve the posting when we checked; details come from two mirrors that agree — confirm the job is live before investing time.",
+   "posted": "Posted \"Today\" on Dice (Nov 5) · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Position purpose (verbatim)",
+     "lines": [
+      "\"The Cloud Platform Engineer I is a position for a motivated developer who will be joining our engineering team and help design, develop, and operationalize AI-enabled applications and solutions. This role is ideal for an early-career software engineer who has strong programming fundamentals and practical exposure to Cloud technologies, Large Language Models (LLMs), and machine learning through academic work, internships, personal projects, or professional experience.\""
+     ]
+    },
+    {
+     "label": "Education / experience + technical skills (verbatim)",
+     "lines": [
+      "\"A Bachelor's degree in a quantitative or business field (e.g., statistics, mathematics, engineering, computer science) and requires 0 - 2 years of related experience. Or equivalent experience acquired through accomplishments of applicable knowledge, duties, scope and skill reflective of the level of this position. Or completion of a Centene-sponsored emerging talent program.\"",
+      "\"0-2 years experience with Python through coursework, internships, research, professional work, or personal projects.\"",
+      "\"Understanding of Machine Learning, Generative AI, and LLM platforms and APIs.\"",
+      "\"Experience building at least one AI/ML application or project through coursework, internships, hackathons, research, or independent development/ open-source contributions.\"",
+      "\"Integrate AI models and services into applications using REST APIs, SDKs, and microservices.\"",
+      "\"Familiarity with Git/GitHub or GitLab.\""
+     ]
+    },
+    {
+     "label": "Duties (verbatim)",
+     "lines": [
+      "\"Develop, manage, and administer cloud infrastructure as code on the cloud platform (e.g. AWS, or Azure).\"",
+      "\"Build AI agentic solution using Large Language Models, Machine Learning, Generative AI.\"",
+      "\"Write production-quality code with appropriate tests and documentation.\""
+     ]
+    },
+    {
+     "label": "Pay + benefits (verbatim)",
+     "lines": [
+      "\"Pay Range: $30.58 - $55.09 per hour\"",
+      "\"health insurance, 401K and stock purchase plans, tuition reimbursement, paid time off plus holidays\""
+     ]
+    }
+   ],
+   "headline": "Centene · Cloud Platform Engineer I · remote 28 states · the AI card"
   },
   {
-   "id": "SQ-25",
-   "title": "Junior Tester — 9th Way Insignia",
+   "sq": "SQ-25",
+   "title": "Junior Tester",
+   "company": "9th Way Insignia",
    "status": "call",
    "verdict": "CALL",
    "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
-   "pay": "$62,818 – $67,500 / year"
+   "pay": "$62,818 – $67,500 / year",
+   "payNote": "bottom clears your minimum by $418 — the thinnest margin on the board",
+   "where": "Fully remote — United States",
+   "whereNote": "supporting the Dept. of Veterans Affairs eCMS program",
+   "effort": "Easy — about 2 minutes on their site or Dice; resume upload.",
+   "linkUrl": "https://haystackapp.io/jobs/08043723-367e-4b61-aa28-8bb5f25361de",
+   "linkLabel": "Read the full posting — Haystack mirror (live on Dice too)",
+   "theJob": "You'd do manual testing — clicking through features, writing up bugs, documenting results — on the contract-management system the Department of Veterans Affairs uses, on an Agile team. The JD asks for testing knowledge and the ability to become proficient in their C#/.NET stack — not hands-on C# experience.",
+   "fits": [
+    "Manual testing with solid documentation — your QA lane. · \"Knowledge of version control (Git) and CI/CD pipelines\" — Git is on your resume. · \"Ability to obtain and maintain a Public Trust clearance\" — sponsored, an obtainable door like the TEKsystems Secret.",
+    "A federal VA program on the resume — the federal-employment lane you're aiming at."
+   ],
+   "trade": "Thin money ($418 over your minimum) and manual testing in a C#/.NET shop instead of your Python automation — in exchange for a federal program door and a sponsored Public Trust clearance that travels. Your word: promote or discard.",
+   "posted": "Posted ~Nov 2–5 · rails show it refreshed \"Today\" · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Requirements (verbatim)",
+     "lines": [
+      "\"Bachelor's degree in IT/Computer Science or a technical field\"",
+      "\"Knowledge of software testing with ability to become proficient in Visual Studio, C#, and .NET-based applications\"",
+      "\"Knowledge of version control (Git) and CI/CD pipelines\"",
+      "\"Ability to perform manual testing with attention to detail and solid documentation skills\"",
+      "\"Ability to obtain and maintain a Public Trust clearance\""
+     ]
+    },
+    {
+     "label": "Pay + location (verbatim)",
+     "lines": [
+      "\"$62,818—$67,500 USD\" · \"United States - Remote\"",
+      "Manual testing of C#/Visual Studio/.NET applications supporting the VA eCMS program"
+     ]
+    }
+   ],
+   "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum"
   },
   {
-   "id": "SQ-22",
-   "title": "Quality Engineer I — Availity",
+   "sq": "SQ-22",
+   "title": "Quality Engineer I",
+   "company": "Availity",
    "status": "applied",
    "verdict": "GO",
    "badge": "✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦",
-   "pay": "Not posted"
+   "pay": "Not posted",
+   "payNote": "the one open question — asked in writing before anything else",
+   "where": "Fully remote (US)",
+   "whereNote": "Eastern time preferred — you're Eastern",
+   "effort": "Easy — resume upload, no essays, ~15 min on their own page.",
+   "linkUrl": "https://availity.wd1.myworkdayjobs.com/availity_careers_us/job/remote---united-states/quality-engineer-i_r0008638",
+   "linkLabel": "Open the posting — Availity careers (req R0008638)",
+   "theJob": "Availity runs the plumbing between doctors' offices and health insurance plans — millions of providers, billions of transactions a year. On a software team, you'd write test plans, run tests, and write up bugs clearly, in two-week sprints. They openly want someone who uses AI tools to speed up testing — a plain description of what your portfolio already does.",
+   "fits": [
+    "\"1+ years in QA — internships and project work count\" (their words) — your dated public projects cover it. · Python, JavaScript, or C# — Python is yours.",
+    "Jira for tracking — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\"). · Cloud basics, AWS or Azure — AWS is your lane."
+   ],
+   "trade": "",
+   "posted": "Posted \"Yesterday\" on capture (Nov 4, 2026) · no apply-by shown",
+   "requirements": [
+    {
+     "label": "What you will be doing (verbatim)",
+     "lines": [
+      "\"Assigned to a Scrum team, you will be developing test plans, test scenarios and test cases based on the business, user, and functional/nonfunctional requirements\"",
+      "\"Participating in daily stand ups, sprint planning and refinement meetings\"",
+      "\"Utilizing JIRA for project planning and tracking\"",
+      "\"Collaborating with the Product Owner and Engineers on a regular basis\"",
+      "\"Conducting automated tests using user-level test automation tools and/or behavioral-driven test scenarios\"",
+      "\"Validating and documenting the completion of testing and development processes to ensure compliance standards are met\""
+     ]
+    },
+    {
+     "label": "Qualifications — key lines (verbatim)",
+     "lines": [
+      "\"1+ years of experience in quality assurance and testing best practices (internships, co-ops, or project work considered)\"",
+      "\"Exposure to writing test automation, front end and/or back end, with a desire to grow automation skills\"",
+      "\"Working knowledge of JavaScript, Python, C# (or similar languages used for test automation and tooling)\"",
+      "\"Familiarity with an IDE (VS Code, Eclipse, or similar) to run and debug automated tests, and basic source control workflows (commit changes, create pull/merge requests)\"",
+      "\"Basic understanding of cloud concepts (AWS, Azure including environments, deployments, and cloud-hosted architectures)\"",
+      "\"Exposure to continuous integration tools (GitLab CI for pipeline execution and test integration)\"",
+      "\"Ability to write clear, reproducible, high quality bugs and defects\"",
+      "\"Exposure to API testing with tools such as Insomnia or Postman\"",
+      "\"Exposure to Cucumber and Selenium WebDriver is preferred\"",
+      "\"Foundational knowledge of underlying technologies supporting the applications under test i.e., REST API's, HTML, CS…\" (capture ends here)"
+     ]
+    },
+    {
+     "label": "The AI-multiplier section (verbatim)",
+     "lines": [
+      "\"Uses AI-assisted tools (e.g., Copilot-style tools) to improve testing efficiency, such as drafting test scenarios, accelerating automation development, analyzing failures, and supporting root-cause investigation — with human judgment and verification\"",
+      "\"Leverages AI to support test completeness by identifying gaps, exploring edge cases, and assessing risk across functional and non-functional scenarios\"",
+      "\"Applies AI to summarize test results, logs, and failures to raise awareness, communicate risk clearly, and support timely escalation\""
+     ]
+    },
+    {
+     "label": "Pay, location, fine print (verbatim)",
+     "lines": [
+      "Pay: NOT POSTED — no compensation line anywhere on the req",
+      "\"Location: Remote, US – Eastern/Central Time zones Preferred\" · Full time",
+      "\"Sponsorship, in any form, is not available for this position.\"",
+      "\"Must pass a drug test before beginning\""
+     ]
+    }
+   ],
+   "headline": "Availity · Quality Engineer I · fully remote · your next call"
   },
   {
-   "id": "SQ-23",
-   "title": "Junior QA Automation Engineer — Element (e14s.com)",
+   "sq": "SQ-23",
+   "title": "Junior QA Automation Engineer",
+   "company": "Element (e14s.com)",
    "status": "applied",
    "verdict": "GO",
    "badge": "✦ APPLIED NOV 6 · chevron 2/7 ✦",
-   "pay": "$65,000 – $85,000, posted"
+   "pay": "$65,000 – $85,000, posted",
+   "payNote": "bottom clears your minimum by $2,600",
+   "where": "Fully remote (US)",
+   "whereNote": "must live in the lower 48 — you do",
+   "effort": "FLOWN Nov 6, 2026 · 08:51 AM ET — owner pressed submit on Element's own form. Resume + cover letter attached. Answer sheet: salary 65000, gov-contracting 2 yrs, clearance Yes.",
+   "linkUrl": "https://www.e14s.com/careers",
+   "linkLabel": "Open the posting — Element careers page",
+   "theJob": "Element builds websites and digital tools for government agencies, including Medicare and Medicaid health programs. You'd write and maintain automated tests — small programs that keep checking the real software still works after every change. Junior title; they expect to teach you their tools.",
+   "fits": [
+    "0–2 years, \"internships, academic projects, and practical training may be considered\" — the honest door, exactly your shape. · Degree: a Bachelor's, or an Associate + 2 years' experience — your Associate plus documented experience fits the second door as written.",
+    "One language: Python, Java, JavaScript, or C# — Python. · US citizen or green card — citizen. Possible Public Trust later — the good kind of door: they obtain it for you after hiring; you need nothing to apply.",
+    "Nice-to-haves you already own: government contracting (your DLA contract receipts), Jira (your resume line), healthcare domain."
+   ],
+   "trade": "",
+   "posted": "Posted ~Nov 3, 2026 · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Required qualifications (verbatim)",
+     "lines": [
+      "\"Bachelor's degree in Computer Science, Software Engineering, Information Technology, or associate degree plus two years' experience\"",
+      "\"0–2 years of experience in software testing, quality assurance, test automation, or application development; relevant internships, academic projects, and practical training may be considered\"",
+      "\"Foundational knowledge of programming concepts and at least one programming or scripting language, such as Python, Java, JavaScript, or C#\"",
+      "\"Understanding of software testing principles, including test cases, test execution, defect reporting, and regression testing\"",
+      "\"Basic ability to read, write, and troubleshoot automated test scripts\"",
+      "\"Familiarity with software development lifecycles and Agile development practices\"",
+      "\"Strong analytical, problem-solving, and attention-to-detail skills\"",
+      "\"Effective written and verbal communication skills, including the ability to document technical issues clearly\""
+     ]
+    },
+    {
+     "label": "Preferred qualifications — key lines (verbatim)",
+     "lines": [
+      "\"Experience in government contracting or healthcare, including CMS or the health industry\"",
+      "\"Exposure to Selenium, Playwright, Cypress, or comparable test automation technologies\"",
+      "\"Familiarity with Postman\"",
+      "\"Basic understanding of SQL and database validation\"",
+      "\"Exposure to Git\"",
+      "\"Familiarity with CI/CD tools and automated testing in build and deployment pipelines\"",
+      "\"Experience with Jira, Azure DevOps, or comparable defect tracking and test management platforms\"",
+      "\"Understanding of web applications, RESTful APIs, and client-server architecture\""
+     ]
+    },
+    {
+     "label": "Pay, location, authorization (verbatim)",
+     "lines": [
+      "\"$65k - $85k / year\"",
+      "\"District of Columbia, Washington – Remote\" (US-remote; Full Time)",
+      "\"Must live in the Continental US\" · \"Must be either a US citizen or Permanent Resident\"",
+      "\"Posted on Element's careers page, not through a job board\""
+     ]
+    }
+   ],
+   "headline": "Element · Junior QA Automation Engineer · $65k–$85k posted · the easy form"
   },
   {
-   "id": "SQ-16",
-   "title": "Junior QA Analyst — Gridiron IT Solutions",
+   "sq": "SQ-16",
+   "title": "Junior QA Analyst",
+   "company": "Gridiron IT Solutions",
    "status": "applied",
    "verdict": "GO",
    "badge": "✦ APPLIED NOV 6 · chevron 3/7 ✦",
-   "pay": "$70,000 – $90,000"
+   "pay": "$70,000 – $90,000",
+   "payNote": "but that's a recruiter board's number; the posting itself says \"depends on experience\"",
+   "where": "Hybrid, Washington DC",
+   "whereNote": "\"potentially up to 5 days onsite,\" their words",
+   "effort": "Easy — Dice Easy Apply, the same flow you liked twice on Nov 5.",
+   "linkUrl": "https://www.dice.com/job-detail/95fc278d-9739-4d15-ac8d-2033943313e3",
+   "linkLabel": "Open the posting — Dice Easy Apply",
+   "theJob": "Classic software QA at a government-IT staffing firm — run test plans, log defects, keep the QA records tidy. They ask 1–2 years (your lane, bridgeable), require zero tools you can't honestly claim, and they obtain a Public Trust for you.",
+   "fits": [],
+   "trade": "Five days a week in DC means train fare from Woodbridge every day — real money out the door before the first paycheck. If they actually want two days, it's a different job. Worth one written question about days-per-week before anything else. Posting is ~3 weeks old.",
+   "posted": "Dice rail: \"Easy Apply · Contract · 17d ago\" · no apply-by shown",
+   "requirements": [
+    {
+     "label": "Required qualifications (verbatim)",
+     "lines": [
+      "\"1–2 years of experience in quality assurance, software testing, or a related technical field.\"",
+      "\"Basic understanding of Software Development Lifecycles (SDLC), defect tracking, and validation methods.\"",
+      "\"Strong analytical and problem solving skills with excellent attention to detail.\"",
+      "\"Ability to follow established QA processes and accurately execute test plans and test cases.\"",
+      "\"Clear written communication skills for documenting issues and collaborating with project teams.\"",
+      "\"Ability to read and understand functional requirements, user stories, and acceptance criteria.\""
+     ]
+    },
+    {
+     "label": "Preferred qualifications (verbatim)",
+     "lines": [
+      "\"Familiarity with test management tools, defect tracking systems, or basic automation frameworks.\"",
+      "\"Foundational understanding of data validation, system integration testing, and regression testing.\"",
+      "\"Exposure to Agile or iterative delivery environments.\"",
+      "\"Introductory knowledge of API or UI automation tools or simple scripting (optional for growth).\"",
+      "\"Basic SQL skills or comfort validating backend data or APIs.\""
+     ]
+    },
+    {
+     "label": "Education + clearance (verbatim)",
+     "lines": [
+      "\"Associate degree in a relevant field (e.g., Computer Science, Information Systems, Data Analytics).\"",
+      "\"Applicants selected will be subject to a security investigation and may need to meet eligibility requirements for access to classified information; Public Trust clearance is required.\""
+     ]
+    },
+    {
+     "label": "Pay + location facts (verbatim)",
+     "lines": [
+      "Pay NOT stated on the posting — Dice rail reads \"Depends on Experience\"; the $70,000–$90,000/yr band is the ClearanceJobs rail figure",
+      "\"Hybrid in Washington, DC, US – potentially up to 5 days onsite\""
+     ]
+    }
+   ],
+   "headline": "Gridiron IT · Junior QA Analyst · hybrid DC · the commute is the trade"
   },
   {
-   "id": "SQ-20",
-   "title": "Jr. Data Engineer — Apex Systems",
+   "sq": "SQ-20",
+   "title": "Jr. Data Engineer",
+   "company": "Apex Systems",
    "status": "applied",
    "verdict": "GO",
    "badge": "✦ APPLIED NOV 6 · chevron 4/7 ✦",
-   "pay": "$45 – $53 / hour = $93,600 – $110,240"
+   "pay": "$45 – $53 / hour = $93,600 – $110,240",
+   "payNote": "strongest remote money on this board — 1.5× your minimum",
+   "where": "Fully remote, anywhere in the US",
+   "whereNote": "",
+   "effort": "SUBMITTED Nov 6 ~12 PM ET — receipt on file (\"Application Submitted!\", Job # 3056074). AI-recruiter call inbound 1–2 hrs.",
+   "linkUrl": "https://www.apexsystems.com/job/3056074_usa/jr-data-engineer",
+   "linkLabel": "Open the posting — Apex Systems (job 3056074)",
+   "theJob": "For a large healthcare client (through staffing firm Apex), you'd check — and automate the checking of — a big monthly data process: database queries, dashboards, chasing down numbers that don't add up.",
+   "fits": [
+    "0–3 years, stated outright — a real door. · One required skill: SQL — honest answer on record: you know it (your white paper is published), but your hands-on data work is NoSQL; screeners get answered exactly that way.",
+    "Degree line wants a \"quantitative or business\" Bachelor's — fails as written; your coursework is the bridge. A flag, not a wall."
+   ],
+   "trade": "A staffing middleman stands between you and an unnamed client, and the work is data work — one step beside your QA/cloud lane, not the same lane.",
+   "posted": "Posted Oct 15, 2026 · no deadline stated",
+   "requirements": [
+    {
+     "label": "Required qualifications (verbatim)",
+     "lines": [
+      "\"Education: Bachelor's degree in a quantitative or business field.\"",
+      "\"Experience: 0-3 years of relevant experience.\"",
+      "\"Technical Skills: Proficiency in SQL.\""
+     ]
+    },
+    {
+     "label": "Preferred qualifications (verbatim)",
+     "lines": [
+      "\"Knowledge of Snowflake.\"",
+      "\"Familiarity with Kubernetes.\"",
+      "\"Experience with AI tools such as Windsurf or Devin.\""
+     ]
+    },
+    {
+     "label": "The role (verbatim)",
+     "lines": [
+      "\"Apex Systems is hiring a Jr. Data Engineer for a large Healthcare client.\"",
+      "\"Our team supports a major project by creating and automating the validation of an extensive monthly process. This position will contribute to developing production fixes for a Snowflake pipeline and adding new reporting capabilities.\"",
+      "\"Develop and write SQL code in Snowflake. · Utilize Power BI validation dashboards to identify potential validation issues. · Troubleshoot data irregularities and perform root cause analysis. · Analyze data variability month over month to ensure data integrity.\""
+     ]
+    },
+    {
+     "label": "Pay + location (verbatim)",
+     "lines": [
+      "\"Pay Range: $45 - $53 per hour\"",
+      "\"Location: Fully remote anywhere in the US - You must be authorized to work in the United States without sponsorship.\"",
+      "\"Employee Type: Contract · Remote: Yes · Location: Various, MO, US\" · Job# 3056074"
+     ]
+    }
+   ],
+   "headline": "Apex Systems · Jr. Data Engineer · $93.6k–$110.2k remote · the money card"
   },
   {
-   "id": "SQ-2",
-   "title": "Field Network Cabling Technician, 100% Travel — HCL",
+   "sq": "SQ-2",
+   "title": "Field Network Cabling Technician, 100% Travel",
+   "company": "HCL",
    "status": "skip",
    "verdict": "SKIP",
    "badge": "SKIP — RECOMMEND DISCARDING",
-   "pay": "$52,000 – $76,000"
+   "pay": "$52,000 – $76,000",
+   "payNote": "",
+   "where": "Virginia · 100% travel to project sites",
+   "whereNote": "",
+   "effort": "",
+   "linkUrl": "",
+   "linkLabel": "Open the posting",
+   "theJob": "",
+   "fits": [],
+   "trade": "",
+   "posted": "",
+   "requirements": [
+    {
+     "label": "Reason on record",
+     "lines": [
+      "Verdict-first ruling under the physical-work law (owner, Nov 4): indoor desk/machine work passes; outdoor field, craft, and construction service work dies regardless of pay or travel funding.",
+      "Pay ruling: $52,000 bottom sits below the $62,400 minimum — floor fails at the low end even before the physical-work ruling."
+     ]
+    }
+   ],
+   "headline": "HCL · Field Network Cabling · outdoor physical work · pay fails your minimum"
   },
   {
-   "id": "KONIAG",
-   "title": "Junior Cloud Engineer, Washington DC — Koniag",
+   "sq": "KONIAG",
+   "title": "Junior Cloud Engineer, Washington DC",
+   "company": "Koniag",
    "status": "skip",
    "verdict": "SKIP",
    "badge": "SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT",
-   "pay": "$70,000"
+   "pay": "$70,000",
+   "payNote": "",
+   "where": "Full-time on-site, Washington DC",
+   "whereNote": "",
+   "effort": "",
+   "linkUrl": "",
+   "linkLabel": "Open the posting",
+   "theJob": "",
+   "fits": [],
+   "trade": "",
+   "posted": "",
+   "requirements": [],
+   "headline": "Koniag · Junior Cloud Engineer · killed Nov 4 · clearance wall"
   }
  ]
 }

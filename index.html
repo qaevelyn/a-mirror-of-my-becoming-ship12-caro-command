@@ -7,46 +7,28 @@
 <link rel="stylesheet" href="assets/gate-module.css">
 <style>
 :root {
-  --sgc-bg: #1a0f08;
-  --sgc-bg2: #170d06;
-  --sgc-bg3: #120a05;
-  --sgc-panel: #1e1308;
-  --sgc-line: #3d2a14;
-  --sgc-gold: #f0d878;
-  --sgc-gold-bright: #f0d878;
-  --sgc-gold-dim: #c9a040;
-  --sgc-amber: #ffb02e;
-  --sgc-text: #e8d4a8;
-  --sgc-parchment: #e8d4a8;
-  --sgc-dim: #8b6f3d;
-  --sgc-ok: #a9c47f;
-  --sgc-go: #a9c47f;
-  --sgc-blue: #9fc8ff;
-  --sgc-red: #ff9d7a;
+  --sgc-bg: #1a0f08; --sgc-bg2: #170d06; --sgc-bg3: #120a05;
+  --sgc-panel: #1e1308; --sgc-line: #3d2a14;
+  --sgc-gold: #f0d878; --sgc-gold-bright: #f0d878; --sgc-gold-dim: #c9a040;
+  --sgc-amber: #ffb02e; --sgc-text: #e8d4a8; --sgc-parchment: #e8d4a8;
+  --sgc-dim: #8b6f3d; --sgc-ok: #a9c47f; --sgc-go: #a9c47f;
+  --sgc-blue: #9fc8ff; --sgc-red: #ff9d7a;
   --font-geist-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 * { margin:0; padding:0; box-sizing:border-box }
 html, body { min-height:100% }
-
-/* ================= STARFIELD + SCANLINES ================= */
 .lcars-page {
-  color: var(--sgc-parchment);
-  font-family: var(--font-geist-sans);
+  color: var(--sgc-parchment); font-family: var(--font-geist-sans);
   background-color: transparent;
   background-image:
     radial-gradient(1100px 700px at 72% -8%, rgba(74,46,28,0.55) 0%, transparent 60%),
     radial-gradient(900px 600px at 8% 110%, rgba(58,34,20,0.50) 0%, transparent 55%),
     linear-gradient(#1a0f08 0%, #170d06 48%, #120a05 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
+  background-attachment: fixed; min-height: 100vh; position: relative; overflow-x: hidden;
 }
 .starfield:before {
-  content: "";
-  z-index: 0;
-  pointer-events: none;
+  content: ""; z-index: 0; pointer-events: none;
   background-image:
     radial-gradient(1.5px 1.5px at 12% 22%, rgba(240,216,120,0.50) 50%, transparent 51%),
     radial-gradient(1px 1px at 34% 64%, rgba(232,213,184,0.35) 50%, transparent 51%),
@@ -57,230 +39,128 @@ html, body { min-height:100% }
     radial-gradient(1.5px 1.5px at 46% 47%, rgba(240,216,120,0.33) 50%, transparent 51%),
     radial-gradient(1px 1px at 91% 18%, rgba(232,213,184,0.40) 50%, transparent 51%),
     radial-gradient(1px 1px at 8% 55%, rgba(250,249,246,0.28) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 65% 88%, rgba(212,182,112,0.36) 50%, transparent 51%),
-    radial-gradient(1px 1px at 28% 8%, rgba(250,249,246,0.30) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 53% 78%, rgba(240,216,120,0.35) 50%, transparent 51%),
-    radial-gradient(1px 1px at 77% 5%, rgba(232,213,184,0.25) 50%, transparent 51%),
-    radial-gradient(1px 1px at 15% 40%, rgba(250,249,246,0.20) 50%, transparent 51%);
-  animation: 7s ease-in-out infinite alternate twinkle;
-  position: fixed;
-  inset: 0;
+    radial-gradient(1.5px 1.5px at 65% 88%, rgba(212,182,112,0.36) 50%, transparent 51%);
+  animation: 7s ease-in-out infinite alternate twinkle; position: fixed; inset: 0;
 }
-@keyframes twinkle {
-  0% { opacity: 0.6 }
-  100% { opacity: 1 }
-}
+@keyframes twinkle { 0% { opacity: 0.6 } 100% { opacity: 1 } }
 .scanlines:after {
-  content: "";
-  z-index: 1;
-  pointer-events: none;
+  content: ""; z-index: 1; pointer-events: none;
   background: repeating-linear-gradient(transparent 0 3px, rgba(250,249,246,0.012) 3px 4px);
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
 }
+.page-wrap { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100vh; padding: 18px 18px 80px; gap: 16px; max-width: 1180px; margin: 0 auto }
 
-/* ================= LAYOUT ================= */
-.page-wrap {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 18px 18px 80px;
-  gap: 16px;
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-/* ================= MONITOR (UP) ================= */
-#monitor {
-  display: flex;
-  justify-content: center;
-}
+/* MONITOR */
+#monitor { display: flex; justify-content: center }
 .monitor-frame {
-  width: 100%;
-  background: linear-gradient(rgba(26,15,8,0.92), rgba(23,13,6,0.96));
-  border: 2px solid rgba(212,182,112,0.55);
-  border-radius: 18px;
+  width: 100%; background: linear-gradient(rgba(26,15,8,0.92), rgba(23,13,6,0.96));
+  border: 2px solid rgba(212,182,112,0.55); border-radius: 18px;
   box-shadow: inset 0 1px rgba(240,216,120,0.18), inset 0 -3px rgba(212,182,112,0.22), 0 6px 24px rgba(0,0,0,0.45);
-  overflow: hidden;
-  position: relative;
+  overflow: hidden; position: relative;
 }
-.monitor-frame:after {
-  content: "";
-  background: linear-gradient(90deg, #e8d5b8 0%, #d4b670 35%, #a88a45 70%, rgba(168,138,69,0.25) 100%);
-  border-radius: 999px;
-  height: 6px;
-  margin: 0 10px 8px;
-  display: block;
-}
-.monitor-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  background: linear-gradient(rgba(16,10,6,0.8), rgba(11,7,4,0.8));
-  border-bottom: 1px solid var(--sgc-line);
-  font: 12px/1 var(--font-geist-mono);
-  letter-spacing: 2.5px;
-  color: var(--sgc-dim);
-  text-transform: uppercase;
-}
+.monitor-frame:after { content: ""; background: linear-gradient(90deg, #e8d5b8 0%, #d4b670 35%, #a88a45 70%, rgba(168,138,69,0.25) 100%); border-radius: 999px; height: 6px; margin: 0 10px 8px; display: block }
+.monitor-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 16px; background: linear-gradient(rgba(16,10,6,0.8), rgba(11,7,4,0.8)); border-bottom: 1px solid var(--sgc-line); font: 12px/1 var(--font-geist-mono); letter-spacing: 2.5px; color: var(--sgc-dim); text-transform: uppercase }
 .monitor-header b { color: var(--sgc-gold); letter-spacing: 2.5px; font-weight: 600 }
 .monitor-header .updated { color: var(--sgc-gold-dim); font-size: 10px }
+.window { position: relative; height: min(52vh, 480px); min-height: 320px; background: radial-gradient(900px 380px at 50% 108%, rgba(240,200,80,0.08), transparent 60%), radial-gradient(700px 300px at 50% 0%, rgba(26,15,8,0.6) 0%, rgba(7,4,2,0.8) 70%); display: flex; align-items: center; justify-content: center; overflow: hidden }
+.gateroom { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center }
+#gate-canvas { width: min(40vh, 380px); height: min(40vh, 380px); display: block; filter: drop-shadow(0 0 30px rgba(240,200,80,0.15)) }
+.glass { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px), linear-gradient(115deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.008) 22%, transparent 40%), radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0,0,0,0.45) 100%) }
+.window-caption { position: absolute; left: 16px; bottom: 12px; font: 11px/1 var(--font-geist-mono); letter-spacing: 2px; color: var(--sgc-dim); text-transform: uppercase }
+.dial-hint { position: absolute; right: 16px; bottom: 12px; font: 11px/1.4 var(--font-geist-mono); letter-spacing: 1px; color: rgba(93,116,136,0.8); text-align: right; max-width: 280px }
 
-/* the gate-room window */
-.window {
-  position: relative;
-  height: min(60vh, 580px);
-  min-height: 360px;
-  background:
-    radial-gradient(900px 380px at 50% 108%, rgba(240,200,80,0.08), transparent 60%),
-    radial-gradient(700px 300px at 50% 0%, rgba(26,15,8,0.6) 0%, rgba(7,4,2,0.8) 70%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.gateroom {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#gate-canvas {
-  width: min(46vh, 430px);
-  height: min(46vh, 430px);
-  display: block;
-  filter: drop-shadow(0 0 30px rgba(240,200,80,0.15));
-}
-/* glass reflection overlay */
-.glass {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 3px),
-    linear-gradient(115deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.008) 22%, transparent 40%),
-    radial-gradient(120% 100% at 50% 50%, transparent 62%, rgba(0,0,0,0.45) 100%);
-}
-.window-caption {
-  position: absolute;
-  left: 16px;
-  bottom: 12px;
-  font: 11px/1 var(--font-geist-mono);
-  letter-spacing: 2px;
-  color: var(--sgc-dim);
-  text-transform: uppercase;
-}
-.dial-hint {
-  position: absolute;
-  right: 16px;
-  bottom: 12px;
-  font: 11px/1.4 var(--font-geist-mono);
-  letter-spacing: 1px;
-  color: rgba(93,116,136,0.8);
-  text-align: right;
-  max-width: 280px;
-}
-
-/* ================= CONSOLE (DOWN, KEYBOARD POSITION) ================= */
-#console {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-.board {
-  width: 100%;
-  transform: perspective(1600px) rotateX(2.2deg);
-  transform-origin: top center;
-  background: linear-gradient(rgba(13,20,29,0.6), rgba(10,15,22,0.6));
-  border: 1px solid rgba(212,182,112,0.35);
-  border-radius: 14px;
-  padding: 14px 16px 16px;
-  box-shadow: 0 22px 50px rgba(0,0,0,0.4), inset 0 1px rgba(240,216,120,0.08);
-}
-.board-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--sgc-line);
-}
-.board-title {
-  font: 700 13px/1 var(--font-geist-mono);
-  letter-spacing: 2.5px;
-  color: var(--sgc-gold-dim);
-  text-transform: uppercase;
-}
-
-/* stat strip */
+/* CONSOLE BOARD */
+#console { flex: 1; display: flex; justify-content: center }
+.board { width: 100%; transform: perspective(1600px) rotateX(2.2deg); transform-origin: top center; background: linear-gradient(rgba(13,20,29,0.6), rgba(10,15,22,0.6)); border: 1px solid rgba(212,182,112,0.35); border-radius: 14px; padding: 14px 16px 16px; box-shadow: 0 22px 50px rgba(0,0,0,0.4), inset 0 1px rgba(240,216,120,0.08) }
+.board-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--sgc-line); flex-wrap: wrap }
+.board-title { font: 700 13px/1 var(--font-geist-mono); letter-spacing: 2.5px; color: var(--sgc-gold-dim); text-transform: uppercase }
+.sync-btn { cursor: pointer; border: 2px solid var(--sgc-gold); background: linear-gradient(rgba(96,62,12,0.9), rgba(42,26,6,0.9)); color: var(--sgc-gold); padding: 8px 16px; border-radius: 999px; font: 700 11px/1 var(--font-geist-mono); letter-spacing: .14em; text-transform: uppercase }
+.sync-btn:hover { box-shadow: 0 0 14px rgba(240,200,80,0.5) }
 .stats { display: flex; gap: 8px; flex-wrap: wrap }
 .stat { padding: 8px 14px; background: rgba(30,19,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px; text-align: center }
 .stat .num { font: 800 18px/1 var(--font-geist-mono); color: var(--sgc-gold) }
 .stat .lbl { font: 9px/1.4 var(--font-geist-mono); letter-spacing: 1.5px; color: var(--sgc-dim); text-transform: uppercase; margin-top: 3px }
 
-/* sections */
+/* FLIP CARDS */
+.jobs-section { margin-bottom: 12px }
+.jobs-section h2 { font: 700 12px/1 var(--font-geist-mono); letter-spacing: 2px; color: var(--sgc-gold-dim); text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--sgc-line) }
+.job-card { perspective: 1000px; height: 80px; margin-bottom: 8px; cursor: pointer }
+.job-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.5s; transform-style: preserve-3d }
+.job-card.flipped .job-card-inner { transform: rotateY(180deg) }
+.job-card-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; gap: 10px }
+.job-card-front { background: rgba(26,15,8,0.9); border: 1px solid var(--sgc-line); border-left: 3px solid var(--sgc-dim) }
+.job-card-back { background: rgba(30,19,8,0.95); border: 1px solid var(--sgc-gold-dim); border-left: 3px solid var(--sgc-gold); transform: rotateY(180deg); flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px; overflow-y: auto; max-height: 400px }
+.job-card--go .job-card-front { border-left-color: var(--sgc-go) }
+.job-card--call .job-card-front { border-left-color: var(--sgc-amber) }
+.job-card--applied .job-card-front { border-left-color: var(--sgc-blue) }
+.job-card--skip .job-card-front { border-left-color: var(--sgc-red); opacity: 0.6 }
+.job-sq { font: 800 13px/1 var(--font-geist-mono); color: var(--sgc-gold); flex: 0 0 auto; min-width: 56px }
+.job-card-front .job-body { flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px; overflow: hidden }
+.job-title { font: 600 13px/1.3 var(--font-geist-sans); color: var(--sgc-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.job-badge { font: 10px/1.4 var(--font-geist-mono); color: var(--sgc-gold-dim) }
+.job-st { font: 800 9px/1 var(--font-geist-mono); letter-spacing: .12em; flex: 0 0 auto; padding: 4px 7px; border-radius: 999px }
+.job-st--go { background: rgba(120,180,90,0.15); color: var(--sgc-go); border: 1px solid rgba(120,180,90,0.4) }
+.job-st--call { background: rgba(255,190,80,0.12); color: var(--sgc-amber); border: 1px solid rgba(255,190,80,0.4) }
+.job-st--applied { background: rgba(90,160,255,0.15); color: var(--sgc-blue); border: 1px solid rgba(90,160,255,0.4) }
+.job-st--skip { background: rgba(255,100,100,0.12); color: var(--sgc-red); border: 1px solid rgba(255,100,100,0.4) }
+.flip-hint { font: 9px/1 var(--font-geist-mono); color: var(--sgc-dim); letter-spacing: .1em; flex: 0 0 auto; margin-left: 8px }
+
+/* CARD BACK (details) */
+.back-header { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; gap: 8px }
+.back-title { font: 700 14px/1.3 var(--font-geist-sans); color: var(--sgc-gold) }
+.back-sq { font: 800 11px/1 var(--font-geist-mono); color: var(--sgc-gold-dim); letter-spacing: .1em }
+.back-close { cursor: pointer; border: 1px solid var(--sgc-line); background: rgba(26,15,8,0.8); color: var(--sgc-dim); padding: 4px 8px; border-radius: 6px; font: 700 10px/1 var(--font-geist-mono) }
+.back-close:hover { color: var(--sgc-gold); border-color: var(--sgc-gold-dim) }
+.back-field { width: 100%; font: 11.5px/1.5 var(--font-geist-sans); color: var(--sgc-text) }
+.back-field-label { font: 700 10px/1 var(--font-geist-mono); color: var(--sgc-gold-dim); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 3px }
+.back-link { display: inline-block; padding: 6px 12px; border: 1px solid var(--sgc-gold-dim); border-radius: 999px; color: var(--sgc-gold); text-decoration: none; font: 700 10px/1 var(--font-geist-mono); letter-spacing: .1em; margin-top: 4px }
+.back-link:hover { box-shadow: 0 0 8px rgba(240,200,80,0.4) }
+.back-req { font: 11px/1.5 var(--font-geist-mono); color: var(--sgc-text); padding: 6px 8px; background: rgba(26,15,8,0.6); border-left: 2px solid var(--sgc-dim); border-radius: 4px; margin: 4px 0 }
+.back-req-label { font: 700 10px/1 var(--font-geist-mono); color: var(--sgc-gold-dim); margin-bottom: 4px }
+
+/* GO SWITCH */
+.switch-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 0; border-top: 1px solid var(--sgc-line); margin-top: 8px }
+.gate-switch { cursor: pointer; background: rgba(168,138,69,0.08); border: 2px solid rgba(168,138,69,0.6); border-radius: 999px; flex: none; width: 108px; height: 44px; position: relative; transition: all .25s }
+.gate-switch__thumb { background: rgba(168,138,69,0.4); border-radius: 999px; width: 34px; height: 34px; position: absolute; top: 3px; left: 3px; transition: all .22s cubic-bezier(.5,1.6,.4,1) }
+.gate-switch--on { border-color: var(--sgc-go); background: rgba(169,196,127,0.14); box-shadow: 0 0 16px rgba(169,196,127,0.35) }
+.gate-switch--on .gate-switch__thumb { background: var(--sgc-go); transform: translateX(46px); box-shadow: 0 0 10px rgba(169,196,127,0.8) }
+.switch-label { font: 700 11px/1 var(--font-geist-mono); letter-spacing: .14em; color: var(--sgc-dim); text-transform: uppercase }
+.switch-label--on { color: var(--sgc-go) }
+
+/* COMMENT FIELD */
+.comment-row { width: 100%; margin-top: 8px }
+.comment-row label { font: 700 10px/1 var(--font-geist-mono); color: var(--sgc-gold-dim); letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 4px }
+.comment-row textarea { width: 100%; min-height: 60px; background: rgba(26,15,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px; padding: 8px 10px; color: var(--sgc-text); font: 12px/1.5 var(--font-geist-sans); resize: vertical }
+.comment-row textarea:focus { outline: none; border-color: var(--sgc-gold-dim); box-shadow: 0 0 6px rgba(240,200,80,0.2) }
+
+/* SECTIONS */
 .section { background: rgba(30,19,8,0.7); border: 1px solid var(--sgc-line); border-radius: 12px; padding: 14px; margin-bottom: 12px }
 .section h2 { font: 700 12px/1 var(--font-geist-mono); letter-spacing: 2px; color: var(--sgc-gold-dim); text-transform: uppercase; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--sgc-line) }
-
-/* fleet ledger */
 .fleet-grid { display: grid; gap: 6px; grid-template-columns: 1fr }
 @media(min-width:640px) { .fleet-grid { grid-template-columns: 1fr 1fr } }
-.ship-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(26,15,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px; transition: border-color .2s }
+.ship-card { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(26,15,8,0.8); border: 1px solid var(--sgc-line); border-radius: 8px }
 .ship-card--live { border-color: var(--sgc-gold-dim); box-shadow: 0 0 10px rgba(240,200,80,0.1) }
-.ship-card:hover { border-color: var(--sgc-gold-dim) }
 .ship-num { font: 800 14px/1 var(--font-geist-mono); color: var(--sgc-gold); flex:0 0 auto; min-width:32px }
 .ship-body { flex:1 1 auto; display:flex; flex-direction:column; gap:2px }
 .ship-name { font: 600 13px/1.3 var(--font-geist-sans); color: var(--sgc-text) }
 .ship-status { font: 10px/1 var(--font-geist-mono); letter-spacing: .1em; color: var(--sgc-dim) }
 .ship-note { font: 10px/1.4 var(--font-geist-mono); color: var(--sgc-gold-dim) }
 .ship-link { font: 700 9px/1 var(--font-geist-mono); letter-spacing: .12em; color: var(--sgc-gold); text-decoration:none; flex:0 0 auto; padding:5px 8px; border:1px solid var(--sgc-gold-dim); border-radius:999px }
-.ship-link:hover { box-shadow: 0 0 8px rgba(240,200,80,0.4) }
 .ship-link--none { color: var(--sgc-dim); border-color: var(--sgc-line); cursor:default }
-
-/* job board */
-.job-row { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; margin-bottom:5px; background: rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:8px; border-left:3px solid var(--sgc-dim) }
-.job-row--applied { border-left-color: var(--sgc-blue) }
-.job-row--go { border-left-color: var(--sgc-ok) }
-.job-row--call { border-left-color: var(--sgc-amber) }
-.job-row--skip { border-left-color: var(--sgc-red); opacity:.6 }
-.job-sq { font:800 12px/1 var(--font-geist-mono); color: var(--sgc-gold); flex:0 0 auto; min-width:56px }
-.job-body { flex:1 1 auto; display:flex; flex-direction:column; gap:2px }
-.job-title { font:600 12px/1.3 var(--font-geist-sans); color: var(--sgc-text) }
-.job-badge { font:10px/1.4 var(--font-geist-mono); color: var(--sgc-gold-dim) }
-.job-pay { font:10px/1 var(--font-geist-mono); color: var(--sgc-ok) }
-.job-st { font:800 8px/1 var(--font-geist-mono); letter-spacing:.12em; flex:0 0 auto; padding:4px 7px; border-radius:999px }
-.job-st--applied { background:rgba(90,160,255,.15); color:var(--sgc-blue); border:1px solid rgba(90,160,255,.4) }
-.job-st--go { background:rgba(120,180,90,.15); color:var(--sgc-ok); border:1px solid rgba(120,180,90,.4) }
-.job-st--call { background:rgba(255,190,80,.12); color:var(--sgc-amber); border:1px solid rgba(255,190,80,.4) }
-.job-st--skip { background:rgba(255,100,100,.12); color:var(--sgc-red); border:1px solid rgba(255,100,100,.4) }
-
-/* feed */
 .feed-box { max-height:180px; overflow:auto; display:flex; flex-direction:column; gap:5px }
 .feed-line { font:11px/1.5 var(--font-geist-mono); color: var(--sgc-text); padding:7px 10px; background: rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:6px }
 .feed-t { color: var(--sgc-gold-dim); font-weight:700 }
-
-/* rules */
 .rules { display:flex; flex-direction:column; gap:5px }
 .rule { font:12px/1.5 var(--font-geist-sans); color:var(--sgc-text); padding:7px 11px; background:rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:6px; border-left:3px solid var(--sgc-gold-dim) }
-.rule strong { color: var(--sgc-gold) }
-
 footer { text-align:center; padding:16px 0 0; font:10px/1.4 var(--font-geist-mono); color:var(--sgc-dim); letter-spacing:.1em }
 footer a { color:var(--sgc-gold-dim); text-decoration:none }
-footer a:hover { color:var(--sgc-gold) }
 </style>
 <script>window.FLEET_CANON={src:"manifest.json",ships:[{"n": 1, "name": "DeepSeek RAG — the origin ship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek", "status": "flown"}, {"n": 2, "name": "IBM Granite Agentic RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic", "status": "flown"}, {"n": 3, "name": "IBM Granite RAG", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite", "status": "flown"}, {"n": 4, "name": "IBM Granite Agentic RAG — the agentic flagship", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic", "status": "flown"}, {"n": 5, "name": "EvidenceFlow — fail-closed verification", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow", "status": "flown"}, {"n": 6, "name": "Ingestion Tools — Scribe · Warden · Hand", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools", "status": "flown"}, {"n": 7, "name": "msgvault Adapter", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter", "status": "flown"}, {"n": 8, "name": "DV14™: The Box — AI containment blueprint", "url": "", "status": "flown"}, {"n": 9, "name": "Radiology Companion™", "url": "", "status": "flown"}, {"n": 10, "name": "Overseer™ — tier-authority orchestrator", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer", "status": "flown"}, {"n": 11, "name": "AWS CCP Study Manual — Sleep Is Studying Too™", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual", "status": "flown"}, {"n": 12, "name": "CARO COMMAND — SCOUT OPS (this console)", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command", "status": "live"}, {"n": 13, "name": "TriviaGate™ — the ONE Ship 13 study engine · single file", "url": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate", "status": "live"}]};</script>
+<script>window.JOBS_DATA=[{"sq": "SQ-24", "title": "Test Automation Engineer — Entry Level", "company": "Medinext Global LLC", "status": "go", "verdict": "GO", "badge": "GO ✦ NEW — Nov 8 sweep", "pay": "$70,000 – $90,000 / year", "payNote": "bottom clears your $62,400 minimum by $7,600", "where": "Fully remote — United States", "whereNote": "standard US business hours — you're Eastern", "effort": "Easy — Dice Easy Apply, resume upload, no essays.", "linkUrl": "https://www.dice.com/job-detail/81d343aa-192c-4b7b-bf0a-3ec85cc0987b", "linkLabel": "Open the posting — Dice (Easy Apply)", "theJob": "Medinext's quality team wants an early-career automation tester: write automated test scripts, run regression and API checks, track bugs, work in sprints with developers. The requirements name 0–2 years of testing experience, programming in \"Java, Python, JavaScript, or C#\" — Python is yours — and basic SQL.", "fits": ["\"0–2 years of experience in software testing, QA, or test automation\" (their words) — your dated public projects count. · \"Programming experience with Java, Python, JavaScript, or C#\" — Python is on your resume. · \"Basic knowledge of SQL\" — you have it.", "The hard tools (Selenium, Cypress, Playwright, Jenkins) sit in the PREFERRED list only — you claim none of them; your Python test scripts carry the row."], "trade": "Money is the trade: the band's bottom is only 12% over your minimum, and this is a staffing firm (a middleman employer) — get the pay confirmed in writing at first contact; Dice carries an AI-description caution, so treat the text as indicative until they confirm.", "posted": "Posted ~Oct 8 · refreshed on Dice rails Nov 8 · no apply-by shown", "requirements": [{"label": "Required Qualifications (verbatim)", "lines": ["\"Bachelor's or Master's degree in Computer Science, Information Technology, Software Engineering, or related field.\"", "\"0–2 years of experience in software testing, QA, or test automation.\"", "\"Programming experience with Java, Python, JavaScript, or C#.\"", "\"Basic knowledge of SQL.\""]}, {"label": "Technical Skills — Required (verbatim)", "lines": ["\"Software Testing | Test Automation | Java/Python/JavaScript/C# | SQL | Regression Testing | Functional Testing\""]}, {"label": "Work arrangement (verbatim)", "lines": ["\"Remote - United States\" · \"Full-Time - W2\" · \"Candidates must be legally authorized to work in the United States.\""]}], "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane"}, {"sq": "SQ-19", "title": "Data Analyst", "company": "Tekcel8", "status": "go", "verdict": "GO", "badge": "GO — PACKET READY ✦", "pay": "$35 – $50 / hour = $72,800 – $104,000", "payNote": "10-month contract, W2 or 1099", "where": "Remote (US)", "whereNote": "occasional travel", "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.", "linkUrl": "https://www.dice.com/job-detail/80f16428-257a-4ba9-922d-849a01e8f4dc", "linkLabel": "Open the posting — Dice Easy Apply", "theJob": "Data cleanup, validation, and Excel / Power BI reporting through a very small staffing shop, end client unnamed. They want \"strong proficiency in SQL\" (same honest-depth flag as the Apex card) and a Bachelor's in a listed field (fails as written; coursework is the bridge).", "fits": [], "trade": "The money clears both ends comfortably, but this is the reporting lane, not QA or cloud — the furthest from your two core lanes of anything on the board.", "posted": "Posted ~Oct 16–17, 2026 (19 days at capture) · no apply-by shown", "requirements": [{"label": "Requirements (verbatim, complete)", "lines": ["\"Bachelor's degree in Computer Science, Information Systems, Statistics, Mathematics, Business Analytics, or a related field.\"", "\"Strong proficiency in SQL, including joins, subqueries, aggregations, and complex queries.\"", "\"Hands-on experience with Microsoft Excel, including PivotTables, lookup functions, and data manipulation.\"", "\"Experience with Power BI, Tableau, or other data visualization tools.\"", "\"Knowledge of data cleaning, data validation, statistical analysis, and reporting methodologies.\"", "\"Strong analytical, critical-thinking, and problem-solving skills.\"", "\"Excellent communication skills and the ability to present data-driven insights.\""]}, {"label": "Pay + arrangement (verbatim)", "lines": ["\"$35 - $50/hr\"", "\"Remote • Posted 19 days ago • Updated 19 days ago Contract W2 Contract Independent 10 Months Occasional Travel Required Remote\""]}], "headline": "Tekcel8 · Data Analyst · $72.8k–$104k · reporting lane, not QA or cloud"}, {"sq": "SQ-18", "title": "QA Engineer", "company": "Peterson Technology Partners", "status": "go", "verdict": "GO", "badge": "GO — PACKET READY ✦", "pay": "$30 – $35 / hour", "payNote": "the bottom is exactly your $62,400 minimum; their own write-up says a flat $35/hour ($72,800), so the real number may be the good end — ask which", "where": "Remote (US)", "whereNote": "they'd prefer Houston — irrelevant for remote", "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.", "linkUrl": "https://www.dice.com/job-detail/0ee2a5d8-6a27-4113-a15c-d1d4b116bc55", "linkLabel": "Open the posting — Dice Easy Apply", "theJob": "Test pharmacy-management software — prescribing, batching, labeling, inventory, billing — beside a Senior QA Lead, 6-month contract that can turn permanent. They ask 1–3 years (bridgeable) and want \"basic exposure to test automation and a clear desire to grow it\" — the exact growth-rung shape of your story.", "fits": [], "trade": "The money starts at exactly your floor (your floor is never traded down; as written, it clears). Staffing middleman, unnamed client, and the permanent-conversion door isn't named — asked at first contact.", "posted": "\"Posted 7 days ago, updated 1 day ago\" at capture · no apply-by shown", "requirements": [{"label": "Required qualifications (verbatim)", "lines": ["\"1-3 years of software quality assurance or testing experience, ideally on a SaaS or web-based product\"", "\"Experience designing and executing test cases from requirements or acceptance criteria, and working defects through their full lifecycle\"", "\"Experience working on an Agile team (Scrum, SAFe or similar) with sprint-based delivery\"", "\"Basic exposure to test automation or scripting, and a clear desire to grow it into a core skill\"", "\"Detail-oriented, coachable and a clear written communicator.\""]}, {"label": "The engagement (verbatim)", "lines": ["\"Our client is seeking a QA Engineer, early in their QA career, to help test its pharmacy management software: an end-to-end platform for compounding pharmacies covering e-prescribing, production and batching, labeling, inventory and billing. The platform is being rebuilt on a modern, API-ready SaaS foundation. You'll work day-to-day with a Senior QA Lead.\"", "\"Pay rate: $35/hr. This is a 6-month contract-to-hire position, remote in the US (Houston, TX preferred).\"", "\"Contract Corp To Corp / Contract W2 · No Travel Required · Able to Sponsor\""]}], "headline": "Peterson Tech Partners · QA Engineer · remote · starts at exactly your floor"}, {"sq": "SQ-21", "title": "Cloud Platform Engineer I", "company": "Centene Corporation", "status": "go", "verdict": "GO", "badge": "GO — PACKET READY ✦", "pay": "$30.58 – $55.09 / hour = $63,606 – $114,587", "payNote": "bottom clears your minimum by only $1,206 — the thinnest margin here", "where": "Remote in 28 states", "whereNote": "Virginia is on the list", "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.", "linkUrl": "https://www.theladders.com/job/cloud-platform-engineer-i-centenecorp-virtual-travel_89675472", "linkLabel": "Read the full posting — Ladders mirror (Dice Easy Apply rail on record)", "theJob": "At Centene, a Fortune-50 healthcare company, you'd help build AI-powered cloud applications. Their requirements read like your portfolio: Python, large-language-model understanding, at least one AI project built (you have five), connecting AI services through web APIs, Git.", "fits": ["0–2 years \"or equivalent experience\" — their words, a real door. · AWS or Azure — AWS is yours; Azure is never claimed."], "trade": "It's a developer job — writing production code, not testing it — and the band's bottom is almost exactly your floor. Due diligence: the company's own careers page wouldn't serve the posting when we checked; details come from two mirrors that agree — confirm the job is live before investing time.", "posted": "Posted \"Today\" on Dice (Nov 5) · no apply-by shown", "requirements": [{"label": "Position purpose (verbatim)", "lines": ["\"The Cloud Platform Engineer I is a position for a motivated developer who will be joining our engineering team and help design, develop, and operationalize AI-enabled applications and solutions. This role is ideal for an early-career software engineer who has strong programming fundamentals and practical exposure to Cloud technologies, Large Language Models (LLMs), and machine learning through academic work, internships, personal projects, or professional experience.\""]}, {"label": "Education / experience + technical skills (verbatim)", "lines": ["\"A Bachelor's degree in a quantitative or business field (e.g., statistics, mathematics, engineering, computer science) and requires 0 - 2 years of related experience. Or equivalent experience acquired through accomplishments of applicable knowledge, duties, scope and skill reflective of the level of this position. Or completion of a Centene-sponsored emerging talent program.\"", "\"0-2 years experience with Python through coursework, internships, research, professional work, or personal projects.\"", "\"Understanding of Machine Learning, Generative AI, and LLM platforms and APIs.\"", "\"Experience building at least one AI/ML application or project through coursework, internships, hackathons, research, or independent development/ open-source contributions.\"", "\"Integrate AI models and services into applications using REST APIs, SDKs, and microservices.\"", "\"Familiarity with Git/GitHub or GitLab.\""]}, {"label": "Duties (verbatim)", "lines": ["\"Develop, manage, and administer cloud infrastructure as code on the cloud platform (e.g. AWS, or Azure).\"", "\"Build AI agentic solution using Large Language Models, Machine Learning, Generative AI.\"", "\"Write production-quality code with appropriate tests and documentation.\""]}, {"label": "Pay + benefits (verbatim)", "lines": ["\"Pay Range: $30.58 - $55.09 per hour\"", "\"health insurance, 401K and stock purchase plans, tuition reimbursement, paid time off plus holidays\""]}], "headline": "Centene · Cloud Platform Engineer I · remote 28 states · the AI card"}, {"sq": "SQ-25", "title": "Junior Tester", "company": "9th Way Insignia", "status": "call", "verdict": "CALL", "badge": "YOUR CALL ✦ NEW — Nov 8 sweep", "pay": "$62,818 – $67,500 / year", "payNote": "bottom clears your minimum by $418 — the thinnest margin on the board", "where": "Fully remote — United States", "whereNote": "supporting the Dept. of Veterans Affairs eCMS program", "effort": "Easy — about 2 minutes on their site or Dice; resume upload.", "linkUrl": "https://haystackapp.io/jobs/08043723-367e-4b61-aa28-8bb5f25361de", "linkLabel": "Read the full posting — Haystack mirror (live on Dice too)", "theJob": "You'd do manual testing — clicking through features, writing up bugs, documenting results — on the contract-management system the Department of Veterans Affairs uses, on an Agile team. The JD asks for testing knowledge and the ability to become proficient in their C#/.NET stack — not hands-on C# experience.", "fits": ["Manual testing with solid documentation — your QA lane. · \"Knowledge of version control (Git) and CI/CD pipelines\" — Git is on your resume. · \"Ability to obtain and maintain a Public Trust clearance\" — sponsored, an obtainable door like the TEKsystems Secret.", "A federal VA program on the resume — the federal-employment lane you're aiming at."], "trade": "Thin money ($418 over your minimum) and manual testing in a C#/.NET shop instead of your Python automation — in exchange for a federal program door and a sponsored Public Trust clearance that travels. Your word: promote or discard.", "posted": "Posted ~Nov 2–5 · rails show it refreshed \"Today\" · no apply-by shown", "requirements": [{"label": "Requirements (verbatim)", "lines": ["\"Bachelor's degree in IT/Computer Science or a technical field\"", "\"Knowledge of software testing with ability to become proficient in Visual Studio, C#, and .NET-based applications\"", "\"Knowledge of version control (Git) and CI/CD pipelines\"", "\"Ability to perform manual testing with attention to detail and solid documentation skills\"", "\"Ability to obtain and maintain a Public Trust clearance\""]}, {"label": "Pay + location (verbatim)", "lines": ["\"$62,818—$67,500 USD\" · \"United States - Remote\"", "Manual testing of C#/Visual Studio/.NET applications supporting the VA eCMS program"]}], "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum"}, {"sq": "SQ-22", "title": "Quality Engineer I", "company": "Availity", "status": "applied", "verdict": "GO", "badge": "✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦", "pay": "Not posted", "payNote": "the one open question — asked in writing before anything else", "where": "Fully remote (US)", "whereNote": "Eastern time preferred — you're Eastern", "effort": "Easy — resume upload, no essays, ~15 min on their own page.", "linkUrl": "https://availity.wd1.myworkdayjobs.com/availity_careers_us/job/remote---united-states/quality-engineer-i_r0008638", "linkLabel": "Open the posting — Availity careers (req R0008638)", "theJob": "Availity runs the plumbing between doctors' offices and health insurance plans — millions of providers, billions of transactions a year. On a software team, you'd write test plans, run tests, and write up bugs clearly, in two-week sprints. They openly want someone who uses AI tools to speed up testing — a plain description of what your portfolio already does.", "fits": ["\"1+ years in QA — internships and project work count\" (their words) — your dated public projects cover it. · Python, JavaScript, or C# — Python is yours.", "Jira for tracking — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\"). · Cloud basics, AWS or Azure — AWS is your lane."], "trade": "", "posted": "Posted \"Yesterday\" on capture (Nov 4, 2026) · no apply-by shown", "requirements": [{"label": "What you will be doing (verbatim)", "lines": ["\"Assigned to a Scrum team, you will be developing test plans, test scenarios and test cases based on the business, user, and functional/nonfunctional requirements\"", "\"Participating in daily stand ups, sprint planning and refinement meetings\"", "\"Utilizing JIRA for project planning and tracking\"", "\"Collaborating with the Product Owner and Engineers on a regular basis\"", "\"Conducting automated tests using user-level test automation tools and/or behavioral-driven test scenarios\"", "\"Validating and documenting the completion of testing and development processes to ensure compliance standards are met\""]}, {"label": "Qualifications — key lines (verbatim)", "lines": ["\"1+ years of experience in quality assurance and testing best practices (internships, co-ops, or project work considered)\"", "\"Exposure to writing test automation, front end and/or back end, with a desire to grow automation skills\"", "\"Working knowledge of JavaScript, Python, C# (or similar languages used for test automation and tooling)\"", "\"Familiarity with an IDE (VS Code, Eclipse, or similar) to run and debug automated tests, and basic source control workflows (commit changes, create pull/merge requests)\"", "\"Basic understanding of cloud concepts (AWS, Azure including environments, deployments, and cloud-hosted architectures)\"", "\"Exposure to continuous integration tools (GitLab CI for pipeline execution and test integration)\"", "\"Ability to write clear, reproducible, high quality bugs and defects\"", "\"Exposure to API testing with tools such as Insomnia or Postman\"", "\"Exposure to Cucumber and Selenium WebDriver is preferred\"", "\"Foundational knowledge of underlying technologies supporting the applications under test i.e., REST API's, HTML, CS…\" (capture ends here)"]}, {"label": "The AI-multiplier section (verbatim)", "lines": ["\"Uses AI-assisted tools (e.g., Copilot-style tools) to improve testing efficiency, such as drafting test scenarios, accelerating automation development, analyzing failures, and supporting root-cause investigation — with human judgment and verification\"", "\"Leverages AI to support test completeness by identifying gaps, exploring edge cases, and assessing risk across functional and non-functional scenarios\"", "\"Applies AI to summarize test results, logs, and failures to raise awareness, communicate risk clearly, and support timely escalation\""]}, {"label": "Pay, location, fine print (verbatim)", "lines": ["Pay: NOT POSTED — no compensation line anywhere on the req", "\"Location: Remote, US – Eastern/Central Time zones Preferred\" · Full time", "\"Sponsorship, in any form, is not available for this position.\"", "\"Must pass a drug test before beginning\""]}], "headline": "Availity · Quality Engineer I · fully remote · your next call"}, {"sq": "SQ-23", "title": "Junior QA Automation Engineer", "company": "Element (e14s.com)", "status": "applied", "verdict": "GO", "badge": "✦ APPLIED NOV 6 · chevron 2/7 ✦", "pay": "$65,000 – $85,000, posted", "payNote": "bottom clears your minimum by $2,600", "where": "Fully remote (US)", "whereNote": "must live in the lower 48 — you do", "effort": "FLOWN Nov 6, 2026 · 08:51 AM ET — owner pressed submit on Element's own form. Resume + cover letter attached. Answer sheet: salary 65000, gov-contracting 2 yrs, clearance Yes.", "linkUrl": "https://www.e14s.com/careers", "linkLabel": "Open the posting — Element careers page", "theJob": "Element builds websites and digital tools for government agencies, including Medicare and Medicaid health programs. You'd write and maintain automated tests — small programs that keep checking the real software still works after every change. Junior title; they expect to teach you their tools.", "fits": ["0–2 years, \"internships, academic projects, and practical training may be considered\" — the honest door, exactly your shape. · Degree: a Bachelor's, or an Associate + 2 years' experience — your Associate plus documented experience fits the second door as written.", "One language: Python, Java, JavaScript, or C# — Python. · US citizen or green card — citizen. Possible Public Trust later — the good kind of door: they obtain it for you after hiring; you need nothing to apply.", "Nice-to-haves you already own: government contracting (your DLA contract receipts), Jira (your resume line), healthcare domain."], "trade": "", "posted": "Posted ~Nov 3, 2026 · no apply-by shown", "requirements": [{"label": "Required qualifications (verbatim)", "lines": ["\"Bachelor's degree in Computer Science, Software Engineering, Information Technology, or associate degree plus two years' experience\"", "\"0–2 years of experience in software testing, quality assurance, test automation, or application development; relevant internships, academic projects, and practical training may be considered\"", "\"Foundational knowledge of programming concepts and at least one programming or scripting language, such as Python, Java, JavaScript, or C#\"", "\"Understanding of software testing principles, including test cases, test execution, defect reporting, and regression testing\"", "\"Basic ability to read, write, and troubleshoot automated test scripts\"", "\"Familiarity with software development lifecycles and Agile development practices\"", "\"Strong analytical, problem-solving, and attention-to-detail skills\"", "\"Effective written and verbal communication skills, including the ability to document technical issues clearly\""]}, {"label": "Preferred qualifications — key lines (verbatim)", "lines": ["\"Experience in government contracting or healthcare, including CMS or the health industry\"", "\"Exposure to Selenium, Playwright, Cypress, or comparable test automation technologies\"", "\"Familiarity with Postman\"", "\"Basic understanding of SQL and database validation\"", "\"Exposure to Git\"", "\"Familiarity with CI/CD tools and automated testing in build and deployment pipelines\"", "\"Experience with Jira, Azure DevOps, or comparable defect tracking and test management platforms\"", "\"Understanding of web applications, RESTful APIs, and client-server architecture\""]}, {"label": "Pay, location, authorization (verbatim)", "lines": ["\"$65k - $85k / year\"", "\"District of Columbia, Washington – Remote\" (US-remote; Full Time)", "\"Must live in the Continental US\" · \"Must be either a US citizen or Permanent Resident\"", "\"Posted on Element's careers page, not through a job board\""]}], "headline": "Element · Junior QA Automation Engineer · $65k–$85k posted · the easy form"}, {"sq": "SQ-16", "title": "Junior QA Analyst", "company": "Gridiron IT Solutions", "status": "applied", "verdict": "GO", "badge": "✦ APPLIED NOV 6 · chevron 3/7 ✦", "pay": "$70,000 – $90,000", "payNote": "but that's a recruiter board's number; the posting itself says \"depends on experience\"", "where": "Hybrid, Washington DC", "whereNote": "\"potentially up to 5 days onsite,\" their words", "effort": "Easy — Dice Easy Apply, the same flow you liked twice on Nov 5.", "linkUrl": "https://www.dice.com/job-detail/95fc278d-9739-4d15-ac8d-2033943313e3", "linkLabel": "Open the posting — Dice Easy Apply", "theJob": "Classic software QA at a government-IT staffing firm — run test plans, log defects, keep the QA records tidy. They ask 1–2 years (your lane, bridgeable), require zero tools you can't honestly claim, and they obtain a Public Trust for you.", "fits": [], "trade": "Five days a week in DC means train fare from Woodbridge every day — real money out the door before the first paycheck. If they actually want two days, it's a different job. Worth one written question about days-per-week before anything else. Posting is ~3 weeks old.", "posted": "Dice rail: \"Easy Apply · Contract · 17d ago\" · no apply-by shown", "requirements": [{"label": "Required qualifications (verbatim)", "lines": ["\"1–2 years of experience in quality assurance, software testing, or a related technical field.\"", "\"Basic understanding of Software Development Lifecycles (SDLC), defect tracking, and validation methods.\"", "\"Strong analytical and problem solving skills with excellent attention to detail.\"", "\"Ability to follow established QA processes and accurately execute test plans and test cases.\"", "\"Clear written communication skills for documenting issues and collaborating with project teams.\"", "\"Ability to read and understand functional requirements, user stories, and acceptance criteria.\""]}, {"label": "Preferred qualifications (verbatim)", "lines": ["\"Familiarity with test management tools, defect tracking systems, or basic automation frameworks.\"", "\"Foundational understanding of data validation, system integration testing, and regression testing.\"", "\"Exposure to Agile or iterative delivery environments.\"", "\"Introductory knowledge of API or UI automation tools or simple scripting (optional for growth).\"", "\"Basic SQL skills or comfort validating backend data or APIs.\""]}, {"label": "Education + clearance (verbatim)", "lines": ["\"Associate degree in a relevant field (e.g., Computer Science, Information Systems, Data Analytics).\"", "\"Applicants selected will be subject to a security investigation and may need to meet eligibility requirements for access to classified information; Public Trust clearance is required.\""]}, {"label": "Pay + location facts (verbatim)", "lines": ["Pay NOT stated on the posting — Dice rail reads \"Depends on Experience\"; the $70,000–$90,000/yr band is the ClearanceJobs rail figure", "\"Hybrid in Washington, DC, US – potentially up to 5 days onsite\""]}], "headline": "Gridiron IT · Junior QA Analyst · hybrid DC · the commute is the trade"}, {"sq": "SQ-20", "title": "Jr. Data Engineer", "company": "Apex Systems", "status": "applied", "verdict": "GO", "badge": "✦ APPLIED NOV 6 · chevron 4/7 ✦", "pay": "$45 – $53 / hour = $93,600 – $110,240", "payNote": "strongest remote money on this board — 1.5× your minimum", "where": "Fully remote, anywhere in the US", "whereNote": "", "effort": "SUBMITTED Nov 6 ~12 PM ET — receipt on file (\"Application Submitted!\", Job # 3056074). AI-recruiter call inbound 1–2 hrs.", "linkUrl": "https://www.apexsystems.com/job/3056074_usa/jr-data-engineer", "linkLabel": "Open the posting — Apex Systems (job 3056074)", "theJob": "For a large healthcare client (through staffing firm Apex), you'd check — and automate the checking of — a big monthly data process: database queries, dashboards, chasing down numbers that don't add up.", "fits": ["0–3 years, stated outright — a real door. · One required skill: SQL — honest answer on record: you know it (your white paper is published), but your hands-on data work is NoSQL; screeners get answered exactly that way.", "Degree line wants a \"quantitative or business\" Bachelor's — fails as written; your coursework is the bridge. A flag, not a wall."], "trade": "A staffing middleman stands between you and an unnamed client, and the work is data work — one step beside your QA/cloud lane, not the same lane.", "posted": "Posted Oct 15, 2026 · no deadline stated", "requirements": [{"label": "Required qualifications (verbatim)", "lines": ["\"Education: Bachelor's degree in a quantitative or business field.\"", "\"Experience: 0-3 years of relevant experience.\"", "\"Technical Skills: Proficiency in SQL.\""]}, {"label": "Preferred qualifications (verbatim)", "lines": ["\"Knowledge of Snowflake.\"", "\"Familiarity with Kubernetes.\"", "\"Experience with AI tools such as Windsurf or Devin.\""]}, {"label": "The role (verbatim)", "lines": ["\"Apex Systems is hiring a Jr. Data Engineer for a large Healthcare client.\"", "\"Our team supports a major project by creating and automating the validation of an extensive monthly process. This position will contribute to developing production fixes for a Snowflake pipeline and adding new reporting capabilities.\"", "\"Develop and write SQL code in Snowflake. · Utilize Power BI validation dashboards to identify potential validation issues. · Troubleshoot data irregularities and perform root cause analysis. · Analyze data variability month over month to ensure data integrity.\""]}, {"label": "Pay + location (verbatim)", "lines": ["\"Pay Range: $45 - $53 per hour\"", "\"Location: Fully remote anywhere in the US - You must be authorized to work in the United States without sponsorship.\"", "\"Employee Type: Contract · Remote: Yes · Location: Various, MO, US\" · Job# 3056074"]}], "headline": "Apex Systems · Jr. Data Engineer · $93.6k–$110.2k remote · the money card"}, {"sq": "SQ-2", "title": "Field Network Cabling Technician, 100% Travel", "company": "HCL", "status": "skip", "verdict": "SKIP", "badge": "SKIP — RECOMMEND DISCARDING", "pay": "$52,000 – $76,000", "payNote": "", "where": "Virginia · 100% travel to project sites", "whereNote": "", "effort": "", "linkUrl": "", "linkLabel": "Open the posting", "theJob": "", "fits": [], "trade": "", "posted": "", "requirements": [{"label": "Reason on record", "lines": ["Verdict-first ruling under the physical-work law (owner, Nov 4): indoor desk/machine work passes; outdoor field, craft, and construction service work dies regardless of pay or travel funding.", "Pay ruling: $52,000 bottom sits below the $62,400 minimum — floor fails at the low end even before the physical-work ruling."]}], "headline": "HCL · Field Network Cabling · outdoor physical work · pay fails your minimum"}, {"sq": "KONIAG", "title": "Junior Cloud Engineer, Washington DC", "company": "Koniag", "status": "skip", "verdict": "SKIP", "badge": "SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT", "pay": "$70,000", "payNote": "", "where": "Full-time on-site, Washington DC", "whereNote": "", "effort": "", "linkUrl": "", "linkLabel": "Open the posting", "theJob": "", "fits": [], "trade": "", "posted": "", "requirements": [], "headline": "Koniag · Junior Cloud Engineer · killed Nov 4 · clearance wall"}];</script>
 </head>
 <body class="lcars-page starfield scanlines">
-
 <div class="page-wrap">
 
-  <!-- ======== MONITOR (UP) — the gate-room window ======== -->
   <div id="monitor">
     <div class="monitor-frame">
       <div class="monitor-header">
@@ -288,21 +168,19 @@ footer a:hover { color:var(--sgc-gold) }
         <span class="updated">SYNC: Nov 9, 4:00 AM ET</span>
       </div>
       <div class="window">
-        <div class="gateroom">
-          <canvas id="gate-canvas"></canvas>
-        </div>
+        <div class="gateroom"><canvas id="gate-canvas"></canvas></div>
         <div class="glass"></div>
         <div class="window-caption">MISSION DIAL &mdash; 4/7 CHEVRONS LOCKED</div>
-        <div class="dial-hint">Each submitted application locks a chevron. Seven opens the gate. The 8th is the interview. The 9th is the offer.</div>
+        <div class="dial-hint">Click a job card below to flip it. Flip the GO switch to authorize a packet build. Click the gate to fire the kawoosh.</div>
       </div>
     </div>
   </div>
 
-  <!-- ======== CONSOLE (DOWN) — keyboard position ======== -->
   <div id="console">
     <div class="board">
       <div class="board-top">
         <div class="board-title">CONTROL DECK</div>
+        <button class="sync-btn" id="syncBtn" type="button">&#x21BB; SYNC TO REPO</button>
         <div class="stats">
           <div class="stat"><div class="num">4</div><div class="lbl">GO READY</div></div>
           <div class="stat"><div class="num">4</div><div class="lbl">APPLIED</div></div>
@@ -311,112 +189,28 @@ footer a:hover { color:var(--sgc-gold) }
         </div>
       </div>
 
-      <div class="section">
-        <h2>FLEET LEDGER &mdash; 13 SHIPS</h2>
-        <div class="fleet-grid">
-<article class="ship-card">
-  <span class="ship-num">S1</span>
-  <div class="ship-body"><h3 class="ship-name">DeepSeek RAG — the origin ship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246029</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S2</span>
-  <div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246065</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S3</span>
-  <div class="ship-body"><h3 class="ship-name">IBM Granite RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246084</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S4</span>
-  <div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG — the agentic flagship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246090</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S5</span>
-  <div class="ship-body"><h3 class="ship-name">EvidenceFlow — fail-closed verification</h3><span class="ship-status">flown Aug 2026</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S6</span>
-  <div class="ship-body"><h3 class="ship-name">Ingestion Tools — Scribe · Warden · Hand</h3><span class="ship-status">flown Sep 2026</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S7</span>
-  <div class="ship-body"><h3 class="ship-name">msgvault Adapter</h3><span class="ship-status">flown 2026</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S8</span>
-  <div class="ship-body"><h3 class="ship-name">DV14™: The Box — AI containment blueprint</h3><span class="ship-status">flown 2026</span></div>
-  <span class="ship-link ship-link--none">sealed</span>
-</article><article class="ship-card">
-  <span class="ship-num">S9</span>
-  <div class="ship-body"><h3 class="ship-name">Radiology Companion™</h3><span class="ship-status">flown Oct 22, 2026</span></div>
-  <span class="ship-link ship-link--none">sealed</span>
-</article><article class="ship-card">
-  <span class="ship-num">S10</span>
-  <div class="ship-body"><h3 class="ship-name">Overseer™ — tier-authority orchestrator</h3><span class="ship-status">flown Oct 11, 2026</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card">
-  <span class="ship-num">S11</span>
-  <div class="ship-body"><h3 class="ship-name">AWS CCP Study Manual — Sleep Is Studying Too™</h3><span class="ship-status">flown Oct 17, 2026</span><span class="ship-note">DOI 10.5281/zenodo.23458898</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card ship-card--live">
-  <span class="ship-num">S12</span>
-  <div class="ship-body"><h3 class="ship-name">CARO COMMAND — SCOUT OPS (this console)</h3><span class="ship-status">LIVE</span><span class="ship-note">public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command" target="_blank" rel="noopener">REPO &#8599;</a>
-</article><article class="ship-card ship-card--live">
-  <span class="ship-num">S13</span>
-  <div class="ship-body"><h3 class="ship-name">TriviaGate™ — the ONE Ship 13 study engine · single file</h3><span class="ship-status">LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate</span><span class="ship-note">public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate</span></div>
-  <a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate" target="_blank" rel="noopener">REPO &#8599;</a>
-</article>
-        </div>
+      <div class="jobs-section section">
+        <h2>JOB BOARD &mdash; CLICK A CARD TO FLIP</h2>
+        <div id="jobs-container"></div>
       </div>
 
       <div class="section">
-        <h2>JOB BOARD &mdash; SCOUT OPS</h2>
-<article class="job-row job-row--go">
-  <span class="job-sq">SQ-24</span>
-  <div class="job-body"><span class="job-title">Test Automation Engineer — Entry Level — Medinext Global LLC</span><span class="job-badge">GO ✦ NEW — Nov 8 sweep</span><span class="job-pay">$70,000 – $90,000 / year</span></div>
-  <span class="job-st job-st--go">GO</span>
-</article><article class="job-row job-row--go">
-  <span class="job-sq">SQ-19</span>
-  <div class="job-body"><span class="job-title">Data Analyst — Tekcel8</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$35 – $50 / hour = $72,800 – $104,000</span></div>
-  <span class="job-st job-st--go">GO</span>
-</article><article class="job-row job-row--go">
-  <span class="job-sq">SQ-18</span>
-  <div class="job-body"><span class="job-title">QA Engineer — Peterson Technology Partners</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$30 – $35 / hour</span></div>
-  <span class="job-st job-st--go">GO</span>
-</article><article class="job-row job-row--go">
-  <span class="job-sq">SQ-21</span>
-  <div class="job-body"><span class="job-title">Cloud Platform Engineer I — Centene Corporation</span><span class="job-badge">GO — PACKET READY ✦</span><span class="job-pay">$30.58 – $55.09 / hour = $63,606 – $114,587</span></div>
-  <span class="job-st job-st--go">GO</span>
-</article><article class="job-row job-row--call">
-  <span class="job-sq">SQ-25</span>
-  <div class="job-body"><span class="job-title">Junior Tester — 9th Way Insignia</span><span class="job-badge">YOUR CALL ✦ NEW — Nov 8 sweep</span><span class="job-pay">$62,818 – $67,500 / year</span></div>
-  <span class="job-st job-st--call">CALL</span>
-</article><article class="job-row job-row--applied">
-  <span class="job-sq">SQ-22</span>
-  <div class="job-body"><span class="job-title">Quality Engineer I — Availity</span><span class="job-badge">✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦</span></div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article><article class="job-row job-row--applied">
-  <span class="job-sq">SQ-23</span>
-  <div class="job-body"><span class="job-title">Junior QA Automation Engineer — Element (e14s.com)</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 2/7 ✦</span><span class="job-pay">$65,000 – $85,000, posted</span></div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article><article class="job-row job-row--applied">
-  <span class="job-sq">SQ-16</span>
-  <div class="job-body"><span class="job-title">Junior QA Analyst — Gridiron IT Solutions</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 3/7 ✦</span><span class="job-pay">$70,000 – $90,000</span></div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article><article class="job-row job-row--applied">
-  <span class="job-sq">SQ-20</span>
-  <div class="job-body"><span class="job-title">Jr. Data Engineer — Apex Systems</span><span class="job-badge">✦ APPLIED NOV 6 · chevron 4/7 ✦</span><span class="job-pay">$45 – $53 / hour = $93,600 – $110,240</span></div>
-  <span class="job-st job-st--applied">APPLIED</span>
-</article><article class="job-row job-row--skip">
-  <span class="job-sq">SQ-2</span>
-  <div class="job-body"><span class="job-title">Field Network Cabling Technician, 100% Travel — HCL</span><span class="job-badge">SKIP — RECOMMEND DISCARDING</span><span class="job-pay">$52,000 – $76,000</span></div>
-  <span class="job-st job-st--skip">SKIP</span>
-</article><article class="job-row job-row--skip">
-  <span class="job-sq">KONIAG</span>
-  <div class="job-body"><span class="job-title">Junior Cloud Engineer, Washington DC — Koniag</span><span class="job-badge">SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT</span><span class="job-pay">$70,000</span></div>
-  <span class="job-st job-st--skip">SKIP</span>
-</article>
+        <h2>FLEET LEDGER &mdash; 13 SHIPS</h2>
+        <div class="fleet-grid">
+<article class="ship-card"><span class="ship-num">S1</span><div class="ship-body"><h3 class="ship-name">DeepSeek RAG — the origin ship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246029</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S2</span><div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246065</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S3</span><div class="ship-body"><h3 class="ship-name">IBM Granite RAG</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246084</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S4</span><div class="ship-body"><h3 class="ship-name">IBM Granite Agentic RAG — the agentic flagship</h3><span class="ship-status">flown 2026</span><span class="ship-note">DOI 10.5281/zenodo.23246090</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S5</span><div class="ship-body"><h3 class="ship-name">EvidenceFlow — fail-closed verification</h3><span class="ship-status">flown Aug 2026</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S6</span><div class="ship-body"><h3 class="ship-name">Ingestion Tools — Scribe · Warden · Hand</h3><span class="ship-status">flown Sep 2026</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S7</span><div class="ship-body"><h3 class="ship-name">msgvault Adapter</h3><span class="ship-status">flown 2026</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S8</span><div class="ship-body"><h3 class="ship-name">DV14™: The Box — AI containment blueprint</h3><span class="ship-status">flown 2026</span></div><span class="ship-link ship-link--none">sealed</span></article>
+<article class="ship-card"><span class="ship-num">S9</span><div class="ship-body"><h3 class="ship-name">Radiology Companion™</h3><span class="ship-status">flown Oct 22, 2026</span></div><span class="ship-link ship-link--none">sealed</span></article>
+<article class="ship-card"><span class="ship-num">S10</span><div class="ship-body"><h3 class="ship-name">Overseer™ — tier-authority orchestrator</h3><span class="ship-status">flown Oct 11, 2026</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card"><span class="ship-num">S11</span><div class="ship-body"><h3 class="ship-name">AWS CCP Study Manual — Sleep Is Studying Too™</h3><span class="ship-status">flown Oct 17, 2026</span><span class="ship-note">DOI 10.5281/zenodo.23458898</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card ship-card--live"><span class="ship-num">S12</span><div class="ship-body"><h3 class="ship-name">CARO COMMAND — SCOUT OPS (this console)</h3><span class="ship-status">LIVE</span><span class="ship-note">public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command" target="_blank" rel="noopener">REPO &#8599;</a></article>
+<article class="ship-card ship-card--live"><span class="ship-num">S13</span><div class="ship-body"><h3 class="ship-name">TriviaGate™ — the ONE Ship 13 study engine · single file</h3><span class="ship-status">LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate</span><span class="ship-note">public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate</span></div><a class="ship-link" href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate" target="_blank" rel="noopener">REPO &#8599;</a></article>
+        </div>
       </div>
 
       <div class="section">
@@ -434,10 +228,11 @@ footer a:hover { color:var(--sgc-gold) }
       <div class="section">
         <h2>STANDING RULES</h2>
         <div class="rules">
-          <div class="rule"><strong>You apply;</strong> I build, check, and write everything down.</div>
-          <div class="rule"><strong>Nothing was submitted</strong> and nobody was contacted &mdash; you open every form, you press every submit button.</div>
-          <div class="rule"><strong>Flip a GO switch</strong> and I build that job&rsquo;s packet &mdash; tailored resume and cover letter, left on your desk for review.</div>
-          <div class="rule"><strong>Every pay line</strong> is checked against your personal minimum of $62,400 ($30/hour) — your personal minimum.</div>
+<div class="rule">You apply; I build, check, and write everything down.</div>
+<div class="rule">Nothing was submitted and nobody was contacted tonight or ever — you open every form, you press every submit button.</div>
+<div class="rule">Flip a GO switch and I build that job&#x27;s packet — tailored resume and cover letter, left on your desk for review. Nothing sends itself.</div>
+<div class="rule">Leave a comment on any card and I read it before acting — it&#x27;s where you tell me what you need (pay bands, form types, anything you spot on the posting).</div>
+<div class="rule">Every pay line is checked against your personal minimum of $62,400 ($30/hour). &quot;Clears&quot; = even their lowest number beats it.</div>
         </div>
       </div>
 
@@ -450,81 +245,342 @@ footer a:hover { color:var(--sgc-gold) }
 
 </div>
 
-<!-- ======== GATE DIAL CANVAS — the event horizon with water effect ======== -->
 <script>
+// ===== STATE MANAGEMENT =====
+var STATE_KEY = 'caro-console-state-v1';
+var state = JSON.parse(localStorage.getItem(STATE_KEY) || '{}');
+
+function saveState() { localStorage.setItem(STATE_KEY, JSON.stringify(state)); }
+
+function getJobState(sq) {
+  if (!state[sq]) state[sq] = { gateOn: false, comment: '' };
+  return state[sq];
+}
+
+// ===== RENDER JOB CARDS =====
+function renderJobs() {
+  var container = document.getElementById('jobs-container');
+  if (!container || !window.JOBS_DATA) return;
+  var html = '';
+  window.JOBS_DATA.forEach(function(j) {
+    var js = getJobState(j.sq);
+    var st = j.status;
+    var fitsHtml = (j.fits||[]).map(function(f) { return '<div class="back-req">'+escHtml(f)+'</div>'; }).join('');
+    var reqHtml = (j.requirements||[]).map(function(r) {
+      var lines = (r.lines||[]).map(function(l) { return '<div class="back-req">'+escHtml(l)+'</div>'; }).join('');
+      return '<div class="back-req-label">'+escHtml(r.label||'')+'</div>'+lines;
+    }).join('');
+    var linkHtml = j.linkUrl ? '<a class="back-link" href="'+escHtml(j.linkUrl)+'" target="_blank" rel="noopener">'+escHtml(j.linkLabel||'Open the posting')+' &#8599;</a>' : '';
+    var payHtml = j.pay ? '<div class="back-field"><div class="back-field-label">PAY</div>'+escHtml(j.pay)+(j.payNote?' &mdash; <em>'+escHtml(j.payNote)+'</em>':'')+'</div>' : '';
+    var whereHtml = j.where ? '<div class="back-field"><div class="back-field-label">WHERE</div>'+escHtml(j.where)+(j.whereNote?' &mdash; <em>'+escHtml(j.whereNote)+'</em>':'')+'</div>' : '';
+    var effortHtml = j.effort ? '<div class="back-field"><div class="back-field-label">EFFORT</div>'+escHtml(j.effort)+'</div>' : '';
+    var postedHtml = j.posted ? '<div class="back-field"><div class="back-field-label">POSTED</div>'+escHtml(j.posted)+'</div>' : '';
+    var jobDescHtml = j.theJob ? '<div class="back-field"><div class="back-field-label">THE JOB</div>'+escHtml(j.theJob)+'</div>' : '';
+    var tradeHtml = j.trade ? '<div class="back-field"><div class="back-field-label">TRADE-OFFS</div>'+escHtml(j.trade)+'</div>' : '';
+    var fitsSectionHtml = fitsHtml ? '<div class="back-field"><div class="back-field-label">FITS</div>'+fitsHtml+'</div>' : '';
+    var reqSectionHtml = reqHtml ? '<div class="back-field"><div class="back-field-label">REQUIREMENTS (VERBATIM)</div>'+reqHtml+'</div>' : '';
+
+    html += '<div class="job-card job-card--'+st+'" data-sq="'+escHtml(j.sq)+'">';
+    html += '<div class="job-card-inner">';
+    // FRONT
+    html += '<div class="job-card-face job-card-front" data-flip="'+escHtml(j.sq)+'">';
+    html += '<span class="job-sq">'+escHtml(j.sq)+'</span>';
+    html += '<div class="job-body"><span class="job-title">'+escHtml(j.title)+' &mdash; '+escHtml(j.company)+'</span>';
+    if (j.badge) html += '<span class="job-badge">'+escHtml(j.badge)+'</span>';
+    if (js.gateOn) html += '<span class="job-badge" style="color:var(--sgc-go)">&#x25C8; GO SWITCH ON</span>';
+    html += '</div>';
+    html += '<span class="job-st job-st--'+st+'">'+st.toUpperCase()+'</span>';
+    html += '<span class="flip-hint">FLIP &#x21BB;</span>';
+    html += '</div>';
+    // BACK
+    html += '<div class="job-card-face job-card-back">';
+    html += '<div class="back-header"><div><div class="back-sq">'+escHtml(j.sq)+'</div><div class="back-title">'+escHtml(j.title)+'</div><div style="font:11px/1.4 var(--font-geist-sans);color:var(--sgc-text);margin-top:2px">'+escHtml(j.company)+'</div></div>';
+    html += '<button class="back-close" data-flip="'+escHtml(j.sq)+'">&#x2715;</button></div>';
+    if (j.headline) html += '<div class="back-field" style="color:var(--sgc-gold-dim);font-style:italic">'+escHtml(j.headline)+'</div>';
+    html += payHtml + whereHtml + effortHtml + postedHtml + jobDescHtml + fitsSectionHtml + tradeHtml + reqSectionHtml;
+    html += linkHtml;
+    // GO SWITCH
+    html += '<div class="switch-row">';
+    html += '<div class="gate-switch'+(js.gateOn?' gate-switch--on':'')+'" data-sq="'+escHtml(j.sq)+'"><div class="gate-switch__thumb"></div></div>';
+    html += '<span class="switch-label'+(js.gateOn?' switch-label--on':'')+'" id="switch-label-'+escHtml(j.sq)+'">'+(js.gateOn?'GO &mdash; PACKET AUTHORIZED':'FLIP TO AUTHORIZE')+'</span>';
+    html += '</div>';
+    // COMMENT FIELD
+    html += '<div class="comment-row">';
+    html += '<label for="comment-'+escHtml(j.sq)+'">NOTE TO THE AGENT (read before building)</label>';
+    html += '<textarea id="comment-'+escHtml(j.sq)+'" data-sq="'+escHtml(j.sq)+'" placeholder="Leave instructions for the agent: pay bands, form types, deadlines, anything you spot on the posting...">'+escHtml(js.comment||'')+'</textarea>';
+    html += '</div>';
+    html += '</div>'; // back
+    html += '</div>'; // inner
+    html += '</div>'; // card
+  });
+  container.innerHTML = html;
+
+  // wire up comment fields
+  container.querySelectorAll('textarea[data-sq]').forEach(function(ta) {
+    ta.addEventListener('input', function(e) {
+      var sq = e.target.getAttribute('data-sq');
+      getJobState(sq).comment = e.target.value;
+      saveState();
+    });
+    ta.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+
+  // wire up flip (event delegation on front face and close button)
+  container.querySelectorAll('[data-flip]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var sq = el.getAttribute('data-flip');
+      var card = document.querySelector('.job-card[data-sq="'+sq+'"]');
+      if (card) card.classList.toggle('flipped');
+    });
+  });
+
+  // wire up GO switches
+  container.querySelectorAll('.gate-switch').forEach(function(sw) {
+    sw.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var sq = sw.getAttribute('data-sq');
+      var js = getJobState(sq);
+      js.gateOn = !js.gateOn;
+      saveState();
+      var label = document.getElementById('switch-label-'+sq);
+      if (js.gateOn) {
+        sw.classList.add('gate-switch--on');
+        if (label) { label.classList.add('switch-label--on'); label.innerHTML = 'GO &mdash; PACKET AUTHORIZED'; }
+      } else {
+        sw.classList.remove('gate-switch--on');
+        if (label) { label.classList.remove('switch-label--on'); label.innerHTML = 'FLIP TO AUTHORIZE'; }
+      }
+    });
+  });
+}
+
+function flipCard(sq) {
+  var card = document.querySelector('.job-card[data-sq="'+sq+'"]');
+  if (card) card.classList.toggle('flipped');
+}
+
+function toggleSwitch(e, sq) {
+  e.stopPropagation();
+  var js = getJobState(sq);
+  js.gateOn = !js.gateOn;
+  saveState();
+  // update visual
+  var sw = document.querySelector('.gate-switch[data-sq="'+sq+'"]');
+  var label = document.getElementById('switch-label-'+sq);
+  if (sw && label) {
+    if (js.gateOn) {
+      sw.classList.add('gate-switch--on');
+      label.classList.add('switch-label--on');
+      label.innerHTML = 'GO &mdash; PACKET AUTHORIZED';
+    } else {
+      sw.classList.remove('gate-switch--on');
+      label.classList.remove('switch-label--on');
+      label.innerHTML = 'FLIP TO AUTHORIZE';
+    }
+  }
+  // update front badge
+  renderJobs();
+}
+
+function escHtml(s) { var d=document.createElement('div'); d.textContent=s==null?'':String(s); return d.innerHTML; }
+function escAttr(s) { return String(s==null?'':s).replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
+
+// ===== SYNC TO REPO (export state as JSON) =====
+document.getElementById('syncBtn').addEventListener('click', function() {
+  var exportData = {
+    exported: new Date().toISOString(),
+    updated: 'Nov 9, 4:00 AM ET',
+    jobs: {}
+  };
+  window.JOBS_DATA.forEach(function(j) {
+    var js = getJobState(j.sq);
+    if (js.gateOn || js.comment) {
+      exportData.jobs[j.sq] = {
+        title: j.title,
+        company: j.company,
+        status: j.status,
+        gateOn: js.gateOn,
+        comment: js.comment || ''
+      };
+    }
+  });
+  var blob = new Blob([JSON.stringify(exportData, null, 2)], {type: 'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'console-state.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+
+// ===== GATE CANVAS (event horizon) =====
 (function() {
   var cv = document.getElementById('gate-canvas');
   if (!cv) return;
   var cx = cv.getContext('2d');
-  var W = 0, H = 0, R = 0, raf = null;
-  var RM = false;
-  try { RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e) {}
+  var W=0,H=0,R=0,raf=null;
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SPD = RM ? 0.18 : 1;
-  var CHEV_N = 9, CHEV_ORDER = [0, 4, 5, 3, 6, 2, 7, 1, 8];
-  var LOCKED = 4; // chevrons locked by applied jobs
+  var LOCKED = 4;
   var stars = [];
-  (function() { var s = 7; function rnd() { s = (s * 16807) % 2147483647; return s / 2147483647; }
-    for (var i = 0; i < 80; i++) stars.push([rnd(), rnd(), 0.3 + rnd() * 1.4]); })();
+  (function() { var s=7; function rnd() { s=(s*16807)%2147483647; return s/2147483647; }
+    for (var i=0;i<80;i++) stars.push([rnd(),rnd(),0.3+rnd()*1.4]); })();
 
-  function fit() {
-    var d = Math.min(window.devicePixelRatio || 1, 2);
-    var r = cv.getBoundingClientRect();
-    W = r.width; H = r.height;
-    cv.width = Math.max(1, Math.round(W * d));
-    cv.height = Math.max(1, Math.round(H * d));
-    cx.setTransform(d, 0, 0, d, 0, 0);
-  }
+  function fit() { var d=Math.min(window.devicePixelRatio||1,2); var r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=Math.max(1,Math.round(W*d)); cv.height=Math.max(1,Math.round(H*d)); cx.setTransform(d,0,0,d,0,0); }
+  function chevron(ang,litN,flash) { cx.save();cx.rotate(ang);cx.translate(0,-R); cx.beginPath(); cx.moveTo(-R*0.085,-R*0.03); cx.lineTo(0,R*0.105); cx.lineTo(R*0.085,-R*0.03); if(litN){cx.strokeStyle='#ffd27a';cx.shadowColor='#ffb545';cx.shadowBlur=flash?30:16;cx.lineWidth=R*0.034;}else{cx.strokeStyle='rgba(180,140,80,0.4)';cx.shadowBlur=0;cx.lineWidth=R*0.026;} cx.stroke();cx.shadowBlur=0;cx.restore(); }
 
-  function chevron(ang, litN, flash) {
-    cx.save(); cx.rotate(ang); cx.translate(0, -R);
-    cx.beginPath();
-    cx.moveTo(-R * 0.085, -R * 0.03);
-    cx.lineTo(0, R * 0.105);
-    cx.lineTo(R * 0.085, -R * 0.03);
-    if (litN) {
-      cx.strokeStyle = '#ffd27a';
-      cx.shadowColor = '#ffb545';
-      cx.shadowBlur = flash ? 30 : 16;
-      cx.lineWidth = R * 0.034;
-    } else {
-      cx.strokeStyle = 'rgba(180,140,80,0.4)';
-      cx.shadowBlur = 0;
-      cx.lineWidth = R * 0.026;
-    }
-    cx.stroke(); cx.shadowBlur = 0; cx.restore();
-  }
+  // ===== THE EVENT HORIZON — shimmering pool + kawoosh =====
+  // IDLE: the pool shimmers — concentric ripples, surface reflections, depth glow
+  // DIALING: chevrons lock one by one
+  // KAWOOSH: the unstable vortex erupts outward — a vertical column of energy bursts up, then settles into the stable pool
+  var gateState = 'idle'; // idle | dialing | kawoosh | open
+  var kawooshStart = 0;
+  var kawooshParticles = [];
 
-  function water(now, Rv) {
-    var r = Rv * 0.62, k, x, y;
+  function eventHorizon(now, Rv) {
+    var r = Rv * 0.62;
     cx.save();
     cx.beginPath(); cx.arc(0, 0, r, 0, Math.PI * 2); cx.clip();
+
+    // depth gradient — the pool goes from bright center to dark edge
     var g = cx.createRadialGradient(0, 0, 0, 0, 0, r);
-    g.addColorStop(0, 'rgba(255,240,200,0.20)');
-    g.addColorStop(0.5, 'rgba(240,200,100,0.12)');
-    g.addColorStop(1, 'rgba(200,150,50,0.06)');
+    if (gateState === 'open' || gateState === 'kawoosh') {
+      g.addColorStop(0, 'rgba(255,250,230,0.85)');
+      g.addColorStop(0.3, 'rgba(255,240,200,0.65)');
+      g.addColorStop(0.7, 'rgba(240,200,100,0.4)');
+      g.addColorStop(1, 'rgba(200,150,50,0.2)');
+    } else {
+      g.addColorStop(0, 'rgba(180,140,50,0.30)');
+      g.addColorStop(0.5, 'rgba(120,90,30,0.18)');
+      g.addColorStop(1, 'rgba(40,24,8,0.35)');
+    }
     cx.fillStyle = g; cx.fillRect(-r, -r, 2 * r, 2 * r);
-    // water ripple lines
-    var rows = 7, amp = 2.0, spd = 900;
-    for (k = 0; k < rows; k++) {
+
+    // surface ripples — concentric circles expanding outward
+    var rippleCount = 5;
+    for (var k = 0; k < rippleCount; k++) {
+      var phase = (now / 2000 + k / rippleCount) % 1;
+      var rr = r * phase;
+      var alpha = (1 - phase) * 0.25;
+      cx.beginPath(); cx.arc(0, 0, rr, 0, Math.PI * 2);
+      cx.strokeStyle = 'rgba(255,240,200,' + alpha.toFixed(3) + ')';
+      cx.lineWidth = 1.5;
+      cx.stroke();
+    }
+
+    // surface waves — the shimmer pattern
+    var waves = 8;
+    for (var row = 0; row < waves; row++) {
       cx.beginPath();
-      for (x = -r; x <= r; x += 5) {
-        y = Math.sin(now / spd + x * 0.045 + k * 0.9) * amp * (1 - k / (rows + 2));
+      for (var x = -r; x <= r; x += 4) {
+        var y = Math.sin(now / 400 + x * 0.04 + row * 0.7) * 1.5 * (1 - row / (waves + 2));
         if (x === -r) cx.moveTo(x, y); else cx.lineTo(x, y);
       }
-      cx.strokeStyle = 'rgba(255,240,200,' + Math.max(0.02, 0.12 - k * 0.014).toFixed(3) + ')';
-      cx.lineWidth = 1.15; cx.stroke();
+      cx.strokeStyle = 'rgba(255,240,200,' + Math.max(0.02, 0.15 - row * 0.015).toFixed(3) + ')';
+      cx.lineWidth = 1.0;
+      cx.stroke();
     }
-    // shimmer particles
-    for (var p = 0; p < 12; p++) {
-      var px = (Math.sin(now / 600 + p * 1.3) * r * 0.7);
-      var py = (Math.cos(now / 700 + p * 0.7) * r * 0.5);
-      cx.fillStyle = 'rgba(255,240,200,' + (0.3 + 0.3 * Math.abs(Math.sin(now / 400 + p))).toFixed(3) + ')';
-      cx.fillRect(px, py, 1.5, 1.5);
+
+    // shimmer particles — drifting light specks on the surface
+    for (var p = 0; p < 20; p++) {
+      var px = Math.sin(now / 800 + p * 1.7) * r * 0.75;
+      var py = Math.cos(now / 900 + p * 0.5) * r * 0.55;
+      var ps = 0.3 + 0.5 * Math.abs(Math.sin(now / 300 + p));
+      cx.fillStyle = 'rgba(255,245,210,' + ps.toFixed(3) + ')';
+      cx.fillRect(px, py, 1.8, 1.8);
     }
+
     cx.restore();
-    // ring
+
+    // ===== KAWOOSH — the unstable vortex eruption =====
+    if (gateState === 'kawoosh') {
+      var dt = now - kawooshStart;
+      var kprogress = Math.min(dt / 1500, 1.0); // 1.5 second eruption
+
+      if (kprogress < 1.0) {
+        // Phase 1 (0-0.4): the eruption bursts upward — a column of energy
+        // Phase 2 (0.4-0.7): it peaks and starts to pull back
+        // Phase 3 (0.7-1.0): it settles into the stable pool
+        var eruptH;
+        if (kprogress < 0.4) {
+          eruptH = (kprogress / 0.4) * Rv * 1.2; // burst up to 120% of R
+        } else if (kprogress < 0.7) {
+          eruptH = Rv * 1.2 * (1 - (kprogress - 0.4) / 0.3 * 0.3); // pull back 30%
+        } else {
+          eruptH = Rv * 0.84 * (1 - (kprogress - 0.7) / 0.3); // settle to 0
+        }
+
+        // the eruption column — a vertical burst of energy particles
+        cx.save();
+        cx.translate(0, -Rv * 0.62);
+
+        // main vortex column — a cone of swirling energy
+        var colW = Rv * 0.5 * (kprogress < 0.4 ? kprogress / 0.4 : 1 - (kprogress - 0.4) * 0.5);
+        var grad = cx.createLinearGradient(0, 0, 0, -eruptH);
+        grad.addColorStop(0, 'rgba(255,250,230,0.9)');
+        grad.addColorStop(0.3, 'rgba(255,240,200,0.7)');
+        grad.addColorStop(0.7, 'rgba(240,200,100,0.4)');
+        grad.addColorStop(1, 'rgba(200,150,50,0.0)');
+        cx.fillStyle = grad;
+
+        // draw the eruption as a swirl of tendrils
+        var tendrils = 7;
+        for (var t = 0; t < tendrils; t++) {
+          var baseAng = (t / tendrils) * Math.PI * 2 + now / 100;
+          var wobble = Math.sin(now / 80 + t * 1.3) * 0.3;
+          cx.beginPath();
+          cx.moveTo(0, 0);
+          for (var s = 0; s < 15; s++) {
+            var sp = s / 15;
+            var sx = Math.sin(baseAng + sp * 3 + wobble) * colW * sp * 0.8;
+            var sy = -eruptH * sp;
+            cx.lineTo(sx, sy);
+          }
+          cx.strokeStyle = 'rgba(255,245,210,' + (0.6 * (1 - kprogress)).toFixed(3) + ')';
+          cx.lineWidth = 3;
+          cx.shadowColor = '#ffd27a';
+          cx.shadowBlur = 20;
+          cx.stroke();
+        }
+        cx.shadowBlur = 0;
+
+        // eruption particles — flying outward
+        if (kprogress < 0.5) {
+          for (var pp = 0; pp < 30; pp++) {
+            var pAng = (pp / 30) * Math.PI * 2 + now / 200;
+            var pDist = eruptH * (0.3 + Math.sin(pp * 2.7) * 0.2) * (kprogress * 2);
+            var ppx = Math.cos(pAng) * pDist * 0.6;
+            var ppy = -pDist * 0.8 + Math.sin(now / 100 + pp) * 5;
+            cx.fillStyle = 'rgba(255,250,220,' + (0.8 * (1 - kprogress * 1.5)).toFixed(3) + ')';
+            cx.fillRect(ppx, ppy, 2.5, 2.5);
+          }
+        }
+
+        cx.restore();
+      } else {
+        // kawoosh complete — settle into open pool
+        gateState = 'open';
+      }
+    }
+
+    // open gate — extra bright glow ring
+    if (gateState === 'open') {
+      cx.beginPath(); cx.arc(0, 0, r, 0, Math.PI * 2);
+      cx.strokeStyle = 'rgba(255,220,140,0.7)';
+      cx.lineWidth = 3;
+      cx.shadowColor = '#ffd27a';
+      cx.shadowBlur = 30;
+      cx.stroke();
+      cx.shadowBlur = 0;
+    }
+
+    // inner ring boundary
     cx.beginPath(); cx.arc(0, 0, r, 0, Math.PI * 2);
-    cx.strokeStyle = 'rgba(240,200,80,0.4)'; cx.lineWidth = 2;
+    cx.strokeStyle = 'rgba(240,200,80,0.3)';
+    cx.lineWidth = 1;
     cx.stroke();
   }
 
@@ -533,56 +589,79 @@ footer a:hover { color:var(--sgc-gold) }
     R = Math.min(W, H) * 0.36;
     var i, cxm = W / 2, cym = H * 0.46, t = now / 1000;
     cx.clearRect(0, 0, W, H);
+
     // background glow
     var bg = cx.createRadialGradient(cxm, cym, R * 0.2, cxm, cym, Math.max(W, H) * 0.75);
     bg.addColorStop(0, 'rgba(40,24,8,0.5)');
     bg.addColorStop(1, 'rgba(2,1,0,0)');
     cx.fillStyle = bg; cx.fillRect(0, 0, W, H);
-    // stars
+
+    // background stars
     for (i = 0; i < stars.length; i++) {
       var st = stars[i], tw = 0.25 + 0.45 * Math.abs(Math.sin(t * (1.2 + st[2]) + i));
       cx.fillStyle = 'rgba(255,240,200,' + (tw * st[2]).toFixed(3) + ')';
       cx.fillRect(st[0] * W, st[1] * H, 1.4, 1.4);
     }
+
     cx.save(); cx.translate(cxm, cym);
-    // outer ring
+
+    // outer ring (the gate itself)
     cx.beginPath(); cx.arc(0, 0, R, 0, Math.PI * 2);
     cx.lineWidth = R * 0.17; cx.strokeStyle = '#2a1a08'; cx.stroke();
     cx.beginPath(); cx.arc(0, 0, R + R * 0.095, 0, Math.PI * 2);
     cx.lineWidth = 1.5; cx.strokeStyle = 'rgba(200,160,80,0.35)'; cx.stroke();
     cx.beginPath(); cx.arc(0, 0, R - R * 0.1, 0, Math.PI * 2);
     cx.lineWidth = 1.2; cx.strokeStyle = 'rgba(180,140,60,0.22)'; cx.stroke();
-    // rotating ring 1
+
+    // rotating symbol rings
     cx.save(); cx.rotate(t * 0.22 * SPD);
     cx.setLineDash([R * 0.055, R * 0.042]); cx.lineWidth = R * 0.05;
     cx.strokeStyle = 'rgba(220,180,90,0.5)';
     cx.beginPath(); cx.arc(0, 0, R * 0.855, 0, Math.PI * 2); cx.stroke();
     cx.restore();
-    // rotating ring 2
+
     cx.save(); cx.rotate(-t * 0.15 * SPD);
     cx.setLineDash([R * 0.014, R * 0.05]); cx.lineWidth = R * 0.034;
     cx.strokeStyle = 'rgba(200,160,70,0.4)';
     cx.beginPath(); cx.arc(0, 0, R * 0.775, 0, Math.PI * 2); cx.stroke();
     cx.restore();
+
     cx.setLineDash([]);
-    // chevrons (7 visible, LOCKED of them lit)
+
+    // chevrons (7 visible, LOCKED lit)
     var chevVisible = 7;
     for (i = 0; i < chevVisible; i++) {
       var ang = -Math.PI / 2 + (i - 3) * (Math.PI * 2 / 9);
       var litN = i < LOCKED;
       chevron(ang, litN, false);
     }
-    // event horizon water
-    water(now, R);
+
+    // the event horizon
+    eventHorizon(now, R);
+
     cx.restore();
   }
+
+  // expose a trigger so the DIAL button can fire the kawoosh
+  window.triggerKawoosh = function() {
+    gateState = 'kawoosh';
+    kawooshStart = performance.now();
+  };
+
+  // click the gate to fire the kawoosh
+  cv.addEventListener('click', function() {
+    if (typeof window.triggerKawoosh === 'function') window.triggerKawoosh();
+  });
+  cv.style.cursor = 'pointer';
 
   function init() { fit(); if (!raf) raf = requestAnimationFrame(draw); }
   window.addEventListener('resize', fit);
   init();
 })();
-</script>
 
+// init
+renderJobs();
+</script>
 <script src="assets/gate-module.js" defer></script>
 </body>
 </html>
