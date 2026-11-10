@@ -74,6 +74,8 @@ check("no baked job literals (no SQ- refs)", not re.search(r"SQ-\d+", html))
 check("no baked company names", "Crash Champions" not in html and "Labelmaster" not in html)
 check("no baked updated stamp", "Nov 9" not in html)
 check("no baked jobs array literal", not re.search(r"window\.JOBS_DATA\s*=\s*\[", html))
+check("no personal name hardcoded in shell", "Evelyn" not in html)
+check("footer signature wired from operator.json", "foot-owner" in html and "data/operator.json" in html)
 
 # ---- 4. the wiring ----------------------------------------------------------
 check("dynamic wire declared", "data/console-data.json" in html)

@@ -171,6 +171,7 @@ footer a { color:var(--sgc-gold-dim); text-decoration:none }
 // This page contains ZERO baked data. Everything renders from the dynamic document.
 window.DYN_URL = 'data/console-data.json';
 window.STATE_URL = 'data/console-state.json';
+window.OPS_URL = 'data/operator.json';   // the requirements canon — who the console obeys
 </script>
 </head>
 <body class="lcars-page starfield scanlines">
@@ -230,7 +231,7 @@ window.STATE_URL = 'data/console-state.json';
 
       <footer>
         CARO COMMAND &middot; Ship 12 &middot; <a href="https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command">github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command</a><br>
-        A Mirror of My Becoming &mdash; Evelyn Caro &middot; <span id="foot-updated">&ndash;</span>
+        A Mirror of My Becoming &mdash; <span id="foot-owner">&ndash;</span> &middot; <span id="foot-updated">&ndash;</span>
       </footer>
     </div>
   </div>
@@ -309,6 +310,8 @@ function renderChrome(doc) {
   setTxt('dyn-updated', 'SYNC: ' + (up || '—'));
   setTxt('foot-updated', up || '—');
   setTxt('dyn-minpay', doc.minPayLine || '');
+  var ops = window.OPS_DOC || null;
+  if (ops && ops.operator) setTxt('foot-owner', ops.operator.name || '');
 
   var board = window.JOBS_DATA || [];
   var go = 0, applied = 0;
@@ -387,10 +390,12 @@ function fetchDoc(url) {
 }
 
 function loadDynamic(manual) {
-  return Promise.all([fetchDoc(window.DYN_URL), fetchDoc(window.STATE_URL).catch(function() { return null; })])
+  return Promise.all([fetchDoc(window.DYN_URL), fetchDoc(window.STATE_URL).catch(function() { return null; }), fetchDoc(window.OPS_URL).catch(function() { return null; })])
     .then(function(res) {
       var doc = res[0];
       mergeCommitted(res[1]);
+      window.OPS_DOC = res[2] || null;
+      if (window.OPS_DOC && window.OPS_DOC.operator) setTxt('foot-owner', window.OPS_DOC.operator.name || '');
       var changed = doc.updated !== LAST_UPDATED;
       window.DYN_DOC = doc;
       window.JOBS_DATA = buildBoard(doc);

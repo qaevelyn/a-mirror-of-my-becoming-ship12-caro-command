@@ -51,6 +51,25 @@ the wormhole opens, and Ship 13 (TriviaGate™) rides through as the payload.
 
 ---
 
+## The template and the instance
+
+This repo is a **template**: the structure, the workflow, and the logical flow —
+nothing in the frozen shell or the crawler code knows whose board it is. The
+personalized layer is **data**, and it lives in exactly two files (plus your URL):
+
+| Layer | What it is | Where it lives |
+| --- | --- | --- |
+| **TEMPLATE — belongs to the world** | the console shell, the crawler logic, the gate as code, the verifier, the loop itself | `index.html`, `assets/`, `tools/`, `manifest.json`, this README |
+| **INSTANCE — yours alone** | who you are, your pay floor, your never-claim list, your kill-listed employers, your tombstones, your watchlist, your contact rules | `data/operator.json` |
+| **INSTANCE — yours alone** | your actual board: fleet, jobs, feed, standing rules, every update | `data/console-data.json` |
+
+Change `data/operator.json` and every gate in the crawler re-aims at YOUR
+requirements — no code edits, no rebuilds. Even the footer signature on the page
+reads `operator.name` from that file: the frozen shell carries no personal
+strings at all. That is the entire personalization surface.
+
+---
+
 ## The loop
 
 ```
