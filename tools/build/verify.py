@@ -76,6 +76,9 @@ check("no baked updated stamp", "Nov 9" not in html)
 check("no baked jobs array literal", not re.search(r"window\.JOBS_DATA\s*=\s*\[", html))
 check("no personal name hardcoded in shell", "Evelyn" not in html)
 check("footer signature wired from operator.json", "foot-owner" in html and "data/operator.json" in html)
+check("umbrella mark canon in shell", "A Mirror of My Becoming™" in html)
+check("outside name canon in shell (title)", "Caro Command Deck™" in html)
+check("on-page name canon in shell", "SGC COMMAND DECK™" in html)
 
 # ---- 4. the wiring ----------------------------------------------------------
 check("dynamic wire declared", "data/console-data.json" in html)

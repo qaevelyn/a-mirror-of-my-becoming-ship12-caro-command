@@ -1,6 +1,11 @@
-# A Mirror of My Becoming™ — Ship 12 · Caro Command (SGC Command Deck™)
+# A Mirror of My Becoming™ — Ship 12 · Caro Command Deck™
 
 **The build is the build. The data moves. Nothing else.**
+
+*Naming seats (Registry of Marks, rule 4): outside the page — repo, About, release,
+Zenodo — this ship is **Caro Command Deck™**. Inside the page, the console calls
+itself **SGC COMMAND DECK™**. Both carry the sign; they never swap seats. The short
+form "Caro Command" stands in prose; slugs and filenames stay unmarked.*
 
 A job-scouting command console that needs **no server, no database, and no rebuilds — ever**.
 One frozen HTML build reads one dynamic JSON document. A crawler updates that document
