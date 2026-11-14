@@ -1,7 +1,7 @@
 {
   "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
   "ship": 12,
-  "updated": "Nov 14, 2026, 3:22 PM ET",
+  "updated": "Nov 14, 2026, 3:30 PM ET",
   "minPayLine": "$62,400 ($30/hour) — your personal minimum",
   "standingRules": [
     "You apply; I build, check, and write everything down.",
@@ -11,6 +11,53 @@
     "Every pay line is checked against your personal minimum of $62,400 ($30/hour). \"Clears\" = even their lowest number beats it."
   ],
   "jobs": [
+    {
+      "sq": "SQ-35",
+      "order": 0,
+      "title": "Associate Cloud Security Engineer - AWS",
+      "company": "GuidePoint Security",
+      "verdict": "GO",
+      "badge": "GO ✦ PINNED — REQUIRES AWS CCP CERT",
+      "headline": "GuidePoint · Associate Cloud Security Engineer · Remote (US) · $95K–$135K est. · AWS CCP certification REQUIRED",
+      "pay": {
+        "value": "$95,000 – $135,000 (estimated)",
+        "note": "clears your minimum by $32,600+ — no posted band on the req"
+      },
+      "where": {
+        "value": "Remote — Anywhere in the U.S.",
+        "note": ""
+      },
+      "effort": "Greenhouse application. Requires AWS CCP cert to pass the automated screen.",
+      "link": {
+        "url": "https://job-boards.greenhouse.io/guidepointsecurity/jobs/6191766004",
+        "label": "Open the posting — GuidePoint Security (Greenhouse)"
+      },
+      "theJob": "Early-career cloud security consulting role supporting AWS assessments, architecture reviews, compliance mapping, and control implementation alongside senior consultants.",
+      "fits": [
+        "AWS CCP certification REQUIRED — this is the exact cert you are studying for.",
+        "1 year of related experience required; internships, labs, and project work count.",
+        "Python scripting preferred — you have it.",
+        "AWS IAM, CloudTrail, GuardDuty, Security Hub, Config — your AWS operations discipline covers the foundation."
+      ],
+      "trade": "The trade is the cert. You cannot apply until the AWS CCP is passed.",
+      "posted": "Posted ~Sep 14, 2026 · ongoing",
+      "requirements": [
+        {
+          "label": "Required (verbatim)",
+          "lines": [
+            "\"1 year of related experience\"",
+            "\"AWS Certified Cloud Practitioner certification (required)\"",
+            "\"Minimum of 1 year of hands-on experience with AWS cloud services (internships, lab environments, and project-based experience count)\"",
+            "\"Basic scripting ability (Python preferred; Bash or PowerShell also acceptable)\""
+          ]
+        }
+      ],
+      "watch": "THE DOOR OPENS WHEN YOU PASS THE AWS CCP. Do not apply until the cert is in hand.",
+      "docs": {
+        "status": "PENDING CERT — do not apply until AWS CCP passed",
+        "note": "When cert is passed, build the packet."
+      }
+    },
     {
       "sq": "SQ-39",
       "order": 2,
@@ -988,6 +1035,10 @@
     }
   ],
   "feed": [
+    {
+      "t": "Nov 14, 2026, 3:30 PM ET",
+      "line": "PINNED · SQ-35 GuidePoint Security — the unicorn. AWS CCP certification REQUIRED. Card added to board with full JD, URL, and gate. Do not apply until cert is passed. The door opens when you pass."
+    },
     {
       "t": "Nov 14, 2026, 3:22 PM ET",
       "line": "OWNER ORDER · Board cleared. Applied roles preserved. New kills added (xCures, Libra). The hunt resets for the dream titles."
