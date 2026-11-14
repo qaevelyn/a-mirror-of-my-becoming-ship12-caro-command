@@ -1,7 +1,7 @@
 {
   "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
   "ship": 12,
-  "updated": "Nov 14, 2026, 3:37 PM ET",
+  "updated": "Nov 14, 2026, 3:43 PM ET",
   "minPayLine": "$62,400 ($30/hour) — your personal minimum",
   "standingRules": [
     "You apply; I build, check, and write everything down.",
@@ -211,7 +211,7 @@
       "order": 3,
       "title": "QA Tester",
       "company": "Crash Champions",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Crash Champions · QA Tester · remote US · web, mobile, API platforms · Agile Scrum",
       "pay": {
@@ -244,14 +244,16 @@
         "Strong attention to detail and ability to follow test plans precisely",
         "Excellent written and verbal communication skills"
       ],
-      "skipReason": "Owner order: board cleared."
+      "skipReason": "Owner order: board cleared.",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
     },
     {
       "sq": "SQ-29",
       "order": 4,
       "title": "Software Tester",
       "company": "Labelmaster",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Labelmaster · Software Tester · remote US · dangerous-goods shipping software · REST API + JIRA",
       "pay": {
@@ -285,14 +287,16 @@
         "Experience API testing",
         "Excellent written and verbal communication"
       ],
-      "skipReason": "Owner order: board cleared."
+      "skipReason": "Owner order: board cleared.",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
     },
     {
       "sq": "SQ-28",
       "order": 3,
       "title": "Automation Engineer Junior",
       "company": "SAIC",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "SAIC · Automation Engineer Junior · Ashburn VA · federal contractor · automation test scripts",
       "pay": {
@@ -316,14 +320,16 @@
       "trade": "The pay bottom is below your minimum — the real band matters. Verify before investing. Ashburn VA location may mean hybrid — check if remote is allowed.",
       "posted": "Posted Nov 2, 2026 on SAIC careers",
       "skipReason": "Owner order: board cleared.",
-      "skipExtra": "Kill record: Nov 9, 4:00 AM ET digest (requirements captured). Tombstone law: killed reqs are never re-served."
+      "skipExtra": "Kill record: Nov 9, 4:00 AM ET digest (requirements captured). Tombstone law: killed reqs are never re-served.",
+      "gateOn": true,
+      "comment": "is this the same job or two they added slash and this is the url you gave me: Java Developer / Automation Test Engineer Junior\nJob ID: 2618696\nLocation: Ashburn, VA, United States\nDate Posted: Nov 10, 2026\nCategory: Software\nSubcategory: SW Testing\nSchedule: Full-Time\nShift: Day Job\nTravel: Yes - 10% of the time\nMinimum Clearance Required: None\nClearance Level Must Be Able to Obtain: Public Trust\nPotential for Remote Work: On-Site\nBenefits: Click here\n\nShare:\nApply Now >\nJob Description\nDescription\n\nWe are currently seeking a motivated and energetic entry-level Automation Engineer to join our team to begin an exciting and challenging career.\n\nThis position requires 4 days on-site per week in Ashburn, VA for the first year of employment. After the first year, you will have the option to do 2 days on-site per week.\n\nPosition Summary\n\nThe Automation Engineer will participate in software testing, creation and implementation of Test Strategies, Plans, and Automated Test Scripts as well as other aspects of the software development lifecycle. The candidate will be responsible for developing and testing web applications as dictated by project requirement.\n\nThe ideal candidate will have Java development and testing framework experience, as this role will require Java Programming.\n\nJob Responsibilities\n\nDeveloping automation test scripts.\nGenerating test data and performing Data Validation.\nData interface message testing with JSON and XML message sets.\nDeveloping SQL or Unix scripts for test data generation or test harness automation.\nExecute regression, functional, and system testing.\nVerifying results and producing test summaries and defect reports.\nIdentifying defects and requirement discrepancies, and generating defect change requests and reporting discrepancies.\nUse modern software engineering IDEs including Eclipse, IntelliJ, etc. for design, development, and testing the software.\nWork with users in an Agile development approach to understand and document requirements in JIRA.\n\nQualifications\n\nRequired Skills and Experience\n\nBachelor’s in Computer Science or related field with 2+ years of technical experience.\nExperience with Java/JEE design and software development experience including designing, developing, and documenting large-scale enterprise software systems.\nSpring Boot.\nSelenium WebDriver, TestNG.\nBasic SQL query skills and general understanding of relational databases.\nAbility to understand data models and write test scripts based on the data model.\nEvaluate test results, report and manage defects.\nGood understanding of object-oriented programming and data structures.\nAbility to work in a high-pressure, tight-deadline environment.\nGood written/oral communication skills and problem-solving skills; ability to communicate information to a variety of groups at different technical skill levels.\nStrong initiative: must be able to take a high-level requirement, ask questions/seek clarifications, and get the job done.\nDesired Skills and Experience\n\nExperience with any one of the following test management software (Bugzilla, Jira, Rally.)\nExperience in all stages of application testing, including backend testing, functional, usability, regression, load/stress and performance testing.\nExperience with integration level testing, requiring ability to work with both big picture & in-depth domain knowledge.\nProven ability to develop, execute and maintain automated test suites across multiple environments: frontend/backend applications and API Service testing using tools such as Soap UI and Postman with basic JSON and XML knowledge.\nExperience with any SPA framework testing tools (e.g. e2e, Protractor.)\nPrior experience in a software development arena is a plus.\nStrong communication and collaboration skills. Must have the ability to present solutions to technical and non-technical project members.\nExperience working in an agile development process is a plus.\nCustomer Requirements\n\nClearance – Ability to obtain and hold a public trust position and favorable suitability based on a CBP Background Investigation.\nCitizenship – Must be a US Citizen.\nLocation – Required to be on-site in Ashburn, VA 4 days per week for the first year of employment. After the first year, have the option to work a hybrid schedule (2 days on-site) depending on the needs of the team.\n\nTarget salary range: $60,001 - $100,000. The estimate displayed represents the typical salary range for this position based on experience and other factors.\n\n\nOverview\n\nSAIC accepts applications on an ongoing basis and there is no deadline.\n\nSAIC® is a premier mission integrator focused on advancing the power of technology and innovation to serve and protect our world. Our robust portfolio of offerings across the defense, space, intelligence, and civilian markets includes secure high-end solutions in mission IT, enterprise IT, engineering services, and professional services. We integrate emerging technology, rapidly and securely, into mission critical operations that modernize and enable critical national imperatives.\n\nWe are approximately 23,000 strong; driven by mission, united by purpose, and inspired by opportunities. SAIC is an Equal Opportunity Employer. Headquartered in Reston, Virginia, SAIC has annual revenues of approximately $7.3 billion. For more information, visit saic.com. For ongoing news, please visit our newsroom.\n\nShare:\nApply Now >\nSimilar Jobs\nJava Developer Senior\nAshburn, VA, United States\nSoftware\n\nUI Developer Senior\nAshburn, VA, United States\nSoftware\n\nJava Backend Developer Senior\nAshburn, VA, United States\nSoftware\n\nJava Backend Developer Junior\nAshburn, VA, United States\nSoftware\n\nAutomation Test Engineer Senior\nAshburn, VA, United States\nSoftware\n\nJava Developer Junior\nAshburn, VA, United States\nSoftware\n\nAre you an SAIC Employee?\nPlease apply through the internal career site here >\n\n"
     },
     {
       "sq": "SQ-27",
       "order": 4,
       "title": "Software Quality Engineer",
       "company": "Quavo Fraud & Disputes",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Quavo · Software Quality Engineer · remote US · cloud fraud/disputes platform · AWS + SQL",
       "pay": {
@@ -348,14 +354,16 @@
       "trade": "Pega workflows are a new tool — learnable but not on your resume. Fraud/disputes domain is interesting and compliance-heavy, which suits your evidence-first instincts. TypeScript — you don't claim it, but the testing role likely doesn't require deep TS.",
       "posted": "Posted 19 hours ago on RemoteRocketship (Nov 9)",
       "skipReason": "Owner order: board cleared.",
-      "skipExtra": "Required line verbatim: 'Quality/Testing Certification'. No posted band on the real JD. URL: https://builtin.com/job/software-quality-engineer/12109015"
+      "skipExtra": "Required line verbatim: 'Quality/Testing Certification'. No posted band on the real JD. URL: https://builtin.com/job/software-quality-engineer/12109015",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
     },
     {
       "sq": "SQ-26",
       "order": 5,
       "title": "QA Engineer",
       "company": "Harris Computer",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Harris Computer · QA Engineer · remote 46 states incl Virginia · enterprise software · Python + Selenium + SQL",
       "pay": {
@@ -390,7 +398,9 @@
         "Familiarity with source control or a work tracking tool such as Azure DevOps, Jira or Aha",
         "Understanding of Agile and Scrum delivery"
       ],
-      "skipReason": "Owner order: board cleared."
+      "skipReason": "Owner order: board cleared.",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
     },
     {
       "sq": "SQ-31",
@@ -832,7 +842,7 @@
       "order": 7,
       "title": "Data Analyst",
       "company": "Tekcel8",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Tekcel8 · Data Analyst · $72.8k–$104k · reporting lane, not QA or cloud",
       "pay": {
@@ -873,7 +883,9 @@
         }
       ],
       "docs": null,
-      "skipReason": "Owner order: board cleared."
+      "skipReason": "Owner order: board cleared.",
+      "gateOn": false,
+      "comment": "i vote no, it is not my lane and is asking for things i dont have.\n"
     },
     {
       "sq": "SQ-2",
@@ -932,7 +944,7 @@
       "order": 10,
       "title": "Test Automation Engineer — Entry Level",
       "company": "Medinext Global LLC",
-      "verdict": "SKIP",
+      "verdict": "skip",
       "badge": "TOMBSTONED ✦ Nov 14",
       "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane",
       "pay": {
@@ -980,14 +992,16 @@
         }
       ],
       "skipReason": "Owner order: board cleared.",
-      "skipExtra": ""
+      "skipExtra": "",
+      "gateOn": true,
+      "comment": "application finished. Applied jobs\nYou've applied to 3 jobs. Way to go! Find opportunities through Recommended Jobs or Job Search.\n\nShow expired jobs\nTekcel8\nFind similar\nData Analyst\nApplied 4d ago\n\nGridiron IT Solutions\nFind similar\nJunior Quality Assurance Analyst\nWashington, DC•Applied 4d ago\n\nMedinext Global LLC\nFind similar\nTest Automation Engineer - Entry Level\nApplied 5d ago"
     },
     {
       "sq": "SQ-25",
       "order": 11,
       "title": "Junior Tester",
       "company": "9th Way Insignia",
-      "verdict": "CALL",
+      "verdict": "call",
       "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
       "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum",
       "pay": {
@@ -1031,10 +1045,16 @@
         }
       ],
       "skipReason": "",
-      "skipExtra": ""
+      "skipExtra": "",
+      "gateOn": true,
+      "comment": "Thank you for applying!\n9th way done"
     }
   ],
   "feed": [
+    {
+      "t": "Nov 14, 2026, 3:43 PM ET",
+      "line": "SYSTEM FIX · Merged state and data files. console-state.json is retired. All future updates go to console-data.json only."
+    },
     {
       "t": "Nov 14, 2026, 3:37 PM ET",
       "line": "CACHE BUST · Forcing refresh of the Unicorn and Dream Job markers."
