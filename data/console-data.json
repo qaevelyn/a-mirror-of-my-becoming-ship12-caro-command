@@ -1,7 +1,7 @@
 {
   "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
   "ship": 12,
-  "updated": "Nov 14, 2026, 3:30 PM ET",
+  "updated": "Nov 14, 2026, 3:37 PM ET",
   "minPayLine": "$62,400 ($30/hour) — your personal minimum",
   "standingRules": [
     "You apply; I build, check, and write everything down.",
@@ -1035,6 +1035,10 @@
     }
   ],
   "feed": [
+    {
+      "t": "Nov 14, 2026, 3:37 PM ET",
+      "line": "CACHE BUST · Forcing refresh of the Unicorn and Dream Job markers."
+    },
     {
       "t": "Nov 14, 2026, 3:30 PM ET",
       "line": "PINNED · SQ-35 GuidePoint Security — the unicorn. AWS CCP certification REQUIRED. Card added to board with full JD, URL, and gate. Do not apply until cert is passed. The door opens when you pass."
