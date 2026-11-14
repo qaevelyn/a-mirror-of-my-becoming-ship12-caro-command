@@ -1,5 +1,5 @@
 {
-  "exported": "2026-11-14T02:14:01.302Z",
+  "exported": "2026-11-14T04:27:49.742Z",
   "updated": "Nov 12, 2026, 8:05 AM ET",
   "jobs": {
     "SQ-26": {
@@ -19,9 +19,9 @@
     "SQ-25": {
       "title": "Junior Tester",
       "company": "9th Way Insignia",
-      "status": "call",
-      "gateOn": true,
-      "comment": ""
+      "status": "applied",
+      "gateOn": false,
+      "comment": "Thank you for applying!\n9th way done"
     },
     "SQ-30": {
       "title": "QA Tester",
