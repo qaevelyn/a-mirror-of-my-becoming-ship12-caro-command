@@ -1,26 +1,12 @@
 {
-  "exported": "2026-11-14T04:27:49.742Z",
-  "updated": "Nov 12, 2026, 8:05 AM ET",
+  "exported": "2026-11-14T20:36:43.847Z",
+  "updated": "Nov 14, 2026, 3:40 PM ET",
   "jobs": {
-    "SQ-26": {
-      "title": "QA Engineer",
-      "company": "Harris Computer",
-      "status": "go",
-      "gateOn": true,
-      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
-    },
-    "SQ-24": {
-      "title": "Test Automation Engineer — Entry Level",
-      "company": "Medinext Global LLC",
-      "status": "go",
-      "gateOn": true,
-      "comment": "application finished. Applied jobs\nYou've applied to 3 jobs. Way to go! Find opportunities through Recommended Jobs or Job Search.\n\nShow expired jobs\nTekcel8\nFind similar\nData Analyst\nApplied 4d ago\n\nGridiron IT Solutions\nFind similar\nJunior Quality Assurance Analyst\nWashington, DC•Applied 4d ago\n\nMedinext Global LLC\nFind similar\nTest Automation Engineer - Entry Level\nApplied 5d ago"
-    },
     "SQ-25": {
       "title": "Junior Tester",
       "company": "9th Way Insignia",
-      "status": "applied",
-      "gateOn": false,
+      "status": "call",
+      "gateOn": true,
       "comment": "Thank you for applying!\n9th way done"
     },
     "SQ-30": {
@@ -51,12 +37,26 @@
       "gateOn": true,
       "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
     },
+    "SQ-26": {
+      "title": "QA Engineer",
+      "company": "Harris Computer",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
+    },
     "SQ-19": {
       "title": "Data Analyst",
       "company": "Tekcel8",
       "status": "skip",
       "gateOn": false,
       "comment": "i vote no, it is not my lane and is asking for things i dont have.\n"
+    },
+    "SQ-24": {
+      "title": "Test Automation Engineer — Entry Level",
+      "company": "Medinext Global LLC",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "application finished. Applied jobs\nYou've applied to 3 jobs. Way to go! Find opportunities through Recommended Jobs or Job Search.\n\nShow expired jobs\nTekcel8\nFind similar\nData Analyst\nApplied 4d ago\n\nGridiron IT Solutions\nFind similar\nJunior Quality Assurance Analyst\nWashington, DC•Applied 4d ago\n\nMedinext Global LLC\nFind similar\nTest Automation Engineer - Entry Level\nApplied 5d ago"
     }
   }
 }
