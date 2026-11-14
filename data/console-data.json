@@ -1,7 +1,7 @@
 {
   "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
   "ship": 12,
-  "updated": "Nov 14, 2026, 3:43 PM ET",
+  "updated": "Nov 14, 2026, 4:02 PM ET",
   "minPayLine": "$62,400 ($30/hour) — your personal minimum",
   "standingRules": [
     "You apply; I build, check, and write everything down.",
@@ -944,9 +944,9 @@
       "order": 10,
       "title": "Test Automation Engineer — Entry Level",
       "company": "Medinext Global LLC",
-      "verdict": "skip",
-      "badge": "TOMBSTONED ✦ Nov 14",
-      "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane",
+      "verdict": "applied",
+      "badge": "✦ APPLIED NOV 9 — MISSION FLOWN",
+      "headline": "Medinext · entry-level QA automation · APPLIED — receipt on file",
       "pay": {
         "value": "$70,000 – $90,000 / year",
         "note": "bottom clears your $62,400 minimum by $7,600"
@@ -1001,9 +1001,9 @@
       "order": 11,
       "title": "Junior Tester",
       "company": "9th Way Insignia",
-      "verdict": "call",
-      "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
-      "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum",
+      "verdict": "applied",
+      "badge": "⭐ DREAM JOB MARKED ✦ APPLIED NOV 14",
+      "headline": "DREAM JOB · 9th Way Insignia · Junior Tester · APPLIED Nov 14",
       "pay": {
         "value": "$62,818 – $67,500 / year",
         "note": "bottom clears your minimum by $418 — the thinnest margin on the board"
@@ -1051,6 +1051,10 @@
     }
   ],
   "feed": [
+    {
+      "t": "Nov 14, 2026, 4:02 PM ET",
+      "line": "RECORD CORRECTION · SQ-24 Medinext and SQ-25 9th Way corrected from SKIP/CALL to APPLIED based on submission receipts."
+    },
     {
       "t": "Nov 14, 2026, 3:43 PM ET",
       "line": "SYSTEM FIX · Merged state and data files. console-state.json is retired. All future updates go to console-data.json only."
