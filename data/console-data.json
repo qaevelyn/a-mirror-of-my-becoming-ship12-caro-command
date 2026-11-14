@@ -1,967 +1,1132 @@
 {
- "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
- "ship": 12,
- "updated": "Nov 9, 9:03 PM ET",
- "minPayLine": "$62,400 ($30/hour) — your personal minimum",
- "standingRules": [
-  "You apply; I build, check, and write everything down.",
-  "Nothing was submitted and nobody was contacted tonight or ever — you open every form, you press every submit button.",
-  "Flip a GO switch and I build that job's packet — tailored resume and cover letter, left on your desk for review. Nothing sends itself.",
-  "Leave a comment on any card and I read it before acting — it's where you tell me what you need (pay bands, form types, anything you spot on the posting).",
-  "Every pay line is checked against your personal minimum of $62,400 ($30/hour). \"Clears\" = even their lowest number beats it."
- ],
- "jobs": [
-  {
-   "sq": "SQ-30",
-   "order": 1,
-   "title": "QA Tester",
-   "company": "Crash Champions",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 9 late sweep · $30-$37/hr",
-   "headline": "Crash Champions · QA Tester · remote US · web, mobile, API platforms · Agile Scrum",
-   "pay": {
-    "value": "$62,400 - $77,000 (hourly $30-$37)",
-    "note": "bottom exactly at your minimum — even their lowest number clears"
-   },
-   "where": {
-    "value": "Remote (United States)",
-    "note": "no state restrictions listed"
-   },
-   "effort": "Easy — manual + automated testing, Agile Scrum, likely straightforward apply flow.",
-   "link": {
-    "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
-    "label": "Job listing via RemoteRocketship — Crash Champions QA Tester"
-   },
-   "theJob": "QA Tester validating Crash Champions' collision-repair software across web, mobile, and API platforms. Executing manual and automated tests within Agile Scrum delivery cycles. Azure, Selenium, SQL in the stack.",
-   "fits": [
-    "Junior level — your profile fits exactly. · Selenium + SQL — both on your resume.",
-    "Azure — you don't claim it but it's not a hard requirement; AWS is your lane and the concepts transfer."
-   ],
-   "trade": "Pay bottom is exactly your floor — no cushion. Collision-repair industry, not the most interesting domain, but the testing work is real.",
-   "posted": "Posted 6 hours ago on RemoteRocketship (Nov 9)"
-  },
-  {
-   "sq": "SQ-29",
-   "order": 2,
-   "title": "Software Tester",
-   "company": "Labelmaster",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 9 late sweep · posted 3 hours ago",
-   "headline": "Labelmaster · Software Tester · remote US · dangerous-goods shipping software · REST API + JIRA",
-   "pay": {
-    "value": "$70,720 - $83,200 (hourly $34-$40)",
-    "note": "clears your minimum by $8,320 — solid cushion"
-   },
-   "where": {
-    "value": "Remote (United States)",
-    "note": "no state restrictions listed"
-   },
-   "effort": "Easy — manual testing focus, JIRA for tracking (your resume answers it word for word).",
-   "link": {
-    "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
-    "label": "Job listing via RemoteRocketship — Labelmaster Software Tester"
-   },
-   "theJob": "Manual Software Tester validating Labelmaster software that simplifies dangerous-goods shipping. Executing functional, regression, smoke, and REST API tests while tracking defects in JIRA.",
-   "fits": [
-    "JIRA — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\").",
-    "REST API testing — your RAG pipelines are REST-driven; the testing discipline transfers.",
-    "No degree required — your portfolio carries it."
-   ],
-   "trade": "Manual-heavy role, not automation-first. Dangerous-goods shipping is a niche domain — compliance-driven, detail-oriented, which actually suits your fail-closed verification instincts.",
-   "posted": "Posted 3 hours ago on RemoteRocketship (Nov 9)"
-  },
-  {
-   "sq": "SQ-28",
-   "order": 3,
-   "title": "Automation Engineer Junior",
-   "company": "SAIC",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 2 posting, still open · Ashburn VA",
-   "headline": "SAIC · Automation Engineer Junior · Ashburn VA · federal contractor · automation test scripts",
-   "pay": {
-    "value": "$60,000 - $100,000 (Glassdoor estimate)",
-    "note": "bottom is BELOW your minimum — verify the actual band before investing time"
-   },
-   "where": {
-    "value": "Ashburn, VA",
-    "note": "likely hybrid or on-site — verify remote policy; 40+ min commute from Woodbridge"
-   },
-   "effort": "Medium — federal contractor apply flow, possible clearance paperwork.",
-   "link": {
-    "url": "https://jobs.saic.com/jobs/18433828-automation-engineer-junior",
-    "label": "Open the posting — SAIC careers (Job ID 18433828)"
-   },
-   "theJob": "SAIC is hiring an entry-level Automation Engineer to support software testing and the SDLC. Developing automation test scripts, generating test data, performing data validation. Bachelor's in CS or related field.",
-   "fits": [
-    "Entry-level — exactly your level. · Automation test scripts — Python is yours.",
-    "Federal contractor — your DLA/MIL-STD-130N procurement background is familiar ground; Public Trust eligible."
-   ],
-   "trade": "The pay bottom is below your minimum — the real band matters. Verify before investing. Ashburn VA location may mean hybrid — check if remote is allowed.",
-   "posted": "Posted Nov 2, 2026 on SAIC careers"
-  },
-  {
-   "sq": "SQ-27",
-   "order": 4,
-   "title": "Software Quality Engineer",
-   "company": "Quavo Fraud & Disputes",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 9 sweep · posted 19 hours ago · $85K-$100K",
-   "headline": "Quavo · Software Quality Engineer · remote US · cloud fraud/disputes platform · AWS + SQL",
-   "pay": {
-    "value": "$85,000 - $100,000",
-    "note": "clears your minimum by $22,600 — the strongest pay on the board"
-   },
-   "where": {
-    "value": "Remote (United States)",
-    "note": "no state restrictions listed"
-   },
-   "effort": "Medium — cloud platform testing, Pega workflows, compliance coverage.",
-   "link": {
-    "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
-    "label": "Job listing via RemoteRocketship — Quavo Software Quality Engineer"
-   },
-   "theJob": "Software Quality Engineer testing Quavo's cloud-based fraud and disputes management platform. Validating Pega workflows, compliance coverage, data, and release readiness. AWS, Snowflake, SQL, TypeScript in the stack.",
-   "fits": [
-    "AWS — your lane, hands-on daily practice. · SQL — you understand it honestly; data validation is your discipline.",
-    "Cloud-based platform testing — your five RAG pipelines ran on cloud infrastructure.",
-    "Junior level — your profile fits."
-   ],
-   "trade": "Pega workflows are a new tool — learnable but not on your resume. Fraud/disputes domain is interesting and compliance-heavy, which suits your evidence-first instincts. TypeScript — you don't claim it, but the testing role likely doesn't require deep TS.",
-   "posted": "Posted 19 hours ago on RemoteRocketship (Nov 9)"
-  },
-  {
-   "sq": "SQ-26",
-   "order": 5,
-   "title": "QA Engineer",
-   "company": "Harris Computer",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 9 sweep · posted 6 days ago · Virginia on the list",
-   "headline": "Harris Computer · QA Engineer · remote 46 states incl Virginia · enterprise software · Python + Selenium + SQL",
-   "pay": {
-    "value": "$70,000 - $80,000",
-    "note": "clears your minimum by $7,600"
-   },
-   "where": {
-    "value": "Remote — Virginia explicitly listed (46 states)",
-    "note": "you're in the list"
-   },
-   "effort": "Medium — functional, regression, SQL, accessibility, defect testing.",
-   "link": {
-    "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
-    "label": "Job listing via RemoteRocketship — Harris Computer QA Engineer"
-   },
-   "theJob": "Junior QA Engineer testing enterprise software through functional, regression, SQL, accessibility, and defect testing. Growing into automated test ownership with senior engineer support.",
-   "fits": [
-    "Python — listed, yours. · Selenium + SQL — both on your resume.",
-    "Junior level — your profile fits exactly.",
-    "Virginia explicitly on the remote state list — no risk there.",
-    "Growth path: automated test ownership with senior support — a real career track."
-   ],
-   "trade": "Enterprise software (ERP) domain — not glamorous but stable. 6 days old, so apply soon before the pool fills.",
-   "posted": "Posted 6 days ago on RemoteRocketship (Nov 3)"
-  },
-  {
-   "sq": "SQ-22",
-   "order": 1,
-   "title": "Quality Engineer I",
-   "company": "Availity",
-   "verdict": "GO",
-   "badge": "✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦",
-   "headline": "Availity · Quality Engineer I · fully remote · your next call",
-   "pay": {
-    "value": "Not posted",
-    "note": "the one open question — asked in writing before anything else"
-   },
-   "where": {
-    "value": "Fully remote (US)",
-    "note": "Eastern time preferred — you're Eastern"
-   },
-   "effort": "Easy — resume upload, no essays, ~15 min on their own page.",
-   "link": {
-    "url": "https://availity.wd1.myworkdayjobs.com/availity_careers_us/job/remote---united-states/quality-engineer-i_r0008638",
-    "label": "Open the posting — Availity careers (req R0008638)"
-   },
-   "theJob": "Availity runs the plumbing between doctors' offices and health insurance plans — millions of providers, billions of transactions a year. On a software team, you'd write test plans, run tests, and write up bugs clearly, in two-week sprints. They openly want someone who uses AI tools to speed up testing — a plain description of what your portfolio already does.",
-   "fits": [
-    "\"1+ years in QA — internships and project work count\" (their words) — your dated public projects cover it. · Python, JavaScript, or C# — Python is yours.",
-    "Jira for tracking — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\"). · Cloud basics, AWS or Azure — AWS is your lane."
-   ],
-   "watch": null,
-   "posted": "Posted \"Yesterday\" on capture (Nov 4, 2026) · no apply-by shown",
-   "requirements": [
+  "_contract": "DYNAMIC CONSOLE DOCUMENT — SHIP 12 (CARO COMMAND, SCOUT OPS). WHO WRITES HERE: the crawler/cron sweeps (every 2h ET) update jobs[], prepend feed lines (newest FIRST), and bump 'updated'. The agent may also append feed lines when work happens (packets built, verdicts changed). WHO NEVER WRITES HERE: the owner. Her switches + comments live in db/custom.db (Prisma model JobState) — the console merges the two on every GET /api/jobs. HOW THE CONSOLE READS IT: the API reads this file straight from disk on every request — no cache, no rebuild. Edit this file and the console shows it within ~20 seconds (or on REFRESH SCAN). LAWS: card copy stays plain-English, verdict first, reason first. Never invent postings. Never write anything into download/ except owner-requested deliverables. Nothing is ever submitted by the console.",
+  "ship": 12,
+  "updated": "Nov 12, 2026, 8:05 AM ET",
+  "minPayLine": "$62,400 ($30/hour) — your personal minimum",
+  "standingRules": [
+    "You apply; I build, check, and write everything down.",
+    "Nothing was submitted and nobody was contacted tonight or ever — you open every form, you press every submit button.",
+    "Flip a GO switch and I build that job's packet — tailored resume and cover letter, left on your desk for review. Nothing sends itself.",
+    "Leave a comment on any card and I read it before acting — it's where you tell me what you need (pay bands, form types, anything you spot on the posting).",
+    "Every pay line is checked against your personal minimum of $62,400 ($30/hour). \"Clears\" = even their lowest number beats it."
+  ],
+  "jobs": [
     {
-     "label": "What you will be doing (verbatim)",
-     "lines": [
-      "\"Assigned to a Scrum team, you will be developing test plans, test scenarios and test cases based on the business, user, and functional/nonfunctional requirements\"",
-      "\"Participating in daily stand ups, sprint planning and refinement meetings\"",
-      "\"Utilizing JIRA for project planning and tracking\"",
-      "\"Collaborating with the Product Owner and Engineers on a regular basis\"",
-      "\"Conducting automated tests using user-level test automation tools and/or behavioral-driven test scenarios\"",
-      "\"Validating and documenting the completion of testing and development processes to ensure compliance standards are met\""
-     ]
+      "sq": "SQ-32",
+      "order": 1,
+      "title": "ML Engineer, 2027 New Grad",
+      "company": "Brain Co. (BrainCo)",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 10 — MISSION FLOWN · chevron 5/7",
+      "headline": "BrainCo · ML Engineer 2027 New Grad · $140–190K posted · hybrid SF Bay Area · APPLIED Nov 10",
+      "pay": {
+        "value": "$140,000 – $190,000 / year",
+        "note": "posted on Brain Co.'s own Ashby board — largest entry-door band of the hunt"
+      },
+      "where": {
+        "value": "Hybrid — San Francisco Bay Area",
+        "note": "owner ruling of record: one funded move, then no more moving costs"
+      },
+      "effort": "Submitted Nov 10 ~8:00 PM ET via Ashby (employer's own ATS).",
+      "link": {
+        "url": "https://jobs.ashbyhq.com/brainco/4c9f8f00-0caf-4927-80da-02a3e53cb0cd",
+        "label": "The application — Ashby (Brain Co.'s own board)"
+      },
+      "theJob": "GenAI/ML application engineering on BrainCo's brain-interface products. Eligibility as written wants a bachelor's completing Spring 2027 — the owner's override of record (completed B.A. + M.A. + A.A. exceed the bar) carried the row, and the application went in.",
+      "fits": [
+        "Five shipped RAG/Agentic RAG pipelines + EvidenceFlow + Overseer — GenAI application-layer work, claimable line by line.",
+        "Completed degrees on the record: B.A. (WVSU) + M.A. (Ohio) + both A.A.s — the cohort wall was behind her before she pressed submit."
+      ],
+      "watch": "POST-SUBMISSION CORRECTION OF RECORD (owner, Nov 11): the resume went out but the receipt hyperlinks were missing (plain-text build regression — agent-side defect, already fixed as law: no packet ships without live receipt links). Owner trashed her local BrainCo copies; the agent-side packet of record is intact and can be re-cut same-day on her word. Recovery path: check the Ashby confirmation email (it lists attached documents) before any correction email.",
+      "requirements": [
+        {
+          "label": "Eligibility (verbatim, employer's board)",
+          "lines": [
+            "\"Expect to complete a bachelor's degree in Computer Science, Engineering, Machine Learning, Data Science, or a related field in Spring 2027\""
+          ]
+        },
+        {
+          "label": "Screeners answered (honest, of record)",
+          "lines": [
+            "GenAI app-building: Yes (five shipped pipelines)",
+            "\"Personally implemented models in PyTorch/Jax/TensorFlow\": No (application layer, not framework training — never-claim law)",
+            "Relocation to SF Bay Area: Yes (owner ruling)"
+          ]
+        }
+      ],
+      "posted": "Dice mirror + Ashby (posted ~19d before capture); band confirmed on the employer channel",
+      "docs": {
+        "status": "PACKET OF RECORD INTACT (agent-side)",
+        "note": "Resume + cover letter (docx/pdf) + form answers of record survive in download/ — her local copies were trashed; nothing is lost. Re-cut on owner word."
+      }
     },
     {
-     "label": "Qualifications — key lines (verbatim)",
-     "lines": [
-      "\"1+ years of experience in quality assurance and testing best practices (internships, co-ops, or project work considered)\"",
-      "\"Exposure to writing test automation, front end and/or back end, with a desire to grow automation skills\"",
-      "\"Working knowledge of JavaScript, Python, C# (or similar languages used for test automation and tooling)\"",
-      "\"Familiarity with an IDE (VS Code, Eclipse, or similar) to run and debug automated tests, and basic source control workflows (commit changes, create pull/merge requests)\"",
-      "\"Basic understanding of cloud concepts (AWS, Azure including environments, deployments, and cloud-hosted architectures)\"",
-      "\"Exposure to continuous integration tools (GitLab CI for pipeline execution and test integration)\"",
-      "\"Ability to write clear, reproducible, high quality bugs and defects\"",
-      "\"Exposure to API testing with tools such as Insomnia or Postman\"",
-      "\"Exposure to Cucumber and Selenium WebDriver is preferred\"",
-      "\"Foundational knowledge of underlying technologies supporting the applications under test i.e., REST API's, HTML, CS…\" (capture ends here)"
-     ]
+      "sq": "SQ-33",
+      "order": 2,
+      "title": "Automation Engineer Junior",
+      "company": "SAIC (Job ID 2618696)",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 10 — MISSION FLOWN · chevron 6/7",
+      "headline": "SAIC 2618696 · Automation Engineer Junior · Ashburn VA · APPLIED Nov 10 — Application Received",
+      "pay": {
+        "value": "$60,001 – $100,000 / year",
+        "note": "posted band on SAIC's own board"
+      },
+      "where": {
+        "value": "Ashburn, VA — on-site 4 days/wk year one",
+        "note": "hybrid 2-days option year two"
+      },
+      "effort": "Submitted Nov 10 ~9:00 PM ET on SAIC's own Oracle board (jobs.saic.com). Owner self-report: \"Application Received\" 11/10/2026.",
+      "link": {
+        "url": "https://eihu.fa.us8.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/my-profile",
+        "label": "Status path — SAIC candidate profile (Application Received → next)"
+      },
+      "theJob": "Software testing / automation at SAIC under a public-trust program (CBP background investigation required-to-obtain). Owner-directed GO after the BrainCo submission — no re-gate needed, her call of record.",
+      "fits": [
+        "SW testing lane + ship record carried at 14; Ship 14 Quartermaster is the lead story for an automation role.",
+        "Packet carried the FULL standard: both A.A.s in the education block, 12 gold receipt links, form-field kit — the attachment-audit checklist ran clean."
+      ],
+      "watch": "This row rode the new SUBMIT-DAY CHECKLIST (Rule 0: no forms when tired; open-before-attach; filename names the company). Next step is employer-side only — watch the candidate profile for status changes.",
+      "requirements": [
+        {
+          "label": "Gates (verbatim capture)",
+          "lines": [
+            "US Citizen required",
+            "Public Trust (CBP background investigation) required-to-obtain",
+            "Travel 10%"
+          ]
+        }
+      ],
+      "posted": "Posted Nov 10 on SAIC's board (repost/refresh of the Nov 2 capture — same req ID); ongoing applications, no deadline",
+      "docs": {
+        "status": "SUBMITTED — APPLICATION RECEIVED 11/10/2026",
+        "note": "SAIC-2618696 packet + form-field kit of record in download/."
+      }
     },
     {
-     "label": "The AI-multiplier section (verbatim)",
-     "lines": [
-      "\"Uses AI-assisted tools (e.g., Copilot-style tools) to improve testing efficiency, such as drafting test scenarios, accelerating automation development, analyzing failures, and supporting root-cause investigation — with human judgment and verification\"",
-      "\"Leverages AI to support test completeness by identifying gaps, exploring edge cases, and assessing risk across functional and non-functional scenarios\"",
-      "\"Applies AI to summarize test results, logs, and failures to raise awareness, communicate risk clearly, and support timely escalation\""
-     ]
+      "sq": "SQ-30",
+      "order": 3,
+      "title": "QA Tester",
+      "company": "Crash Champions",
+      "verdict": "SKIP",
+      "badge": "OWNER SKIP ✦ Nov 10 — below the unicorn bar ($2,080 cushion)",
+      "headline": "Crash Champions · QA Tester · remote US · web, mobile, API platforms · Agile Scrum",
+      "pay": {
+        "value": "$62,400 - $77,000 (hourly $30-$37)",
+        "note": "bottom exactly at your minimum — even their lowest number clears"
+      },
+      "where": {
+        "value": "Remote (United States)",
+        "note": "no state restrictions listed"
+      },
+      "effort": "Easy — manual + automated testing, Agile Scrum, likely straightforward apply flow.",
+      "link": {
+        "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
+        "label": "Job listing via RemoteRocketship — Crash Champions QA Tester"
+      },
+      "theJob": "QA Tester validating Crash Champions' collision-repair software across web, mobile, and API platforms. Executing manual and automated tests within Agile Scrum delivery cycles. Azure, Selenium, SQL in the stack.",
+      "fits": [
+        "SQL — basic data-validation is claimable honestly (re/Start + coursework).",
+        "Automation tools (Selenium, Postman) sit under 'preferred' — nothing to claim, nothing to fear.",
+        "2+ years QA — countable from your combined record (lab years + re/Start + the pipelines)."
+      ],
+      "trade": "Bottom clears your minimum by $2,080 — the thinnest cushion on the board. The 2+ years ask is countable from your combined record; the automation tools are only 'preferred.' Your call.",
+      "posted": "Posted 6 hours ago on RemoteRocketship (Nov 9)",
+      "requirements": [
+        "2+ years of experience in a software QA role",
+        "Experience with manual testing practices and common QA documentation standards",
+        "Exposure to automated testing tools (e.g., Selenium, Postman) is preferred",
+        "Basic SQL skills for data validation and backend testing",
+        "Familiarity with Agile Scrum methodology and tools such as Azure DevOps",
+        "Strong attention to detail and ability to follow test plans precisely",
+        "Excellent written and verbal communication skills"
+      ],
+      "skipReason": "Owner verdict of record Nov 10, 12:56 PM ET: 'no on this one, remember im looking for the unicorn/white whale' — a $2,080 cushion with no lane or leverage edge doesn't clear the bar. Tombstoned; never re-served."
     },
     {
-     "label": "Pay, location, fine print (verbatim)",
-     "lines": [
-      "Pay: NOT POSTED — no compensation line anywhere on the req",
-      "\"Location: Remote, US – Eastern/Central Time zones Preferred\" · Full time",
-      "\"Sponsorship, in any form, is not available for this position.\"",
-      "\"Must pass a drug test before beginning\""
-     ]
+      "sq": "SQ-29",
+      "order": 4,
+      "title": "Software Tester",
+      "company": "Labelmaster",
+      "verdict": "SKIP",
+      "badge": "OWNER SKIP ✦ Nov 10 — your verdict: 'no on this one' (Postman/SOAPUI gap)",
+      "headline": "Labelmaster · Software Tester · remote US · dangerous-goods shipping software · REST API + JIRA",
+      "pay": {
+        "value": "$70,720 - $83,200 (hourly $34-$40)",
+        "note": "clears your minimum by $8,320 — solid cushion"
+      },
+      "where": {
+        "value": "Remote (United States)",
+        "note": "no state restrictions listed"
+      },
+      "effort": "Easy — manual testing focus, JIRA for tracking (your resume answers it word for word).",
+      "link": {
+        "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
+        "label": "Job listing via RemoteRocketship — Labelmaster Software Tester"
+      },
+      "theJob": "Manual Software Tester validating Labelmaster software that simplifies dangerous-goods shipping. Executing functional, regression, smoke, and REST API tests while tracking defects in JIRA.",
+      "fits": [
+        "JIRA — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\").",
+        "REST API testing — your RAG pipelines are REST-driven; the testing discipline transfers.",
+        "No degree required — your portfolio carries it."
+      ],
+      "trade": "Requires Postman and SOAPUI hands-on — neither is in your documented record, and AI screens may auto-reject without them. Jira is answerable with your receipt line, API testing is claimable, and the pay clears your minimum by only $2,600. Your call.",
+      "posted": "Posted 3 hours ago on RemoteRocketship (Nov 9)",
+      "requirements": [
+        "2+ years software testing experience",
+        "Experience with Postman and SOAPUI",
+        "Experience using JIRA",
+        "Experience evaluating requirements and writing test cases",
+        "Strong attention to detail",
+        "Experience regression. Functional and smoke testing",
+        "Experience API testing",
+        "Excellent written and verbal communication"
+      ],
+      "skipReason": "Owner verdict of record Nov 10, 12:56 PM ET: no — it requires Postman and SOAPUI hands-on you don't have on paper. Tombstoned; never re-served."
+    },
+    {
+      "sq": "SQ-28",
+      "order": 3,
+      "title": "Automation Engineer Junior",
+      "company": "SAIC",
+      "verdict": "SKIP",
+      "badge": "SKIP ✦ corrected Nov 10 — already turned down Nov 9 (re-served by mistake)",
+      "headline": "SAIC · Automation Engineer Junior · Ashburn VA · federal contractor · automation test scripts",
+      "pay": {
+        "value": "$60,000 - $100,000 (Glassdoor estimate)",
+        "note": "bottom is BELOW your minimum — verify the actual band before investing time"
+      },
+      "where": {
+        "value": "Ashburn, VA",
+        "note": "likely hybrid or on-site — verify remote policy; 40+ min commute from Woodbridge"
+      },
+      "effort": "Medium — federal contractor apply flow, possible clearance paperwork.",
+      "link": {
+        "url": "https://jobs.saic.com/jobs/18433828-automation-engineer-junior",
+        "label": "Open the posting — SAIC careers (Job ID 18433828)"
+      },
+      "theJob": "SAIC is hiring an entry-level Automation Engineer to support software testing and the SDLC. Developing automation test scripts, generating test data, performing data validation. Bachelor's in CS or related field.",
+      "fits": [
+        "Entry-level — exactly your level. · Automation test scripts — Python is yours.",
+        "Federal contractor — your DLA/MIL-STD-130N procurement background is familiar ground; Public Trust eligible."
+      ],
+      "trade": "The pay bottom is below your minimum — the real band matters. Verify before investing. Ashburn VA location may mean hybrid — check if remote is allowed.",
+      "posted": "Posted Nov 2, 2026 on SAIC careers",
+      "skipReason": "Already turned down on the Nov 9 morning sweep: the real posted pay starts at $60,001 (below your $62,400 minimum) and the job needs 4 days a week on-site in Ashburn. The evening run re-served it by mistake; the $60K–$100K band shown here was a Glassdoor estimate, not a posted band.",
+      "skipExtra": "Kill record: Nov 9, 4:00 AM ET digest (requirements captured). Tombstone law: killed reqs are never re-served."
+    },
+    {
+      "sq": "SQ-27",
+      "order": 4,
+      "title": "Software Quality Engineer",
+      "company": "Quavo Fraud & Disputes",
+      "verdict": "SKIP",
+      "badge": "SKIP ✦ corrected Nov 10 — needs a QA certification you don't hold",
+      "headline": "Quavo · Software Quality Engineer · remote US · cloud fraud/disputes platform · AWS + SQL",
+      "pay": {
+        "value": "$85,000 - $100,000",
+        "note": "clears your minimum by $22,600 — the strongest pay on the board"
+      },
+      "where": {
+        "value": "Remote (United States)",
+        "note": "no state restrictions listed"
+      },
+      "effort": "Medium — cloud platform testing, Pega workflows, compliance coverage.",
+      "link": {
+        "url": "https://www.remoterocketship.com/us/jobs/junior-qa-engineer",
+        "label": "Job listing via RemoteRocketship — Quavo Software Quality Engineer"
+      },
+      "theJob": "Software Quality Engineer testing Quavo's cloud-based fraud and disputes management platform. Validating Pega workflows, compliance coverage, data, and release readiness. AWS, Snowflake, SQL, TypeScript in the stack.",
+      "fits": [
+        "AWS — your lane, hands-on daily practice. · SQL — you understand it honestly; data validation is your discipline.",
+        "Cloud-based platform testing — your five RAG pipelines ran on cloud infrastructure.",
+        "Junior level — your profile fits."
+      ],
+      "trade": "Pega workflows are a new tool — learnable but not on your resume. Fraud/disputes domain is interesting and compliance-heavy, which suits your evidence-first instincts. TypeScript — you don't claim it, but the testing role likely doesn't require deep TS.",
+      "posted": "Posted 19 hours ago on RemoteRocketship (Nov 9)",
+      "skipReason": "The full requirements list requires a quality/testing certification you don't hold — a locked door under your own law. The $85–100K figure came from an aggregator, not the posting, and the Built In copy shows the req removed Nov 6.",
+      "skipExtra": "Required line verbatim: 'Quality/Testing Certification'. No posted band on the real JD. URL: https://builtin.com/job/software-quality-engineer/12109015"
+    },
+    {
+      "sq": "SQ-26",
+      "order": 5,
+      "title": "QA Engineer",
+      "company": "Harris Computer",
+      "verdict": "GO",
+      "badge": "GO ✦ packet delivered Nov 10 — variant letter for req R0047310 ready; apply ONCE, on the page in front of you",
+      "headline": "Harris Computer · QA Engineer · remote 46 states incl Virginia · enterprise software · Python + Selenium + SQL",
+      "pay": {
+        "value": "$70,000 - $80,000",
+        "note": "clears your minimum by $7,600"
+      },
+      "where": {
+        "value": "Remote — Virginia explicitly listed (46 states)",
+        "note": "you're in the list"
+      },
+      "effort": "The Workday req you opened (R0047310) is the SAME JD as the packet's R0047438 — $70–80K band posted on both, same requirements, same AI lines. Use the R0047310 letter variant (Cover-Letter_Harris_R0047310_2026-11-10) on the page you have open; R0047438 is the backup door only if this one goes silent. Form answers: desired salary 70000 (their posted bottom); phone law; available immediately; automation screener honest No on Playwright/Selenium/Cypress, Yes on Python + GitHub Actions CI.",
+      "link": {
+        "url": "https://www.remoterocketship.com/us/company/harriscomputer/jobs/qa-engineer-united-states-remote",
+        "label": "Full job listing — Harris Computer QA Engineer (mirrors the employer careers page)"
+      },
+      "theJob": "Junior QA Engineer testing enterprise software through functional, regression, SQL, accessibility, and defect testing. Growing into automated test ownership with senior engineer support.",
+      "fits": [
+        "Python — listed, yours. · Selenium + SQL — both on your resume.",
+        "Junior level — your profile fits exactly.",
+        "Virginia explicitly on the remote state list — no risk there.",
+        "Growth path: automated test ownership with senior support — a real career track."
+      ],
+      "trade": "Named honestly in the letter: Playwright/Selenium/Cypress not yet in your hands — Python + CI is the real answer; SQL at working depth.",
+      "posted": "Posted 6 days ago on RemoteRocketship (Nov 3)",
+      "requirements": [
+        "Bachelor's degree in CS/IS/Engineering or related field, or equivalent professional experience",
+        "1+ years of software testing experience, including internship or placement experience",
+        "Exposure to automated testing, whether professional, academic or self-taught",
+        "Working SQL, enough to query and validate data independently",
+        "Familiarity with at least one automation framework such as Playwright, Selenium or Cypress",
+        "Some programming exposure in TypeScript, JavaScript, C# or Python",
+        "Familiarity with source control or a work tracking tool such as Azure DevOps, Jira or Aha",
+        "Understanding of Agile and Scrum delivery"
+      ]
+    },
+    {
+      "sq": "SQ-31",
+      "order": 5,
+      "title": "QA Engineer",
+      "company": "Harris Computer",
+      "verdict": "GO",
+      "badge": "GO ✦ sibling of SQ-26 — same JD, req R0047310, the one you have open",
+      "headline": "Harris Computer · QA Engineer · remote, 49 locations incl. DC · same $70–80K band · same AI-review lines",
+      "pay": {
+        "value": "$70,000 - $80,000",
+        "note": "posted on the Workday details page — clears your minimum by $7,600"
+      },
+      "where": {
+        "value": "Remote — 49 locations incl. Washington DC, WV, WI, NC",
+        "note": "Woodbridge VA inside the footprint"
+      },
+      "effort": "Apply on the Workday page you already have open with the R0047310 letter variant — resume unchanged. One application; don't double-apply across the two req numbers.",
+      "link": {
+        "url": "https://harriscomputer.wd3.myworkdayjobs.com/en-US/1/details/QA-Engineer_R0047310-1",
+        "label": "The req you opened — Harris Computer QA Engineer (R0047310)"
+      },
+      "theJob": "Junior QA Engineer growing into automation: functional and regression testing, test data preparation, defect reporting — building toward authoring automated tests with senior support. Same posting text as R0047438, verified line-for-line.",
+      "fits": [
+        "1+ years of testing experience including internships — your dated public record counts.",
+        "Python satisfies the programming menu; Jira claimable from the receipt line; SQL at honest working depth.",
+        "The AI lines are the tie-break: 'review every AI-generated artefact against the requirement' — EvidenceFlow is that discipline, shipped.",
+        "Band is POSTED on this req ($70–80K) — the confirm-in-writing ask lands soft."
+      ],
+      "trade": "Playwright/Selenium/Cypress named honestly in the letter — learn list, not hands; SQL working-level, NoSQL in practice. Zero never-claims required.",
+      "posted": "Posted ~Nov 3 (Workday: 'Posted 7 Days Ago')",
+      "requirements": [
+        "Bachelor's degree in CS/IS/Engineering or equivalent professional experience",
+        "1+ years of software testing experience, including internship or placement experience",
+        "Exposure to automated testing, whether professional, academic or self-taught",
+        "Working SQL; one automation framework (Playwright/Selenium/Cypress menu); TS/JS/C#/Python menu",
+        "AI duties verbatim: draft test cases with approved AI tools; review every AI artefact against the requirement"
+      ]
+    },
+    {
+      "sq": "SQ-22",
+      "order": 3,
+      "title": "Quality Engineer I",
+      "company": "Availity",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 6 — NOT SELECTED · chevron 1/7 ✦",
+      "headline": "Availity · Quality Engineer I · rejected — submission defect of record: the cover letter went where the receipt-bearing resume belonged; the screener never saw her qualifications or the receipts. Corrected resubmission optional — owner's call.",
+      "pay": {
+        "value": "Not posted",
+        "note": "the one open question — asked in writing before anything else"
+      },
+      "where": {
+        "value": "Fully remote (US)",
+        "note": "Eastern time preferred — you're Eastern"
+      },
+      "effort": "Easy — resume upload, no essays, ~15 min on their own page.",
+      "link": {
+        "url": "https://availity.wd1.myworkdayjobs.com/availity_careers_us/job/remote---united-states/quality-engineer-i_r0008638",
+        "label": "Open the posting — Availity careers (req R0008638)"
+      },
+      "theJob": "Availity runs the plumbing between doctors' offices and health insurance plans — millions of providers, billions of transactions a year. On a software team, you'd write test plans, run tests, and write up bugs clearly, in two-week sprints. They openly want someone who uses AI tools to speed up testing — a plain description of what your portfolio already does.",
+      "fits": [
+        "\"1+ years in QA — internships and project work count\" (their words) — your dated public projects cover it. · Python, JavaScript, or C# — Python is yours.",
+        "Jira for tracking — your resume line answers it word for word (\"Managed 20+ concurrent government contract bids using Jira and Confluence\"). · Cloud basics, AWS or Azure — AWS is your lane."
+      ],
+      "watch": null,
+      "posted": "Posted \"Yesterday\" on capture (Nov 4, 2026) · no apply-by shown",
+      "requirements": [
+        {
+          "label": "What you will be doing (verbatim)",
+          "lines": [
+            "\"Assigned to a Scrum team, you will be developing test plans, test scenarios and test cases based on the business, user, and functional/nonfunctional requirements\"",
+            "\"Participating in daily stand ups, sprint planning and refinement meetings\"",
+            "\"Utilizing JIRA for project planning and tracking\"",
+            "\"Collaborating with the Product Owner and Engineers on a regular basis\"",
+            "\"Conducting automated tests using user-level test automation tools and/or behavioral-driven test scenarios\"",
+            "\"Validating and documenting the completion of testing and development processes to ensure compliance standards are met\""
+          ]
+        },
+        {
+          "label": "Qualifications — key lines (verbatim)",
+          "lines": [
+            "\"1+ years of experience in quality assurance and testing best practices (internships, co-ops, or project work considered)\"",
+            "\"Exposure to writing test automation, front end and/or back end, with a desire to grow automation skills\"",
+            "\"Working knowledge of JavaScript, Python, C# (or similar languages used for test automation and tooling)\"",
+            "\"Familiarity with an IDE (VS Code, Eclipse, or similar) to run and debug automated tests, and basic source control workflows (commit changes, create pull/merge requests)\"",
+            "\"Basic understanding of cloud concepts (AWS, Azure including environments, deployments, and cloud-hosted architectures)\"",
+            "\"Exposure to continuous integration tools (GitLab CI for pipeline execution and test integration)\"",
+            "\"Ability to write clear, reproducible, high quality bugs and defects\"",
+            "\"Exposure to API testing with tools such as Insomnia or Postman\"",
+            "\"Exposure to Cucumber and Selenium WebDriver is preferred\"",
+            "\"Foundational knowledge of underlying technologies supporting the applications under test i.e., REST API's, HTML, CS…\" (capture ends here)"
+          ]
+        },
+        {
+          "label": "The AI-multiplier section (verbatim)",
+          "lines": [
+            "\"Uses AI-assisted tools (e.g., Copilot-style tools) to improve testing efficiency, such as drafting test scenarios, accelerating automation development, analyzing failures, and supporting root-cause investigation — with human judgment and verification\"",
+            "\"Leverages AI to support test completeness by identifying gaps, exploring edge cases, and assessing risk across functional and non-functional scenarios\"",
+            "\"Applies AI to summarize test results, logs, and failures to raise awareness, communicate risk clearly, and support timely escalation\""
+          ]
+        },
+        {
+          "label": "Pay, location, fine print (verbatim)",
+          "lines": [
+            "Pay: NOT POSTED — no compensation line anywhere on the req",
+            "\"Location: Remote, US – Eastern/Central Time zones Preferred\" · Full time",
+            "\"Sponsorship, in any form, is not available for this position.\"",
+            "\"Must pass a drug test before beginning\""
+          ]
+        }
+      ],
+      "docs": {
+        "status": "CORRECTED RESUBMISSION OPTIONAL — OWNER'S CALL",
+        "note": "Agent re-cuts the packet same-day on her word (canon lineage, receipts live)."
+      }
+    },
+    {
+      "sq": "SQ-23",
+      "order": 4,
+      "title": "Junior QA Automation Engineer",
+      "company": "Element (e14s.com)",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 6 · chevron 2/7 ✦",
+      "headline": "Element · Junior QA Automation Engineer · $65k–$85k posted · the easy form",
+      "pay": {
+        "value": "$65,000 – $85,000, posted",
+        "note": "bottom clears your minimum by $2,600"
+      },
+      "where": {
+        "value": "Fully remote (US)",
+        "note": "must live in the lower 48 — you do"
+      },
+      "effort": "FLOWN Nov 6, 2026 · 08:51 AM ET — owner pressed submit on Element's own form. Resume + cover letter attached. Answer sheet: salary 65000, gov-contracting 2 yrs, clearance Yes.",
+      "link": {
+        "url": "https://www.e14s.com/careers",
+        "label": "Open the posting — Element careers page"
+      },
+      "theJob": "Element builds websites and digital tools for government agencies, including Medicare and Medicaid health programs. You'd write and maintain automated tests — small programs that keep checking the real software still works after every change. Junior title; they expect to teach you their tools.",
+      "fits": [
+        "0–2 years, \"internships, academic projects, and practical training may be considered\" — the honest door, exactly your shape. · Degree: a Bachelor's, or an Associate + 2 years' experience — your Associate plus documented experience fits the second door as written.",
+        "One language: Python, Java, JavaScript, or C# — Python. · US citizen or green card — citizen. Possible Public Trust later — the good kind of door: they obtain it for you after hiring; you need nothing to apply.",
+        "Nice-to-haves you already own: government contracting (your DLA contract receipts), Jira (your resume line), healthcare domain."
+      ],
+      "watch": "The pay bottom barely clears your minimum; that's the trade for junior remote QA in the federal-healthcare world. Small company (11–50 people). The salary field would carry their own posted bottom, 65000, per your standing rule — your call at the form.",
+      "posted": "Posted ~Nov 3, 2026 · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Required qualifications (verbatim)",
+          "lines": [
+            "\"Bachelor's degree in Computer Science, Software Engineering, Information Technology, or associate degree plus two years' experience\"",
+            "\"0–2 years of experience in software testing, quality assurance, test automation, or application development; relevant internships, academic projects, and practical training may be considered\"",
+            "\"Foundational knowledge of programming concepts and at least one programming or scripting language, such as Python, Java, JavaScript, or C#\"",
+            "\"Understanding of software testing principles, including test cases, test execution, defect reporting, and regression testing\"",
+            "\"Basic ability to read, write, and troubleshoot automated test scripts\"",
+            "\"Familiarity with software development lifecycles and Agile development practices\"",
+            "\"Strong analytical, problem-solving, and attention-to-detail skills\"",
+            "\"Effective written and verbal communication skills, including the ability to document technical issues clearly\""
+          ]
+        },
+        {
+          "label": "Preferred qualifications — key lines (verbatim)",
+          "lines": [
+            "\"Experience in government contracting or healthcare, including CMS or the health industry\"",
+            "\"Exposure to Selenium, Playwright, Cypress, or comparable test automation technologies\"",
+            "\"Familiarity with Postman\"",
+            "\"Basic understanding of SQL and database validation\"",
+            "\"Exposure to Git\"",
+            "\"Familiarity with CI/CD tools and automated testing in build and deployment pipelines\"",
+            "\"Experience with Jira, Azure DevOps, or comparable defect tracking and test management platforms\"",
+            "\"Understanding of web applications, RESTful APIs, and client-server architecture\""
+          ]
+        },
+        {
+          "label": "Pay, location, authorization (verbatim)",
+          "lines": [
+            "\"$65k - $85k / year\"",
+            "\"District of Columbia, Washington – Remote\" (US-remote; Full Time)",
+            "\"Must live in the Continental US\" · \"Must be either a US citizen or Permanent Resident\"",
+            "\"Posted on Element's careers page, not through a job board\""
+          ]
+        }
+      ],
+      "docs": {
+        "status": "APPLIED — NOV 6, 8:51 AM ET · you pressed submit on Element's own form",
+        "note": "Resume + cover letter went in with it. Their junior-QA req was posted without an apply-by date — if the reply is quiet for ~2 weeks (around Nov 20), a short written nudge is drafted on your word. Nothing pending on this row until then."
+      }
+    },
+    {
+      "sq": "SQ-16",
+      "order": 3,
+      "title": "Junior QA Analyst",
+      "company": "Gridiron IT Solutions",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 6 · chevron 3/7 ✦",
+      "headline": "Gridiron IT · Junior QA Analyst · hybrid DC · the commute is the trade",
+      "pay": {
+        "value": "$70,000 – $90,000",
+        "note": "but that's a recruiter board's number; the posting itself says \"depends on experience\""
+      },
+      "where": {
+        "value": "Hybrid, Washington DC",
+        "note": "\"potentially up to 5 days onsite,\" their words"
+      },
+      "effort": "Easy — Dice Easy Apply, the same flow you liked twice on Nov 5.",
+      "link": {
+        "url": "https://www.dice.com/job-detail/95fc278d-9739-4d15-ac8d-2033943313e3",
+        "label": "Open the posting — Dice Easy Apply"
+      },
+      "theJob": "Classic software QA at a government-IT staffing firm — run test plans, log defects, keep the QA records tidy. They ask 1–2 years (your lane, bridgeable), require zero tools you can't honestly claim, and they obtain a Public Trust for you.",
+      "trade": "Five days a week in DC means train fare from Woodbridge every day — real money out the door before the first paycheck. If they actually want two days, it's a different job. Worth one written question about days-per-week before anything else. Posting is ~3 weeks old.",
+      "posted": "Dice rail: \"Easy Apply · Contract · 17d ago\" · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Required qualifications (verbatim)",
+          "lines": [
+            "\"1–2 years of experience in quality assurance, software testing, or a related technical field.\"",
+            "\"Basic understanding of Software Development Lifecycles (SDLC), defect tracking, and validation methods.\"",
+            "\"Strong analytical and problem solving skills with excellent attention to detail.\"",
+            "\"Ability to follow established QA processes and accurately execute test plans and test cases.\"",
+            "\"Clear written communication skills for documenting issues and collaborating with project teams.\"",
+            "\"Ability to read and understand functional requirements, user stories, and acceptance criteria.\""
+          ]
+        },
+        {
+          "label": "Preferred qualifications (verbatim)",
+          "lines": [
+            "\"Familiarity with test management tools, defect tracking systems, or basic automation frameworks.\"",
+            "\"Foundational understanding of data validation, system integration testing, and regression testing.\"",
+            "\"Exposure to Agile or iterative delivery environments.\"",
+            "\"Introductory knowledge of API or UI automation tools or simple scripting (optional for growth).\"",
+            "\"Basic SQL skills or comfort validating backend data or APIs.\""
+          ]
+        },
+        {
+          "label": "Education + clearance (verbatim)",
+          "lines": [
+            "\"Associate degree in a relevant field (e.g., Computer Science, Information Systems, Data Analytics).\"",
+            "\"Applicants selected will be subject to a security investigation and may need to meet eligibility requirements for access to classified information; Public Trust clearance is required.\""
+          ]
+        },
+        {
+          "label": "Pay + location facts (verbatim)",
+          "lines": [
+            "Pay NOT stated on the posting — Dice rail reads \"Depends on Experience\"; the $70,000–$90,000/yr band is the ClearanceJobs rail figure",
+            "\"Hybrid in Washington, DC, US – potentially up to 5 days onsite\""
+          ]
+        }
+      ],
+      "docs": {
+        "status": "SUBMITTED — NOV 6 (owner receipt: Dice Applied page 'Junior Quality Assurance Analyst — Applied today')",
+        "note": "Chevron 3/7 locked; owner-executed Dice Easy Apply. Band-ask rides their first reply — the posting is silent on pay. Next touch if silent ~2 weeks."
+      }
+    },
+    {
+      "sq": "SQ-20",
+      "order": 4,
+      "title": "Jr. Data Engineer",
+      "company": "Apex Systems",
+      "verdict": "GO",
+      "badge": "✦ APPLIED NOV 6 · chevron 4/7 ✦",
+      "headline": "Apex Systems · Jr. Data Engineer · $93.6k–$110.2k remote · the money card",
+      "pay": {
+        "value": "$45 – $53 / hour = $93,600 – $110,240",
+        "note": "strongest remote money on this board — 1.5× your minimum"
+      },
+      "where": {
+        "value": "Fully remote, anywhere in the US"
+      },
+      "effort": "SUBMITTED Nov 6 ~12 PM ET — receipt on file (\"Application Submitted!\", Job # 3056074). AI-recruiter call inbound 1–2 hrs.",
+      "link": {
+        "url": "https://www.apexsystems.com/job/3056074_usa/jr-data-engineer",
+        "label": "Open the posting — Apex Systems (job 3056074)"
+      },
+      "theJob": "For a large healthcare client (through staffing firm Apex), you'd check — and automate the checking of — a big monthly data process: database queries, dashboards, chasing down numbers that don't add up.",
+      "fits": [
+        "0–3 years, stated outright — a real door. · One required skill: SQL — honest answer on record: you know it (your white paper is published), but your hands-on data work is NoSQL; screeners get answered exactly that way.",
+        "Degree line wants a \"quantitative or business\" Bachelor's — fails as written; your coursework is the bridge. A flag, not a wall."
+      ],
+      "trade": "A staffing middleman stands between you and an unnamed client, and the work is data work — one step beside your QA/cloud lane, not the same lane.",
+      "posted": "Posted Oct 15, 2026 · no deadline stated",
+      "requirements": [
+        {
+          "label": "Required qualifications (verbatim)",
+          "lines": [
+            "\"Education: Bachelor's degree in a quantitative or business field.\"",
+            "\"Experience: 0-3 years of relevant experience.\"",
+            "\"Technical Skills: Proficiency in SQL.\""
+          ]
+        },
+        {
+          "label": "Preferred qualifications (verbatim)",
+          "lines": [
+            "\"Knowledge of Snowflake.\"",
+            "\"Familiarity with Kubernetes.\"",
+            "\"Experience with AI tools such as Windsurf or Devin.\""
+          ]
+        },
+        {
+          "label": "The role (verbatim)",
+          "lines": [
+            "\"Apex Systems is hiring a Jr. Data Engineer for a large Healthcare client.\"",
+            "\"Our team supports a major project by creating and automating the validation of an extensive monthly process. This position will contribute to developing production fixes for a Snowflake pipeline and adding new reporting capabilities.\"",
+            "\"Develop and write SQL code in Snowflake. · Utilize Power BI validation dashboards to identify potential validation issues. · Troubleshoot data irregularities and perform root cause analysis. · Analyze data variability month over month to ensure data integrity.\""
+          ]
+        },
+        {
+          "label": "Pay + location (verbatim)",
+          "lines": [
+            "\"Pay Range: $45 - $53 per hour\"",
+            "\"Location: Fully remote anywhere in the US - You must be authorized to work in the United States without sponsorship.\"",
+            "\"Employee Type: Contract · Remote: Yes · Location: Various, MO, US\" · Job# 3056074"
+          ]
+        }
+      ],
+      "docs": {
+        "status": "SUBMITTED — NOV 6 (owner receipt: \"Application Submitted!\" · Job # 3056074 · AI/Virtual Recruiter contact expected within 1–2 hrs)",
+        "note": "Chevron 4/7 locked. Next gate: the ConverzAI AI/Virtual Recruiter pre-screen (text + email + call by ~2:00 PM ET — answer unknown numbers). Screener answers per packet: SQL knowledge-Yes/hands-on-No · 127/127 zero-loss validation story · Snowflake/Kubernetes never claimed · $45–53/hr = their number."
+      }
+    },
+    {
+      "sq": "SQ-21",
+      "order": 5,
+      "title": "Cloud Platform Engineer I",
+      "company": "Centene Corporation",
+      "verdict": "DEAD",
+      "badge": "DEAD — posting no longer available (Nov 9)",
+      "headline": "Centene · Cloud Platform Engineer I · remote 28 states · the AI card",
+      "pay": {
+        "value": "$30.58 – $55.09 / hour = $63,606 – $114,587",
+        "note": "bottom clears your minimum by only $1,206 — the thinnest margin here"
+      },
+      "where": {
+        "value": "Remote in 28 states",
+        "note": "Virginia is on the list"
+      },
+      "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+      "link": {
+        "url": "https://www.theladders.com/job/cloud-platform-engineer-i-centenecorp-virtual-travel_89675472",
+        "label": "Read the full posting — Ladders mirror (Dice Easy Apply rail on record)"
+      },
+      "theJob": "At Centene, a Fortune-50 healthcare company, you'd help build AI-powered cloud applications. Their requirements read like your portfolio: Python, large-language-model understanding, at least one AI project built (you have five), connecting AI services through web APIs, Git.",
+      "fits": [
+        "0–2 years \"or equivalent experience\" — their words, a real door. · AWS or Azure — AWS is yours; Azure is never claimed."
+      ],
+      "trade": "It's a developer job — writing production code, not testing it — and the band's bottom is almost exactly your floor. Due diligence: the company's own careers page wouldn't serve the posting when we checked; details come from two mirrors that agree — confirm the job is live before investing time.",
+      "posted": "Posted \"Today\" on Dice (Nov 5) · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Position purpose (verbatim)",
+          "lines": [
+            "\"The Cloud Platform Engineer I is a position for a motivated developer who will be joining our engineering team and help design, develop, and operationalize AI-enabled applications and solutions. This role is ideal for an early-career software engineer who has strong programming fundamentals and practical exposure to Cloud technologies, Large Language Models (LLMs), and machine learning through academic work, internships, personal projects, or professional experience.\""
+          ]
+        },
+        {
+          "label": "Education / experience + technical skills (verbatim)",
+          "lines": [
+            "\"A Bachelor's degree in a quantitative or business field (e.g., statistics, mathematics, engineering, computer science) and requires 0 - 2 years of related experience. Or equivalent experience acquired through accomplishments of applicable knowledge, duties, scope and skill reflective of the level of this position. Or completion of a Centene-sponsored emerging talent program.\"",
+            "\"0-2 years experience with Python through coursework, internships, research, professional work, or personal projects.\"",
+            "\"Understanding of Machine Learning, Generative AI, and LLM platforms and APIs.\"",
+            "\"Experience building at least one AI/ML application or project through coursework, internships, hackathons, research, or independent development/ open-source contributions.\"",
+            "\"Integrate AI models and services into applications using REST APIs, SDKs, and microservices.\"",
+            "\"Familiarity with Git/GitHub or GitLab.\""
+          ]
+        },
+        {
+          "label": "Duties (verbatim)",
+          "lines": [
+            "\"Develop, manage, and administer cloud infrastructure as code on the cloud platform (e.g. AWS, or Azure).\"",
+            "\"Build AI agentic solution using Large Language Models, Machine Learning, Generative AI.\"",
+            "\"Write production-quality code with appropriate tests and documentation.\""
+          ]
+        },
+        {
+          "label": "Pay + benefits (verbatim)",
+          "lines": [
+            "\"Pay Range: $30.58 - $55.09 per hour\"",
+            "\"health insurance, 401K and stock purchase plans, tuition reimbursement, paid time off plus holidays\""
+          ]
+        }
+      ],
+      "docs": null
+    },
+    {
+      "sq": "SQ-18",
+      "order": 6,
+      "title": "QA Engineer",
+      "company": "Peterson Technology Partners",
+      "verdict": "SKIP",
+      "badge": "SKIP — not my lane, asking for things I don't have",
+      "headline": "Peterson Tech Partners · QA Engineer · remote · starts at exactly your floor",
+      "pay": {
+        "value": "$30 – $35 / hour",
+        "note": "the bottom is exactly your $62,400 minimum; their own write-up says a flat $35/hour ($72,800), so the real number may be the good end — ask which"
+      },
+      "where": {
+        "value": "Remote (US)",
+        "note": "they'd prefer Houston — irrelevant for remote"
+      },
+      "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+      "link": {
+        "url": "https://www.dice.com/job-detail/0ee2a5d8-6a27-4113-a15c-d1d4b116bc55",
+        "label": "Open the posting — Dice Easy Apply"
+      },
+      "theJob": "Test pharmacy-management software — prescribing, batching, labeling, inventory, billing — beside a Senior QA Lead, 6-month contract that can turn permanent. They ask 1–3 years (bridgeable) and want \"basic exposure to test automation and a clear desire to grow it\" — the exact growth-rung shape of your story.",
+      "trade": "The money starts at exactly your floor (your floor is never traded down; as written, it clears). Staffing middleman, unnamed client, and the permanent-conversion door isn't named — asked at first contact.",
+      "posted": "\"Posted 7 days ago, updated 1 day ago\" at capture · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Required qualifications (verbatim)",
+          "lines": [
+            "\"1-3 years of software quality assurance or testing experience, ideally on a SaaS or web-based product\"",
+            "\"Experience designing and executing test cases from requirements or acceptance criteria, and working defects through their full lifecycle\"",
+            "\"Experience working on an Agile team (Scrum, SAFe or similar) with sprint-based delivery\"",
+            "\"Basic exposure to test automation or scripting, and a clear desire to grow it into a core skill\"",
+            "\"Detail-oriented, coachable and a clear written communicator.\""
+          ]
+        },
+        {
+          "label": "The engagement (verbatim)",
+          "lines": [
+            "\"Our client is seeking a QA Engineer, early in their QA career, to help test its pharmacy management software: an end-to-end platform for compounding pharmacies covering e-prescribing, production and batching, labeling, inventory and billing. The platform is being rebuilt on a modern, API-ready SaaS foundation. You'll work day-to-day with a Senior QA Lead.\"",
+            "\"Pay rate: $35/hr. This is a 6-month contract-to-hire position, remote in the US (Houston, TX preferred).\"",
+            "\"Contract Corp To Corp / Contract W2 · No Travel Required · Able to Sponsor\""
+          ]
+        }
+      ],
+      "docs": null
+    },
+    {
+      "sq": "SQ-19",
+      "order": 7,
+      "title": "Data Analyst",
+      "company": "Tekcel8",
+      "verdict": "SKIP",
+      "badge": "SKIP — not my lane, asking for things I don't have",
+      "headline": "Tekcel8 · Data Analyst · $72.8k–$104k · reporting lane, not QA or cloud",
+      "pay": {
+        "value": "$35 – $50 / hour = $72,800 – $104,000",
+        "note": "10-month contract, W2 or 1099"
+      },
+      "where": {
+        "value": "Remote (US)",
+        "note": "occasional travel"
+      },
+      "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
+      "link": {
+        "url": "https://www.dice.com/job-detail/80f16428-257a-4ba9-922d-849a01e8f4dc",
+        "label": "Open the posting — Dice Easy Apply"
+      },
+      "theJob": "Data cleanup, validation, and Excel / Power BI reporting through a very small staffing shop, end client unnamed. They want \"strong proficiency in SQL\" (same honest-depth flag as the Apex card) and a Bachelor's in a listed field (fails as written; coursework is the bridge).",
+      "trade": "The money clears both ends comfortably, but this is the reporting lane, not QA or cloud — the furthest from your two core lanes of anything on the board.",
+      "posted": "Posted ~Oct 16–17, 2026 (19 days at capture) · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Requirements (verbatim, complete)",
+          "lines": [
+            "\"Bachelor's degree in Computer Science, Information Systems, Statistics, Mathematics, Business Analytics, or a related field.\"",
+            "\"Strong proficiency in SQL, including joins, subqueries, aggregations, and complex queries.\"",
+            "\"Hands-on experience with Microsoft Excel, including PivotTables, lookup functions, and data manipulation.\"",
+            "\"Experience with Power BI, Tableau, or other data visualization tools.\"",
+            "\"Knowledge of data cleaning, data validation, statistical analysis, and reporting methodologies.\"",
+            "\"Strong analytical, critical-thinking, and problem-solving skills.\"",
+            "\"Excellent communication skills and the ability to present data-driven insights.\""
+          ]
+        },
+        {
+          "label": "Pay + arrangement (verbatim)",
+          "lines": [
+            "\"$35 - $50/hr\"",
+            "\"Remote • Posted 19 days ago • Updated 19 days ago Contract W2 Contract Independent 10 Months Occasional Travel Required Remote\""
+          ]
+        }
+      ],
+      "docs": null
+    },
+    {
+      "sq": "SQ-2",
+      "order": 8,
+      "title": "Field Network Cabling Technician, 100% Travel",
+      "company": "HCL",
+      "verdict": "SKIP",
+      "badge": "SKIP — RECOMMEND DISCARDING",
+      "headline": "HCL · Field Network Cabling · outdoor physical work · pay fails your minimum",
+      "pay": {
+        "value": "$52,000 – $76,000"
+      },
+      "where": {
+        "value": "Virginia · 100% travel to project sites"
+      },
+      "skipReason": "Outdoor physical cable work — the exact kind of job you ruled out on Nov 4 (machines and code, not towers and splices) — and its $52,000 bottom fails your $62,400 minimum anyway. It only survived on a technicality: it was queued before that ruling. Say \"discard\" and it's parked for good.",
+      "requirements": [
+        {
+          "label": "Reason on record",
+          "lines": [
+            "Verdict-first ruling under the physical-work law (owner, Nov 4): indoor desk/machine work passes; outdoor field, craft, and construction service work dies regardless of pay or travel funding.",
+            "Pay ruling: $52,000 bottom sits below the $62,400 minimum — floor fails at the low end even before the physical-work ruling."
+          ]
+        }
+      ],
+      "docs": null,
+      "tombstone": "Discarded Nov 4, 2026 — outdoor physical cable work + $52k floor fail (your ruling)."
+    },
+    {
+      "sq": "KONIAG",
+      "order": 9,
+      "title": "Junior Cloud Engineer, Washington DC",
+      "company": "Koniag",
+      "verdict": "SKIP",
+      "badge": "SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT",
+      "headline": "Koniag · Junior Cloud Engineer · killed Nov 4 · clearance wall",
+      "pay": {
+        "value": "$70,000"
+      },
+      "where": {
+        "value": "Full-time on-site, Washington DC"
+      },
+      "skipReason": "The honest answer to \"why did you ok this\": it never was. Killed the same day it surfaced (Nov 4) on one line in the posting: \"Active Secret Clearance or higher.\" You'd have to walk in already holding a federal Secret clearance — and clearances aren't something an applicant can go out and get; the government issues them through an employer, after hiring you into a cleared job. A posting demanding one you don't have is a wall with no door.",
+      "skipExtra": [
+        "Second wall: it requires a Bachelor's degree — yours is the Associate.",
+        "Third: full-time on-site in Washington DC at $70,000 — a daily train commute on a thin salary.",
+        "Fourth: the posting itself warns the job may never be filled if their contract isn't awarded.",
+        "Why it looked ok'd: the kill note that day listed everything attractive first — junior title, decent band, your cert satisfying their cert line — and buried the one fatal line at the bottom. Read quickly, that reads like an endorsement. That was a presentation failure, and it's exactly what this console format fixes: verdict first, the reason first, details after. This posting will not be shown to you again."
+      ],
+      "requirements": [],
+      "docs": null,
+      "tombstone": "Killed Nov 4, 2026 — \"Active Secret Clearance\" wall; the presentation lesson lives in the card."
+    },
+    {
+      "sq": "SQ-24",
+      "order": 10,
+      "title": "Test Automation Engineer — Entry Level",
+      "company": "Medinext Global LLC",
+      "verdict": "GO",
+      "badge": "GO ✦ NEW — Nov 8 sweep",
+      "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane",
+      "pay": {
+        "value": "$70,000 – $90,000 / year",
+        "note": "bottom clears your $62,400 minimum by $7,600"
+      },
+      "where": {
+        "value": "Fully remote — United States",
+        "note": "standard US business hours — you're Eastern"
+      },
+      "effort": "Easy — Dice Easy Apply, resume upload, no essays.",
+      "link": {
+        "url": "https://www.dice.com/job-detail/81d343aa-192c-4b7b-bf0a-3ec85cc0987b",
+        "label": "Open the posting — Dice (Easy Apply)"
+      },
+      "theJob": "Medinext's quality team wants an early-career automation tester: write automated test scripts, run regression and API checks, track bugs, work in sprints with developers. The requirements name 0–2 years of testing experience, programming in \"Java, Python, JavaScript, or C#\" — Python is yours — and basic SQL.",
+      "fits": [
+        "\"0–2 years of experience in software testing, QA, or test automation\" (their words) — your dated public projects count. · \"Programming experience with Java, Python, JavaScript, or C#\" — Python is on your resume. · \"Basic knowledge of SQL\" — you have it.",
+        "The hard tools (Selenium, Cypress, Playwright, Jenkins) sit in the PREFERRED list only — you claim none of them; your Python test scripts carry the row."
+      ],
+      "trade": "Money is the trade: the band's bottom is only 12% over your minimum, and this is a staffing firm (a middleman employer) — get the pay confirmed in writing at first contact; Dice carries an AI-description caution, so treat the text as indicative until they confirm.",
+      "watch": "Band-confirm in writing at first contact (Dice AI-description caveat) · detail page says \"posted 30+ days ago\" but Dice rails show it refreshed \"Today\" — the live Dice band is the record.",
+      "posted": "Posted ~Oct 8 · refreshed on Dice rails Nov 8 · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Required Qualifications (verbatim)",
+          "lines": [
+            "\"Bachelor's or Master's degree in Computer Science, Information Technology, Software Engineering, or related field.\"",
+            "\"0–2 years of experience in software testing, QA, or test automation.\"",
+            "\"Programming experience with Java, Python, JavaScript, or C#.\"",
+            "\"Basic knowledge of SQL.\""
+          ]
+        },
+        {
+          "label": "Technical Skills — Required (verbatim)",
+          "lines": [
+            "\"Software Testing | Test Automation | Java/Python/JavaScript/C# | SQL | Regression Testing | Functional Testing\""
+          ]
+        },
+        {
+          "label": "Work arrangement (verbatim)",
+          "lines": [
+            "\"Remote - United States\" · \"Full-Time - W2\" · \"Candidates must be legally authorized to work in the United States.\""
+          ]
+        }
+      ],
+      "skipReason": "",
+      "skipExtra": ""
+    },
+    {
+      "sq": "SQ-25",
+      "order": 11,
+      "title": "Junior Tester",
+      "company": "9th Way Insignia",
+      "verdict": "CALL",
+      "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
+      "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum",
+      "pay": {
+        "value": "$62,818 – $67,500 / year",
+        "note": "bottom clears your minimum by $418 — the thinnest margin on the board"
+      },
+      "where": {
+        "value": "Fully remote — United States",
+        "note": "supporting the Dept. of Veterans Affairs eCMS program"
+      },
+      "effort": "Easy — about 2 minutes on their site or Dice; resume upload.",
+      "link": {
+        "url": "https://haystackapp.io/jobs/08043723-367e-4b61-aa28-8bb5f25361de",
+        "label": "Read the full posting — Haystack mirror (live on Dice too)"
+      },
+      "theJob": "You'd do manual testing — clicking through features, writing up bugs, documenting results — on the contract-management system the Department of Veterans Affairs uses, on an Agile team. The JD asks for testing knowledge and the ability to become proficient in their C#/.NET stack — not hands-on C# experience.",
+      "fits": [
+        "Manual testing with solid documentation — your QA lane. · \"Knowledge of version control (Git) and CI/CD pipelines\" — Git is on your resume. · \"Ability to obtain and maintain a Public Trust clearance\" — sponsored, an obtainable door like the TEKsystems Secret.",
+        "A federal VA program on the resume — the federal-employment lane you're aiming at."
+      ],
+      "trade": "Thin money ($418 over your minimum) and manual testing in a C#/.NET shop instead of your Python automation — in exchange for a federal program door and a sponsored Public Trust clearance that travels. Your word: promote or discard.",
+      "watch": "Apply path: the employer's own site or Dice — never the applyre.com aggregator mirror (it carries an app-password artifact; don't touch it).",
+      "posted": "Posted ~Nov 2–5 · rails show it refreshed \"Today\" · no apply-by shown",
+      "requirements": [
+        {
+          "label": "Requirements (verbatim)",
+          "lines": [
+            "\"Bachelor's degree in IT/Computer Science or a technical field\"",
+            "\"Knowledge of software testing with ability to become proficient in Visual Studio, C#, and .NET-based applications\"",
+            "\"Knowledge of version control (Git) and CI/CD pipelines\"",
+            "\"Ability to perform manual testing with attention to detail and solid documentation skills\"",
+            "\"Ability to obtain and maintain a Public Trust clearance\""
+          ]
+        },
+        {
+          "label": "Pay + location (verbatim)",
+          "lines": [
+            "\"$62,818—$67,500 USD\" · \"United States - Remote\"",
+            "Manual testing of C#/Visual Studio/.NET applications supporting the VA eCMS program"
+          ]
+        }
+      ],
+      "skipReason": "",
+      "skipExtra": ""
     }
-   ],
-   "docs": {
-    "status": "SUBMITTED — NOV 6 → ❌ NOT SELECTED (Workday form email, 9:25 AM — no feedback) · mixup ruled: NOT A FUNERAL",
-    "note": "You submitted it yourself and reported it in chat — the chevron is locked and the row files under MISSIONS FLOWN. If Availity ever asks for a cover letter as a follow-up, say the word in chat and it is drafted in minutes. Nothing else pending on this row.",
-    "outcome": "❌ NOT SELECTED — Nov 6, ~9:25 AM ET. Workday auto-email, verbatim: 'Although you were not selected for this position, we would like to express our appreciation for your interest in joining Availity...' Form letter, no feedback. Req R0008638 closed for her; future Availity reqs stay in normal scan coverage. Chevron 1/7 stands as flown. ROOT CAUSE + RULING (owner, 12:04 PM ET): the cover-letter mixup was on THIS submission — the letter sat where the resume belonged, which explains the 3.5-hour auto-reject. Owner verbatim: \"ruling, not a funeral.\" Row closed as flown; no re-apply; the lesson is standing attachment law on every portal; the next Availity req gets a clean shot."
-   }
-  },
-  {
-   "sq": "SQ-23",
-   "order": 2,
-   "title": "Junior QA Automation Engineer",
-   "company": "Element (e14s.com)",
-   "verdict": "GO",
-   "badge": "✦ APPLIED NOV 6 · chevron 2/7 ✦",
-   "headline": "Element · Junior QA Automation Engineer · $65k–$85k posted · the easy form",
-   "pay": {
-    "value": "$65,000 – $85,000, posted",
-    "note": "bottom clears your minimum by $2,600"
-   },
-   "where": {
-    "value": "Fully remote (US)",
-    "note": "must live in the lower 48 — you do"
-   },
-   "effort": "FLOWN Nov 6, 2026 · 08:51 AM ET — owner pressed submit on Element's own form. Resume + cover letter attached. Answer sheet: salary 65000, gov-contracting 2 yrs, clearance Yes.",
-   "link": {
-    "url": "https://www.e14s.com/careers",
-    "label": "Open the posting — Element careers page"
-   },
-   "theJob": "Element builds websites and digital tools for government agencies, including Medicare and Medicaid health programs. You'd write and maintain automated tests — small programs that keep checking the real software still works after every change. Junior title; they expect to teach you their tools.",
-   "fits": [
-    "0–2 years, \"internships, academic projects, and practical training may be considered\" — the honest door, exactly your shape. · Degree: a Bachelor's, or an Associate + 2 years' experience — your Associate plus documented experience fits the second door as written.",
-    "One language: Python, Java, JavaScript, or C# — Python. · US citizen or green card — citizen. Possible Public Trust later — the good kind of door: they obtain it for you after hiring; you need nothing to apply.",
-    "Nice-to-haves you already own: government contracting (your DLA contract receipts), Jira (your resume line), healthcare domain."
-   ],
-   "watch": "The pay bottom barely clears your minimum; that's the trade for junior remote QA in the federal-healthcare world. Small company (11–50 people). The salary field would carry their own posted bottom, 65000, per your standing rule — your call at the form.",
-   "posted": "Posted ~Nov 3, 2026 · no apply-by shown",
-   "requirements": [
+  ],
+  "feed": [
     {
-     "label": "Required qualifications (verbatim)",
-     "lines": [
-      "\"Bachelor's degree in Computer Science, Software Engineering, Information Technology, or associate degree plus two years' experience\"",
-      "\"0–2 years of experience in software testing, quality assurance, test automation, or application development; relevant internships, academic projects, and practical training may be considered\"",
-      "\"Foundational knowledge of programming concepts and at least one programming or scripting language, such as Python, Java, JavaScript, or C#\"",
-      "\"Understanding of software testing principles, including test cases, test execution, defect reporting, and regression testing\"",
-      "\"Basic ability to read, write, and troubleshoot automated test scripts\"",
-      "\"Familiarity with software development lifecycles and Agile development practices\"",
-      "\"Strong analytical, problem-solving, and attention-to-detail skills\"",
-      "\"Effective written and verbal communication skills, including the ability to document technical issues clearly\""
-     ]
+      "t": "Nov 12, 8:05 AM ET",
+      "line": "QUOTA ERA · Owner on record re: the plan change that affects her negatively. Dashboard read and answered: Work tasks 65%, Cron Trigger 100% (harmless now — no job exists to trigger), 12.5M tokens today (-84.24% vs yesterday's ~79M). Playbook filed in PLATFORM-PLAN-CHANGES.md Section 2; discipline codified in AGENTS.md Section 5."
     },
     {
-     "label": "Preferred qualifications — key lines (verbatim)",
-     "lines": [
-      "\"Experience in government contracting or healthcare, including CMS or the health industry\"",
-      "\"Exposure to Selenium, Playwright, Cypress, or comparable test automation technologies\"",
-      "\"Familiarity with Postman\"",
-      "\"Basic understanding of SQL and database validation\"",
-      "\"Exposure to Git\"",
-      "\"Familiarity with CI/CD tools and automated testing in build and deployment pipelines\"",
-      "\"Experience with Jira, Azure DevOps, or comparable defect tracking and test management platforms\"",
-      "\"Understanding of web applications, RESTful APIs, and client-server architecture\""
-     ]
+      "t": "Nov 12, 8:05 AM ET",
+      "line": "HANDOFF · download/Evelyn-Caro-AI-Handoff-Bundle-2026-11-12.zip — AGENTS.md + corpus manifest + plan record + homelab extract + the 3-file SWEEP KIT in one human-named bundle. Any AI collaborator + this zip = the whole operation. No memory required; nothing ever submits."
     },
     {
-     "label": "Pay, location, authorization (verbatim)",
-     "lines": [
-      "\"$65k - $85k / year\"",
-      "\"District of Columbia, Washington – Remote\" (US-remote; Full Time)",
-      "\"Must live in the Continental US\" · \"Must be either a US citizen or Permanent Resident\"",
-      "\"Posted on Element's careers page, not through a job board\""
-     ]
+      "t": "Nov 12, 7:45 AM ET",
+      "line": "SCHEDULER · Cron 505786 — the 2-hour sweep, 84 runs since Nov 5 — stopped at your 7:21 AM order. Plan limits honored. Workaround built: download/SWEEP-KIT/ — paste SWEEP-ORDER-ANY-AI.txt into any AI collaborator and the sweep runs on demand, daily 8 AM ET recommended. Rules, bans, gate and output format all travel in the kit."
+    },
+    {
+      "t": "Nov 12, 7:45 AM ET",
+      "line": "LOOSE COUPLING · Any AI can now run the sweep — DeepSeek, a fresh Z session, anything that can search the web. You paste one block, it sweeps public postings only, nothing ever submits, and the output files back through you. The cron rebuild recipe sits in the kit HOW-TO for the day your plan allows."
+    },
+    {
+      "t": "Nov 12, 7:20 AM ET",
+      "line": "SOP · AGENTS.md is now the house SOP of record: your Preflight Chain workflow (path-agnostic recon → the Pause → substitute the verified path → finish the && chain) codified at the workspace root, mirror in downloads. Every agent run reads it first. Sloppy-in, precise-out is standing law; you keep writing human, the agent compiles."
+    },
+    {
+      "t": "Nov 12, 7:20 AM ET",
+      "line": "PLATFORM · The Nov 11 Z Plan restructure archived verbatim in the estate records (Lite $18 · Pro $80 · Max $168 weekly-credit tiers; scheduled tasks 5/8/15, concurrent runs 2/3/4, storage 5/10/20 GB). Capacity intel for planning only — no account action taken."
+    },
+    {
+      "t": "Nov 12, 4:42 AM ET",
+      "line": "RECORDS · Rollback hit the sandbox downloads box overnight — recovered this cycle: the corpus manifest restored from YOUR uploaded copy (byte-identical), both CCP scripts + the chart rebuilt from the conversation record, verified. The v1.4 drill handoff is WIPED-PENDING — your downloaded copy is the durable one; upload it back anytime to make the sandbox whole. Worklog delivered: z_worklog_export_2026-11-12.md. Nothing submitted, nobody contacted."
+    },
+    {
+      "t": "Nov 12, 4:25 AM ET",
+      "line": "RECORDS · Homelab redundancy build extracted from your DeepSeek share and held in the estate records: the Telegram → Tellama → Olla → Ollama architecture, snapshot-end state, the full transcript, and an 8-step post-CCP implementation ledger — implementation gated behind the exam, exactly as you framed it. Snapshot ends mid-debug: the 401 is open, your token is verified valid, five dead containers await cleanup."
+    },
+    {
+      "t": "Nov 12, 4:25 AM ET",
+      "line": "SCOUT · Overnight heal: four sweep slots (10 PM–4 AM) went output-silent — healed with a compact board-check. SQ-35 GuidePoint re-verified LIVE on the employer's own board (pinned, apply after the stamp). Travel hub churned to 10 rows, zero qualifying. Nothing submitted, nobody contacted. Next sweep 6:00 AM ET."
+    },
+    {
+      "t": "Nov 11, 8:12 PM ET",
+      "line": "XO · CONSOLE PROCESSED — your order \"process everything and clean up the console\" is done: SQ-32 BrainCo and SQ-33 SAIC are on the board and their chevrons are locked (6 of 7 — one more and the gate opens)."
+    },
+    {
+      "t": "Nov 11, 8:12 PM ET",
+      "line": "XO · CORRECTIONS OF RECORD — Availity: the cover letter went where the receipt-bearing resume belonged (screener never saw your qualifications — resubmission optional, your call). BrainCo: the resume went out but the receipts were missing (agent-side build defect, fixed as law). Your trashed BrainCo copies cost nothing — the packet of record survives agent-side."
+    },
+    {
+      "t": "Nov 11, 8:12 PM ET",
+      "line": "XO · SWITCHES PROCESSED — your GO flips on SQ-24 Medinext, SQ-26 Harris (R0047438) and SQ-31 Harris (R0047310) are recorded. Harris packets were already cut and delivered Nov 10; the Medinext packet is next on the bench. Stale flips on dead rows (SQ-18/19/21) were cleaned off the board."
+    },
+    {
+      "t": "Nov 11, 8:12 PM ET",
+      "line": "XO · NOTE BOARD EMPTY — no owner comments reached the server: the notes live only in the browser you typed them in (or in the console-state.json you downloaded). Send that file here, or re-drop the key orders in chat — and the ⤓ SYNC STATE button on the deck now exports everything the server holds, every time."
+    },
+    {
+      "t": "Nov 10, 2026, 10:30 PM ET",
+      "line": "SQ-31 · Harris Computer — the Workday req you opened (R0047310) is the SAME JD as the packet's R0047438: $70–80K posted on both, same requirements, same AI lines. Variant letter delivered — apply once, on the page in front of you; don't double-apply."
+    },
+    {
+      "t": "Nov 10, 2026, 10:30 PM ET",
+      "line": "TEKsystems hunts closed 5-for-5: Infrastructure Engineer Reston = DDIL SME architecture req, 'Active TS/SCI + CI Polygraph' required — killed on capture; Mail Engineer DC = 5 years hands-on Exchange required — your skip call is proven. Both tombstoned, never re-served."
+    },
+    {
+      "t": "Nov 10, 2026, 10:30 PM ET",
+      "line": "CCP-BANK audit closed out: provenance note added to the ship13 README, and the import valve now holds any unsourced question at draft — nothing unprovenanced can enter the playable bank."
+    },
+    {
+      "t": "Nov 10, 2026, 1:15 PM ET",
+      "line": "SQ-26 · Harris Computer — packet built and delivered (resume + cover letter); apply URL is the employer's Workday board, req R0047438; awaiting your submission receipt."
+    },
+    {
+      "t": "Nov 10, 2026, 1:15 PM ET",
+      "line": "SQ-29 · Labelmaster and SQ-30 · Crash Champions — owner verdicts recorded: both SKIP; tombstoned under the unicorn standard."
+    },
+    {
+      "t": "Nov 10, 2026, 1:15 PM ET",
+      "line": "Lottery-win target profile folded into the crawler rules; the company-target board is live — the hunt now targets companies, not just postings."
+    },
+    {
+      "t": "Nov 10, 2026, 12:00 PM ET",
+      "line": "Board corrected from the full requirements reads: SQ-26 Harris Computer verified GO ($70–80K, requirements read like your portfolio — now the board's best open row); SQ-29 Labelmaster and SQ-30 Crash Champions moved to YOUR CALL (a Postman/SOAPUI gap and a thin cushion, named on the cards); SQ-27 Quavo → SKIP (it requires a QA certification you don't hold); SQ-28 SAIC → SKIP (already turned down Nov 9 — the evening run re-served it by mistake)."
+    },
+    {
+      "t": "Nov 10, 2026, 12:00 PM ET",
+      "line": "Today's crawl: nothing new passed. Three TEKsystems travel jobs (one posted today, Dallas) are all fiber-splicing work — killed. Salute's all-expenses-paid travel role appeared on a mirror board only — Salute's own board is empty, so it's benched until it's live on their site. Two remote-QA rows benched pending posted pay."
+    },
+    {
+      "t": "Nov 10, 2026, 12:00 PM ET",
+      "line": "Your Nov 9 verdicts are recorded: SQ-18 Peterson and SQ-19 Tekcel8 stay SKIP ('not my lane'), Centene SQ-21 marked dead (posting gone). Waiting on you: SQ-26 Harris (GO — say the word) · SQ-24 Medinext (GO) · SQ-25 9th Way + SQ-29 Labelmaster + SQ-30 Crash Champions (your call)."
+    },
+    {
+      "t": "Nov 9, 9:03 PM ET",
+      "line": "Overnight scan complete: 5 new GO jobs added to the board (SQ-26 through SQ-30) to replace the 3 lost this evening. Standouts: SQ-27 Quavo at $85-100K (AWS, strongest pay) and SQ-26 Harris Computer (Virginia explicitly listed, Python + Selenium). Board for tomorrow morning — packets ready when you flip the switches. Good night, Commander."
+    },
+    {
+      "t": "Nov 9, 8:55 PM ET",
+      "line": "Owner verdict sweep: SQ-19 Tekcel8 and SQ-18 Peterson both SKIP — not my lane, asking for things I don't have. SQ-21 Centene DEAD — posting no longer available. GO count dropped from 4 to 1 (SQ-24 Medinext is the only GO left). Scanning for replacements."
+    },
+    {
+      "t": "Nov 9, 4:00 AM ET",
+      "line": "Overnight sweep: nothing new passed. The TEKsystems travel-tech money got richer — $38–42/hr plus $161/day food & lodging, double overtime — but the work is still fiber splicing, and fiber stays a no. The indoor variant with that paycheck is still out there."
+    },
+    {
+      "t": "Nov 9, 4:00 AM ET",
+      "line": "Checked the big QTS Manassas posting ($93.9K–$143.5K): SKIP — it demands five-plus years of critical-facilities engineering. Two buried rows (Koniag cloud, Medinext cloud) tried to resurface; tombstones held, nothing re-served."
+    },
+    {
+      "t": "Nov 8, 12:00 PM ET",
+      "line": "XO · SQ-25 — 9th Way Insignia junior tester on the federal VA contract added as YOUR CALL: remote, $62,818 to start; the trade is thin pay for a federal door and a sponsored clearance."
+    },
+    {
+      "t": "Nov 8, 12:00 PM ET",
+      "line": "XO · SQ-24 — Medinext entry-level QA automation added as GO: fully remote, $70,000–$90,000, requirements read like your portfolio, one-click apply on Dice."
+    },
+    {
+      "t": "Nov 8, 12:00 PM ET",
+      "line": "SWEEP — morning gap healed (the platform was overloaded since 4 AM): two finds landed, nine kills, Salute still dark, the Epic-cert door locked again."
+    },
+    {
+      "t": "Nov 8, 3:15 AM ET",
+      "line": "XO · FLEET — the ledger now reads 13 down to 1 with no gaps: Ships 2, 3 and 4 keep their own lines, repos and DOIs from the 2:20 AM repair, and Ship 7 stands under its canon name — msgvault Adapter, the spelling the book and the repo both use."
     }
-   ],
-   "docs": {
-    "status": "APPLIED — NOV 6, 8:51 AM ET · you pressed submit on Element's own form",
-    "note": "Resume + cover letter went in with it. Their junior-QA req was posted without an apply-by date — if the reply is quiet for ~2 weeks (around Nov 20), a short written nudge is drafted on your word. Nothing pending on this row until then."
-   }
-  },
-  {
-   "sq": "SQ-16",
-   "order": 3,
-   "title": "Junior QA Analyst",
-   "company": "Gridiron IT Solutions",
-   "verdict": "GO",
-   "badge": "✦ APPLIED NOV 6 · chevron 3/7 ✦",
-   "headline": "Gridiron IT · Junior QA Analyst · hybrid DC · the commute is the trade",
-   "pay": {
-    "value": "$70,000 – $90,000",
-    "note": "but that's a recruiter board's number; the posting itself says \"depends on experience\""
-   },
-   "where": {
-    "value": "Hybrid, Washington DC",
-    "note": "\"potentially up to 5 days onsite,\" their words"
-   },
-   "effort": "Easy — Dice Easy Apply, the same flow you liked twice on Nov 5.",
-   "link": {
-    "url": "https://www.dice.com/job-detail/95fc278d-9739-4d15-ac8d-2033943313e3",
-    "label": "Open the posting — Dice Easy Apply"
-   },
-   "theJob": "Classic software QA at a government-IT staffing firm — run test plans, log defects, keep the QA records tidy. They ask 1–2 years (your lane, bridgeable), require zero tools you can't honestly claim, and they obtain a Public Trust for you.",
-   "trade": "Five days a week in DC means train fare from Woodbridge every day — real money out the door before the first paycheck. If they actually want two days, it's a different job. Worth one written question about days-per-week before anything else. Posting is ~3 weeks old.",
-   "posted": "Dice rail: \"Easy Apply · Contract · 17d ago\" · no apply-by shown",
-   "requirements": [
+  ],
+  "ships": [
     {
-     "label": "Required qualifications (verbatim)",
-     "lines": [
-      "\"1–2 years of experience in quality assurance, software testing, or a related technical field.\"",
-      "\"Basic understanding of Software Development Lifecycles (SDLC), defect tracking, and validation methods.\"",
-      "\"Strong analytical and problem solving skills with excellent attention to detail.\"",
-      "\"Ability to follow established QA processes and accurately execute test plans and test cases.\"",
-      "\"Clear written communication skills for documenting issues and collaborating with project teams.\"",
-      "\"Ability to read and understand functional requirements, user stories, and acceptance criteria.\""
-     ]
+      "ship": 13,
+      "name": "TriviaGate™ — the ONE Ship 13 study engine · single file",
+      "status": "LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate",
+      "note": "public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate"
     },
     {
-     "label": "Preferred qualifications (verbatim)",
-     "lines": [
-      "\"Familiarity with test management tools, defect tracking systems, or basic automation frameworks.\"",
-      "\"Foundational understanding of data validation, system integration testing, and regression testing.\"",
-      "\"Exposure to Agile or iterative delivery environments.\"",
-      "\"Introductory knowledge of API or UI automation tools or simple scripting (optional for growth).\"",
-      "\"Basic SQL skills or comfort validating backend data or APIs.\""
-     ]
+      "ship": 12,
+      "name": "CARO COMMAND — SCOUT OPS (this console)",
+      "status": "LIVE",
+      "note": "public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command"
     },
     {
-     "label": "Education + clearance (verbatim)",
-     "lines": [
-      "\"Associate degree in a relevant field (e.g., Computer Science, Information Systems, Data Analytics).\"",
-      "\"Applicants selected will be subject to a security investigation and may need to meet eligibility requirements for access to classified information; Public Trust clearance is required.\""
-     ]
+      "ship": 11,
+      "name": "AWS CCP Study Manual — Sleep Is Studying Too™",
+      "status": "flown Oct 17, 2026",
+      "note": "DOI 10.5281/zenodo.23458898",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual"
     },
     {
-     "label": "Pay + location facts (verbatim)",
-     "lines": [
-      "Pay NOT stated on the posting — Dice rail reads \"Depends on Experience\"; the $70,000–$90,000/yr band is the ClearanceJobs rail figure",
-      "\"Hybrid in Washington, DC, US – potentially up to 5 days onsite\""
-     ]
+      "ship": 10,
+      "name": "Overseer™ — tier-authority orchestrator",
+      "status": "flown Oct 11, 2026",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer"
+    },
+    {
+      "ship": 9,
+      "name": "Radiology Companion™",
+      "status": "flown Oct 22, 2026"
+    },
+    {
+      "ship": 8,
+      "name": "DV14™: The Box — AI containment blueprint",
+      "status": "flown 2026"
+    },
+    {
+      "ship": 7,
+      "name": "msgvault Adapter",
+      "status": "flown 2026",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter"
+    },
+    {
+      "ship": 6,
+      "name": "Ingestion Tools — Scribe · Warden · Hand",
+      "status": "flown Sep 2026",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools"
+    },
+    {
+      "ship": 5,
+      "name": "EvidenceFlow — fail-closed verification",
+      "status": "flown Aug 2026",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow"
+    },
+    {
+      "ship": 4,
+      "name": "IBM Granite Agentic RAG — the agentic flagship",
+      "status": "flown 2026",
+      "note": "DOI 10.5281/zenodo.23246090",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic"
+    },
+    {
+      "ship": 3,
+      "name": "IBM Granite RAG",
+      "status": "flown 2026",
+      "note": "DOI 10.5281/zenodo.23246084",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite"
+    },
+    {
+      "ship": 2,
+      "name": "IBM Granite Agentic RAG",
+      "status": "flown 2026",
+      "note": "DOI 10.5281/zenodo.23246065",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic"
+    },
+    {
+      "ship": 1,
+      "name": "DeepSeek RAG — the origin ship",
+      "status": "flown 2026",
+      "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek",
+      "note": "DOI 10.5281/zenodo.23246029"
     }
-   ],
-   "docs": {
-    "status": "SUBMITTED — NOV 6 (owner receipt: Dice Applied page 'Junior Quality Assurance Analyst — Applied today')",
-    "note": "Chevron 3/7 locked; owner-executed Dice Easy Apply. Band-ask rides their first reply — the posting is silent on pay. Next touch if silent ~2 weeks."
-   }
-  },
-  {
-   "sq": "SQ-20",
-   "order": 4,
-   "title": "Jr. Data Engineer",
-   "company": "Apex Systems",
-   "verdict": "GO",
-   "badge": "✦ APPLIED NOV 6 · chevron 4/7 ✦",
-   "headline": "Apex Systems · Jr. Data Engineer · $93.6k–$110.2k remote · the money card",
-   "pay": {
-    "value": "$45 – $53 / hour = $93,600 – $110,240",
-    "note": "strongest remote money on this board — 1.5× your minimum"
-   },
-   "where": {
-    "value": "Fully remote, anywhere in the US"
-   },
-   "effort": "SUBMITTED Nov 6 ~12 PM ET — receipt on file (\"Application Submitted!\", Job # 3056074). AI-recruiter call inbound 1–2 hrs.",
-   "link": {
-    "url": "https://www.apexsystems.com/job/3056074_usa/jr-data-engineer",
-    "label": "Open the posting — Apex Systems (job 3056074)"
-   },
-   "theJob": "For a large healthcare client (through staffing firm Apex), you'd check — and automate the checking of — a big monthly data process: database queries, dashboards, chasing down numbers that don't add up.",
-   "fits": [
-    "0–3 years, stated outright — a real door. · One required skill: SQL — honest answer on record: you know it (your white paper is published), but your hands-on data work is NoSQL; screeners get answered exactly that way.",
-    "Degree line wants a \"quantitative or business\" Bachelor's — fails as written; your coursework is the bridge. A flag, not a wall."
-   ],
-   "trade": "A staffing middleman stands between you and an unnamed client, and the work is data work — one step beside your QA/cloud lane, not the same lane.",
-   "posted": "Posted Oct 15, 2026 · no deadline stated",
-   "requirements": [
-    {
-     "label": "Required qualifications (verbatim)",
-     "lines": [
-      "\"Education: Bachelor's degree in a quantitative or business field.\"",
-      "\"Experience: 0-3 years of relevant experience.\"",
-      "\"Technical Skills: Proficiency in SQL.\""
-     ]
-    },
-    {
-     "label": "Preferred qualifications (verbatim)",
-     "lines": [
-      "\"Knowledge of Snowflake.\"",
-      "\"Familiarity with Kubernetes.\"",
-      "\"Experience with AI tools such as Windsurf or Devin.\""
-     ]
-    },
-    {
-     "label": "The role (verbatim)",
-     "lines": [
-      "\"Apex Systems is hiring a Jr. Data Engineer for a large Healthcare client.\"",
-      "\"Our team supports a major project by creating and automating the validation of an extensive monthly process. This position will contribute to developing production fixes for a Snowflake pipeline and adding new reporting capabilities.\"",
-      "\"Develop and write SQL code in Snowflake. · Utilize Power BI validation dashboards to identify potential validation issues. · Troubleshoot data irregularities and perform root cause analysis. · Analyze data variability month over month to ensure data integrity.\""
-     ]
-    },
-    {
-     "label": "Pay + location (verbatim)",
-     "lines": [
-      "\"Pay Range: $45 - $53 per hour\"",
-      "\"Location: Fully remote anywhere in the US - You must be authorized to work in the United States without sponsorship.\"",
-      "\"Employee Type: Contract · Remote: Yes · Location: Various, MO, US\" · Job# 3056074"
-     ]
-    }
-   ],
-   "docs": {
-    "status": "SUBMITTED — NOV 6 (owner receipt: \"Application Submitted!\" · Job # 3056074 · AI/Virtual Recruiter contact expected within 1–2 hrs)",
-    "note": "Chevron 4/7 locked. Next gate: the ConverzAI AI/Virtual Recruiter pre-screen (text + email + call by ~2:00 PM ET — answer unknown numbers). Screener answers per packet: SQL knowledge-Yes/hands-on-No · 127/127 zero-loss validation story · Snowflake/Kubernetes never claimed · $45–53/hr = their number."
-   }
-  },
-  {
-   "sq": "SQ-21",
-   "order": 5,
-   "title": "Cloud Platform Engineer I",
-   "company": "Centene Corporation",
-   "verdict": "DEAD",
-   "badge": "DEAD — posting no longer available (Nov 9)",
-   "headline": "Centene · Cloud Platform Engineer I · remote 28 states · the AI card",
-   "pay": {
-    "value": "$30.58 – $55.09 / hour = $63,606 – $114,587",
-    "note": "bottom clears your minimum by only $1,206 — the thinnest margin here"
-   },
-   "where": {
-    "value": "Remote in 28 states",
-    "note": "Virginia is on the list"
-   },
-   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
-   "link": {
-    "url": "https://www.theladders.com/job/cloud-platform-engineer-i-centenecorp-virtual-travel_89675472",
-    "label": "Read the full posting — Ladders mirror (Dice Easy Apply rail on record)"
-   },
-   "theJob": "At Centene, a Fortune-50 healthcare company, you'd help build AI-powered cloud applications. Their requirements read like your portfolio: Python, large-language-model understanding, at least one AI project built (you have five), connecting AI services through web APIs, Git.",
-   "fits": [
-    "0–2 years \"or equivalent experience\" — their words, a real door. · AWS or Azure — AWS is yours; Azure is never claimed."
-   ],
-   "trade": "It's a developer job — writing production code, not testing it — and the band's bottom is almost exactly your floor. Due diligence: the company's own careers page wouldn't serve the posting when we checked; details come from two mirrors that agree — confirm the job is live before investing time.",
-   "posted": "Posted \"Today\" on Dice (Nov 5) · no apply-by shown",
-   "requirements": [
-    {
-     "label": "Position purpose (verbatim)",
-     "lines": [
-      "\"The Cloud Platform Engineer I is a position for a motivated developer who will be joining our engineering team and help design, develop, and operationalize AI-enabled applications and solutions. This role is ideal for an early-career software engineer who has strong programming fundamentals and practical exposure to Cloud technologies, Large Language Models (LLMs), and machine learning through academic work, internships, personal projects, or professional experience.\""
-     ]
-    },
-    {
-     "label": "Education / experience + technical skills (verbatim)",
-     "lines": [
-      "\"A Bachelor's degree in a quantitative or business field (e.g., statistics, mathematics, engineering, computer science) and requires 0 - 2 years of related experience. Or equivalent experience acquired through accomplishments of applicable knowledge, duties, scope and skill reflective of the level of this position. Or completion of a Centene-sponsored emerging talent program.\"",
-      "\"0-2 years experience with Python through coursework, internships, research, professional work, or personal projects.\"",
-      "\"Understanding of Machine Learning, Generative AI, and LLM platforms and APIs.\"",
-      "\"Experience building at least one AI/ML application or project through coursework, internships, hackathons, research, or independent development/ open-source contributions.\"",
-      "\"Integrate AI models and services into applications using REST APIs, SDKs, and microservices.\"",
-      "\"Familiarity with Git/GitHub or GitLab.\""
-     ]
-    },
-    {
-     "label": "Duties (verbatim)",
-     "lines": [
-      "\"Develop, manage, and administer cloud infrastructure as code on the cloud platform (e.g. AWS, or Azure).\"",
-      "\"Build AI agentic solution using Large Language Models, Machine Learning, Generative AI.\"",
-      "\"Write production-quality code with appropriate tests and documentation.\""
-     ]
-    },
-    {
-     "label": "Pay + benefits (verbatim)",
-     "lines": [
-      "\"Pay Range: $30.58 - $55.09 per hour\"",
-      "\"health insurance, 401K and stock purchase plans, tuition reimbursement, paid time off plus holidays\""
-     ]
-    }
-   ],
-   "docs": null
-  },
-  {
-   "sq": "SQ-18",
-   "order": 6,
-   "title": "QA Engineer",
-   "company": "Peterson Technology Partners",
-   "verdict": "SKIP",
-   "badge": "SKIP — not my lane, asking for things I don't have",
-   "headline": "Peterson Tech Partners · QA Engineer · remote · starts at exactly your floor",
-   "pay": {
-    "value": "$30 – $35 / hour",
-    "note": "the bottom is exactly your $62,400 minimum; their own write-up says a flat $35/hour ($72,800), so the real number may be the good end — ask which"
-   },
-   "where": {
-    "value": "Remote (US)",
-    "note": "they'd prefer Houston — irrelevant for remote"
-   },
-   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
-   "link": {
-    "url": "https://www.dice.com/job-detail/0ee2a5d8-6a27-4113-a15c-d1d4b116bc55",
-    "label": "Open the posting — Dice Easy Apply"
-   },
-   "theJob": "Test pharmacy-management software — prescribing, batching, labeling, inventory, billing — beside a Senior QA Lead, 6-month contract that can turn permanent. They ask 1–3 years (bridgeable) and want \"basic exposure to test automation and a clear desire to grow it\" — the exact growth-rung shape of your story.",
-   "trade": "The money starts at exactly your floor (your floor is never traded down; as written, it clears). Staffing middleman, unnamed client, and the permanent-conversion door isn't named — asked at first contact.",
-   "posted": "\"Posted 7 days ago, updated 1 day ago\" at capture · no apply-by shown",
-   "requirements": [
-    {
-     "label": "Required qualifications (verbatim)",
-     "lines": [
-      "\"1-3 years of software quality assurance or testing experience, ideally on a SaaS or web-based product\"",
-      "\"Experience designing and executing test cases from requirements or acceptance criteria, and working defects through their full lifecycle\"",
-      "\"Experience working on an Agile team (Scrum, SAFe or similar) with sprint-based delivery\"",
-      "\"Basic exposure to test automation or scripting, and a clear desire to grow it into a core skill\"",
-      "\"Detail-oriented, coachable and a clear written communicator.\""
-     ]
-    },
-    {
-     "label": "The engagement (verbatim)",
-     "lines": [
-      "\"Our client is seeking a QA Engineer, early in their QA career, to help test its pharmacy management software: an end-to-end platform for compounding pharmacies covering e-prescribing, production and batching, labeling, inventory and billing. The platform is being rebuilt on a modern, API-ready SaaS foundation. You'll work day-to-day with a Senior QA Lead.\"",
-      "\"Pay rate: $35/hr. This is a 6-month contract-to-hire position, remote in the US (Houston, TX preferred).\"",
-      "\"Contract Corp To Corp / Contract W2 · No Travel Required · Able to Sponsor\""
-     ]
-    }
-   ],
-   "docs": null
-  },
-  {
-   "sq": "SQ-19",
-   "order": 7,
-   "title": "Data Analyst",
-   "company": "Tekcel8",
-   "verdict": "SKIP",
-   "badge": "SKIP — not my lane, asking for things I don't have",
-   "headline": "Tekcel8 · Data Analyst · $72.8k–$104k · reporting lane, not QA or cloud",
-   "pay": {
-    "value": "$35 – $50 / hour = $72,800 – $104,000",
-    "note": "10-month contract, W2 or 1099"
-   },
-   "where": {
-    "value": "Remote (US)",
-    "note": "occasional travel"
-   },
-   "effort": "Packet built and verified (resume + cover letter in her downloads box) — she says the word and submits.",
-   "link": {
-    "url": "https://www.dice.com/job-detail/80f16428-257a-4ba9-922d-849a01e8f4dc",
-    "label": "Open the posting — Dice Easy Apply"
-   },
-   "theJob": "Data cleanup, validation, and Excel / Power BI reporting through a very small staffing shop, end client unnamed. They want \"strong proficiency in SQL\" (same honest-depth flag as the Apex card) and a Bachelor's in a listed field (fails as written; coursework is the bridge).",
-   "trade": "The money clears both ends comfortably, but this is the reporting lane, not QA or cloud — the furthest from your two core lanes of anything on the board.",
-   "posted": "Posted ~Oct 16–17, 2026 (19 days at capture) · no apply-by shown",
-   "requirements": [
-    {
-     "label": "Requirements (verbatim, complete)",
-     "lines": [
-      "\"Bachelor's degree in Computer Science, Information Systems, Statistics, Mathematics, Business Analytics, or a related field.\"",
-      "\"Strong proficiency in SQL, including joins, subqueries, aggregations, and complex queries.\"",
-      "\"Hands-on experience with Microsoft Excel, including PivotTables, lookup functions, and data manipulation.\"",
-      "\"Experience with Power BI, Tableau, or other data visualization tools.\"",
-      "\"Knowledge of data cleaning, data validation, statistical analysis, and reporting methodologies.\"",
-      "\"Strong analytical, critical-thinking, and problem-solving skills.\"",
-      "\"Excellent communication skills and the ability to present data-driven insights.\""
-     ]
-    },
-    {
-     "label": "Pay + arrangement (verbatim)",
-     "lines": [
-      "\"$35 - $50/hr\"",
-      "\"Remote • Posted 19 days ago • Updated 19 days ago Contract W2 Contract Independent 10 Months Occasional Travel Required Remote\""
-     ]
-    }
-   ],
-   "docs": null
-  },
-  {
-   "sq": "SQ-2",
-   "order": 8,
-   "title": "Field Network Cabling Technician, 100% Travel",
-   "company": "HCL",
-   "verdict": "SKIP",
-   "badge": "SKIP — RECOMMEND DISCARDING",
-   "headline": "HCL · Field Network Cabling · outdoor physical work · pay fails your minimum",
-   "pay": {
-    "value": "$52,000 – $76,000"
-   },
-   "where": {
-    "value": "Virginia · 100% travel to project sites"
-   },
-   "skipReason": "Outdoor physical cable work — the exact kind of job you ruled out on Nov 4 (machines and code, not towers and splices) — and its $52,000 bottom fails your $62,400 minimum anyway. It only survived on a technicality: it was queued before that ruling. Say \"discard\" and it's parked for good.",
-   "requirements": [
-    {
-     "label": "Reason on record",
-     "lines": [
-      "Verdict-first ruling under the physical-work law (owner, Nov 4): indoor desk/machine work passes; outdoor field, craft, and construction service work dies regardless of pay or travel funding.",
-      "Pay ruling: $52,000 bottom sits below the $62,400 minimum — floor fails at the low end even before the physical-work ruling."
-     ]
-    }
-   ],
-   "docs": null,
-   "tombstone": "Discarded Nov 4, 2026 — outdoor physical cable work + $52k floor fail (your ruling)."
-  },
-  {
-   "sq": "KONIAG",
-   "order": 9,
-   "title": "Junior Cloud Engineer, Washington DC",
-   "company": "Koniag",
-   "verdict": "SKIP",
-   "badge": "SKIP — ALREADY DEAD, AND THE LESSON IT TAUGHT",
-   "headline": "Koniag · Junior Cloud Engineer · killed Nov 4 · clearance wall",
-   "pay": {
-    "value": "$70,000"
-   },
-   "where": {
-    "value": "Full-time on-site, Washington DC"
-   },
-   "skipReason": "The honest answer to \"why did you ok this\": it never was. Killed the same day it surfaced (Nov 4) on one line in the posting: \"Active Secret Clearance or higher.\" You'd have to walk in already holding a federal Secret clearance — and clearances aren't something an applicant can go out and get; the government issues them through an employer, after hiring you into a cleared job. A posting demanding one you don't have is a wall with no door.",
-   "skipExtra": [
-    "Second wall: it requires a Bachelor's degree — yours is the Associate.",
-    "Third: full-time on-site in Washington DC at $70,000 — a daily train commute on a thin salary.",
-    "Fourth: the posting itself warns the job may never be filled if their contract isn't awarded.",
-    "Why it looked ok'd: the kill note that day listed everything attractive first — junior title, decent band, your cert satisfying their cert line — and buried the one fatal line at the bottom. Read quickly, that reads like an endorsement. That was a presentation failure, and it's exactly what this console format fixes: verdict first, the reason first, details after. This posting will not be shown to you again."
-   ],
-   "requirements": [],
-   "docs": null,
-   "tombstone": "Killed Nov 4, 2026 — \"Active Secret Clearance\" wall; the presentation lesson lives in the card."
-  },
-  {
-   "sq": "SQ-24",
-   "order": 10,
-   "title": "Test Automation Engineer — Entry Level",
-   "company": "Medinext Global LLC",
-   "verdict": "GO",
-   "badge": "GO ✦ NEW — Nov 8 sweep",
-   "headline": "Medinext · entry-level QA automation · fully remote · $70–90K · your lane",
-   "pay": {
-    "value": "$70,000 – $90,000 / year",
-    "note": "bottom clears your $62,400 minimum by $7,600"
-   },
-   "where": {
-    "value": "Fully remote — United States",
-    "note": "standard US business hours — you're Eastern"
-   },
-   "effort": "Easy — Dice Easy Apply, resume upload, no essays.",
-   "link": {
-    "url": "https://www.dice.com/job-detail/81d343aa-192c-4b7b-bf0a-3ec85cc0987b",
-    "label": "Open the posting — Dice (Easy Apply)"
-   },
-   "theJob": "Medinext's quality team wants an early-career automation tester: write automated test scripts, run regression and API checks, track bugs, work in sprints with developers. The requirements name 0–2 years of testing experience, programming in \"Java, Python, JavaScript, or C#\" — Python is yours — and basic SQL.",
-   "fits": [
-    "\"0–2 years of experience in software testing, QA, or test automation\" (their words) — your dated public projects count. · \"Programming experience with Java, Python, JavaScript, or C#\" — Python is on your resume. · \"Basic knowledge of SQL\" — you have it.",
-    "The hard tools (Selenium, Cypress, Playwright, Jenkins) sit in the PREFERRED list only — you claim none of them; your Python test scripts carry the row."
-   ],
-   "trade": "Money is the trade: the band's bottom is only 12% over your minimum, and this is a staffing firm (a middleman employer) — get the pay confirmed in writing at first contact; Dice carries an AI-description caution, so treat the text as indicative until they confirm.",
-   "watch": "Band-confirm in writing at first contact (Dice AI-description caveat) · detail page says \"posted 30+ days ago\" but Dice rails show it refreshed \"Today\" — the live Dice band is the record.",
-   "posted": "Posted ~Oct 8 · refreshed on Dice rails Nov 8 · no apply-by shown",
-   "requirements": [
-    {
-     "label": "Required Qualifications (verbatim)",
-     "lines": [
-      "\"Bachelor's or Master's degree in Computer Science, Information Technology, Software Engineering, or related field.\"",
-      "\"0–2 years of experience in software testing, QA, or test automation.\"",
-      "\"Programming experience with Java, Python, JavaScript, or C#.\"",
-      "\"Basic knowledge of SQL.\""
-     ]
-    },
-    {
-     "label": "Technical Skills — Required (verbatim)",
-     "lines": [
-      "\"Software Testing | Test Automation | Java/Python/JavaScript/C# | SQL | Regression Testing | Functional Testing\""
-     ]
-    },
-    {
-     "label": "Work arrangement (verbatim)",
-     "lines": [
-      "\"Remote - United States\" · \"Full-Time - W2\" · \"Candidates must be legally authorized to work in the United States.\""
-     ]
-    }
-   ],
-   "skipReason": "",
-   "skipExtra": ""
-  },
-  {
-   "sq": "SQ-25",
-   "order": 11,
-   "title": "Junior Tester",
-   "company": "9th Way Insignia",
-   "verdict": "CALL",
-   "badge": "YOUR CALL ✦ NEW — Nov 8 sweep",
-   "headline": "9th Way Insignia · junior tester · federal VA program · remote · right at your minimum",
-   "pay": {
-    "value": "$62,818 – $67,500 / year",
-    "note": "bottom clears your minimum by $418 — the thinnest margin on the board"
-   },
-   "where": {
-    "value": "Fully remote — United States",
-    "note": "supporting the Dept. of Veterans Affairs eCMS program"
-   },
-   "effort": "Easy — about 2 minutes on their site or Dice; resume upload.",
-   "link": {
-    "url": "https://haystackapp.io/jobs/08043723-367e-4b61-aa28-8bb5f25361de",
-    "label": "Read the full posting — Haystack mirror (live on Dice too)"
-   },
-   "theJob": "You'd do manual testing — clicking through features, writing up bugs, documenting results — on the contract-management system the Department of Veterans Affairs uses, on an Agile team. The JD asks for testing knowledge and the ability to become proficient in their C#/.NET stack — not hands-on C# experience.",
-   "fits": [
-    "Manual testing with solid documentation — your QA lane. · \"Knowledge of version control (Git) and CI/CD pipelines\" — Git is on your resume. · \"Ability to obtain and maintain a Public Trust clearance\" — sponsored, an obtainable door like the TEKsystems Secret.",
-    "A federal VA program on the resume — the federal-employment lane you're aiming at."
-   ],
-   "trade": "Thin money ($418 over your minimum) and manual testing in a C#/.NET shop instead of your Python automation — in exchange for a federal program door and a sponsored Public Trust clearance that travels. Your word: promote or discard.",
-   "watch": "Apply path: the employer's own site or Dice — never the applyre.com aggregator mirror (it carries an app-password artifact; don't touch it).",
-   "posted": "Posted ~Nov 2–5 · rails show it refreshed \"Today\" · no apply-by shown",
-   "requirements": [
-    {
-     "label": "Requirements (verbatim)",
-     "lines": [
-      "\"Bachelor's degree in IT/Computer Science or a technical field\"",
-      "\"Knowledge of software testing with ability to become proficient in Visual Studio, C#, and .NET-based applications\"",
-      "\"Knowledge of version control (Git) and CI/CD pipelines\"",
-      "\"Ability to perform manual testing with attention to detail and solid documentation skills\"",
-      "\"Ability to obtain and maintain a Public Trust clearance\""
-     ]
-    },
-    {
-     "label": "Pay + location (verbatim)",
-     "lines": [
-      "\"$62,818—$67,500 USD\" · \"United States - Remote\"",
-      "Manual testing of C#/Visual Studio/.NET applications supporting the VA eCMS program"
-     ]
-    }
-   ],
-   "skipReason": "",
-   "skipExtra": ""
-  }
- ],
- "feed": [
-  {
-   "t": "Nov 9, 9:03 PM ET",
-   "line": "Overnight scan complete: 5 new GO jobs added to the board (SQ-26 through SQ-30) to replace the 3 lost this evening. Standouts: SQ-27 Quavo at $85-100K (AWS, strongest pay) and SQ-26 Harris Computer (Virginia explicitly listed, Python + Selenium). Board for tomorrow morning — packets ready when you flip the switches. Good night, Commander."
-  },
-  {
-   "t": "Nov 9, 8:55 PM ET",
-   "line": "Owner verdict sweep: SQ-19 Tekcel8 and SQ-18 Peterson both SKIP — not my lane, asking for things I don't have. SQ-21 Centene DEAD — posting no longer available. GO count dropped from 4 to 1 (SQ-24 Medinext is the only GO left). Scanning for replacements."
-  },
-  {
-   "t": "Nov 9, 4:00 AM ET",
-   "line": "Overnight sweep: nothing new passed. The TEKsystems travel-tech money got richer — $38–42/hr plus $161/day food & lodging, double overtime — but the work is still fiber splicing, and fiber stays a no. The indoor variant with that paycheck is still out there."
-  },
-  {
-   "t": "Nov 9, 4:00 AM ET",
-   "line": "Checked the big QTS Manassas posting ($93.9K–$143.5K): SKIP — it demands five-plus years of critical-facilities engineering. Two buried rows (Koniag cloud, Medinext cloud) tried to resurface; tombstones held, nothing re-served."
-  },
-  {
-   "t": "Nov 8, 12:00 PM ET",
-   "line": "XO · SQ-25 — 9th Way Insignia junior tester on the federal VA contract added as YOUR CALL: remote, $62,818 to start; the trade is thin pay for a federal door and a sponsored clearance."
-  },
-  {
-   "t": "Nov 8, 12:00 PM ET",
-   "line": "XO · SQ-24 — Medinext entry-level QA automation added as GO: fully remote, $70,000–$90,000, requirements read like your portfolio, one-click apply on Dice."
-  },
-  {
-   "t": "Nov 8, 12:00 PM ET",
-   "line": "SWEEP — morning gap healed (the platform was overloaded since 4 AM): two finds landed, nine kills, Salute still dark, the Epic-cert door locked again."
-  },
-  {
-   "t": "Nov 8, 3:15 AM ET",
-   "line": "XO · FLEET — the ledger now reads 13 down to 1 with no gaps: Ships 2, 3 and 4 keep their own lines, repos and DOIs from the 2:20 AM repair, and Ship 7 stands under its canon name — msgvault Adapter, the spelling the book and the repo both use."
-  },
-  {
-   "t": "Nov 8, 3:15 AM ET",
-   "line": "XO · SHIP 13 — the version is off: the ledger card reads TriviaGate™ — the ONE Ship 13 study engine · single file, with no v-number anywhere on the deck, and the SHIP 13 button now opens the published ship at qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate — the new location, not the old in-app path."
-  },
-  {
-   "t": "Nov 8, 3:15 AM ET",
-   "line": "XO · WALL — the reorder block is re-issued for the dirty-clone stop you hit: it now prints what was sitting in your tree, stashes it whole (kept, never dropped), then lands the reorder on the fresh base. Same battery re-run plus the dirty-clone case — all green. The push stays yours."
-  },
-  {
-   "t": "Nov 8, 2:50 AM ET",
-   "line": "XO · CARO COMMAND — all five defects from your Nov 6 list are closed: the gate count no longer counts missions you already applied to, every applied row now reads APPLIED with the switch retired, the ship ledger lists Ships 2, 3 and 4 on their own lines with their own repos and DOIs, tombstones sort last with their kill records, and the gate plays the kawoosh when it opens. The wall reorder block (professional certificate + badge first, then the five courses, your badge URL on both) is in chat — six-scenario tested, the push stays yours."
-  },
-  {
-   "t": "Nov 8, 2:35 AM ET",
-   "line": "SWEEP — catch-up run done: the crawlers had been dying on a platform overload since Nov 7 morning (not the boards, not the rules) — that's why your deck went quiet. This run heals every missed slot. Nothing new passed. Two look like your lane and get their full job pages checked at the 4 AM run: a remote VA-program junior tester at $62,818–$67,500 and a Medinext entry test-automation req at $70,000–$90,000 posted yesterday. TEKsystems' travel tech job is the same fiber-splice craft at $21–25/hr killed Nov 6 — dead regardless of the flights-and-per-diem line. Salute only shows a $27/hr Oregon job — below your line."
-  },
-  {
-   "t": "Nov 8, 2:20 AM ET",
-   "line": "XO · FLEET — the ship ledger is repaired: Ships 2, 3 and 4 now stand on their own lines with their own repos and DOIs (the agentic flagship was hiding inside a 2–4 bundle), and Ships 1 and 5 carry their repos too. The DOIs don't erase the ships — the ledger now matches the book."
-  },
-  {
-   "t": "Nov 8, 2:20 AM ET",
-   "line": "XO · BOARD — the GO flag is retired on everything you've applied to: Availity, Element, Gridiron and Apex now read APPLIED with their chevrons, and Availity carries the not-selected ruling. GO remains only on rows still waiting on your word — Centene, Peterson, Tekcel8. Already applied to one of those? Say the word (or leave it on the card's note pad) and it reroutes to APPLIED."
-  },
-  {
-   "t": "Nov 8, 1:50 AM ET",
-   "line": "XO · CREDENTIALS — the wall is live. Your push bc2ba963 landed clean at 1:36 AM ET: all five Google IT Support course cards plus the Credly capstone badge, manifest at 20 records, and the 19-repo DOI book on the colophon — verified on the public site. The search found every certificate where you keep it - no moving, no paths. Your nightly records-sync bot layered its own commit on top; yours sits intact underneath."
-  },
-  {
-   "t": "Nov 8, 1:35 AM ET",
-   "line": "FLEET — search law applied: the rebuild block no longer looks in fixed folders. Spotlight now hunts your whole disk for the certificates (filenames first, then the text inside the PDFs), then a sweep seeded with your mirror folders. If something still turns up missing it asks you for the folder name instead of sending you to Downloads. Re-tested end to end tonight - search layers, rerun safety, and the push."
-  },
-  {
-   "t": "Nov 8, 12:55 AM ET",
-   "line": "FLEET — delivery route changed: nothing to click or download anymore. The new block rebuilds the certificate wall on your Mac from the Coursera and Credly files already in your Downloads, verifies itself, commits, and chains the push at the end. Tested end to end minutes ago — paste the whole block, paste me whatever it prints."
-  },
-  {
-   "t": "Nov 7, 5:45 PM ET",
-   "line": "FLEET — bundle delivery fixed: the 4:15 PM portfolio bundle rides in this chat's file tray and only lands on your Mac when you click it — that's why the pull kept failing. New block at 5:39 PM: click the bundle once, then five lines, no cd anywhere. Re-tested minutes ago — the pull lands clean on your current master."
-  },
-  {
-   "t": "Nov 7, 4:35 PM ET",
-   "line": "XO · CREDENTIALS — your Credly badge for the full Google IT Support Professional Certificate (v.3) is seated as the capstone card under the five courses: the wall now counts 20 credentials, most recent Nov 7, 2026. Same bundle, same three lines — it now carries the badge too."
-  },
-  {
-   "t": "Nov 7, 4:15 PM ET",
-   "line": "XO · CREDENTIALS — your four new Google IT Support course certificates are built onto the portfolio wall: the track now shows all 5 courses, every card carries its verify link and its PDF. One bundle, three lines from you, and it's live."
-  },
-  {
-   "t": "Nov 7, 4:15 PM ET",
-   "line": "FLEET — portfolio bundle re-packed (CERTS-DOI): it now carries the certificates AND the 19 DOIs, fitted onto your Nov 6 book repairs. The morning DOI bundle is retired — pull the 4:15 PM one only."
-  },
-  {
-   "t": "Nov 7, 2:45 AM ET",
-   "line": "XO · FLEET — DOI badge kit delivered: one tested script badges all 19 repo READMEs (badge + citation, idempotent, the push stays yours) — still exactly 19 public repos, nothing new to process. Portfolio bundle rebuilt to carry the 19-DOI commit; cron fires again 4:00 AM ET."
-  },
-  {
-   "t": "Nov 7, 2:05 AM ET",
-   "line": "XO · FLEET — all 19 Zenodo DOIs are in the portfolio book: ships 12 & 13 badges filled, ships 6 & 7 badged, the cover now cites the book's own repo record (23626247), and the Terms page carries the full 19-repo citable registry. Committed in her clone; the push is hers."
-  },
-  {
-   "t": "2026-11-07 01:15 ET",
-   "line": "XO · PUBLISH CHAIN — your Zenodo receipt is logged: Ship 12 = zenodo.24025882, Ship 13 = zenodo.24028777, 19 repos under DOIs — the DOI leg is closed. Also on the level: the EOD drops stopped after Nov 2 (the midnight checker command + catch-up offer are in chat)."
-  },
-  {
-   "t": "2026-11-07 12:00 ET",
-   "line": "SWEEP — midnight run: nothing new passed. ICF remote-QA (best shape of the week) died on its own line — it requires an ACTIVE Public Trust you'd already hold; Avalore wants a Secret; Medinext AI/ML died on the 2–5-yr model-building door. GovCIO Alexandria $90–112K benched for a full JD read at 2 AM. Your cards unchanged."
-  },
-  {
-   "t": "2026-11-06 13:47 ET",
-   "line": "XO · SQ-20 APEX — SUBMITTED ✓ \"Application Submitted!\" · Job # 3056074 = the money card's own req. Chevron 4/7 locked. The AI/Virtual Recruiter (ConverzAI) texts, emails and CALLS within 1–2 hrs — answer unknown numbers. Screener lines: SQL knowledge-Yes/hands-on-No · 127/127 zero-loss story · $45–53/hr is their number."
-  },
-  {
-   "t": "2026-11-06 13:47 ET",
-   "line": "XO · SQ-22 AVAILITY — RULED, not a funeral: the mixup was this submission (letter in the resume slot → the 3.5-hr auto-reject). Row closed as flown, no re-apply; the lesson is standing law — read the attachment slot before Submit, every portal. Next GO cards: Centene SQ-21 · Tekcel8 SQ-19 · Peterson SQ-18."
-  },
-  {
-   "t": "2026-11-06 11:26 ET",
-   "line": "XO · PREFLIGHT LAW ADOPTED — no more hard strings: every chain now searches mirror-project / mirror-food / anywhere first, newest copy wins, one command per step. Your 4 files still need the download click from the delivery box; both repos are up; the chain is ready when they land."
-  },
-  {
-   "t": "2026-11-06 10:44 ET",
-   "line": "XO · SQ-16 GRIDIRON — SUBMITTED ✓ your receipt: \"Junior Quality Assurance Analyst — Applied today\". Chevron 3/7 locked; the band-ask rides their first reply; next touch ~2 weeks if silent."
-  },
-  {
-   "t": "2026-11-06 10:44 ET",
-   "line": "XO · SQ-22 AVAILITY — ❌ not selected. Workday form email 9:25 AM, no feedback. Req closed for you; their Job-Alert tip noted — new Availity reqs keep getting scanned. Element reply now fronts the line."
-  }
- ],
- "ships": [
-  {
-   "ship": 13,
-   "name": "TriviaGate™ — the ONE Ship 13 study engine · single file",
-   "status": "LIVE · qaevelyn.github.io/a-mirror-of-my-becoming-ship13-triviagate",
-   "note": "public repo ready: github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship13-triviagate"
-  },
-  {
-   "ship": 12,
-   "name": "Caro Command Deck™ — Scout Ops (this console)",
-   "status": "LIVE",
-   "note": "public repo ready (demo data): github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship12-caro-command"
-  },
-  {
-   "ship": 11,
-   "name": "AWS CCP Study Manual — Sleep Is Studying Too™",
-   "status": "flown Oct 17, 2026",
-   "note": "DOI 10.5281/zenodo.23458898",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-ship11-aws-ccp-study-manual"
-  },
-  {
-   "ship": 10,
-   "name": "Overseer™ — tier-authority orchestrator",
-   "status": "flown Oct 11, 2026",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-overseer"
-  },
-  {
-   "ship": 9,
-   "name": "Radiology Companion™",
-   "status": "flown Oct 22, 2026"
-  },
-  {
-   "ship": 8,
-   "name": "DV14™: The Box — AI containment blueprint",
-   "status": "flown 2026"
-  },
-  {
-   "ship": 7,
-   "name": "msgvault Adapter",
-   "status": "flown 2026",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-msgvault-adapter"
-  },
-  {
-   "ship": 6,
-   "name": "Ingestion Tools — Scribe · Warden · Hand",
-   "status": "flown Sep 2026",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools"
-  },
-  {
-   "ship": 5,
-   "name": "EvidenceFlow — fail-closed verification",
-   "status": "flown Aug 2026",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow"
-  },
-  {
-   "ship": 4,
-   "name": "IBM Granite Agentic RAG — the agentic flagship",
-   "status": "flown 2026",
-   "note": "DOI 10.5281/zenodo.23246090",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic"
-  },
-  {
-   "ship": 3,
-   "name": "IBM Granite RAG",
-   "status": "flown 2026",
-   "note": "DOI 10.5281/zenodo.23246084",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite"
-  },
-  {
-   "ship": 2,
-   "name": "IBM Granite Agentic RAG",
-   "status": "flown 2026",
-   "note": "DOI 10.5281/zenodo.23246065",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic"
-  },
-  {
-   "ship": 1,
-   "name": "DeepSeek RAG — the origin ship",
-   "status": "flown 2026",
-   "repo": "https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek",
-   "note": "DOI 10.5281/zenodo.23246029"
-  }
- ]
+  ]
 }
