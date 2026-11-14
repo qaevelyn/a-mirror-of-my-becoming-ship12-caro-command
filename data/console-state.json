@@ -1,6 +1,62 @@
 {
-  "_contract": "CARO COMMAND — the owner's orders of record. This file is written by the SYNC TO REPO button on the console (Evelyn presses it) and committed to the repo by her. The scout agent reads it before building anything: a comment overrides a switch (OWNER OVERRIDE ORDER). Empty until her first SYNC.",
-  "exported": null,
-  "updated": null,
-  "jobs": {}
+  "exported": "2026-11-14T02:14:01.302Z",
+  "updated": "Nov 12, 2026, 8:05 AM ET",
+  "jobs": {
+    "SQ-26": {
+      "title": "QA Engineer",
+      "company": "Harris Computer",
+      "status": "go",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
+    },
+    "SQ-24": {
+      "title": "Test Automation Engineer — Entry Level",
+      "company": "Medinext Global LLC",
+      "status": "go",
+      "gateOn": true,
+      "comment": "application finished. Applied jobs\nYou've applied to 3 jobs. Way to go! Find opportunities through Recommended Jobs or Job Search.\n\nShow expired jobs\nTekcel8\nFind similar\nData Analyst\nApplied 4d ago\n\nGridiron IT Solutions\nFind similar\nJunior Quality Assurance Analyst\nWashington, DC•Applied 4d ago\n\nMedinext Global LLC\nFind similar\nTest Automation Engineer - Entry Level\nApplied 5d ago"
+    },
+    "SQ-25": {
+      "title": "Junior Tester",
+      "company": "9th Way Insignia",
+      "status": "call",
+      "gateOn": true,
+      "comment": ""
+    },
+    "SQ-30": {
+      "title": "QA Tester",
+      "company": "Crash Champions",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
+    },
+    "SQ-29": {
+      "title": "Software Tester",
+      "company": "Labelmaster",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
+    },
+    "SQ-28": {
+      "title": "Automation Engineer Junior",
+      "company": "SAIC",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "is this the same job or two they added slash and this is the url you gave me: Java Developer / Automation Test Engineer Junior\nJob ID: 2618696\nLocation: Ashburn, VA, United States\nDate Posted: Nov 10, 2026\nCategory: Software\nSubcategory: SW Testing\nSchedule: Full-Time\nShift: Day Job\nTravel: Yes - 10% of the time\nMinimum Clearance Required: None\nClearance Level Must Be Able to Obtain: Public Trust\nPotential for Remote Work: On-Site\nBenefits: Click here\n\nShare:\nApply Now >\nJob Description\nDescription\n\nWe are currently seeking a motivated and energetic entry-level Automation Engineer to join our team to begin an exciting and challenging career.\n\nThis position requires 4 days on-site per week in Ashburn, VA for the first year of employment. After the first year, you will have the option to do 2 days on-site per week.\n\nPosition Summary\n\nThe Automation Engineer will participate in software testing, creation and implementation of Test Strategies, Plans, and Automated Test Scripts as well as other aspects of the software development lifecycle. The candidate will be responsible for developing and testing web applications as dictated by project requirement.\n\nThe ideal candidate will have Java development and testing framework experience, as this role will require Java Programming.\n\nJob Responsibilities\n\nDeveloping automation test scripts.\nGenerating test data and performing Data Validation.\nData interface message testing with JSON and XML message sets.\nDeveloping SQL or Unix scripts for test data generation or test harness automation.\nExecute regression, functional, and system testing.\nVerifying results and producing test summaries and defect reports.\nIdentifying defects and requirement discrepancies, and generating defect change requests and reporting discrepancies.\nUse modern software engineering IDEs including Eclipse, IntelliJ, etc. for design, development, and testing the software.\nWork with users in an Agile development approach to understand and document requirements in JIRA.\n\nQualifications\n\nRequired Skills and Experience\n\nBachelor’s in Computer Science or related field with 2+ years of technical experience.\nExperience with Java/JEE design and software development experience including designing, developing, and documenting large-scale enterprise software systems.\nSpring Boot.\nSelenium WebDriver, TestNG.\nBasic SQL query skills and general understanding of relational databases.\nAbility to understand data models and write test scripts based on the data model.\nEvaluate test results, report and manage defects.\nGood understanding of object-oriented programming and data structures.\nAbility to work in a high-pressure, tight-deadline environment.\nGood written/oral communication skills and problem-solving skills; ability to communicate information to a variety of groups at different technical skill levels.\nStrong initiative: must be able to take a high-level requirement, ask questions/seek clarifications, and get the job done.\nDesired Skills and Experience\n\nExperience with any one of the following test management software (Bugzilla, Jira, Rally.)\nExperience in all stages of application testing, including backend testing, functional, usability, regression, load/stress and performance testing.\nExperience with integration level testing, requiring ability to work with both big picture & in-depth domain knowledge.\nProven ability to develop, execute and maintain automated test suites across multiple environments: frontend/backend applications and API Service testing using tools such as Soap UI and Postman with basic JSON and XML knowledge.\nExperience with any SPA framework testing tools (e.g. e2e, Protractor.)\nPrior experience in a software development arena is a plus.\nStrong communication and collaboration skills. Must have the ability to present solutions to technical and non-technical project members.\nExperience working in an agile development process is a plus.\nCustomer Requirements\n\nClearance – Ability to obtain and hold a public trust position and favorable suitability based on a CBP Background Investigation.\nCitizenship – Must be a US Citizen.\nLocation – Required to be on-site in Ashburn, VA 4 days per week for the first year of employment. After the first year, have the option to work a hybrid schedule (2 days on-site) depending on the needs of the team.\n\nTarget salary range: $60,001 - $100,000. The estimate displayed represents the typical salary range for this position based on experience and other factors.\n\n\nOverview\n\nSAIC accepts applications on an ongoing basis and there is no deadline.\n\nSAIC® is a premier mission integrator focused on advancing the power of technology and innovation to serve and protect our world. Our robust portfolio of offerings across the defense, space, intelligence, and civilian markets includes secure high-end solutions in mission IT, enterprise IT, engineering services, and professional services. We integrate emerging technology, rapidly and securely, into mission critical operations that modernize and enable critical national imperatives.\n\nWe are approximately 23,000 strong; driven by mission, united by purpose, and inspired by opportunities. SAIC is an Equal Opportunity Employer. Headquartered in Reston, Virginia, SAIC has annual revenues of approximately $7.3 billion. For more information, visit saic.com. For ongoing news, please visit our newsroom.\n\nShare:\nApply Now >\nSimilar Jobs\nJava Developer Senior\nAshburn, VA, United States\nSoftware\n\nUI Developer Senior\nAshburn, VA, United States\nSoftware\n\nJava Backend Developer Senior\nAshburn, VA, United States\nSoftware\n\nJava Backend Developer Junior\nAshburn, VA, United States\nSoftware\n\nAutomation Test Engineer Senior\nAshburn, VA, United States\nSoftware\n\nJava Developer Junior\nAshburn, VA, United States\nSoftware\n\nAre you an SAIC Employee?\nPlease apply through the internal career site here >\n\n"
+    },
+    "SQ-27": {
+      "title": "Software Quality Engineer",
+      "company": "Quavo Fraud & Disputes",
+      "status": "skip",
+      "gateOn": true,
+      "comment": "remoterocketship is banned as a place to look for work.  they will try to make me pay to apply for the job on their site.  im surprised you didnt catch that z."
+    },
+    "SQ-19": {
+      "title": "Data Analyst",
+      "company": "Tekcel8",
+      "status": "skip",
+      "gateOn": false,
+      "comment": "i vote no, it is not my lane and is asking for things i dont have.\n"
+    }
+  }
 }
