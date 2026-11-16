@@ -1056,10 +1056,50 @@
       "url": "https://www.dice.com/job-detail/a80650ed-f5c3-4f7e-a4ac-02f6f7031210",
       "status": "APPLIED",
       "date": "2026-11-16",
-      "notes": "Applied via Dice Quick Apply. $155K, Atlanta hybrid. Public Trust required. Custom cover letter submitted."
+      "notes": "Applied via Dice Quick Apply. $155K, Atlanta hybrid. Public Trust required. Custom cover letter submitted. [DREAM JOB]",
+      "dream_job": true
+    },
+    {
+      "id": "SQ-39",
+      "company": "Robert Half",
+      "title": "AI/Data Governance Analyst (Miami)",
+      "url": "",
+      "status": "SKIPPED",
+      "date": "2026-11-16",
+      "notes": "Requires enterprise data platform tools (Fabric, Snowflake, Purview). Owner ruling: cannot ask for that money without the required hands-on."
+    },
+    {
+      "id": "SQ-40",
+      "company": "Robert Half",
+      "title": "AI/Data Governance Program Lead (San Diego)",
+      "url": "",
+      "status": "SKIPPED",
+      "date": "2026-11-16",
+      "notes": "7+ years gate. Owner ruling: not a match for seniority; staffing agency will not call without an application."
+    },
+    {
+      "id": "SQ-41",
+      "company": "Robert Half",
+      "title": "Data Governance Engineer (Davie, FL)",
+      "url": "",
+      "status": "SKIPPED",
+      "date": "2026-11-16",
+      "notes": "Contract/DOE. No AI, no evaluation, no red teaming. Not worth the time."
     }
   ],
   "feed": [
+    {
+      "date": "2026-11-16",
+      "text": "SKIPPED: Robert Half \u2014 Data Governance Engineer (Davie, FL) (SQ-41). Contract/DOE. No AI, no evaluation, no red teaming. Not worth the time."
+    },
+    {
+      "date": "2026-11-16",
+      "text": "SKIPPED: Robert Half \u2014 AI/Data Governance Program Lead (San Diego) (SQ-40). 7+ years gate. Owner ruling: not a match for seniority; staffing agency will not call without an application."
+    },
+    {
+      "date": "2026-11-16",
+      "text": "SKIPPED: Robert Half \u2014 AI/Data Governance Analyst (Miami) (SQ-39). Requires enterprise data platform tools (Fabric, Snowflake, Purview). Owner ruling: cannot ask for that money without the required hands-on."
+    },
     {
       "date": "2026-11-16",
       "text": "APPLIED: System One \u2014 AI Evaluation Specialist (SQ-38). Custom cover letter sent. Awaiting response."
