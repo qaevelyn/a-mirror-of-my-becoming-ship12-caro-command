@@ -1085,9 +1085,22 @@
       "status": "SKIPPED",
       "date": "2026-11-16",
       "notes": "Contract/DOE. No AI, no evaluation, no red teaming. Not worth the time."
+    },
+    {
+      "id": "SQ-42",
+      "company": "AuraOne Human Data",
+      "title": "AI Red Team Specialist",
+      "url": "https://auraone.ai/public/ai-labs/jobs/ai-red-team-specialist-aoj-curated-5f0bb51f69ce748804/apply",
+      "status": "APPLIED",
+      "date": "2026-11-17",
+      "notes": "Contractor role. Focus: Adversarial testing, prompt injection, failure documentation. Applied via AuraOne specialist intake. Ref: 5cc9c779."
     }
   ],
   "feed": [
+    {
+      "date": "2026-11-17",
+      "text": "APPLIED: AuraOne Human Data \u2014 AI Red Team Specialist (SQ-42)."
+    },
     {
       "date": "2026-11-16",
       "text": "SKIPPED: Robert Half \u2014 Data Governance Engineer (Davie, FL) (SQ-41). Contract/DOE. No AI, no evaluation, no red teaming. Not worth the time."
