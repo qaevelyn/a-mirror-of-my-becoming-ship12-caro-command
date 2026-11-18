@@ -150,6 +150,11 @@ html, body { min-height:100% }
 .ship-link { font: 700 9px/1 var(--font-geist-mono); letter-spacing: .12em; color: var(--sgc-gold); text-decoration:none; flex:0 0 auto; padding:5px 8px; border:1px solid var(--sgc-gold-dim); border-radius:999px }
 .ship-link--none { color: var(--sgc-dim); border-color: var(--sgc-line); cursor:default }
 .feed-box { max-height:180px; overflow:auto; display:flex; flex-direction:column; gap:5px }
+/* the board scrolls its own region — 34 cards and counting */
+#jobs-container { max-height: 72vh; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: rgba(212,182,112,0.45) rgba(0,0,0,0.25); }
+#jobs-container::-webkit-scrollbar { width: 8px; }
+#jobs-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.25); border-radius: 4px; }
+#jobs-container::-webkit-scrollbar-thumb { background: rgba(212,182,112,0.45); border-radius: 4px; }
 .feed-line { font:11px/1.5 var(--font-geist-mono); color: var(--sgc-text); padding:7px 10px; background: rgba(26,15,8,0.8); border:1px solid var(--sgc-line); border-radius:6px }
 .feed-t { color: var(--sgc-gold-dim); font-weight:700 }
 .rules { display:flex; flex-direction:column; gap:5px }
