@@ -423,11 +423,18 @@ def main():
     if dry:
         print("(dry run - nothing written)")
         return
+    if not new_cards:
+        print("deck unchanged - nothing to write or commit.")
+        return
     json.dump(C, open(os.path.join(repo, "data", "console-data.json"), "w", encoding="utf-8"),
               indent=1, ensure_ascii=False)
     if commit:
         git = ["git", "-C", repo]
         subprocess.run(git + ["add", "data/console-data.json", "inbox"], check=True)
+        staged = subprocess.run(git + ["diff", "--cached", "--quiet"]).returncode != 0
+        if not staged:
+            print("nothing staged - deck unchanged, no commit made.")
+            return
         subprocess.run(git + ["commit", "-m", f"deck: auto-ingest {len(new_cards)} cards ({stamp})"], check=True)
         if push:
             subprocess.run(git + ["push"], check=True)
