@@ -1094,9 +1094,74 @@
       "status": "APPLIED",
       "date": "2026-11-17",
       "notes": "Contractor role. Focus: Adversarial testing, prompt injection, failure documentation. Applied via AuraOne specialist intake. Ref: 5cc9c779."
+    },
+    {
+      "id": "SQ-43",
+      "company": "ClifyX",
+      "title": "AI Quality Engineer (Austin, TX)",
+      "url": "",
+      "status": "GO",
+      "date": "2026-11-18",
+      "notes": "Austin, TX. AI Quality Engineer. Posted twice; apply to one. Matches relocation lane."
+    },
+    {
+      "id": "SQ-44",
+      "company": "Connexions Data Inc",
+      "title": "AI Automation Engineer (Remote)",
+      "url": "",
+      "status": "GO",
+      "date": "2026-11-18",
+      "notes": "Remote. AI Automation. Staffing agency."
+    },
+    {
+      "id": "SQ-45",
+      "company": "Prudentia Sciences",
+      "title": "Quality Engineer (SDET) (Remote)",
+      "url": "",
+      "status": "YOUR CALL",
+      "date": "2026-11-18",
+      "notes": "Remote. $120K-$145K. Quality Engineer (SDET). High money, senior implicit bar."
+    },
+    {
+      "id": "SQ-46",
+      "company": "Harris Computer",
+      "title": "Staff AI Engineer - QA",
+      "url": "",
+      "status": "SKIPPED",
+      "date": "2026-11-18",
+      "notes": "Title gate: 'Staff' level."
+    },
+    {
+      "id": "SQ-47",
+      "company": "SDH Systems",
+      "title": "AI quality Engineering lead",
+      "url": "",
+      "status": "SKIPPED",
+      "date": "2026-11-18",
+      "notes": "Title gate: 'Lead' level."
     }
   ],
   "feed": [
+    {
+      "date": "2026-11-18",
+      "text": "SKIPPED: SDH Systems \u2014 AI quality Engineering lead (SQ-47)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "SKIPPED: Harris Computer \u2014 Staff AI Engineer - QA (SQ-46)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "YOUR CALL: Prudentia Sciences \u2014 Quality Engineer (SDET) (Remote) (SQ-45)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "GO: Connexions Data Inc \u2014 AI Automation Engineer (Remote) (SQ-44)."
+    },
+    {
+      "date": "2026-11-18",
+      "text": "GO: ClifyX \u2014 AI Quality Engineer (Austin, TX) (SQ-43)."
+    },
     {
       "date": "2026-11-17",
       "text": "APPLIED: AuraOne Human Data \u2014 AI Red Team Specialist (SQ-42)."
